@@ -16,11 +16,11 @@
     <meta property="og:url"         content="https://propiedadesplatinum.com/">
     <meta property="og:type"        content="article">
     <meta property="og:updated_time"content="2020-08-03T10:20:00+02:00">
-     
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
     <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <meta name="description" content="">
-    <title>Sistema Inmobiliario</title>
+    <title>Propiedades Platinum</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.css">
@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login_form.php">
+                            <a class="nav-link" href="{{ route('login') }}">
                                 <i class="fas fa-user mr-1"></i>Ingresar
                             </a>
                         </li>
@@ -849,19 +849,19 @@
                 </div>
             </div>
             <div class="social-bar-right d-none">
-                <a href="#" class="text-decoration-none facebook-right">
+                <a href="#" class="text-decoration-none facebook-right" target="_blank">
                     <i class="fab fa-facebook-f pl-2 pr-4"></i>
                     Búscanos en Facebook</a>
-                <a href="#" class="text-decoration-none twitter-right">
+                <a href="#" class="text-decoration-none twitter-right" target="_blank">
                     <i class="fab fa-twitter pl-2 pr-4" aria-hidden="true"></i>
                     Síguenos en Twitter</a>
-                <a href="#" class="text-decoration-none instagram-right">
+                <a href="#" class="text-decoration-none instagram-right" target="_blank">
                     <i class="fab fa-instagram pl-2 pr-4" aria-hidden="true"></i>
                     Síguenos en Instagram</a>
-                <a href="#" class="text-decoration-none linkedin-right">
+                <a href="#" class="text-decoration-none linkedin-right" target="_blank">
                     <i class="fab fa-linkedin pl-2 pr-4" aria-hidden="true"></i>
                     Conéctate en LinkedIn</a>
-                <a href="#" class="text-decoration-none youtube-right">
+                <a href="#" class="text-decoration-none youtube-right" target="_blank">
                     <i class="fab fa-youtube pl-2 pr-4" aria-hidden="true"></i>
                     Suscríbete en Youtube</a>
             </div>
@@ -870,7 +870,7 @@
                 <a href="https://www.facebook.com/PropiedadesPlatinum/" class="text-decoration-none facebook-left" target="_blank">Búscanos en Facebook
                     <i class="fab fa-facebook-f pl-4 pr-2"></i> 
                 </a>
-                <a href="https://twitter.com/alzugaraysarah" class="text-decoration-none twitter-left">Síguenos en Twitter
+                <a href="https://twitter.com/alzugaraysarah" class="text-decoration-none twitter-left" target="_blank">Síguenos en Twitter
                     <i class="fab fa-twitter pl-4 pr-2" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.instagram.com/propiedades_platinum/" class="text-decoration-none instagram-left" target="_blank">Síguenos en Instagram
