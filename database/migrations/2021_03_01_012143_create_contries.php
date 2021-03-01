@@ -14,7 +14,9 @@ class CreateContries extends Migration
     public function up()
     {
         Schema::create('contries', function (Blueprint $table) {
-            $table->id();
+            $table->id('country_id');
+            $table->string('name');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

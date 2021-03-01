@@ -14,7 +14,10 @@ class CreateDepartaments extends Migration
     public function up()
     {
         Schema::create('departaments', function (Blueprint $table) {
-            $table->id();
+            $table->id('departament_id');
+            $table->unsignedBigInteger('country_id');
+            $table->string('name');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
