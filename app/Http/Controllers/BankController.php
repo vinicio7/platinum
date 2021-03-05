@@ -30,7 +30,6 @@ class BankController extends Controller
                 'account'   => $validate['account'],
                 'status'   => $validate['status'],
             ]);
-            dd($banks);
             $this->message = "Consulta correcta";
             $this->result = true;
             $this->records = $banks;
