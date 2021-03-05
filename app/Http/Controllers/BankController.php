@@ -15,9 +15,44 @@ class BankController extends Controller
     public $records     = array();
     public $statusCode     = 200;
 
+    public function create(Request $request)
+    {
+
+        try {
+            $validate = $request->validate([
+                'name'        => 'required',
+                'account'   => 'required',
+                'status'   => 'required'
+
+            ]);
+            $banks = Bank::create([
+                'name'        => $validate['name'],
+                'account'   => $validate['account'],
+                'status'   => $validate['status'],
+            ]);
+            dd($banks);
+            $this->message = "Consulta correcta";
+            $this->result = true;
+            $this->records = $banks;
+        } catch (\Exception $e) {
+            $statusCode     = 200;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
+    }
+
+
     public function show(Bank $bank)
     {
         try {
+
             $banks = Bank::all();
             $this->message = "Consulta correcta";
             $this->result = true;
@@ -38,6 +73,7 @@ class BankController extends Controller
     public function showId(Request $request)
     {
         try {
+            //dd($request->all());
             $banks = Bank::find($request->bank_id);
             $this->message = "Consulta correcta";
             $this->result = true;
