@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bank;
+use App\Models\Region;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
-
-
-class BankController extends Controller
+class RegionController extends Controller
 {
     public $message     = "";
     public $result         = false;
@@ -17,24 +14,21 @@ class BankController extends Controller
 
     public function create(Request $request)
     {
-
         try {
             $validate = $request->validate([
                 'name'        => 'required',
-                'account'   => 'required',
                 'status'   => 'required'
 
             ]);
-            $banks = Bank::create([
+            $regions = Region::create([
                 'name'        => $validate['name'],
-                'account'   => $validate['account'],
                 'status'   => $validate['status'],
             ]);
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $banks;
+            $this->records = $regions;
         } catch (\Exception $e) {
-            $statusCode     = 200;
+            $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
         } finally {
             $response =
@@ -47,15 +41,14 @@ class BankController extends Controller
         }
     }
 
-
-    public function show(Bank $bank)
+    public function show(Region $region)
     {
         try {
 
-            $banks = Bank::all();
+            $regions = Region::all();
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $banks;
+            $this->records = $regions;
         } catch (\Exception $e) {
             $statusCode     = 200;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -69,14 +62,14 @@ class BankController extends Controller
             return response()->json($response, $this->statusCode);
         }
     }
+
     public function showId(Request $request)
     {
         try {
-            //dd($request->all());
-            $banks = Bank::find($request->bank_id);
+            $regions = Region::find($request->region_id);
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $banks;
+            $this->records = $regions;
         } catch (\Exception $e) {
             $statusCode     = 200;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -96,20 +89,18 @@ class BankController extends Controller
         try {
             $validate = $request->validate([
                 'name'        => 'required',
-                'account'   => 'required',
                 'status'   => 'required'
 
             ]);
-            $id = $request->bank_id;
-            $banks = Bank::find($id);
-            $banks->name = $validate['name'];
-            $banks->account = $validate['account'];
-            $banks->status = $validate['status'];
-            $banks->update();
+
+            $regions = Region::find($request->region_id);
+            $regions->name = $validate['name'];
+            $regions->status = $validate['status'];
+            $regions->update();
 
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $banks;
+            $this->records = $regions;
         } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -124,16 +115,14 @@ class BankController extends Controller
         }
     }
 
-
     public function destroy(Request $request)
     {
         try {
-            $id = $request->bank_id;
-            $banks = Bank::destroy($id);
+            $regions = Region::destroy($request->bank_id);
 
             $this->message = "Registro eliminado correctamente";
             $this->result = true;
-            $this->records = $banks;
+            $this->records = $regions;
         } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
