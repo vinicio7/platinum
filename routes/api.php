@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\RegionController;
-
+use App\Http\Controllers\CountryController;
 
 
 /*
@@ -35,8 +35,9 @@ Route::get('region/show',               [RegionController::class, 'show'])->name
 Route::post('region/showid',            [RegionController::class, 'showId'])->name('region.showid');
 Route::post('region/delete',             [RegionController::class, 'destroy'])->name('region.delete');
 
-
-
-
-
-
+//Countries
+Route::post('country/create',         [CountryController::class, 'create'])->name('country.create');
+Route::post('country/edit',           [CountryController::class, 'edit'])->name('country.edit');
+Route::get('countries/show',          [CountryController::class, 'showAll'])->name('countries.show');
+Route::post('country/showid',         [CountryController::class, 'showId'])->name('country.showid');
+Route::post('country/delete',         [CountryController::class, 'destroy'])->name('country.destroy');
