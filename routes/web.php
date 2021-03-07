@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BankController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +16,10 @@ use App\Http\Controllers\BankController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('logout', 	 		 'App\Http\Controllers\AdminController@logout')->name('logout');
+Route::get('login', 	 		 'App\Http\Controllers\AdminController@login')->name('login');
+Route::get('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
+Route::post('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
+Route::get('home', 	 			 'App\Http\Controllers\AdminController@home')->name('home');
 
