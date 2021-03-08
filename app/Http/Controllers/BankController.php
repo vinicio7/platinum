@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bank;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
-
+use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
 
 
 class BankController extends Controller
@@ -48,27 +48,22 @@ class BankController extends Controller
     }
 
 
-    public function show(Bank $bank)
+    public function show(Request $request)
     {
-        try {
-
-            $banks = Bank::all();
-            $this->message = "Consulta correcta";
-            $this->result = true;
-            $this->records = $banks;
-        } catch (\Exception $e) {
-            $statusCode     = 200;
-            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
-        } finally {
-            $response =
-                [
-                    'message'   => $this->message,
-                    'result'    => $this->result,
-                    'records'   => $this->records,
-                ];
-            return response()->json($response, $this->statusCode);
+        $order = 'bank_id';
+        if( $request->input('order')){
+            $order =  $request->input('bank_id');
         }
+        $length      = $request->input('length');
+        $orderBy     = $order; //Index
+        $orderByDir  = $request->input('dir', 'asc');
+        $searchValue = $request->input('search');
+        $query       = Bank::eloquentQuery($orderBy, $orderByDir, $searchValue);
+        //->with('departament','municipality');
+        $data        = $query->paginate($length);
+        return new DataTableCollectionResource($data);
     }
+    
     public function showId(Request $request)
     {
         try {

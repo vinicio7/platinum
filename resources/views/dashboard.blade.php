@@ -14,28 +14,28 @@
                 </div>
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stats">
-                        <span >Total de cines</span>
+                        <span >Total de propiedades</span>
                         <p>1</p>
                         <i class="icon ion-ios-film"></i>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stats">
-                        <span>Total de salas de cine</span>
+                        <span>Propiedades renta</span>
                         <p>1</p>
                         <i class="icon ion-ios-film"></i>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stats">
-                        <span>Total de peliculas</span>
+                        <span>Propiedades venta</span>
                         <p>1</p>
                         <i class="icon ion-ios-film"></i>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stats">
-                        <span>Total de ventas</span>
+                        <span>Total de regiones</span>
                         <p>{{ Session::get('total_invoice') }}</p>
                         <i class="icon ion-ios-star-half"></i>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="col-12 col-xl-6">
                     <div class="dashbox" >
                         <div class="dashbox__title">
-                            <h3 style="color:white!important"><i class="icon ion-ios-trophy"></i> Ultimos cines</h3>
+                            <h3 style="color:white!important"><i class="icon ion-ios-trophy"></i> Ultimos usuarios</h3>
                             <div class="dashbox__wrap">
                                 <a class="dashbox__refresh" href="#"><i class="icon ion-ios-refresh"></i></a>
                                 <a class="dashbox__more" href="catalog.html">Ver todos</a>
@@ -87,7 +87,7 @@
                 <div class="col-12 col-xl-6">
                     <div class="dashbox">
                         <div class="dashbox__title">
-                            <h3 style="color:white!important"><i class="icon ion-ios-film"></i> Ultimas Peliculas</h3>
+                            <h3 style="color:white!important"><i class="icon ion-ios-film"></i> Ultimas Propiedades</h3>
 
                             <div class="dashbox__wrap">
                                 <a class="dashbox__refresh" href="#"><i class="icon ion-ios-refresh"></i></a>
@@ -132,7 +132,7 @@
                 <div class="col-12 col-xl-6">
                     <div class="dashbox">
                         <div class="dashbox__title">
-                            <h3 style="color:white!important"><i class="icon ion-ios-contacts"></i> Ultimas compras</h3>
+                            <h3 style="color:white!important"><i class="icon ion-ios-contacts"></i> Ultimas modificaciones</h3>
 
                             <div class="dashbox__wrap">
                                 <a class="dashbox__refresh" href="#"><i class="icon ion-ios-refresh"></i></a>
@@ -178,7 +178,7 @@
                 <div class="col-12 col-xl-6">
                     <div class="dashbox">
                         <div class="dashbox__title">
-                            <h3 style="color:white!important"><i class="icon ion-ios-star-half"></i> Ultimos usuarios</h3>
+                            <h3 style="color:white!important"><i class="icon ion-ios-star-half"></i> Ultimos regiones</h3>
                             <div class="dashbox__wrap">
                                 <a class="dashbox__refresh" href="#"><i class="icon ion-ios-refresh"></i></a>
                                 <a class="dashbox__more" href="reviews.html">Ver todos</a>

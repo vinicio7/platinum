@@ -23,3 +23,10 @@ Route::get('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->n
 Route::post('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
 Route::get('home', 	 			 'App\Http\Controllers\AdminController@home')->name('home');
 
+Route::get('propierties', 	 	'App\Http\Controllers\AdminController@propierties')->name('propierties');
+Route::get('regions', 	 	 	 'App\Http\Controllers\AdminController@regions')->name('regions');
+Route::get('zones', 	 	 	 'App\Http\Controllers\AdminController@zones')->name('zones');
+Route::get('banks', 	 	 	 'App\Http\Controllers\AdminController@banks')->name('banks');
+Route::get('history', 	 	 	 'App\Http\Controllers\AdminController@history')->name('history');
+Route::get('roles', 	 	 	 'App\Http\Controllers\AdminController@roles')->name('roles');
+Route::get('users', 	 	 	 'App\Http\Controllers\AdminController@users')->name('users');

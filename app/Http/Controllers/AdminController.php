@@ -34,5 +34,68 @@ class AdminController extends Controller
             return view('login');
         }
     }
+
+    public function propierties(){
+        session(['user' => 'Vinicio J. Lopez']);
+        if(session()->get('user')){
+            return view('/propierties');
+        }else{
+            return view('login');
+        }
+    }
+
+    public function regions(){
+        session(['user' => 'Vinicio J. Lopez']);
+        if(session()->get('user')){
+            return view('/regions');
+        }else{
+            return view('login');
+        }
+    }
+
+    public function zones(){
+        session(['user' => 'Vinicio J. Lopez']);
+        if(session()->get('user')){
+            return view('/zones');
+        }else{
+            return view('login');
+        }
+    }
+
+    public function banks(){
+        session(['user' => 'Vinicio J. Lopez']);
+        if(session()->get('user')){
+            return view('/banks');
+        }else{
+            return view('login');
+        }
+    }
+
+    public function history(){
+        session(['user' => 'Vinicio J. Lopez']);
+        if(session()->get('user')){
+            return view('/history');
+        }else{
+            return view('login');
+        }
+    }
+
+    public function roles(){
+        session(['user' => 'Vinicio J. Lopez']);
+        if(session()->get('user')){
+            return view('/roles');
+        }else{
+            return view('login');
+        }
+    }
+
+    public function users(){
+        session(['user' => 'Vinicio J. Lopez']);
+        if(session()->get('user')){
+            return view('/users');
+        }else{
+            return view('login');
+        }
+    }
     
 }
