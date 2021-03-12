@@ -11,4 +11,7 @@ class Country extends Model
     protected $primaryKey = 'country_id';
 	protected $fillable = ['name','status'];
 
+    public function departaments(){
+        return $this->hasMany(Departament::class, 'country_id');
+     }
 }
