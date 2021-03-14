@@ -2,34 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
+use App\Models\Departament;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class DepartamentController extends Controller
 {
     public $message     = "";
     public $result      = false;
     public $records     = array();
     public $statusCode  = 200;
+
     
     public function create(Request $request)
     {
         try {
             $validate = $request->validate([
-                'name'        => 'required',
-                'status'   => 'required'
+                'country_id'    => 'required',
+                'name'          => 'required',
+                'status'        => 'required'
 
             ]);
-            $country = Country::create([
-                'name'      => $validate['name'],
-                'status'    => $validate['status']
+            $departament = Departament::create([
+                'country_id'    => $validate['country_id'],
+                'name'          => $validate['name'],
+                'status'        => $validate['status']
             ]);
-            $this->message  = "Pais creado correctamente.";
+            $this->message  = "Departamento creado correctamente.";
             $this->result   = true;
-            $this->records  = $country;
+            $this->records  = $departament;
         } catch (\Exception $e) {
             $statusCode     = 200;
-            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al crea el pais.';
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al crea el departamento.';
         } finally {
             $response =
                 [
@@ -40,14 +43,16 @@ class CountryController extends Controller
             return response()->json($response, $this->statusCode);
         }
     }
+
     
     public function showAll()
     {
         try {
-            $countries = Country::all();
+
+            $departaments = Departament::all();
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $countries;
+            $this->records = $departaments;
         } catch (\Exception $e) {
             $statusCode     = 200;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -59,16 +64,16 @@ class CountryController extends Controller
                     'records'   => $this->records,
                 ];
             return response()->json($response, $this->statusCode);
-        }
+        } 
     }
 
     public function showId(Request $request)
     {
         try {
-            $country = Country::where('country_id',$request->country_id)->with('departaments')->get();
-            $this->message  = "Pais consultado correctamente.";
+            $departament = Departament::where('departament_id',$request->departament_id)->get();
+            $this->message  = "Departamento consultado correctamente.";
             $this->result   = true;
-            $this->records  = $country;
+            $this->records  = $departament;
         } catch (\Exception $e) {
             $statusCode     = 200;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -82,23 +87,24 @@ class CountryController extends Controller
             return response()->json($response, $this->statusCode);
         }
     }
-    
+
     public function edit(Request $request)
     {
         try {
             $validate = $request->validate([
-                'name'      => 'required',
-                'status'    => 'required'
-
+                'country_id'        => 'required',
+                'name'              => 'required',
+                'status'            => 'required',
+                'departament_id'    => 'required'
             ]);
-            $country          = Country::find($request->country_id);
-            $country->name    = $validate['name'];
-            $country->status  = $validate['status'];
-            $country->update();
-
+            $departament                = Departament::find($validate['departament_id']);
+            $departament->name          = $validate['name'];
+            $departament->status        = $validate['status'];
+            $departament->country_id    = $validate['country_id'];
+            $departament->update();
             $this->message = "Registro actualizado correctamente.";
             $this->result = true;
-            $this->records = $country;
+            $this->records = $departament;
         } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -113,16 +119,13 @@ class CountryController extends Controller
         }
     }
 
-    
-
-    
     public function destroy(Request $request)
     {
         try {
-            $country        = Country::destroy($request->country_id);
-            $this->message  = "Registro eliminado correctamente";
-            $this->result   = true;
-            $this->records  = $country;
+            $departament        = Departament::destroy($request->departament_id);
+            $this->message      = "Registro eliminado correctamente";
+            $this->result       = true;
+            $this->records      = $departament;
         } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';

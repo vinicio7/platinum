@@ -16,6 +16,7 @@ class CreateDepartaments extends Migration
         Schema::create('departaments', function (Blueprint $table) {
             $table->id('departament_id');
             $table->unsignedBigInteger('country_id');
+            $table->foreign('country_id')->references('country_id')->on('countries');
             $table->string('name');
             $table->boolean('status');
             $table->timestamps();
