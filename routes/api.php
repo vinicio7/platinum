@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\CountryController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,23 +21,41 @@ use App\Http\Controllers\CountryController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//Banks
-Route::post('banks/create',             [BankController::class, 'create'])->name('banks.create');
-Route::post('banks/edit',               [BankController::class, 'edit'])->name('banks.edit');
-Route::get('banks/show',                [BankController::class, 'show'])->name('banks.show');
-Route::post('banks/showid',             [BankController::class, 'showId'])->name('banks.showid');
-Route::post('banks/delete',             [BankController::class, 'destroy'])->name('banks.destroy');
 
-//Region
-Route::post('region/create',            [RegionController::class, 'create'])->name('region.create');
-Route::post('region/edit',              [RegionController::class, 'edit'])->name('region.edit');
-Route::get('region/show',               [RegionController::class, 'show'])->name('region.show');
-Route::post('region/showid',            [RegionController::class, 'showId'])->name('region.showid');
-Route::post('region/delete',             [RegionController::class, 'destroy'])->name('region.delete');
+Route::post('login',                'LoginController@login')->name('login');
+Route::post('logout',               'LoginController@logout')->name('logout');
 
-//Countries
-Route::post('country/create',         [CountryController::class, 'create'])->name('country.create');
-Route::post('country/edit',           [CountryController::class, 'edit'])->name('country.edit');
-Route::get('countries/show',          [CountryController::class, 'showAll'])->name('countries.show');
-Route::post('country/showid',         [CountryController::class, 'showId'])->name('country.showid');
-Route::post('country/delete',         [CountryController::class, 'destroy'])->name('country.destroy');
+Route::middleware(['api_token'])->group(function () {
+    //Banks
+    Route::post('banks/create',             'BanksController@create')->name('banks.create');
+    Route::post('banks/edit',               'BanksController@edit')->name('banks.edit');
+    Route::get('banks/show',                'BanksController@show')->name('banks.show');
+    Route::post('banks/showid',             'BanksController@showid')->name('banks.showid');
+    Route::post('banks/delete',             'BanksController@delete')->name('banks.destroy');
+
+    //Region
+    Route::post('region/create',            'BanksController@create')->name('region.create')->middleware('api_token');
+    Route::post('region/edit',              'BanksController@edit')->name('region.edit');
+    Route::get('region/show',               'BanksController@show')->name('region.show');
+    Route::post('region/showid',            'BanksController@showid')->name('region.showid');
+    Route::post('region/delete',            'BanksController@delete')->name('region.delete');
+
+    //User
+    Route::post('user/create',              'UserController@create')->name('user.create');
+    Route::post('user/edit',                'UserController@edit')->name('user.edit');
+    Route::get('user/show',                 'UserController@show')->name('user.show');
+    Route::post('user/showid',              'UserController@showid')->name('user.showid');
+
+    //Countries
+    Route::post('country/create',         [CountryController::class, 'create'])->name('country.create');
+    Route::post('country/edit',           [CountryController::class, 'edit'])->name('country.edit');
+    Route::get('countries/show',          [CountryController::class, 'showAll'])->name('countries.show');
+    Route::post('country/showid',         [CountryController::class, 'showId'])->name('country.showid');
+    Route::post('country/delete',         [CountryController::class, 'destroy'])->name('country.destroy');
+
+});
+
+
+
+
+
