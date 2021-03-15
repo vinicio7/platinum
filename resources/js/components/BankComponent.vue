@@ -1,0 +1,221 @@
+<template>
+    <div class="container container-Data" >
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-left: 500px;background-color: transparent;padding: 0px">
+            <div class="modal-dialog modal-center" role="document" align="center" style="margin-top: 0px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear banco</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" v-if="update != 0">Actualizar banco</h5>
+                        <br>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Nombre</label>
+                                    <input v-model="name" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Cuenta</label>
+                                    <input v-model="account" type="text" class="form-control">
+                                </div>  
+                                <div class="col-md-6">
+                                    <label>Estado</label>
+                                     <input v-model="status" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button v-if="update == 0" @click="saveData()" class="btn btn-success">Añadir</button>
+                        <button v-if="update != 0" @click="updateData()" class="btn btn-warning">Actualizar</button>
+                        <button v-if="update != 0" @click="clearFields()" class="btn">Atrás</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #28292d;border-color: #77a62e;">
+          + Crear banco
+        </button>
+        <div class="row" style="margin-top: 10px">
+            <div class="col-md-12">
+                <data-table
+                    :columns="columns"
+                    url="/api/banks/show" ref="myTable" name="myTable" class="datatable">
+                </data-table>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    import ImageComponent from './ImageComponent.vue';
+    import EditButton from './EditButton.vue';
+    import DeleteButton from './DeleteButton.vue';
+    import $ from 'jquery';
+    export default {
+        data() {
+            return {
+                bank_id:"",
+                name:"",
+                account:"",
+                status:"",
+                arrayData:[],
+                update:0,
+                columns: [
+                    {
+                        label: 'Id',
+                        name: 'bank_id',
+                        orderable: true,
+                    },
+                    {
+                        label: 'Nombre',
+                        name: 'name',
+                        orderable: true,
+                    },
+                    {
+                        label: 'Cuenta',
+                        name: 'account',
+                        orderable: false,
+                    },
+                    {
+                        label: 'Estado',
+                        name: 'status',
+                        orderable: true,
+                    },
+                    {
+                        label: 'Editar',
+                        name: 'Editar',
+                        orderable: false,
+                        classes: { 
+                            'btn': true,
+                            'btn-primary': true,
+                            'btn-sm': true,
+                        },
+                        event: "click",
+                        handler: this.loadFieldsUpdate,
+                        component: EditButton, 
+                    },
+                    {
+                        label: 'Eliminar',
+                        name: 'Eliminar',
+                        orderable: false,
+                        classes: { 
+                            'btn': true,
+                            'btn-danger': true,
+                            'btn-sm': true,
+                        },
+                        event: "click",
+                        handler: this.deleteData,
+                        component: DeleteButton, 
+                    },
+                ]
+            }
+        },
+        components: {
+            EditButton,
+            DeleteButton,
+            ImageComponent
+        },
+        methods:{
+            getData(){
+                this.$refs.myTable.getData();
+            },
+            saveData(){
+                let me =this;
+                let url = '/api/banks/create' 
+                axios.post(url,{ 
+                    'name': this.name,
+                    'account': this.account,
+                    'status': this.status,
+                }).then(function (response) {
+                    console.log(response);
+                    if (response.data.result == false) {
+                        alert(response.data.message);
+                    }else{
+                        me.getData();
+                        me.clearFields();
+                        $('#exampleModal').modal('hide');
+                    }
+                })
+                .catch(function (error) {
+                    alert(error);
+                    console.log(error);
+                });   
+
+            },
+            updateData(){
+                let me = this;
+                let url = '/api/banks/edit' 
+                axios.post(url,{ 
+                    'bank_id': this.bank_id,
+                    'name': this.name,
+                    'account': this.account,
+                    'status': this.status,
+                }).then(function (response) {
+                    $('#exampleModal').modal('hide');
+                   me.getData();
+                   me.clearFields();
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            },
+            loadFieldsUpdate(data){ 
+                $('#exampleModal').modal('show');
+                this.update = data.bank_id
+                let me =this;
+                let url = '/api/banks/showid/';
+                axios.post(url,{ 
+                    'bank_id': this.update,
+                }).then(function (response) {
+                    me.bank_id= response.data.records.bank_id;
+                    me.name= response.data.records.name;
+                    me.account= response.data.records.account;
+                    me.status= response.data.records.status;
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                }); 
+            },
+            deleteData(data){
+                let url = '/api/banks/delete' 
+                let me = this;
+                let Data_id = data.bank_id
+                console.log(Data_id);
+                if (confirm('¿Seguro que deseas eliminar este registro?')) {
+                    axios.post(url,{ 
+                    'bank_id': Data_id,
+                    }).then(function (response) {
+                        console.log(response);
+                        me.getData();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    }); 
+                }
+            },
+            clearFields(){
+                this.bank_id = "";
+                this.name = "";
+                this.account = "";
+                this.status = "";
+                this.update = 0;
+                $('#exampleModal').modal('hide');
+            }
+        },
+        previewFiles(files){
+          console.log(files)
+        },
+        mounted() {
+            console.log("Test");
+           this.getData();
+        }
+    }
+</script>
