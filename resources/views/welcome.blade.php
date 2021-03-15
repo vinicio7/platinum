@@ -7,7 +7,7 @@
       <meta name="format-detection" content="telephone=no">
       <link rel="icon" type="image/x-icon" href="images/favicon.png" />
       <title>Propiedades &#8211; Platinum</title>
-      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif%3A400%2C700%7CRaleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7COpen+Sans%3A300%2C400%2C600%2C700%2C800%7CMontserrat%3A700%2C400&amp;subset=cyrillic%2Ccyrillic-ext%2Clatin%2Cgreek-ext%2Cgreek%2Clatin-ext%2Cvietnamese&amp;ver=1.6.11" type="text/css" media="all">
+      <link rel="stylesheet" href="css/fuente1.css" type="text/css" media="all">
       <link rel='stylesheet' href='js/vendor/booked/font-awesome.min.css' type='text/css' media='all' />
       <link rel='stylesheet' href='js/vendor/essgrid/tooltipster.css' type='text/css' media='all' />
       <link rel='stylesheet' href='js/vendor/essgrid/tooltipster-light.css' type='text/css' media='all' />
