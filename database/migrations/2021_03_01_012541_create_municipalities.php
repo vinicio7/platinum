@@ -16,6 +16,7 @@ class CreateMunicipalities extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id('municipality_id');
             $table->unsignedBigInteger('departament_id');
+            $table->foreign('departament_id')->references('departament_id')->on('departaments');
             $table->string('name');
             $table->boolean('status');
             $table->timestamps();
