@@ -8,36 +8,34 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
-{
-    use HasFactory, Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+{   protected $table = 'users';
+    protected $primaryKey= 'user_id';
     protected $fillable = [
+        'rol_id',
         'name',
-        'email',
+        'username',
         'password',
+        'email',
+        'phone',
+        'adress',
+        'gender',
+        'document_id',
+        'birthdate',
+        'marital_status',
+        'title',
+        'facebook',
+        'twitter',
+        'whatsapp',
+        'instagram',
+        'pinterest',
+        'youtube',
+        'linkedin',
+        'picture',
+        'api_token',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 }
