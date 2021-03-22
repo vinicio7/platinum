@@ -43,7 +43,7 @@ Route::get('users', 	 	 	 		'AdminController@users')->name('users');
 
 //Banks
 	Route::get('banks',                    'BankController@index')->name('banks');
-    Route::post('banks/create',             'BankController@create')->name('banks.create');
+    Route::get('banks/create',              'BankController@create')->name('banks.create');
     Route::post('banks/edit',               'BankController@edit')->name('banks.edit');
     Route::get('banks/show',                'BankController@show')->name('banks.show');
     Route::post('banks/showid',             'BankController@showid')->name('banks.showid');

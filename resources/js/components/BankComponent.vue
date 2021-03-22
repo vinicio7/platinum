@@ -22,7 +22,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Cuenta</label>
-                                    <input v-model="account" type="text" class="form-control">
+                                    <input v-model="account" type="number" class="form-control">
                                 </div>  
                                 <div class="col-md-6">
                                     <label>Estado</label>
@@ -48,12 +48,7 @@
           + Crear banco
         </button>
         <div class="row" style="margin-top: 10px">
-            <div class="col-md-12">
-                <data-table
-                    :columns="columns"
-                    url="/api/banks/show" ref="myTable" name="myTable" class="datatable">
-                </data-table>
-            </div>
+            
         </div>
     </div>
 </template>
@@ -127,9 +122,6 @@
             ImageComponent
         },
         methods:{
-            getData(){
-                this.$refs.myTable.getData();
-            },
             saveData(){
                 let me =this;
                 let url = '/api/banks/create' 
@@ -138,13 +130,13 @@
                     'account': this.account,
                     'status': this.status,
                 }).then(function (response) {
-                    console.log(response);
+                    console.log(response.data.message);
                     if (response.data.result == false) {
-                        alert(response.data.message);
+                        location.reload();
                     }else{
-                        me.getData();
                         me.clearFields();
                         $('#exampleModal').modal('hide');
+                        location.reload();
                     }
                 })
                 .catch(function (error) {
@@ -163,7 +155,6 @@
                     'status': this.status,
                 }).then(function (response) {
                     $('#exampleModal').modal('hide');
-                   me.getData();
                    me.clearFields();
                 })
                 .catch(function (error) {
@@ -198,7 +189,6 @@
                     'bank_id': Data_id,
                     }).then(function (response) {
                         console.log(response);
-                        me.getData();
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -217,9 +207,5 @@
         previewFiles(files){
           console.log(files)
         },
-        mounted() {
-            console.log("Test");
-           this.getData();
-        }
     }
 </script>

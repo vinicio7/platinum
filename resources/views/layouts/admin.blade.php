@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="../css/select2.min.css">
     <link rel="stylesheet" href="../css/ionicons.min.css">
     <link rel="stylesheet" href="../css/admin.css">
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('page-css')
     <!-- Favicons -->
     <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('assets/styles/vendor/toastr.css')}}">
     <title>Propiedades Platinum</title>
 
 </head>
@@ -150,7 +150,15 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{asset('assets/js/script.js')}}"></script>
     <script src="{{asset('assets/js/vendor/jquery.smartWizard.min.js')}}"></script>
-    
+    <script src="{{asset('assets/js/vendor/toastr.min.js')}}"></script>
+    <script>
+        @if (session('success'))
+            toastr.success("{{session('success')}}", "Listo", {timeOut: "1500"})
+        @endif
+        @if (session('error'))
+            toastr.error("{{session('error')}}", "Listo", {timeOut: "1500"})
+        @endif
+    </script>
     @yield('page-js')
     
 </body>
