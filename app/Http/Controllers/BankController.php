@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bank;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
-use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
-
+use \Yajra\Datatables\Datatables;
 
 class BankController extends Controller
 {
@@ -50,18 +49,32 @@ class BankController extends Controller
 
     public function show(Request $request)
     {
-        $order = 'bank_id';
-        if( $request->input('order')){
-            $order =  $request->input('bank_id');
-        }
-        $length      = $request->input('length');
-        $orderBy     = $order; //Index
-        $orderByDir  = $request->input('dir', 'asc');
-        $searchValue = $request->input('search');
-        $query       = Bank::eloquentQuery($orderBy, $orderByDir, $searchValue);
-        //->with('departament','municipality');
-        $data        = $query->paginate($length);
-        return new DataTableCollectionResource($data);
+           return datatables()->of( Bank::get())
+            ->addColumn('estado', function ($record){
+                if ($record->status == 0) {
+                    $class = 'badge-warning';
+                    $descripcion = 'Inactivo';
+                } else {
+                    $class = 'badge-success';
+                    $descripcion = 'Activo';
+                }
+                return "<span class='badge text-white {$class}'>{$descripcion}</span>";
+            })->rawColumns(['estado'])
+            ->toJson();
+    }
+
+    public function index()
+    {
+        $titulo  = 'banks';
+        $dt_route = route('banks.show');
+        $dt_order= [[0, 'desc']];
+        $dt_columns = [
+            ['data' => 'bank_id','title'=>'ID'],
+            ['data' => 'name', 'title'=>'NOMBRE'],
+            ['data' => 'account','title'=>'CUENTA'],
+            ['data' => 'estado', 'title'=>'ESTADO'],
+        ]; 
+        return view('banks', compact('dt_route', 'dt_columns','dt_order' ));
     }
     
     public function showId(Request $request)

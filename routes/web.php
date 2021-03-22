@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\ZoneController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,32 +22,32 @@ use App\Http\Controllers\ZoneController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$asociats = User::with('rol')->where('rol_id',2)->get();
+    return view('welcome',['asociats' => $asociats]);
 });
 
-Route::get('logout', 	 		 'App\Http\Controllers\AdminController@logout')->name('logout');
-Route::get('login', 	 		 'App\Http\Controllers\AdminController@login')->name('login');
-Route::get('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-Route::post('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-Route::get('home', 	 			 'App\Http\Controllers\AdminController@home')->name('home');
+Route::get('logout', 	 		 		'AdminController@logout')->name('logout');
+Route::get('login', 	 		 		'AdminController@login')->name('login');
+Route::get('dashboard', 	 	 		'AdminController@dashboard')->name('dashboard');
+Route::post('dashboard', 	 	 		'AdminController@dashboard')->name('dashboard');
+Route::get('home', 	 			 		'AdminController@home')->name('home');
 
 
-Route::get('propierties', 	 	'App\Http\Controllers\AdminController@propierties')->name('propierties');
-Route::get('regions', 	 	 	 'App\Http\Controllers\AdminController@regions')->name('regions');
-Route::get('zones', 	 	 	 'App\Http\Controllers\AdminController@zones')->name('zones');
-Route::get('banks', 	 	 	 'App\Http\Controllers\AdminController@banks')->name('banks');
-Route::get('history', 	 	 	 'App\Http\Controllers\AdminController@history')->name('history');
-Route::get('roles', 	 	 	 'App\Http\Controllers\AdminController@roles')->name('roles');
-Route::get('users', 	 	 	 'App\Http\Controllers\AdminController@users')->name('users');
+Route::get('propierties', 	 	 		'AdminController@propierties')->name('propierties');
+Route::get('regions', 	 	 	 		'AdminController@regions')->name('regions');
+Route::get('zones', 	 	 	 		'AdminController@zones')->name('zones');
+Route::get('banks', 	 	 	 		'AdminController@banks')->name('banks');
+Route::get('history', 	 	 	 		'AdminController@history')->name('history');
+Route::get('roles', 	 	 	 		'AdminController@roles')->name('roles');
+Route::get('users', 	 	 	 		'AdminController@users')->name('users');
 
-Route::post('login',                'LoginController@login')->name('login');
-Route::post('logout',               'LoginController@logout')->name('logout');
 //Banks
-Route::post('banks/create',             'BanksController@create')->name('banks.create');
-Route::post('banks/edit',               'BanksController@edit')->name('banks.edit');
-Route::get('banks/show',                'BanksController@show')->name('banks.show');
-Route::post('banks/showid',             'BanksController@showid')->name('banks.showid');
-Route::post('banks/delete',             'BanksController@delete')->name('banks.destroy');
+	Route::get('banks',                    'BankController@index')->name('banks');
+    Route::post('banks/create',             'BankController@create')->name('banks.create');
+    Route::post('banks/edit',               'BankController@edit')->name('banks.edit');
+    Route::get('banks/show',                'BankController@show')->name('banks.show');
+    Route::post('banks/showid',             'BankController@showid')->name('banks.showid');
+    Route::post('banks/delete',             'BankController@delete')->name('banks.destroy');
 
 //Region
 Route::post('region/create',            'RegionController@create')->name('region.create')->middleware('api_token');

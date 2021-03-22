@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="../css/magnific-popup.css">
@@ -12,31 +11,13 @@
     <link rel="stylesheet" href="../css/select2.min.css">
     <link rel="stylesheet" href="../css/ionicons.min.css">
     <link rel="stylesheet" href="../css/admin.css">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('page-css')
     <!-- Favicons -->
     <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
-    
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Vinicio Lopez">
     <title>Propiedades Platinum</title>
-    <style type="text/css">
-        .main{
-             background-color: #2b2c30;
-        }
-        .btn-success{
-             background-color: #77a62e;
-             border-color: #77a62e;
-        }
-        td{
-            color:white;
-        }
-        th{
-            color:white;
-        }
-        
-    </style>
+
 </head>
 <body>
 
@@ -165,5 +146,12 @@
     <!-- end main content -->
 
     <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('assets/js/script.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/jquery.smartWizard.min.js')}}"></script>
+    
+    @yield('page-js')
+    
 </body>
 </html>

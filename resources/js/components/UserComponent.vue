@@ -4,8 +4,8 @@
             <div class="modal-dialog modal-center" role="document" align="center" style="margin-top: 0px">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear cine</h5>
-                        <h5 class="modal-title" id="exampleModalLabel" v-if="update != 0">Actualizar cine</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear usuario</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" v-if="update != 0">Actualizar usuario</h5>
                         <br>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
@@ -67,7 +67,7 @@
         </div>
 
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #28292d;border-color: #77a62e;">
-          + Crear cine
+          + Crear usuario
         </button>
         <div class="row" style="margin-top: 10px">
             <div class="col-md-12">

@@ -29,13 +29,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login',                'LoginController@login')->name('login');
 Route::post('logout',               'LoginController@logout')->name('logout');
 
-Route::middleware(['api_token'])->group(function () {
     //Banks
-    Route::post('banks/create',             'BanksController@create')->name('banks.create');
-    Route::post('banks/edit',               'BanksController@edit')->name('banks.edit');
-    Route::get('banks/show',                'BanksController@show')->name('banks.show');
-    Route::post('banks/showid',             'BanksController@showid')->name('banks.showid');
-    Route::post('banks/delete',             'BanksController@delete')->name('banks.destroy');
+    Route::post('banks',                    'BankController@index')->name('banks');
+    Route::post('banks/create',             'BankController@create')->name('banks.create');
+    Route::post('banks/edit',               'BankController@edit')->name('banks.edit');
+    Route::get('banks/show',                'BankController@show')->name('banks.show');
+    Route::post('banks/showid',             'BankController@showid')->name('banks.showid');
+    Route::post('banks/delete',             'BankController@delete')->name('banks.destroy');
 
     //Region
     Route::post('region/create',            'RegionController@create')->name('region.create')->middleware('api_token');
@@ -78,4 +78,3 @@ Route::middleware(['api_token'])->group(function () {
     Route::post('zone/showid',     'ZoneController@showid')->name('zone.showid');
     Route::post('zone/delete',     'ZoneController@delete')->name('zone.destroy');
 
-});

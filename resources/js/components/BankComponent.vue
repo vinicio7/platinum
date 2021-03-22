@@ -1,7 +1,7 @@
 <template>
     <div class="container container-Data" >
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-left: 500px;background-color: transparent;padding: 0px">
-            <div class="modal-dialog modal-center" role="document" align="center" style="margin-top: 0px">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div class="modal-dialog modal-center" role="document" align="center">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear banco</h5>
@@ -26,13 +26,17 @@
                                 </div>  
                                 <div class="col-md-6">
                                     <label>Estado</label>
-                                     <input v-model="status" type="text" class="form-control">
+                                    <select v-model="status" class="form-control">
+                                      <option disabled value="">Seleccione una opcion</option>
+                                      <option value="1">Activo</option>
+                                      <option value="0">Inactivo</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button v-if="update == 0" @click="saveData()" class="btn btn-success">Añadir</button>
+                        <button v-if="update == 0" @click="saveData()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Añadir</button>
                         <button v-if="update != 0" @click="updateData()" class="btn btn-warning">Actualizar</button>
                         <button v-if="update != 0" @click="clearFields()" class="btn">Atrás</button>
                     </div>
@@ -40,7 +44,7 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #28292d;border-color: #77a62e;">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
           + Crear banco
         </button>
         <div class="row" style="margin-top: 10px">

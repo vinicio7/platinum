@@ -5,7 +5,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <meta name="format-detection" content="telephone=no">
-      <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+      <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
       <title>Propiedades &#8211; Platinum</title>
       <link rel="stylesheet" href="css/fuente1.css" type="text/css" media="all">
       <link rel='stylesheet' href='js/vendor/booked/font-awesome.min.css' type='text/css' media='all' />
@@ -54,7 +54,7 @@
                                 <li class="menu-item"><a href="contacts.html">Propiedades</a></li>
                                 <li class="menu-item"><a href="contacts.html">Asociados</a></li>
                                 <li class="menu-item"><a href="contacts.html">Contactenos</a></li>
-                                <li class="menu-item"><a href="contacts.html">Ingresar</a></li>
+                                <li class="menu-item"><a href="/login">Ingresar</a></li>
                               </ul>
                            </nav>
                         </div>
@@ -315,7 +315,7 @@
                </div>
                <div class="sc_section overflow_hidden bg_color_1">
                   <div class="content_wrap margin_top_large margin_bottom_medium">
-                     <h4 class="sc_title margin_top_null margin_bottom_medium">Propiedades</h4>
+                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Propiedades</b></h4>
                      <div class="sc_property_wrap">
                         <div class="sc_property sc_property_style_property-1">
                            <div class="sc_columns columns_wrap">
@@ -410,94 +410,32 @@
                </div>
                <div class="sc_section overflow_hidden bg_color_1">
                   <div class="content_wrap margin_top_large margin_bottom_medium">
-                     <h4 class="sc_title margin_top_null margin_bottom_medium">Asociados</h4>
+                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Asociados</b></h4>
                      <div class="sc_property_wrap">
                         <div class="sc_property sc_property_style_property-1">
                            <div class="sc_columns columns_wrap">
-                              <div class="column-1_3 column_padding_bottom">
-                                 <div class="sc_property_item">
-                                    <div class="sc_property_image">
-                                       <a href="single-post.html">
-                                          <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">1,249,000</span></div>
-                                          <img alt="" src="image/propierties/1/1.jpg">
-                                       </a>
+                              @foreach($asociats as $item)
+                              <div class="column-1_4 column_padding_bottom">
+                                 <div class="sc_team_item" style="background-color: white">
+                                    <div class="sc_team_item_avatar">
+                                       <a href="/asociate/detail/{{$item->user_id}}" class="hover_icon hover_icon_view">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: 90%;padding: 12px"></a>
                                     </div>
-                                    <div class="sc_property_info">
-                                       <div class="sc_property_description">House for sale</div>
-                                       <div>
-                                          <div class="sc_property_icon">
-                                             <span class="icon-location"></span>
+                                    <div class="sc_team_item_info">
+                                       <center>
+                                          <h3 class="sc_team_item_title"><a href="single-team.html">{{$item->name}}</a></h3>
+                                          <div class="sc_team_item_position">{{$item->rol->name}}</div>
+                                          <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
+                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->twitter }}" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
                                           </div>
-                                          <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">87 Mishaum Point Rd</a> 
-                                             </div>
-                                             <div class="sc_property_title_address_2">Dartmouth, MA 02748</div>
-                                          </div>
-                                          <div class="cL"></div>
-                                       </div>
-                                    </div>
-                                    <div class="sc_property_info_list">
-                                       <span class="icon-building113">1,286 sqft</span><span class="icon-bed">2</span><span class="icon-bath">3</span><span class="icon-warehouse">2</span>
+                                       </center>
                                     </div>
                                  </div>
                               </div>
-                              <div class="column-1_3 column_padding_bottom">
-                                 <div class="sc_property_item">
-                                    <div class="sc_property_image">
-                                       <a href="single-post.html">
-                                          <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">2,189,000</span></div>
-                                          <img alt="" src="image/propierties/1/1.jpg">
-                                       </a>
-                                    </div>
-                                    <div class="sc_property_info">
-                                       <div class="sc_property_description">Townhouse for sale</div>
-                                       <div>
-                                          <div class="sc_property_icon">
-                                             <span class="icon-location"></span>
-                                          </div>
-                                          <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">9615 Shore Rd APT BA</a> 
-                                             </div>
-                                             <div class="sc_property_title_address_2">Brooklyn, NY 11209</div>
-                                          </div>
-                                          <div class="cL"></div>
-                                       </div>
-                                    </div>
-                                    <div class="sc_property_info_list">
-                                       <span class="icon-building113">1,286 sqft</span><span class="icon-bed">2</span><span class="icon-bath">3</span><span class="icon-warehouse">3</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="column-1_3 column_padding_bottom">
-                                 <div class="sc_property_item">
-                                    <div class="sc_property_image">
-                                       <a href="single-post.html">
-                                          <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">3,449</span><span class="property_price_box_per">/year</span></div>
-                                          <img alt="" src="image/propierties/1/1.jpg">
-                                       </a>
-                                    </div>
-                                    <div class="sc_property_info">
-                                       <div class="sc_property_description">House for rent</div>
-                                       <div>
-                                          <div class="sc_property_icon">
-                                             <span class="icon-location"></span>
-                                          </div>
-                                          <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">80646 Via Pessaro</a> 
-                                             </div>
-                                             <div class="sc_property_title_address_2">La Quinta, CA 32453</div>
-                                          </div>
-                                          <div class="cL"></div>
-                                       </div>
-                                    </div>
-                                    <div class="sc_property_info_list">
-                                       <span class="icon-building113">886 sqft</span><span class="icon-bed">2</span><span class="icon-bath">3</span><span class="icon-warehouse">2</span>
-                                    </div>
-                                 </div>
-                              </div>
+                              @endforeach
                            </div>
                         </div>
                      </div>
@@ -552,75 +490,30 @@
                <div class="footer_wrap_inner widget_area_inner">
                   <div class="content_wrap">
                      <div class="columns_wrap">
-                        <aside class="column-1_4 widget widget_text">
-                           <h5 class="widget_title">contacts</h5>
-                           <div class="textwidget">
-                              We are the leading real estate and rental marketplace dedicated to empowering consumers with data.
+                        <aside class="column-1_3 widget widget_text">
+                           <h5 class="widget_title">SARAH ALZUGARAY</h5>
+                           <div class="textwidget" style="color:white">
+                             Guatemalteca, Empresaria y Emprendedora, Licenciada en Administración de Empresas, Socia, Fundadora y Directora de empresas, Corredora de Bienes Raíces y Asesora de Inversiones por más de 25 años.
                               <br>
                               <br>
                               <div class="footer-widget-contacts">
-                                 <span class="accent1h margin_right_tiny icon-location"></span> 121 King Street, NY, USA
+                                 <span class="accent1h margin_right_tiny icon-location"></span> 
                                  <br>
-                                 <span class="accent1h margin_right_tiny icon-tablet"></span> +800 1234 56 78
+                                 <span class="accent1h margin_right_tiny icon-tablet"></span> 
                                  <br>
-                                 <span class="accent1h margin_right_tiny icon-mail"></span> contact@yoursite.com
+                                 <span class="accent1h margin_right_tiny icon-mail"></span>
                               </div>
                            </div>
                         </aside>
-                        <aside class="column-1_4 widget widget_recent_posts">
-                           <h5 class="widget_title">from the blog</h5>
-                           <article class="post_item">
-                              <div class="post_thumb">
-                                 <img alt="" src="images/50x50.jpg">
-                              </div>
-                              <div class="post_content">
-                                 <div class="post_title"><a href="single-post.html">Making the Most of Your Small Space with Furniture</a></div>
-                                 <div class="post_info">
-                                    <span class="post_info_item">by <a href="#" class="post_info_author">Jesse Doe</a></span> 
-                                    <span class="post_info_item">on <a href="single-post.html">March 9, 2016</a></span>
-                                 </div>
-                              </div>
-                           </article>
-                           <article class="post_item">
-                              <div class="post_thumb"><img alt="" src="images/50x50.jpg"></div>
-                              <div class="post_content">
-                                 <div class="post_title"><a href="single-post.html">4 Ways to Decorate Your First Apartment on a Budget</a></div>
-                                 <div class="post_info">
-                                    <span class="post_info_item">by <a href="#" class="post_info_author">Jesse Doe</a></span> 
-                                    <span class="post_info_item">on <a href="single-post.html">March 9, 2016</a></span>
-                                 </div>
-                              </div>
-                           </article>
-                           <article class="post_item">
-                              <div class="post_thumb"><img alt="" src="images/50x50.jpg"></div>
-                              <div class="post_content">
-                                 <div class="post_title"><a href="single-post.html">How to Infuse Your Space with Natural Light</a></div>
-                                 <div class="post_info">
-                                    <span class="post_info_item">by <a href="#" class="post_info_author">Jesse Doe</a></span> 
-                                    <span class="post_info_item">on <a href="single-post.html">March 9, 2016</a></span>
-                                 </div>
-                              </div>
-                           </article>
+                        <aside class="column-1_3 widget widget_facebook">
+                           <h5 class="widget_title">Ultimas publicaciones</h5>
+                           <div id="fb-root"></div>
+                           <div class="fb-page" data-href="https://www.facebook.com/PropiedadesPlatinum/" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PropiedadesPlatinum/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PropiedadesPlatinum/">Propiedades Platinum / Sarah Alzugaray</a></blockquote></div>
                         </aside>
-                        <aside class="column-1_4 widget widget_nav_menu">
-                           <h5 class="widget_title">quick links</h5>
-                           <div>
-                              <ul class="menu">
-                                 <li class="menu-item"><a href="index.html">Home</a></li>
-                                 <li class="menu-item"><a href="support.html">Support</a></li>
-                                 <li class="menu-item"><a href="about.html">About us</a></li>
-                                 <li class="menu-item"><a href="listing.html">Listing</a></li>
-                                 <li class="menu-item"><a href="gallery.html">Gallery</a></li>
-                                 <li class="menu-item"><a href="contacts.html">Contacts</a></li>
-                              </ul>
-                           </div>
-                        </aside>
-                        <aside class="column-1_4 widget widget_twitter">
-                           <h5 class="widget_title">latest tweets</h5>
-                           <ul>
-                              <li class="theme_text"><a href="https://twitter.com/axiomthemes" class="username" target="_blank">@axiomthemes</a> For the little ones: bright and colorful, modern and professional #ecommerce #WP #site #template White Rabbit! <a href="https://themeforest.net/item/white-rabbit-kids-toys-clothing-store/16846054?s_rank=1" target="_blank">themeforest.net/item/white-rab…</a></li>
-                              <li class="theme_text"><a href="https://twitter.com/axiomthemes" class="username" target="_blank">@axiomthemes</a> We continue #summer #sports and #tournaments topic! Check out Soccer Club #WordPess theme by Axiom: <a href="https://themeforest.net/item/soccer-club-wordpess-theme/16340049?s_rank=1" target="_blank">themeforest.net/item/soccer-cl…</a></li>
-                           </ul>
+                      
+                        <aside class="column-1_3 widget widget_twitter">
+                           <h5 class="widget_title">Ultimos tweets</h5>
+                           <a class="twitter-timeline" data-width="500" data-height="300" data-theme="light" href="https://twitter.com/AlzugaraySarah?ref_src=twsrc%5Etfw">Tweets by AlzugaraySarah</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </aside>
                      </div>
                   </div>
@@ -642,12 +535,11 @@
                         <div class="column-1_4">
                            <h5>Siguenos</h5>
                            <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                              <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                              <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
-                              <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
-                              <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-plus-1"></span></a></div>
-                              <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
-                              <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-youtube-play"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.facebook.com/PropiedadesPlatinum/" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://twitter.com/alzugaraysarah" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.instagram.com/propiedades_platinum/" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" class="social_icons"><span class="icon-youtube-play"></span></a></div>
                            </div>
                         </div>
                         <div class="cL"></div>
@@ -685,6 +577,6 @@
       <script type='text/javascript' src='js/vendor/parallax.js'></script>
       <script type='text/javascript' src='js/vendor/skrollr.min.js'></script>
       <script type='text/javascript' src='js/vendor/swiper/swiper.min.js'></script>
-      
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v10.0" nonce="0ss8Crp2"></script>
    </body>
 </html>
