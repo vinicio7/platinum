@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     protected $table = 'regions';
-    protected $primaryKey = 'regions_id';
+    protected $primaryKey = 'region_id';
     protected $fillable = ['name','status'];
 }
