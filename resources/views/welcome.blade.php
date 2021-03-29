@@ -48,12 +48,11 @@
                         <div class="top_panel_menu">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
                            <nav class="menu_main_nav_area">
-                              <ul id="menu_main" class="menu_main_nav"> 
-                                <li class="menu-item"><a href="contacts.html">Inicio</a></li>
-                                <li class="menu-item"><a href="contacts.html">Quienes somos</a></li>
-                                <li class="menu-item"><a href="contacts.html">Propiedades</a></li>
-                                <li class="menu-item"><a href="contacts.html">Asociados</a></li>
-                                <li class="menu-item"><a href="contacts.html">Contactenos</a></li>
+                              <ul id="menu_main" class="menu_main_nav">
+                                <li class="menu-item"><a href="/">Inicio</a></li>
+                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
+                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
+                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
                                 <li class="menu-item"><a href="/login">Ingresar</a></li>
                               </ul>
                            </nav>
@@ -78,7 +77,7 @@
                                           <div class="sc_pr_h2">House for sale</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">87 Mishaum Point Rd</a> 
+                                          <a href="single-post.html">87 Mishaum Point Rd</a>
                                        </div>
                                        <div class="sc_pr_t2">Dartmouth, MA 02748</div>
                                        <div class="sc_pr_f1">
@@ -102,7 +101,7 @@
                                           <div class="sc_pr_h2">Townhouse for sale</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">9615 Shore Rd APT BA</a> 
+                                          <a href="single-post.html">9615 Shore Rd APT BA</a>
                                        </div>
                                        <div class="sc_pr_t2">Brooklyn, NY 11209</div>
                                        <div class="sc_pr_f1">
@@ -117,7 +116,7 @@
                            </div>
                         </li>
                         <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="image/pslider5.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>                             
+                           <img src="image/pslider5.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
@@ -126,7 +125,7 @@
                                           <div class="sc_pr_h2">House for rent</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">80646 Via Pessaro</a> 
+                                          <a href="single-post.html">80646 Via Pessaro</a>
                                        </div>
                                        <div class="sc_pr_t2">La Quinta, CA 32453</div>
                                        <div class="sc_pr_f1">
@@ -335,7 +334,7 @@
                                           </div>
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">87 Mishaum Point Rd</a> 
+                                                <a href="single-post.html">87 Mishaum Point Rd</a>
                                              </div>
                                              <div class="sc_property_title_address_2">Dartmouth, MA 02748</div>
                                           </div>
@@ -363,7 +362,7 @@
                                           </div>
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">9615 Shore Rd APT BA</a> 
+                                                <a href="single-post.html">9615 Shore Rd APT BA</a>
                                              </div>
                                              <div class="sc_property_title_address_2">Brooklyn, NY 11209</div>
                                           </div>
@@ -391,7 +390,7 @@
                                           </div>
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">80646 Via Pessaro</a> 
+                                                <a href="single-post.html">80646 Via Pessaro</a>
                                              </div>
                                              <div class="sc_property_title_address_2">La Quinta, CA 32453</div>
                                           </div>
@@ -494,12 +493,13 @@
                            <h5 class="widget_title">SARAH ALZUGARAY</h5>
                            <div class="textwidget" style="color:white">
                              Guatemalteca, Empresaria y Emprendedora, Licenciada en Administración de Empresas, Socia, Fundadora y Directora de empresas, Corredora de Bienes Raíces y Asesora de Inversiones por más de 25 años.
+                              <br><br>
                               <br>
-                              <br>
+                               <img src="\images\cbrlogo.png">
                               <div class="footer-widget-contacts">
-                                 <span class="accent1h margin_right_tiny icon-location"></span> 
+                                 <span class="accent1h margin_right_tiny icon-location"></span>
                                  <br>
-                                 <span class="accent1h margin_right_tiny icon-tablet"></span> 
+                                 <span class="accent1h margin_right_tiny icon-tablet"></span>
                                  <br>
                                  <span class="accent1h margin_right_tiny icon-mail"></span>
                               </div>
@@ -510,7 +510,7 @@
                            <div id="fb-root"></div>
                            <div class="fb-page" data-href="https://www.facebook.com/PropiedadesPlatinum/" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PropiedadesPlatinum/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PropiedadesPlatinum/">Propiedades Platinum / Sarah Alzugaray</a></blockquote></div>
                         </aside>
-                      
+
                         <aside class="column-1_3 widget widget_twitter">
                            <h5 class="widget_title">Ultimos tweets</h5>
                            <a class="twitter-timeline" data-width="500" data-height="300" data-theme="light" href="https://twitter.com/AlzugaraySarah?ref_src=twsrc%5Etfw">Tweets by AlzugaraySarah</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -550,8 +550,9 @@
             <div class="copyright_wrap copyright_style_menu scheme_original">
                <div class="copyright_wrap_inner">
                   <div class="content_wrap">
-                    
-                     <div class="copyright_text">Platinum © 2021 All Rights Reserved</div>
+
+                          <div class="copyright_text"><center>Platinum © 2021 All Rights Reserved</center></div>
+
                   </div>
                </div>
             </div>

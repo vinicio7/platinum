@@ -22,9 +22,20 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-	$asociats = User::with('rol')->where('rol_id',2)->get();
+    $asociats = User::with('rol')->where('rol_id',2)->get();
     return view('welcome',['asociats' => $asociats]);
 });
+
+Route::get('/quienes', function () {
+    $asociats = User::with('rol')->where('rol_id',2)->get();
+    return view('quienes',['asociats' => $asociats]);
+});
+
+Route::get('/contacto', function () {
+    $asociats = User::with('rol')->where('rol_id',2)->get();
+    return view('contacto',['asociats' => $asociats]);
+});
+
 
 Route::get('logout', 	 		 		'AdminController@logout')->name('logout');
 Route::get('login', 	 		 		'AdminController@login')->name('login');
@@ -42,12 +53,12 @@ Route::get('roles', 	 	 	 		'AdminController@roles')->name('roles');
 Route::get('users', 	 	 	 		'AdminController@users')->name('users');
 
 //Banks
-	Route::get('banks',                    'BankController@index')->name('banks');
-    Route::get('banks/create',              'BankController@create')->name('banks.create');
-    Route::post('banks/edit',               'BankController@edit')->name('banks.edit');
-    Route::get('banks/show',                'BankController@show')->name('banks.show');
-    Route::post('banks/showid',             'BankController@showid')->name('banks.showid');
-    Route::post('banks/delete',             'BankController@delete')->name('banks.destroy');
+Route::get('banks',                    'BankController@index')->name('banks');
+Route::get('banks/create',              'BankController@create')->name('banks.create');
+Route::post('banks/edit',               'BankController@edit')->name('banks.edit');
+Route::get('banks/show',                'BankController@show')->name('banks.show');
+Route::post('banks/showid',             'BankController@showid')->name('banks.showid');
+Route::post('banks/delete',             'BankController@delete')->name('banks.destroy');
 
 //Region
 Route::post('region/create',            'RegionController@create')->name('region.create')->middleware('api_token');
