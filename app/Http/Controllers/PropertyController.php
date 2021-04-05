@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\PropertyWrite;
+use Maatwebsite\Excel\Excel;
+use App\Exports\PropiertiesExport;
+
 
 class PropertyController extends Controller
 {
@@ -779,5 +782,11 @@ class PropertyController extends Controller
                 ];
             return response()->json($response, $this->statusCode);
         }
+    }
+
+    // php artisan make:export BankExport --model=Bank generar el archivo para la exportacion
+    public function exportExcel(Excel $excel)
+    {
+        return $excel->download(new PropiertiesExport, 'propierties.xlsx');
     }
 }

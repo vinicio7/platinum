@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\ZoneController;
+use App\Http\Controllers\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +34,11 @@ Route::get('home', 	 			 'App\Http\Controllers\AdminController@home')->name('hom
 Route::post('login',                'LoginController@login')->name('login');
 Route::post('logout',               'LoginController@logout')->name('logout');
 //Banks
-Route::post('banks/create',             'BanksController@create')->name('banks.create');
-Route::post('banks/edit',               'BanksController@edit')->name('banks.edit');
-Route::get('banks/show',                'BanksController@show')->name('banks.show');
-Route::post('banks/showid',             'BanksController@showid')->name('banks.showid');
-Route::post('banks/delete',             'BanksController@delete')->name('banks.destroy');
+Route::post('banks/create',             'BankController@create')->name('banks.create');
+Route::post('banks/edit',               'BankController@edit')->name('banks.edit');
+Route::get('banks/show',                'BankController@show')->name('banks.show');
+Route::post('banks/showid',             'BankController@showid')->name('banks.showid');
+Route::post('banks/delete',             'BankController@delete')->name('banks.destroy');
 
 //Region
 Route::post('region/create',            'RegionController@create')->name('region.create')->middleware('api_token');
@@ -79,3 +80,12 @@ Route::post('zone/edit',       'ZoneController@edit')->name('zone.edit');
 Route::get('zones/show',       'ZoneController@show')->name('zones.show');
 Route::post('zone/showid',     'ZoneController@showid')->name('zone.showid');
 Route::post('zone/delete',     'ZoneController@delete')->name('zone.destroy');
+
+//Propieties
+Route::post('propiety/create',      'PropertyController@create')->name('propiety.create');
+Route::post('propiety/edit',        'PropertyController@edit')->name('propiety.edit');
+Route::get('propiety/show',         'PropertyController@show')->name('propiety.show');
+Route::post('propiety/showid',      'PropertyController@showid')->name('propiety.showid');
+Route::post('propiety/delete',      'PropertyController@delete')->name('propiety.destroy');
+
+Route::get('propierties-list',  'PropertyController@exportExcel')->name('propierties.excel');

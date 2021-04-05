@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Bank;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
-
-
+use Maatwebsite\Excel\Excel;
+use App\Exports\BankExport;
 
 class BankController extends Controller
 {
