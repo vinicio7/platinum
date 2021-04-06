@@ -25,11 +25,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('logout', 	 		 'App\Http\Controllers\AdminController@logout')->name('logout');
-Route::get('login', 	 		 'App\Http\Controllers\AdminController@login')->name('login');
-Route::get('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-Route::post('dashboard', 	 	 'App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-Route::get('home', 	 			 'App\Http\Controllers\AdminController@home')->name('home');
+Route::get('logout', 	 		 'AdminController@logout')->name('logout');
+Route::get('login', 	 		 'AdminController@login')->name('login');
+Route::get('dashboard', 	 	 'AdminController@dashboard')->name('dashboard');
+Route::post('dashboard', 	 	 'AdminController@dashboard')->name('dashboard');
+Route::get('home', 	 			 'AdminController@home')->name('home');
 
 Route::post('login',                'LoginController@login')->name('login');
 Route::post('logout',               'LoginController@logout')->name('logout');
@@ -88,4 +88,4 @@ Route::get('propiety/show',         'PropertyController@show')->name('propiety.s
 Route::post('propiety/showid',      'PropertyController@showid')->name('propiety.showid');
 Route::post('propiety/delete',      'PropertyController@delete')->name('propiety.destroy');
 
-Route::get('propierties-list',  'PropertyController@exportExcel')->name('propierties.excel');
+Route::get('propierties-list',  'PropertyController@exportExcel')->name('propierties.excel'); 

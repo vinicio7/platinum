@@ -17,11 +17,14 @@ class CreatePropierties extends Migration
             $table->id('propiertiy_id');
             $table->string('title');
             $table->string('type');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
+            
             $table->string('owner_id');
             $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('country_id')->on('countries');
+            
             $table->unsignedBigInteger('departament_id');
             $table->foreign('departament_id')->references('departament_id')->on('departaments');
             $table->unsignedBigInteger('municipality_id');
@@ -37,18 +40,22 @@ class CreatePropierties extends Migration
             $table->double('rent_usd', 8, 2);
             $table->double('rent_gtq', 8, 2);
             $table->string('fee_rent');
+            $table->string('fee_sale');
             $table->double('finance');
             $table->double('exchange');
             $table->double('engage_usd');
             $table->double('engage_gtq');
+            $table->string('rate');
+            $table->string('fee_usd');
+            $table->string('fee_gtq');
             $table->string('term');
             $table->string('term_text');
-            $table->string('maintenace');
+            $table->string('maintenance');
             $table->double('fee_maintenance_gtq');
             $table->double('fee_maintenance_usd');
             $table->boolean('include_maintenance');
             $table->boolean('water_service');
-            $table->boolean('segurity_service');
+            $table->boolean('security_service');
             $table->boolean('electricy_service');
             $table->boolean('trash_service');
             $table->boolean('clean_service');
@@ -60,16 +67,17 @@ class CreatePropierties extends Migration
             $table->string('phone_contact_2');
             $table->string('telephone_contact_2');
             $table->string('email_contact_2');
-            $table->string('socila_media');
+            $table->string('social_media');
             $table->string('exclusivity');
             $table->string('share');
-            $table->string('parther_share');
+            $table->string('partner_share');
             $table->string('company_share');
             $table->string('rate_share');
             $table->double('land_vrs');
             $table->double('build_mts');
             $table->double('front_mts');
             $table->double('bottom_mts');
+            $table->double('build_year');
             $table->unsignedBigInteger('levels');
             $table->unsignedBigInteger('rooms');
             $table->unsignedBigInteger('service_rooms');
@@ -102,7 +110,11 @@ class CreatePropierties extends Migration
             $table->boolean('chimeny');
             $table->boolean('garden_winery');
             $table->boolean('balcony');
-            $table->boolean('dinig_room');
+            $table->boolean('dining_room');
+            $table->boolean('walkin_closet');
+            $table->boolean('grill');
+            $table->boolean('family_room');
+            $table->boolean('roof_room');
             $table->boolean('dining');
             $table->boolean('kitchen_room');
             $table->boolean('closet');
@@ -117,11 +129,11 @@ class CreatePropierties extends Migration
             $table->boolean('lamps');
             $table->boolean('air');
             $table->boolean('kitchen');
-            $table->boolean('curtains');
+            $table->boolean('curtain');
             $table->boolean('alarm');
-            $table->boolean('eletricy_kitchen');
+            $table->boolean('electricy_kitchen');
             $table->boolean('blackouts');
-            $table->boolean('camera_segurity');
+            $table->boolean('camera_security');
             $table->boolean('dishwater');
             $table->boolean('bathroom_curtain');
             $table->boolean('solar_panel');
@@ -141,9 +153,8 @@ class CreatePropierties extends Migration
             $table->boolean('floor_shared');
             $table->boolean('social_area');
             $table->boolean('spa');
-            $table->boolean('wheelchair');
             $table->boolean('pet_area');
-            $table->boolean('bauty_salon');
+            $table->boolean('beauty_salon');
             $table->boolean('phone_plant');
             $table->boolean('parking_visit');
             $table->boolean('court');
@@ -175,7 +186,6 @@ class CreatePropierties extends Migration
             $table->unsignedBigInteger('code');
             $table->string('internal_note');
             $table->boolean('status');
-
             $table->timestamps();
         });
     }

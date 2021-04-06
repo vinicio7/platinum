@@ -18,7 +18,8 @@ class PropertyController extends Controller
    
     public function create(Request $request)
     {
-        try {
+         try { 
+
             $validate = $request->validate([
                 'title' => 'required',
                 'type' => 'required' ,
@@ -133,7 +134,8 @@ class PropertyController extends Controller
                 'dishwater' => 'required',
                 'bathroom_curtain' => 'required',
                 'solar_panel' => 'required',
-                'bell','water_heater' => 'required',
+                'bell' => 'required',
+                'water_heater' => 'required',
                 'cistern' => 'required',
                 'washing_machine' => 'required',
                 'bathroom_mirros' => 'required',
@@ -148,7 +150,6 @@ class PropertyController extends Controller
                 'floor_shared' => 'required',
                 'social_area' => 'required',
                 'spa' => 'required',
-                'wheelchair' => 'required',
                 'pet_area' => 'required',
                 'beauty_salon' => 'required',
                 'phone_plant' => 'required',
@@ -174,16 +175,15 @@ class PropertyController extends Controller
                 'appraisal' => 'required',
                 'appraisal_usd' => 'required',
                 'appraisal_gtq' => 'required',
-                'aprraisal_type' => 'required',
+                'appraisal_type' => 'required',
                 'iva' => 'required',
                 'rings' => 'required',
                 'description' => 'required',
                 'youtube' => 'required',
                 'code' => 'required',
                 'internal_note' => 'required',
-                'status' => 'required'
+                'status' => 'required' 
             ]);
-
             $properties = Property::create([
                 'title'                     => $validate['title'],
                 'type'                      => $validate['type'] ,
@@ -314,7 +314,6 @@ class PropertyController extends Controller
                 'floor_shared'              => $validate['floor_shared'],
                 'social_area'               => $validate['social_area'],
                 'spa'                       => $validate['spa'],
-                'wheelchair'                => $validate['wheelchair'],
                 'pet_area'                  => $validate['pet_area'],
                 'beauty_salon'              => $validate['beauty_salon'],
                 'phone_plant'               => $validate['phone_plant'],
@@ -340,7 +339,7 @@ class PropertyController extends Controller
                 'appraisal'                 => $validate['appraisal'],
                 'appraisal_usd'             => $validate['appraisal_usd'],
                 'appraisal_gtq'             => $validate['appraisal_gtq'],
-                'aprraisal_type'            => $validate['aprraisal_type'],
+                'appraisal_type'            => $validate['appraisal_type'],
                 'iva'                       => $validate['iva'],
                 'rings'                     => $validate['rings'],
                 'description'               => $validate['description'],
@@ -352,7 +351,7 @@ class PropertyController extends Controller
             $this->message = "Consulta correcta";
             $this->result = true;
             $this->records = $properties;
-        } catch (\Exception $e) {
+         } catch (\Exception $e) {
             $statusCode     = 200;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
         } finally {
@@ -363,7 +362,7 @@ class PropertyController extends Controller
                     'records'   => $this->records,
                 ];
             return response()->json($response, $this->statusCode);
-        }
+        } 
     }
 
     public function show(Property $property)
@@ -413,7 +412,7 @@ class PropertyController extends Controller
     public function edit(Request $request)
     {
         
-        try {
+         try { 
             $validate = $request->validate([
                 'title' => 'required',
                 'type' => 'required' ,
@@ -528,7 +527,8 @@ class PropertyController extends Controller
                 'dishwater' => 'required',
                 'bathroom_curtain' => 'required',
                 'solar_panel' => 'required',
-                'bell','water_heater' => 'required',
+                'bell' => 'required',
+                'water_heater' => 'required',
                 'cistern' => 'required',
                 'washing_machine' => 'required',
                 'bathroom_mirros' => 'required',
@@ -543,7 +543,6 @@ class PropertyController extends Controller
                 'floor_shared' => 'required',
                 'social_area' => 'required',
                 'spa' => 'required',
-                'wheelchair' => 'required',
                 'pet_area' => 'required',
                 'beauty_salon' => 'required',
                 'phone_plant' => 'required',
@@ -569,18 +568,18 @@ class PropertyController extends Controller
                 'appraisal' => 'required',
                 'appraisal_usd' => 'required',
                 'appraisal_gtq' => 'required',
-                'aprraisal_type' => 'required',
+                'appraisal_type' => 'required',
                 'iva' => 'required',
                 'rings' => 'required',
                 'description' => 'required',
                 'youtube' => 'required',
                 'code' => 'required',
                 'internal_note' => 'required',
-                'status' => 'required'
+                'status' => 'required' 
             ]);
 
             $properties = Property::find($request->propiety_id);
-            $properties->title          = $validate['title'];
+            $properties->title                     = $validate['title'];
             $properties->type                      = $validate['type'] ;
             $properties->user_id                   = $validate['user_id'];
             $properties->owner_id                  = $validate['owner_id'];
@@ -601,7 +600,7 @@ class PropertyController extends Controller
             $properties->exchange                  = $validate['exchange'];
             $properties->engage_usd                = $validate['engage_usd'];
             $properties->engage_gtq                = $validate['engage_gtq'];
-            $properties->rate                      = $validate['rate'];
+            $properties->rate_share                = $validate['rate'];
             $properties->fee_usd                   = $validate['fee_usd'];
             $properties->fee_gtq                   = $validate['fee_gtq'];
             $properties->term                      = $validate['term'];
@@ -709,7 +708,6 @@ class PropertyController extends Controller
             $properties->floor_shared              = $validate['floor_shared'];
             $properties->social_area               = $validate['social_area'];
             $properties->spa                       = $validate['spa'];
-            $properties->wheelchair                = $validate['wheelchair'];
             $properties->pet_area                  = $validate['pet_area'];
             $properties->beauty_salon              = $validate['beauty_salon'];
             $properties->phone_plant               = $validate['phone_plant'];
@@ -735,7 +733,7 @@ class PropertyController extends Controller
             $properties->appraisal                 = $validate['appraisal'];
             $properties->appraisal_usd             = $validate['appraisal_usd'];
             $properties->appraisal_gtq             = $validate['appraisal_gtq'];
-            $properties->aprraisal_type            = $validate['aprraisal_type'];
+            $properties->appraisal_type            = $validate['appraisal_type'];
             $properties->iva                       = $validate['iva'];
             $properties->rings                     = $validate['rings'];
             $properties->description               = $validate['description'];
@@ -748,10 +746,10 @@ class PropertyController extends Controller
             $this->message = "Consulta correcta";
             $this->result = true;
             $this->records = $properties;
-        } catch (\Exception $e) {
+      } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
-        } finally {
+        } finally { 
             $response =
                 [
                     'message'   => $this->message,
@@ -759,14 +757,13 @@ class PropertyController extends Controller
                     'records'   => $this->records,
                 ];
             return response()->json($response, $this->statusCode);
-        }
+         } 
     }
 
-    public function destroy(Request $request)
+    public function delete(Request $request)
     {
         try {
-            $properties = Property::destroy($request->bank_id);
-
+            $properties = Property::destroy($request->propiety_id);
             $this->message = "Registro eliminado correctamente";
             $this->result = true;
             $this->records = $properties;

@@ -28,6 +28,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login',                'LoginController@login')->name('login');
 Route::post('logout',               'LoginController@logout')->name('logout');
+Route::post('propiety/create',      'PropertyController@create')->name('propiety.create');
+Route::post('propiety/edit',        'PropertyController@edit')->name('propiety.edit');
+Route::get('propiety/show',         'PropertyController@show')->name('propiety.show');
+Route::post('propiety/showid',      'PropertyController@showid')->name('propiety.showid');
+Route::post('propiety/delete',      'PropertyController@delete')->name('propiety.destroy');
 
 Route::middleware(['api_token'])->group(function () {
     //Banks
@@ -77,12 +82,5 @@ Route::middleware(['api_token'])->group(function () {
     Route::get('zones/show',       'ZoneController@show')->name('zones.show');
     Route::post('zone/showid',     'ZoneController@showid')->name('zone.showid');
     Route::post('zone/delete',     'ZoneController@delete')->name('zone.destroy');
-
-    //Propieties
-    Route::post('propiety/create',      'PropietyController@create')->name('propiety.create');
-    Route::post('propiety/edit',        'PropietyController@edit')->name('propiety.edit');
-    Route::get('propiety/show',         'PropietyController@show')->name('propiety.show');
-    Route::post('propiety/showid',      'PropietyController@showid')->name('propiety.showid');
-    Route::post('propiety/delete',      'PropietyController@delete')->name('propiety.destroy');
 
 });
