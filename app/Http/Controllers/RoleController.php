@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Region;
+use App\Models\Rol;
 use Illuminate\Http\Request;
 
-class RegionController extends Controller
+class RoleController extends Controller
 {
     public $message     = "";
     public $result         = false;
@@ -20,13 +20,13 @@ class RegionController extends Controller
                 'status'   => 'required'
 
             ]);
-            $regions = Region::create([
+            $rol = Rol::create([
                 'name'        => $validate['name'],
                 'status'   => $validate['status'],
             ]);
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $regions;
+            $this->records = $rol;
         } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -43,26 +43,26 @@ class RegionController extends Controller
 
     public function index()
     {
-        $titulo     = 'regions';
-        $dt_route   = route('regions.show');
+        $titulo     = 'rol';
+        $dt_route   = route('rol.show');
         $dt_order   = [[0, 'desc']];
         $dt_columns = [
-            ['data' => 'regions_id','title'=>'ID'],
+            ['data' => 'rol_id','title'=>'ID'],
             ['data' => 'name', 'title'=>'NOMBRE'],
             ['data' => 'estado', 'title'=>'ESTADO'],
             ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
         ]; 
-        return view('regions', compact('dt_route', 'dt_columns','dt_order' ));
+        return view('rol', compact('dt_route', 'dt_columns','dt_order' ));
     }
 
 
     public function show(Region $region)
     {
-        return datatables()->of( Region::get())
+        return datatables()->of( Rol::get())
             ->addColumn('acciones', function ($record) {
                 return
-                    "<a href='".route('regions.edit',['bank'=>$record->regions_id])."' class='btn btn-info btn-rounded m-1 text-white'>Editar</a>".
-                    "<a href='".route('regions.destroy',['bank'=>$record->regions_id])."' class='btn btn-danger btn-rounded m-1 text-white'>Eliminar</a>";    
+                    "<a href='".route('rol.edit',['bank'=>$record->rol_id])."' class='btn btn-info btn-rounded m-1 text-white'>Editar</a>".
+                    "<a href='".route('rol.destroy',['bank'=>$record->rol_id])."' class='btn btn-danger btn-rounded m-1 text-white'>Eliminar</a>";    
             })
             ->addColumn('estado', function ($record){
                 if ($record->status == 0) {
@@ -77,13 +77,34 @@ class RegionController extends Controller
             ->toJson();
     }
 
+    public function get(Request $request)
+    {
+        try {
+            $rol = Rol::get();
+            $this->message = "Consulta correcta";
+            $this->result = true;
+            $this->records = $rol;
+        } catch (\Exception $e) {
+            $statusCode     = 200;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
+    }
+
     public function showId(Request $request)
     {
         try {
-            $regions = Region::find($request->regions_id);
+            $rol = Rol::find($request->rol_id);
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $regions;
+            $this->records = $rol;
         } catch (\Exception $e) {
             $statusCode     = 200;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -107,14 +128,14 @@ class RegionController extends Controller
 
             ]);
 
-            $regions = Region::find($request->regions_id);
-            $regions->name = $validate['name'];
-            $regions->status = $validate['status'];
-            $regions->update();
+            $rol = Rol::find($request->rol_id);
+            $rol->name = $validate['name'];
+            $rol->status = $validate['status'];
+            $rol->update();
 
             $this->message = "Consulta correcta";
             $this->result = true;
-            $this->records = $regions;
+            $this->records = $rol;
         } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
@@ -132,11 +153,11 @@ class RegionController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $regions = Region::destroy($request->bank_id);
+            $rol = Rol::destroy($request->bank_id);
 
             $this->message = "Registro eliminado correctamente";
             $this->result = true;
-            $this->records = $regions;
+            $this->records = $rol;
         } catch (\Exception $e) {
             $statusCode     = 400;
             $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';

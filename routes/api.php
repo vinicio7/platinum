@@ -26,10 +26,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login',                'LoginController@login')->name('login');
-Route::post('logout',               'LoginController@logout')->name('logout');
+    Route::post('login',                'LoginController@login')->name('login');
+    Route::post('logout',               'LoginController@logout')->name('logout');
 
-    //Banks
     Route::post('banks',                    'BankController@index')->name('banks');
     Route::post('banks/create',             'BankController@create')->name('banks.create');
     Route::post('banks/edit',               'BankController@edit')->name('banks.edit');
@@ -37,25 +36,43 @@ Route::post('logout',               'LoginController@logout')->name('logout');
     Route::post('banks/showid',             'BankController@showid')->name('banks.showid');
     Route::post('banks/delete',             'BankController@delete')->name('banks.destroy');
 
-    //Region
-    Route::post('region/create',            'RegionController@create')->name('region.create')->middleware('api_token');
-    Route::post('region/edit',              'RegionController@edit')->name('region.edit');
-    Route::get('region/show',               'RegionController@show')->name('region.show');
-    Route::post('region/showid',            'RegionController@showid')->name('region.showid');
-    Route::post('region/delete',            'RegionController@delete')->name('region.delete');
+    Route::post('regions',                   'RegionController@index')->name('regions');
+    Route::post('regions/create',            'RegionController@create')->name('regions.create');
+    Route::post('regions/edit',              'RegionController@edit')->name('regions.edit');
+    Route::get('regions/show',               'RegionController@show')->name('regions.show');
+    Route::post('regions/showid',            'RegionController@showid')->name('regions.showid');
+    Route::post('regions/delete',            'RegionController@delete')->name('regions.delete');
 
+    Route::post('zones',                      'ZoneController@index')->name('zones');
+    Route::post('zones/create',               'ZoneController@create')->name('zones.create');
+    Route::post('zones/edit',                 'ZoneController@edit')->name('zones.edit');
+    Route::get('zones/show',                  'ZoneController@show')->name('zones.show');
+    Route::post('zones/showid',               'ZoneController@showid')->name('zones.showid');
+    Route::post('zones/delete',               'ZoneController@delete')->name('zones.destroy');
+
+    Route::get('roles',                       'RoleController@get')->name('roles');
+    Route::post('roles',                      'RoleController@index')->name('roles');
+    Route::post('roles/create',               'RoleController@create')->name('roles.create');
+    Route::post('roles/edit',                 'RoleController@edit')->name('roles.edit');
+    Route::get('roles/show',                  'RoleController@show')->name('roles.show');
+    Route::post('roles/showid',               'RoleController@showid')->name('roles.showid');
+    Route::post('roles/delete',               'RoleController@delete')->name('zones.destroy');
+
+    Route::post('users/create',              'UserController@create');
+    Route::post('users/edit',                'UserController@edit')->name('users.edit');
+    Route::get('users/show',                 'UserController@show')->name('users.show');
+    Route::post('users/showid',              'UserController@showid')->name('users.showid');
+    Route::post('users/delete',              'UserController@delete')->name('users.delete');
+    /*
     //User
-    Route::post('user/create',              'UserController@create')->name('user.create');
-    Route::post('user/edit',                'UserController@edit')->name('user.edit');
-    Route::get('user/show',                 'UserController@show')->name('user.show');
-    Route::post('user/showid',              'UserController@showid')->name('user.showid');
+   
 
     //Countries
     Route::post('country/create',         'CountryController@create')->name('country.create');
     Route::post('country/edit',           'CountryController@edit')->name('country.edit');
     Route::get('countries/show',          'CountryController@show')->name('countries.show');
     Route::post('country/showid',         'CountryController@showid')->name('country.showid');
-    Route::post('country/delete',         'CountryController@delete')->name('country.destroy');
+    Route::post('country/delete',         'CountryController@delete')->name('country.delete');
 
     //Departaments
     Route::post('departament/create',     'DepartamentController@create')->name('departament.create');
@@ -72,9 +89,4 @@ Route::post('logout',               'LoginController@logout')->name('logout');
     Route::post('municipality/delete',     'MunicipalityController@delete')->name('municipality.destroy');
 
     //Zones
-    Route::post('zone/create',     'ZoneController@create')->name('zone.create');
-    Route::post('zone/edit',       'ZoneController@edit')->name('zone.edit');
-    Route::get('zones/show',       'ZoneController@show')->name('zones.show');
-    Route::post('zone/showid',     'ZoneController@showid')->name('zone.showid');
-    Route::post('zone/delete',     'ZoneController@delete')->name('zone.destroy');
-
+    */

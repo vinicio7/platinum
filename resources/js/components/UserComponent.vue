@@ -1,7 +1,7 @@
 <template>
     <div class="container container-Data" >
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-left: 500px;background-color: transparent;padding: 0px">
-            <div class="modal-dialog modal-center" role="document" align="center" style="margin-top: 0px">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div class="modal-dialog modal-center modal-lg" role="document" align="center">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear usuario</h5>
@@ -14,51 +14,109 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     <label>Nombre</label>
                                     <input v-model="name" type="text" class="form-control">
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Telefono</label>
-                                    <input v-model="phone" type="text" class="form-control">
+                                <div class="col-md-4">
+                                    <label for="rol">Rol</label>
+                                    <select class="form-control" v-model="rol" v-on:change="selectTipo()">
+                                        <option disabled value="">Seleccione una opcion</option>
+                                        <option v-for="rol in roles" :value="rol.rol_id" >{{ rol.name }}</option>
+                                    </select>
                                 </div>  
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <label>Usuario</label>
+                                    <input v-model="user" type="text" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Password</label>
+                                    <input v-model="password" type="text" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Correo</label>
+                                    <input v-model="email" type="text" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Telefono</label>
+                                    <input v-model="phone" type="number" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
                                     <label>Direccion</label>
-                                     <input v-model="adress" type="text" class="form-control">
+                                    <input v-model="adress" type="text" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Genero</label>
+                                    <select v-model="gender" class="form-control">
+                                      <option disabled value="">Seleccione una opcion</option>
+                                      <option value="0">Hombre</option>
+                                      <option value="1">Mujer</option>
+                                      <option value="2">Otro</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Latitud</label>
-                                    <input v-model="latitude" type="text" class="form-control">
+                                <div class="col-md-4">
+                                    <label>DPI</label>
+                                    <input v-model="document_id" type="number" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Nacimiento</label>
+                                    <input v-model="birthdate" type="date" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Estado civil</label>
+                                    <select v-model="marital_status" class="form-control">
+                                      <option disabled value="">Seleccione una opcion</option>
+                                      <option value="1">Casado/a</option>
+                                      <option value="0">Soltero/a</option>
+                                      <option value="0">Divorciado/a</option>
+                                      <option value="0">Viudo/a</option>
+                                      <option value="0">Otro</option>
+                                    </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <label>Longitud</label>
-                                    <input v-model="longitude" type="text" class="form-control">
+                                <div class="col-md-4">
+                                    <label>Titulo</label>
+                                    <select v-model="title" class="form-control">
+                                      <option disabled value="">Seleccione una opcion</option>
+                                      <option value="1">Sr.</option>
+                                      <option value="2">Sra.</option>
+                                      <option value="3">Mr.</option>
+                                      <option value="4">Lic.</option>
+                                      <option value="5">Ing.</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Departamento</label>
-                                    <input v-model="departament_id" type="number" class="form-control">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Municipio</label>
-                                    <input v-model="municipality_id" type="number" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Logo</label> 
-                                    <input type="file" @change="previewFiles()" multiple>
+                                <div class="col-md-4">
+                                    <label>Facebook</label>
+                                    <input v-model="facebook" type="text" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Twitter</label>
+                                    <input v-model="twitter" type="text" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Instagram</label>
+                                    <input v-model="instagram" type="text" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Whatsapp</label>
+                                    <input v-model="whatsapp" type="number" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Fotografia</label>
+                                    <input type="file" id="picture" ref="myFiles" @change="previewFiles">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Estado</label>
+                                    <select v-model="status" class="form-control">
+                                      <option disabled value="">Seleccione una opcion</option>
+                                      <option value="1" >Activo</option>
+                                      <option value="0">Inactivo</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button v-if="update == 0" @click="saveData()" class="btn btn-success">Añadir</button>
+                        <button v-if="update == 0" @click="saveData()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Añadir</button>
                         <button v-if="update != 0" @click="updateData()" class="btn btn-warning">Actualizar</button>
                         <button v-if="update != 0" @click="clearFields()" class="btn">Atrás</button>
                     </div>
@@ -66,16 +124,11 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #28292d;border-color: #77a62e;">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
           + Crear usuario
         </button>
         <div class="row" style="margin-top: 10px">
-            <div class="col-md-12">
-                <data-table
-                    :columns="columns"
-                    url="/api/cinemas" ref="myTable" name="myTable" class="datatable">
-                </data-table>
-            </div>
+            
         </div>
     </div>
 </template>
@@ -87,97 +140,29 @@
     export default {
         data() {
             return {
-                cinema_id:"",
+                user_id:"",
                 name:"",
-                logo:"",
-                adress:"",
-                phone:"",
-                latitude:0,
-                longitude:0,
-                departament_id:0,
-                municipality_id:0,
-                status:0,
-                update:0, 
+                account:"",
+                status:"",
+                rol:[],
+                whatsapp:'',
+                instagram:'',
+                twitter:'',
+                email:'',
+                facebook:'',
+                title:'',
+                birthdate:'',
+                document_id:'',
+                gender:'',
+                password:'',
+                phone:'',
+                adress:'',
+                marital_status:'',
+                user:'',
+                roles:[],
+                files:null,
                 arrayData:[],
-                columns: [
-                    {
-                        label: 'Id',
-                        name: 'cinema_id',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Nombre',
-                        name: 'name',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Logo',
-                        name: 'logo',
-                        orderable: false,
-                        component: ImageComponent,
-                    },
-                    {
-                        label: 'Telefono',
-                        name: 'phone',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Direccion',
-                        name: 'adress',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Departamento',
-                        name: 'departament.name',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Municipio',
-                        name: 'municipality.name',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Latitud',
-                        name: 'latitude',
-                        orderable: false,
-                    },
-                    {
-                        label: 'Longitud',
-                        name: 'longitude',
-                        orderable: false,
-                    },
-                    {
-                        label: 'Estado',
-                        name: 'status',
-                        orderable: false,
-                    },
-                    {
-                        label: 'Editar',
-                        name: 'Editar',
-                        orderable: false,
-                        classes: { 
-                            'btn': true,
-                            'btn-primary': true,
-                            'btn-sm': true,
-                        },
-                        event: "click",
-                        handler: this.loadFieldsUpdate,
-                        component: EditButton, 
-                    },
-                    {
-                        label: 'Eliminar',
-                        name: 'Eliminar',
-                        orderable: false,
-                        classes: { 
-                            'btn': true,
-                            'btn-danger': true,
-                            'btn-sm': true,
-                        },
-                        event: "click",
-                        handler: this.deleteData,
-                        component: DeleteButton, 
-                    },
-                ]
+                update:0,
             }
         },
         components: {
@@ -185,31 +170,50 @@
             DeleteButton,
             ImageComponent
         },
+         mounted: function() {
+            let me = this;
+            let url = '/api/roles' 
+            axios.get(url,{}).then(function (response) {
+                console.log(response.data.records);
+                me.roles = response.data.records;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });  
+        },
         methods:{
-            getData(){
-                this.$refs.myTable.getData();
-            },
             saveData(){
                 let me =this;
-                let url = '/api/cinemas' 
-                axios.post(url,{ 
-                    'name': this.name,
-                    'logo': this.logo,
-                    'phone': this.phone,
-                    'adress': this.adress,
-                    'latitude': this.latitude,
-                    'longitude': this.longitude,
-                    'departament_id': this.departament_id,
-                    'municipality_id': this.municipality_id,
-                    'status': this.status,
-                }).then(function (response) {
-                    console.log(response);
+                let url = '/api/users/create' 
+                const formData  = new FormData()
+                console.log(this.files)
+                formData.append('file', this.files, this.files.name)
+                formData.append('name',this.name)
+                formData.append('user',this.user)
+                formData.append('rol',this.rol)
+                formData.append('password',this.password)
+                formData.append('email',this.email)
+                formData.append('phone',this.phone)
+                formData.append('adress',this.adress)
+                formData.append('gender',this.gender)
+                formData.append('document_id',this.document_id)
+                formData.append('birthdate',this.birthdate)
+                formData.append('marital_status',this.marital_status)
+                formData.append('title',this.title)
+                formData.append('facebook',this.facebook)
+                formData.append('instagram',this.instagram)
+                formData.append('whatsapp',this.whatsapp)
+                formData.append('twitter',this.twitter)
+                formData.append('status',this.status)
+
+                axios.post(url,formData,{}).then(function (response) {
+                    console.log(response.data.records);
                     if (response.data.result == false) {
-                        alert(response.data.message);
+                        location.reload();
                     }else{
-                        me.getData();
                         me.clearFields();
                         $('#exampleModal').modal('hide');
+                        location.reload();
                     }
                 })
                 .catch(function (error) {
@@ -220,19 +224,14 @@
             },
             updateData(){
                 let me = this;
-                axios.put('/api/cinemas/'+me.cinema_id,{
-                    'name': me.name,
-                    'logo': me.logo,
-                    'phone': me.phone,
-                    'adress': me.adress,
-                    'departament_id': me.departament_id,
-                    'municipality_id': me.municipality_id,
-                    'latitude': me.latitude,
-                    'longitude': me.longitude,
-                    'status': me.status,
+                let url = '/api/users/edit' 
+                axios.post(url,{ 
+                    'user_id': this.user_id,
+                    'name': this.name,
+                    'account': this.account,
+                    'status': this.status,
                 }).then(function (response) {
                     $('#exampleModal').modal('hide');
-                   me.getData();
                    me.clearFields();
                 })
                 .catch(function (error) {
@@ -241,20 +240,16 @@
             },
             loadFieldsUpdate(data){ 
                 $('#exampleModal').modal('show');
-                this.update = data.cinema_id
+                this.update = data.user_id
                 let me =this;
-                let url = '/api/cinemas/'+this.update;
-                axios.get(url).then(function (response) {
-                    me.cinema_id= response.data.records.cinema_id;
+                let url = '/api/users/showid/';
+                axios.post(url,{ 
+                    'user_id': this.update,
+                }).then(function (response) {
+                    me.user_id= response.data.records.user_id;
                     me.name= response.data.records.name;
-                    me.logo= response.data.records.logo;
-                    me.phone= response.data.records.phone;
-                    me.adress= response.data.records.adress;
-                    me.latitude= response.data.records.latitude;
-                    me.longitude= response.data.records.longitude;
+                    me.account= response.data.records.account;
                     me.status= response.data.records.status;
-                    me.departament_id= response.data.records.departament_id;
-                    me.municipality_id= response.data.records.municipality_id;
 
                 })
                 .catch(function (error) {
@@ -262,39 +257,53 @@
                 }); 
             },
             deleteData(data){
-                let me =this;
-                let Data_id = data.cinema_id
+                let url = '/api/users/delete' 
+                let me = this;
+                let Data_id = data.user_id
+                console.log(Data_id);
                 if (confirm('¿Seguro que deseas eliminar este registro?')) {
-                    axios.delete('/api/cinemas/'+Data_id
-                    ).then(function (response) {
-                        me.getData();
+                    axios.post(url,{ 
+                    'user_id': Data_id,
+                    }).then(function (response) {
+                        console.log(response);
                     })
                     .catch(function (error) {
                         console.log(error);
                     }); 
                 }
             },
+             selectTipo(tipo){
+                this.titulos = [];
+                this.valores = [];
+                this.formulario = [];
+            },
             clearFields(){
-                this.cinema_id = "";
+                this.user_id = "";
                 this.name = "";
-                this.logo = "";
-                this.phone = "";
-                this.adress = "";
-                this.departament_id = "";
-                this.municipality_id = "";
-                this.latitude = "";
-                this.longitude = "";
+                this.account = "";
                 this.status = "";
                 this.update = 0;
                 $('#exampleModal').modal('hide');
-            }
-        },
-        previewFiles(files){
-          console.log(files)
-        },
-        mounted() {
-            console.log("Test");
-           this.getData();
+            },
+            previewFiles(event) {
+                this.files = this.$refs.myFiles.files[0];
+           }
         }
     }
+   $(document).on('click', '.btn-delete', function(event){
+        let url = '/api/users/delete' 
+        let Data_id = event.target.id
+        console.log(Data_id);
+        if (confirm('¿Seguro que deseas eliminar este registro?')) {
+            axios.post(url,{ 
+            'user_id': Data_id,
+            }).then(function (response) {
+                console.log(response);
+                location.reload();
+            })
+            .catch(function (error) {
+                console.log(error);
+            }); 
+        }
+    });
 </script>
