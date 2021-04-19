@@ -36,6 +36,7 @@ class CreateUsers extends Migration
             $table->string('youtube')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('picture')->nullable();
+            $table->integer('status')->nullable();
             $table->string('api_token', 60);
             $table->timestamps();
         });

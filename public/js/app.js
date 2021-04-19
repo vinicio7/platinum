@@ -1845,11 +1845,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ImageComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageComponent.vue */ "./resources/js/components/ImageComponent.vue");
-/* harmony import */ var _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditButton.vue */ "./resources/js/components/EditButton.vue");
-/* harmony import */ var _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteButton.vue */ "./resources/js/components/DeleteButton.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1902,11 +1899,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-
-
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1916,71 +1908,58 @@ __webpack_require__.r(__webpack_exports__);
       account: "",
       status: "",
       arrayData: [],
-      update: 0,
-      columns: [{
-        label: 'Id',
-        name: 'bank_id',
-        orderable: true
-      }, {
-        label: 'Nombre',
-        name: 'name',
-        orderable: true
-      }, {
-        label: 'Cuenta',
-        name: 'account',
-        orderable: false
-      }, {
-        label: 'Estado',
-        name: 'status',
-        orderable: true
-      }, {
-        label: 'Editar',
-        name: 'Editar',
-        orderable: false,
-        classes: {
-          'btn': true,
-          'btn-primary': true,
-          'btn-sm': true
-        },
-        event: "click",
-        handler: this.loadFieldsUpdate,
-        component: _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__.default
-      }, {
-        label: 'Eliminar',
-        name: 'Eliminar',
-        orderable: false,
-        classes: {
-          'btn': true,
-          'btn-danger': true,
-          'btn-sm': true
-        },
-        event: "click",
-        handler: this.deleteData,
-        component: _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__.default
-      }]
+      update: 0
     };
   },
-  components: {
-    EditButton: _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    DeleteButton: _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    ImageComponent: _ImageComponent_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  mounted: function mounted() {
+    var _this = this;
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.table-responsive').on('click', function (evt) {
+      evt.stopImmediatePropagation();
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].innerText == 'Editar') {
+        _this.loadFieldsUpdate(jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].id);
+      }
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].innerText == 'Eliminar') {
+        var url = '/api/banks/delete';
+        var Data_id = event.target.id;
+        console.log(Data_id);
+
+        if (confirm('¿Seguro que deseas eliminar este registro?')) {
+          axios.post(url, {
+            'bank_id': Data_id
+          }).then(function (response) {
+            console.log(response);
+            location.reload();
+          })["catch"](function (error) {
+            console.log(error);
+          });
+        }
+      }
+    });
   },
   methods: {
     saveData: function saveData() {
       var me = this;
       var url = '/api/banks/create';
-      axios.post(url, {
-        'name': this.name,
-        'account': this.account,
-        'status': this.status
-      }).then(function (response) {
-        console.log(response.data.message);
+      var formData = new FormData();
+
+      if (this.files) {
+        formData.append('file', this.files, this.files.name);
+      }
+
+      formData.append('name', this.name);
+      formData.append('status', this.status);
+      formData.append('account', this.account);
+      axios.post(url, formData, {}).then(function (response) {
+        console.log(response.data.records);
 
         if (response.data.result == false) {
           location.reload();
         } else {
           me.clearFields();
-          jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
           location.reload();
         }
       })["catch"](function (error) {
@@ -1989,23 +1968,31 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateData: function updateData() {
+      console.log(this.update);
       var me = this;
       var url = '/api/banks/edit';
-      axios.post(url, {
-        'bank_id': this.bank_id,
-        'name': this.name,
-        'account': this.account,
-        'status': this.status
-      }).then(function (response) {
-        jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+      var formData = new FormData();
+      console.log(this.files);
+
+      if (this.files) {
+        formData.append('file', this.files, this.files.name);
+      }
+
+      formData.append('bank_id', this.update);
+      formData.append('name', this.name);
+      formData.append('status', this.status);
+      formData.append('account', this.account);
+      axios.post(url, formData, {}).then(function (response) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
         me.clearFields();
+        location.reload();
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    loadFieldsUpdate: function loadFieldsUpdate(data) {
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('show');
-      this.update = data.bank_id;
+    loadFieldsUpdate: function loadFieldsUpdate(id) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('show');
+      this.update = id;
       var me = this;
       var url = '/api/banks/showid/';
       axios.post(url, {
@@ -2013,8 +2000,8 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         me.bank_id = response.data.records.bank_id;
         me.name = response.data.records.name;
-        me.account = response.data.records.account;
         me.status = response.data.records.status;
+        me.account = response.data.records.account;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2035,17 +2022,22 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
+    selectTipo: function selectTipo(tipo) {
+      this.titulos = [];
+      this.valores = [];
+      this.formulario = [];
+    },
     clearFields: function clearFields() {
       this.bank_id = "";
       this.name = "";
       this.account = "";
       this.status = "";
       this.update = 0;
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
+    },
+    previewFiles: function previewFiles(event) {
+      this.files = this.$refs.myFiles.files[0];
     }
-  },
-  previewFiles: function previewFiles(files) {
-    console.log(files);
   }
 });
 
@@ -2378,11 +2370,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ImageComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageComponent.vue */ "./resources/js/components/ImageComponent.vue");
-/* harmony import */ var _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditButton.vue */ "./resources/js/components/EditButton.vue");
-/* harmony import */ var _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteButton.vue */ "./resources/js/components/DeleteButton.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2431,79 +2420,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-
-
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      region_id: "",
+      regions_id: "",
       name: "",
       status: "",
       arrayData: [],
-      update: 0,
-      columns: [{
-        label: 'Id',
-        name: 'region_id',
-        orderable: true
-      }, {
-        label: 'Nombre',
-        name: 'name',
-        orderable: true
-      }, {
-        label: 'Estado',
-        name: 'status',
-        orderable: true
-      }, {
-        label: 'Editar',
-        name: 'Editar',
-        orderable: false,
-        classes: {
-          'btn': true,
-          'btn-primary': true,
-          'btn-sm': true
-        },
-        event: "click",
-        handler: this.loadFieldsUpdate,
-        component: _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__.default
-      }, {
-        label: 'Eliminar',
-        name: 'Eliminar',
-        orderable: false,
-        classes: {
-          'btn': true,
-          'btn-danger': true,
-          'btn-sm': true
-        },
-        event: "click",
-        handler: this.deleteData,
-        component: _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__.default
-      }]
+      update: 0
     };
   },
-  components: {
-    EditButton: _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    DeleteButton: _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    ImageComponent: _ImageComponent_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  mounted: function mounted() {
+    var _this = this;
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.table-responsive').on('click', function (evt) {
+      evt.stopImmediatePropagation();
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].innerText == 'Editar') {
+        _this.loadFieldsUpdate(jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].id);
+      }
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].innerText == 'Eliminar') {
+        var url = '/api/regions/delete';
+        var Data_id = event.target.id;
+        console.log(Data_id);
+
+        if (confirm('¿Seguro que deseas eliminar este registro?')) {
+          axios.post(url, {
+            'regions_id': Data_id
+          }).then(function (response) {
+            console.log(response);
+            location.reload();
+          })["catch"](function (error) {
+            console.log(error);
+          });
+        }
+      }
+    });
   },
   methods: {
     saveData: function saveData() {
       var me = this;
       var url = '/api/regions/create';
-      axios.post(url, {
-        'name': this.name,
-        'status': this.status
-      }).then(function (response) {
-        console.log(response.data.message);
+      var formData = new FormData();
+
+      if (this.files) {
+        formData.append('file', this.files, this.files.name);
+      }
+
+      formData.append('name', this.name);
+      formData.append('status', this.status);
+      axios.post(url, formData, {}).then(function (response) {
+        console.log(response.data.records);
 
         if (response.data.result == false) {
           location.reload();
         } else {
           me.clearFields();
-          jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
           location.reload();
         }
       })["catch"](function (error) {
@@ -2512,28 +2487,36 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateData: function updateData() {
+      console.log(this.update);
       var me = this;
       var url = '/api/regions/edit';
-      axios.post(url, {
-        'region_id': this.region_id,
-        'name': this.name,
-        'status': this.status
-      }).then(function (response) {
-        jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+      var formData = new FormData();
+      console.log(this.files);
+
+      if (this.files) {
+        formData.append('file', this.files, this.files.name);
+      }
+
+      formData.append('regions_id', this.update);
+      formData.append('name', this.name);
+      formData.append('status', this.status);
+      axios.post(url, formData, {}).then(function (response) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
         me.clearFields();
+        location.reload();
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    loadFieldsUpdate: function loadFieldsUpdate(data) {
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('show');
-      this.update = data.region_id;
+    loadFieldsUpdate: function loadFieldsUpdate(id) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('show');
+      this.update = id;
       var me = this;
       var url = '/api/regions/showid/';
       axios.post(url, {
-        'region_id': this.update
+        'regions_id': this.update
       }).then(function (response) {
-        me.region_id = response.data.records.region_id;
+        me.regions_id = response.data.records.regions_id;
         me.name = response.data.records.name;
         me.status = response.data.records.status;
       })["catch"](function (error) {
@@ -2543,12 +2526,12 @@ __webpack_require__.r(__webpack_exports__);
     deleteData: function deleteData(data) {
       var url = '/api/regions/delete';
       var me = this;
-      var Data_id = data.region_id;
+      var Data_id = data.regions_id;
       console.log(Data_id);
 
       if (confirm('¿Seguro que deseas eliminar este registro?')) {
         axios.post(url, {
-          'region_id': Data_id
+          'regions_id': Data_id
         }).then(function (response) {
           console.log(response);
         })["catch"](function (error) {
@@ -2556,16 +2539,22 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
+    selectTipo: function selectTipo(tipo) {
+      this.titulos = [];
+      this.valores = [];
+      this.formulario = [];
+    },
     clearFields: function clearFields() {
-      this.region_id = "";
+      this.regions_id = "";
       this.name = "";
+      this.account = "";
       this.status = "";
       this.update = 0;
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
+    },
+    previewFiles: function previewFiles(event) {
+      this.files = this.$refs.myFiles.files[0];
     }
-  },
-  previewFiles: function previewFiles(files) {
-    console.log(files);
   }
 });
 
@@ -2582,11 +2571,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ImageComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageComponent.vue */ "./resources/js/components/ImageComponent.vue");
-/* harmony import */ var _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditButton.vue */ "./resources/js/components/EditButton.vue");
-/* harmony import */ var _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteButton.vue */ "./resources/js/components/DeleteButton.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2721,9 +2707,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2753,12 +2736,9 @@ __webpack_require__.r(__webpack_exports__);
       update: 0
     };
   },
-  components: {
-    EditButton: _EditButton_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    DeleteButton: _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    ImageComponent: _ImageComponent_vue__WEBPACK_IMPORTED_MODULE_0__.default
-  },
   mounted: function mounted() {
+    var _this = this;
+
     var me = this;
     var url = '/api/roles';
     axios.get(url, {}).then(function (response) {
@@ -2767,14 +2747,41 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log(error);
     });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.table-responsive').on('click', function (evt) {
+      evt.stopImmediatePropagation();
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].innerText == 'Editar') {
+        _this.loadFieldsUpdate(jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].id);
+      }
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(evt.target)[0].innerText == 'Eliminar') {
+        var _url = '/api/users/delete';
+        var Data_id = event.target.id;
+        console.log(Data_id);
+
+        if (confirm('¿Seguro que deseas eliminar este registro?')) {
+          axios.post(_url, {
+            'user_id': Data_id
+          }).then(function (response) {
+            console.log(response);
+            location.reload();
+          })["catch"](function (error) {
+            console.log(error);
+          });
+        }
+      }
+    });
   },
   methods: {
     saveData: function saveData() {
       var me = this;
       var url = '/api/users/create';
       var formData = new FormData();
-      console.log(this.files);
-      formData.append('file', this.files, this.files.name);
+
+      if (this.files) {
+        formData.append('file', this.files, this.files.name);
+      }
+
       formData.append('name', this.name);
       formData.append('user', this.user);
       formData.append('rol', this.rol);
@@ -2799,7 +2806,7 @@ __webpack_require__.r(__webpack_exports__);
           location.reload();
         } else {
           me.clearFields();
-          jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
           location.reload();
         }
       })["catch"](function (error) {
@@ -2808,23 +2815,45 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateData: function updateData() {
+      console.log(this.update);
       var me = this;
       var url = '/api/users/edit';
-      axios.post(url, {
-        'user_id': this.user_id,
-        'name': this.name,
-        'account': this.account,
-        'status': this.status
-      }).then(function (response) {
-        jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+      var formData = new FormData();
+      console.log(this.files);
+
+      if (this.files) {
+        formData.append('file', this.files, this.files.name);
+      }
+
+      formData.append('user_id', this.update);
+      formData.append('name', this.name);
+      formData.append('user', this.user);
+      formData.append('rol', this.rol);
+      formData.append('password', this.password);
+      formData.append('email', this.email);
+      formData.append('phone', this.phone);
+      formData.append('adress', this.adress);
+      formData.append('gender', this.gender);
+      formData.append('document_id', this.document_id);
+      formData.append('birthdate', this.birthdate);
+      formData.append('marital_status', this.marital_status);
+      formData.append('title', this.title);
+      formData.append('facebook', this.facebook);
+      formData.append('instagram', this.instagram);
+      formData.append('whatsapp', this.whatsapp);
+      formData.append('twitter', this.twitter);
+      formData.append('status', this.status);
+      axios.post(url, formData, {}).then(function (response) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
         me.clearFields();
+        location.reload();
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    loadFieldsUpdate: function loadFieldsUpdate(data) {
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('show');
-      this.update = data.user_id;
+    loadFieldsUpdate: function loadFieldsUpdate(id) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('show');
+      this.update = id;
       var me = this;
       var url = '/api/users/showid/';
       axios.post(url, {
@@ -2832,7 +2861,21 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         me.user_id = response.data.records.user_id;
         me.name = response.data.records.name;
-        me.account = response.data.records.account;
+        me.rol = response.data.records.rol_id;
+        me.user = response.data.records.username;
+        me.password = response.data.records.password;
+        me.email = response.data.records.email;
+        me.phone = response.data.records.phone;
+        me.adress = response.data.records.adress;
+        me.gender = response.data.records.gender;
+        me.document_id = response.data.records.document_id;
+        me.birthdate = response.data.records.birthdate;
+        me.marital_status = response.data.records.marital_status;
+        me.title = response.data.records.title;
+        me.facebook = response.data.records.facebook;
+        me.twitter = response.data.records.twitter;
+        me.whatsapp = response.data.records.whatsapp;
+        me.instagram = response.data.records.instagram;
         me.status = response.data.records.status;
       })["catch"](function (error) {
         console.log(error);
@@ -2865,27 +2908,11 @@ __webpack_require__.r(__webpack_exports__);
       this.account = "";
       this.status = "";
       this.update = 0;
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#exampleModal').modal('hide');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#exampleModal').modal('hide');
     },
     previewFiles: function previewFiles(event) {
       this.files = this.$refs.myFiles.files[0];
     }
-  }
-});
-jquery__WEBPACK_IMPORTED_MODULE_3___default()(document).on('click', '.btn-delete', function (event) {
-  var url = '/api/users/delete';
-  var Data_id = event.target.id;
-  console.log(Data_id);
-
-  if (confirm('¿Seguro que deseas eliminar este registro?')) {
-    axios.post(url, {
-      'user_id': Data_id
-    }).then(function (response) {
-      console.log(response);
-      location.reload();
-    })["catch"](function (error) {
-      console.log(error);
-    });
   }
 });
 
@@ -3119,9 +3146,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 Vue.component('data-table', __webpack_require__(/*! ./components/DataTable.vue */ "./resources/js/components/DataTable.vue").default); //Vue.component('propierties-component',  require('./components/PropiertieComponent.vue').default);
 
-Vue.component('regions-component', __webpack_require__(/*! ./components/RegionComponent.vue */ "./resources/js/components/RegionComponent.vue").default);
+Vue.component('region-component', __webpack_require__(/*! ./components/RegionComponent.vue */ "./resources/js/components/RegionComponent.vue").default);
 Vue.component('zones-component', __webpack_require__(/*! ./components/ZoneComponent.vue */ "./resources/js/components/ZoneComponent.vue").default);
-Vue.component('banks-component', __webpack_require__(/*! ./components/BankComponent.vue */ "./resources/js/components/BankComponent.vue").default); //Vue.component('history-component', 		require('./components/HistoryComponent.vue').default);
+Vue.component('bank-component', __webpack_require__(/*! ./components/BankComponent.vue */ "./resources/js/components/BankComponent.vue").default); //Vue.component('history-component', 		require('./components/HistoryComponent.vue').default);
 //Vue.component('roles-component', 		require('./components/RoleComponent.vue').default);
 
 Vue.component('user-component', __webpack_require__(/*! ./components/UserComponent.vue */ "./resources/js/components/UserComponent.vue").default); //Vue.use(DataTable);
@@ -56932,7 +56959,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "modal-dialog modal-center",
+            staticClass: "modal-dialog modal-center modal-lg",
             attrs: { role: "document", align: "center" }
           },
           [
@@ -56968,7 +56995,7 @@ var render = function() {
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
                       _c("label", [_vm._v("Nombre")]),
                       _vm._v(" "),
                       _c("input", {
@@ -56992,11 +57019,9 @@ var render = function() {
                           }
                         }
                       })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-6" }, [
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
                       _c("label", [_vm._v("Cuenta")]),
                       _vm._v(" "),
                       _c("input", {
@@ -57009,7 +57034,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number" },
+                        attrs: { type: "text" },
                         domProps: { value: _vm.account },
                         on: {
                           input: function($event) {
@@ -57022,7 +57047,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-6" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
                       _c("label", [_vm._v("Estado")]),
                       _vm._v(" "),
                       _c(
@@ -57381,7 +57406,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "modal-dialog modal-center",
+            staticClass: "modal-dialog modal-center modal-lg",
             attrs: { role: "document", align: "center" }
           },
           [
@@ -57417,7 +57442,7 @@ var render = function() {
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
                       _c("label", [_vm._v("Nombre")]),
                       _vm._v(" "),
                       _c("input", {
@@ -57441,11 +57466,9 @@ var render = function() {
                           }
                         }
                       })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-6" }, [
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
                       _c("label", [_vm._v("Estado")]),
                       _vm._v(" "),
                       _c(

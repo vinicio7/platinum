@@ -1,7 +1,7 @@
 <template>
     <div class="container container-Data" >
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-            <div class="modal-dialog modal-center" role="document" align="center">
+            <div class="modal-dialog modal-center modal-lg" role="document" align="center">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear banco</h5>
@@ -14,21 +14,19 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     <label>Nombre</label>
                                     <input v-model="name" type="text" class="form-control">
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
+                                 <div class="col-md-4">
                                     <label>Cuenta</label>
-                                    <input v-model="account" type="number" class="form-control">
-                                </div>  
-                                <div class="col-md-6">
+                                    <input v-model="account" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4">
                                     <label>Estado</label>
                                     <select v-model="status" class="form-control">
                                       <option disabled value="">Seleccione una opcion</option>
-                                      <option value="1">Activo</option>
+                                      <option value="1" >Activo</option>
                                       <option value="0">Inactivo</option>
                                     </select>
                                 </div>
@@ -53,9 +51,6 @@
     </div>
 </template>
 <script>
-    import ImageComponent from './ImageComponent.vue';
-    import EditButton from './EditButton.vue';
-    import DeleteButton from './DeleteButton.vue';
     import $ from 'jquery';
     export default {
         data() {
@@ -66,71 +61,45 @@
                 status:"",
                 arrayData:[],
                 update:0,
-                columns: [
-                    {
-                        label: 'Id',
-                        name: 'bank_id',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Nombre',
-                        name: 'name',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Cuenta',
-                        name: 'account',
-                        orderable: false,
-                    },
-                    {
-                        label: 'Estado',
-                        name: 'status',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Editar',
-                        name: 'Editar',
-                        orderable: false,
-                        classes: { 
-                            'btn': true,
-                            'btn-primary': true,
-                            'btn-sm': true,
-                        },
-                        event: "click",
-                        handler: this.loadFieldsUpdate,
-                        component: EditButton, 
-                    },
-                    {
-                        label: 'Eliminar',
-                        name: 'Eliminar',
-                        orderable: false,
-                        classes: { 
-                            'btn': true,
-                            'btn-danger': true,
-                            'btn-sm': true,
-                        },
-                        event: "click",
-                        handler: this.deleteData,
-                        component: DeleteButton, 
-                    },
-                ]
             }
         },
-        components: {
-            EditButton,
-            DeleteButton,
-            ImageComponent
+        mounted: function() {
+            $('.table-responsive').on('click', (evt) => {
+                evt.stopImmediatePropagation();
+               if ($(evt.target)[0].innerText == 'Editar') {
+                 this.loadFieldsUpdate($(evt.target)[0].id); 
+               }
+               if($(evt.target)[0].innerText == 'Eliminar'){
+                    let url = '/api/banks/delete' 
+                    let Data_id = event.target.id
+                    console.log(Data_id);
+                    if (confirm('¿Seguro que deseas eliminar este registro?')) {
+                        axios.post(url,{ 
+                        'bank_id': Data_id,
+                        }).then(function (response) {
+                            console.log(response);
+                            location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        }); 
+                    }
+               }
+            });
         },
         methods:{
             saveData(){
                 let me =this;
                 let url = '/api/banks/create' 
-                axios.post(url,{ 
-                    'name': this.name,
-                    'account': this.account,
-                    'status': this.status,
-                }).then(function (response) {
-                    console.log(response.data.message);
+                const formData  = new FormData()
+                if(this.files){
+                    formData.append('file', this.files, this.files.name)
+                }
+                formData.append('name',this.name)
+                formData.append('status',this.status)
+                formData.append('account',this.account)
+                axios.post(url,formData,{}).then(function (response) {
+                    console.log(response.data.records);
                     if (response.data.result == false) {
                         location.reload();
                     }else{
@@ -143,36 +112,41 @@
                     alert(error);
                     console.log(error);
                 });   
-
             },
             updateData(){
-                let me = this;
+                console.log(this.update);
+                let me  = this;
                 let url = '/api/banks/edit' 
-                axios.post(url,{ 
-                    'bank_id': this.bank_id,
-                    'name': this.name,
-                    'account': this.account,
-                    'status': this.status,
-                }).then(function (response) {
+                const formData  = new FormData()
+                console.log(this.files)
+                if(this.files){
+                   formData.append('file', this.files, this.files.name) 
+                }
+                formData.append('bank_id',this.update)
+                formData.append('name',this.name)
+                formData.append('status',this.status)
+                formData.append('account',this.account)
+                axios.post(url,formData,{}).then(function (response) {
                     $('#exampleModal').modal('hide');
-                   me.clearFields();
+                    me.clearFields();
+                    location.reload();
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             },
-            loadFieldsUpdate(data){ 
+            loadFieldsUpdate(id){ 
                 $('#exampleModal').modal('show');
-                this.update = data.bank_id
+                this.update = id
                 let me =this;
                 let url = '/api/banks/showid/';
                 axios.post(url,{ 
                     'bank_id': this.update,
                 }).then(function (response) {
-                    me.bank_id= response.data.records.bank_id;
-                    me.name= response.data.records.name;
-                    me.account= response.data.records.account;
-                    me.status= response.data.records.status;
+                    me.bank_id          = response.data.records.bank_id;
+                    me.name             = response.data.records.name;
+                    me.status           = response.data.records.status;
+                    me.account           = response.data.records.account;
 
                 })
                 .catch(function (error) {
@@ -195,6 +169,11 @@
                     }); 
                 }
             },
+            selectTipo(tipo){
+                this.titulos = [];
+                this.valores = [];
+                this.formulario = [];
+            },
             clearFields(){
                 this.bank_id = "";
                 this.name = "";
@@ -202,10 +181,10 @@
                 this.status = "";
                 this.update = 0;
                 $('#exampleModal').modal('hide');
-            }
-        },
-        previewFiles(files){
-          console.log(files)
-        },
-    }
+            },
+            previewFiles(event) {
+                this.files = this.$refs.myFiles.files[0];
+           },
+        }
+    };
 </script>

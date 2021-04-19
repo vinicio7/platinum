@@ -133,9 +133,6 @@
     </div>
 </template>
 <script>
-    import ImageComponent from './ImageComponent.vue';
-    import EditButton from './EditButton.vue';
-    import DeleteButton from './DeleteButton.vue';
     import $ from 'jquery';
     export default {
         data() {
@@ -165,12 +162,7 @@
                 update:0,
             }
         },
-        components: {
-            EditButton,
-            DeleteButton,
-            ImageComponent
-        },
-         mounted: function() {
+        mounted: function() {
             let me = this;
             let url = '/api/roles' 
             axios.get(url,{}).then(function (response) {
@@ -180,14 +172,37 @@
             .catch(function (error) {
                 console.log(error);
             });  
+            $('.table-responsive').on('click', (evt) => {
+                evt.stopImmediatePropagation();
+               if ($(evt.target)[0].innerText == 'Editar') {
+                 this.loadFieldsUpdate($(evt.target)[0].id); 
+               }
+               if($(evt.target)[0].innerText == 'Eliminar'){
+                    let url = '/api/users/delete' 
+                    let Data_id = event.target.id
+                    console.log(Data_id);
+                    if (confirm('¿Seguro que deseas eliminar este registro?')) {
+                        axios.post(url,{ 
+                        'user_id': Data_id,
+                        }).then(function (response) {
+                            console.log(response);
+                            location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        }); 
+                    }
+               }
+            });
         },
         methods:{
             saveData(){
                 let me =this;
                 let url = '/api/users/create' 
                 const formData  = new FormData()
-                console.log(this.files)
-                formData.append('file', this.files, this.files.name)
+                if(this.files){
+                    formData.append('file', this.files, this.files.name)
+                }
                 formData.append('name',this.name)
                 formData.append('user',this.user)
                 formData.append('rol',this.rol)
@@ -220,36 +235,69 @@
                     alert(error);
                     console.log(error);
                 });   
-
             },
             updateData(){
-                let me = this;
+                console.log(this.update);
+                let me  = this;
                 let url = '/api/users/edit' 
-                axios.post(url,{ 
-                    'user_id': this.user_id,
-                    'name': this.name,
-                    'account': this.account,
-                    'status': this.status,
-                }).then(function (response) {
+                const formData  = new FormData()
+                console.log(this.files)
+                if(this.files){
+                   formData.append('file', this.files, this.files.name) 
+               }
+                formData.append('user_id',this.update)
+                formData.append('name',this.name)
+                formData.append('user',this.user)
+                formData.append('rol',this.rol)
+                formData.append('password',this.password)
+                formData.append('email',this.email)
+                formData.append('phone',this.phone)
+                formData.append('adress',this.adress)
+                formData.append('gender',this.gender)
+                formData.append('document_id',this.document_id)
+                formData.append('birthdate',this.birthdate)
+                formData.append('marital_status',this.marital_status)
+                formData.append('title',this.title)
+                formData.append('facebook',this.facebook)
+                formData.append('instagram',this.instagram)
+                formData.append('whatsapp',this.whatsapp)
+                formData.append('twitter',this.twitter)
+                formData.append('status',this.status)
+                axios.post(url,formData,{}).then(function (response) {
                     $('#exampleModal').modal('hide');
-                   me.clearFields();
+                    me.clearFields();
+                    location.reload();
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             },
-            loadFieldsUpdate(data){ 
+            loadFieldsUpdate(id){ 
                 $('#exampleModal').modal('show');
-                this.update = data.user_id
+                this.update = id
                 let me =this;
                 let url = '/api/users/showid/';
                 axios.post(url,{ 
                     'user_id': this.update,
                 }).then(function (response) {
-                    me.user_id= response.data.records.user_id;
-                    me.name= response.data.records.name;
-                    me.account= response.data.records.account;
-                    me.status= response.data.records.status;
+                    me.user_id          = response.data.records.user_id;
+                    me.name             = response.data.records.name;
+                    me.rol              = response.data.records.rol_id;
+                    me.user             = response.data.records.username;
+                    me.password         = response.data.records.password;
+                    me.email            = response.data.records.email;
+                    me.phone            = response.data.records.phone;
+                    me.adress           = response.data.records.adress;
+                    me.gender           = response.data.records.gender;
+                    me.document_id      = response.data.records.document_id;
+                    me.birthdate        = response.data.records.birthdate;
+                    me.marital_status   = response.data.records.marital_status;
+                    me.title            = response.data.records.title;
+                    me.facebook         = response.data.records.facebook;
+                    me.twitter          = response.data.records.twitter;
+                    me.whatsapp         = response.data.records.whatsapp;
+                    me.instagram        = response.data.records.instagram;
+                    me.status           = response.data.records.status;
 
                 })
                 .catch(function (error) {
@@ -272,7 +320,7 @@
                     }); 
                 }
             },
-             selectTipo(tipo){
+            selectTipo(tipo){
                 this.titulos = [];
                 this.valores = [];
                 this.formulario = [];
@@ -287,23 +335,7 @@
             },
             previewFiles(event) {
                 this.files = this.$refs.myFiles.files[0];
-           }
+           },
         }
-    }
-   $(document).on('click', '.btn-delete', function(event){
-        let url = '/api/users/delete' 
-        let Data_id = event.target.id
-        console.log(Data_id);
-        if (confirm('¿Seguro que deseas eliminar este registro?')) {
-            axios.post(url,{ 
-            'user_id': Data_id,
-            }).then(function (response) {
-                console.log(response);
-                location.reload();
-            })
-            .catch(function (error) {
-                console.log(error);
-            }); 
-        }
-    });
+    };
 </script>

@@ -1,4 +1,5 @@
-
+ <script type='text/javascript' src='js/vendor/jquery.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
 @extends('layouts.app')
 
 @section('content')
@@ -121,6 +122,7 @@ span.psw {
                             </a> 
                     <div class="" style="width: 400px;border-color: white">
                         <script>
+
                           @if(Session::has('success'))
                                 toastr.success("{{ Session::get('success') }}");
                           @endif
@@ -140,9 +142,10 @@ span.psw {
                                 toastr.error("{{ Session::get('error') }}");
                           @endif
                         </script>
-                        <form method="POST" action="{{ route('dashboard') }}" class="" autocomplete="new-password">
+                        <form method="POST" action="{{ route('login') }}" class="" autocomplete="new-password">
                             {{ csrf_field() }}
 
+                            <span> test {{ Session::has('error') }}</span>
                             <div class="">
                                 <input type="text" class="sign__input" placeholder="Usuario" id="user" name="user" autocomplete="new-password">
                             </div>

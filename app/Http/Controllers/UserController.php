@@ -14,9 +14,9 @@ use Validator;
 
 class UserController extends Controller
 {
-    public $message     = "";
+    public $message        = "";
     public $result         = false;
-    public $records     = array();
+    public $records        = array();
     public $statusCode     = 200;
     
     public function index()
@@ -42,9 +42,8 @@ class UserController extends Controller
         return datatables()->of( User::get())
             ->addColumn('acciones', function ($record) {
                 return
-                    //"<a href='".route('users.edit',['user'=>$record->user_id])."' class='btn btn-info btn-rounded m-1 text-white'>Editar</a>".
-                    "<a class='btn btn-danger btn-rounded m-1 text-white btn-delete' id='".$record->user_id."'>Eliminar</a>";
-                    //"<a href='".route('users.destroy',['user'=>$record->user_id])."' class='btn btn-danger btn-rounded m-1 text-white'>Eliminar</a>";    
+                    "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Editar</a>".
+                    "<a class='btn btn-danger btn-danger rounded m-1 text-white btn-delete' id='".$record->user_id."'>Eliminar</a>";  
             })
              ->addColumn('rol_label', function ($record) {
                     $rol = Rol::find($record->rol_id);
@@ -120,7 +119,7 @@ class UserController extends Controller
         }
         $this->message = "Usuario creado correctamente";
         $this->result  = true;
-        $this->records = $path;
+        $this->records = $user;
         $response =
             [
                 'message'   => $this->message,
@@ -128,70 +127,82 @@ class UserController extends Controller
                 'records'   => $this->records,
             ];
         return response()->json($response, $this->statusCode);
-
-    }
-
-
-    public function update(Request $request)
-    {
-        $random = Str::random(60);
-        $validate = $request->validate([
-            'rol_id'            => 'required',
-            'name'              => 'required',
-            'username'          => 'required',
-            'password'          => 'required',
-            'email'             => 'required',
-            'phone'             => 'required',
-            'adress'            => 'required',
-            'gender'            => 'required',
-            'document_id'       => 'required',
-            'birthdate'         => 'required',
-            'marital_status'    => 'required',
-            'title'             => 'required',
-            'picture'           => 'required',
-        ]);
-        $users = User::find($request->user_id);
-        $users->rol_id          = $validate['rol_id'];
-        $users->name            = $validate['name'];
-        $users->username        = $validate['username'];
-        $users->password        = bcrypt($validate['password']);
-        $users->email           = $validate['email'];
-        $users->phone           = $validate['phone'];
-        $users->adress          = $validate['adress'];
-        $users->gender          = $validate['gender'];
-        $users->document_id     = $validate['document_id'];
-        $users->birthdate       = $validate['birthdate'];
-        $users->marital_status  = $validate['marital_status'];
-        $users->title           = $validate['title'];
-        $users->facebook        = $request->facebook;
-        $users->twitter         = $request->twitter;
-        $users->whatsapp        = $request->whatsapp;
-        $users->instagram       = $request->instagram;
-        $users->pinterest       = $request->pinterest;
-        $users->youtube         = $request->youtube;
-        $users->linkedin        = $request->linkedin;
-        $users->picture         = $validate['picture'];
-        $users->update();
     }
 
     public function edit(Request $request)
     {
-        $id         = $request->user;
-        $user      = User::find($id);
-        $titulo     = 'users';
-        $dt_route   = route('users.show');
-        $dt_order   = [[0, 'desc']];
-        $dt_columns = [
-            ['data' => 'user_id','title'=>'ID'],
-            ['data' => 'name', 'title'=>'NOMBRE'],
-            ['data' => 'imagen', 'title'=>'IMAGEN'],
-            ['data' => 'rol_label', 'title'=>'ROL'],
-            ['data' => 'username', 'title'=>'USUARIO'],
-            ['data' => 'email', 'title'=>'EMAIL'],
-            ['data' => 'estado', 'title'=>'ESTADO'],
-            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
-        ]; 
-        return view('users_edit', compact('dt_route', 'dt_columns','dt_order','user'));
+        $user = User::find($request->user_id);
+        if ($user) {
+            $random = Str::random(60);
+            $archivo = $request->file;
+            if ($archivo) {
+                $path = $archivo->store('assets/images');
+                $fileName = collect(explode('/', $path))->last();
+                $image = Image::make(Storage::get($path));
+                $image->resize(1280, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 30));
+                $user->picture = $path;
+                $user->save();
+            }
+            $user->rol_id          = $request->rol ?($request->rol):$user->rol_id;
+            $user->name            = $request->name;
+            $user->username        = $request->user;
+            $user->password        = bcrypt($request->password);
+            $user->email           = $request->email;
+            $user->phone           = $request->phone;
+            $user->adress          = $request->adress;
+            $user->gender          = $request->gender;
+            $user->document_id     = $request->document_id;
+            $user->birthdate       = $request->birthdate;
+            $user->marital_status  = $request->marital_status;
+            $user->title           = $request->title;
+            $user->facebook        = $request->facebook;
+            $user->twitter         = $request->twitter;
+            $user->whatsapp        = $request->whatsapp;
+            $user->instagram       = $request->instagram?$request->instagram:$user->instagram;
+            $user->pinterest       = $request->pinterest;
+            $user->youtube         = $request->youtube;
+            $user->linkedin        = $request->linkedin?$request->linkedin:$user->linkedin;
+            $user->update();
+        } else {
+            $this->message = "Usuario no encontrado";
+            $this->result  = false;
+        }
+        $this->message = "Usuario editado correctamente";
+        $this->result  = true;
+        $this->records = $user;
+        $response =
+            [
+                'message'   => $this->message,
+                'result'    => $this->result,
+                'records'   => $this->records,
+            ];
+        return response()->json($response, $this->statusCode);
+        
+    }
+
+    public function showid(Request $request)
+    {
+        try {
+            $user = User::find($request->user_id);
+            $this->message = "Consulta correcta";
+            $this->result  = true;
+            $this->records = $user;
+        } catch (\Exception $e) {
+            $statusCode     = 200;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
     }
 
     public function delete(Request $request)

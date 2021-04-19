@@ -1,7 +1,7 @@
 <template>
     <div class="container container-Data" >
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-            <div class="modal-dialog modal-center" role="document" align="center">
+            <div class="modal-dialog modal-center modal-lg" role="document" align="center">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear region</h5>
@@ -14,17 +14,15 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     <label>Nombre</label>
                                     <input v-model="name" type="text" class="form-control">
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label>Estado</label>
                                     <select v-model="status" class="form-control">
                                       <option disabled value="">Seleccione una opcion</option>
-                                      <option value="1">Activo</option>
+                                      <option value="1" >Activo</option>
                                       <option value="0">Inactivo</option>
                                     </select>
                                 </div>
@@ -49,77 +47,53 @@
     </div>
 </template>
 <script>
-    import ImageComponent from './ImageComponent.vue';
-    import EditButton from './EditButton.vue';
-    import DeleteButton from './DeleteButton.vue';
     import $ from 'jquery';
     export default {
         data() {
             return {
-                region_id:"",
+                regions_id:"",
                 name:"",
                 status:"",
                 arrayData:[],
                 update:0,
-                columns: [
-                    {
-                        label: 'Id',
-                        name: 'region_id',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Nombre',
-                        name: 'name',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Estado',
-                        name: 'status',
-                        orderable: true,
-                    },
-                    {
-                        label: 'Editar',
-                        name: 'Editar',
-                        orderable: false,
-                        classes: { 
-                            'btn': true,
-                            'btn-primary': true,
-                            'btn-sm': true,
-                        },
-                        event: "click",
-                        handler: this.loadFieldsUpdate,
-                        component: EditButton, 
-                    },
-                    {
-                        label: 'Eliminar',
-                        name: 'Eliminar',
-                        orderable: false,
-                        classes: { 
-                            'btn': true,
-                            'btn-danger': true,
-                            'btn-sm': true,
-                        },
-                        event: "click",
-                        handler: this.deleteData,
-                        component: DeleteButton, 
-                    },
-                ]
             }
         },
-        components: {
-            EditButton,
-            DeleteButton,
-            ImageComponent
+        mounted: function() {
+            $('.table-responsive').on('click', (evt) => {
+                evt.stopImmediatePropagation();
+               if ($(evt.target)[0].innerText == 'Editar') {
+                 this.loadFieldsUpdate($(evt.target)[0].id); 
+               }
+               if($(evt.target)[0].innerText == 'Eliminar'){
+                    let url = '/api/regions/delete' 
+                    let Data_id = event.target.id
+                    console.log(Data_id);
+                    if (confirm('¿Seguro que deseas eliminar este registro?')) {
+                        axios.post(url,{ 
+                        'regions_id': Data_id,
+                        }).then(function (response) {
+                            console.log(response);
+                            location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        }); 
+                    }
+               }
+            });
         },
         methods:{
             saveData(){
                 let me =this;
                 let url = '/api/regions/create' 
-                axios.post(url,{ 
-                    'name': this.name,
-                    'status': this.status,
-                }).then(function (response) {
-                    console.log(response.data.message);
+                const formData  = new FormData()
+                if(this.files){
+                    formData.append('file', this.files, this.files.name)
+                }
+                formData.append('name',this.name)
+                formData.append('status',this.status)
+                axios.post(url,formData,{}).then(function (response) {
+                    console.log(response.data.records);
                     if (response.data.result == false) {
                         location.reload();
                     }else{
@@ -132,34 +106,39 @@
                     alert(error);
                     console.log(error);
                 });   
-
             },
             updateData(){
-                let me = this;
+                console.log(this.update);
+                let me  = this;
                 let url = '/api/regions/edit' 
-                axios.post(url,{ 
-                    'region_id': this.region_id,
-                    'name': this.name,
-                    'status': this.status,
-                }).then(function (response) {
+                const formData  = new FormData()
+                console.log(this.files)
+                if(this.files){
+                   formData.append('file', this.files, this.files.name) 
+                }
+                formData.append('regions_id',this.update)
+                formData.append('name',this.name)
+                formData.append('status',this.status)
+                axios.post(url,formData,{}).then(function (response) {
                     $('#exampleModal').modal('hide');
-                   me.clearFields();
+                    me.clearFields();
+                    location.reload();
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             },
-            loadFieldsUpdate(data){ 
+            loadFieldsUpdate(id){ 
                 $('#exampleModal').modal('show');
-                this.update = data.region_id
+                this.update = id
                 let me =this;
                 let url = '/api/regions/showid/';
                 axios.post(url,{ 
-                    'region_id': this.update,
+                    'regions_id': this.update,
                 }).then(function (response) {
-                    me.region_id= response.data.records.region_id;
-                    me.name= response.data.records.name;
-                    me.status= response.data.records.status;
+                    me.regions_id          = response.data.records.regions_id;
+                    me.name             = response.data.records.name;
+                    me.status           = response.data.records.status;
 
                 })
                 .catch(function (error) {
@@ -169,11 +148,11 @@
             deleteData(data){
                 let url = '/api/regions/delete' 
                 let me = this;
-                let Data_id = data.region_id
+                let Data_id = data.regions_id
                 console.log(Data_id);
                 if (confirm('¿Seguro que deseas eliminar este registro?')) {
                     axios.post(url,{ 
-                    'region_id': Data_id,
+                    'regions_id': Data_id,
                     }).then(function (response) {
                         console.log(response);
                     })
@@ -182,16 +161,22 @@
                     }); 
                 }
             },
+            selectTipo(tipo){
+                this.titulos = [];
+                this.valores = [];
+                this.formulario = [];
+            },
             clearFields(){
-                this.region_id = "";
+                this.regions_id = "";
                 this.name = "";
+                this.account = "";
                 this.status = "";
                 this.update = 0;
                 $('#exampleModal').modal('hide');
-            }
-        },
-        previewFiles(files){
-          console.log(files)
-        },
-    }
+            },
+            previewFiles(event) {
+                this.files = this.$refs.myFiles.files[0];
+           },
+        }
+    };
 </script>

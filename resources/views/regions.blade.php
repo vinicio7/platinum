@@ -12,7 +12,7 @@
             </div>
             
             <div id="app">
-                <regions-component></regions-component>
+                <region-component></region-component>
                 @section('content_admin')
                     {{--  <div class="separator-breadcrumb border-top"></div>
                     <div class="separator-breadcrumb border-top"></div>--}}
@@ -24,10 +24,6 @@
                             <div class="col-md-12 mb-4">
                                 <div class="card text-left">
                                     <div class="card-header bg-transparent">
-                                        <!--<a href="{{route('banks.create')}}"  class="btn btn-success btn-icon m-1">
-                                            <span class="ul-btn__icon text-white"><i class="i-Add"></i></span>
-                                            <span class="ul-btn__text text-white">Crear Solicitud</span>
-                                        </a>-->
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title mb-3">Registros</h4>
