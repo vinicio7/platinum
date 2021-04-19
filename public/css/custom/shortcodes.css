@@ -5698,11 +5698,12 @@ body.sidebar_hide .sc_recent_news_style_news-announce .post_size_small { height:
 .ps_range_slider .ps_area_info,
 .ps_range_slider .ps_price_info {
 	padding-bottom: 0.714em;
-	color: #999ca9;
+	color: #11264e;
 }
 .ps_range_slider .ps_area_info_title,
 .ps_range_slider .ps_price_info_title {
 	float: left;
+	color:#11264e;
 }
 .ps_range_slider .ps_area_info_value,
 .ps_range_slider .ps_price_info_value {

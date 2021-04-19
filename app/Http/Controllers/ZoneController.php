@@ -12,6 +12,42 @@ class ZoneController extends Controller
     public $records     = array();
     public $statusCode  = 200;
 
+    public function index()
+    {
+        $titulo     = 'zones';
+        $dt_route   = route('zones.show');
+        $dt_order   = [[0, 'desc']];
+        $dt_columns = [
+            ['data' => 'zone_id','title'=>'ID'],
+            ['data' => 'name', 'title'=>'NOMBRE'],
+            ['data' => 'estado', 'title'=>'ESTADO'],
+            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
+        ]; 
+        return view('zones', compact('dt_route', 'dt_columns','dt_order' ));
+    }
+    
+    public function show(Zone $zone)
+    {
+        return datatables()->of( Zone::get())
+            ->addColumn('acciones', function ($record) {
+                return
+                    "<a href='".route('regions.edit',['bank'=>$record->zone_id])."' class='btn btn-info btn-rounded m-1 text-white'>Editar</a>".
+                    "<a href='".route('regions.destroy',['bank'=>$record->zone_id])."' class='btn btn-danger btn-rounded m-1 text-white'>Eliminar</a>";    
+            })
+            ->addColumn('estado', function ($record){
+                if ($record->status == 0) {
+                    $class       = 'badge-secondary';
+                    $descripcion = 'Inactivo';
+                } else {
+                    $class       = 'badge-success';
+                    $descripcion = 'Activo';
+                }
+                return "<span class='badge text-white {$class}'>{$descripcion}</span>";
+            })->rawColumns(['estado','acciones'])
+            ->toJson();
+    }
+
+
     public function showAll()
     {
         try {

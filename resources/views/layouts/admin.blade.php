@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="../css/magnific-popup.css">
@@ -12,31 +11,13 @@
     <link rel="stylesheet" href="../css/select2.min.css">
     <link rel="stylesheet" href="../css/ionicons.min.css">
     <link rel="stylesheet" href="../css/admin.css">
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('page-css')
     <!-- Favicons -->
     <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
-    
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Vinicio Lopez">
+    <link rel="stylesheet" href="{{asset('assets/styles/vendor/toastr.css')}}">
     <title>Propiedades Platinum</title>
-    <style type="text/css">
-        .main{
-             background-color: #2b2c30;
-        }
-        .btn-success{
-             background-color: #77a62e;
-             border-color: #77a62e;
-        }
-        td{
-            color:white;
-        }
-        th{
-            color:white;
-        }
-        
-    </style>
+
 </head>
 <body>
 
@@ -95,9 +76,9 @@
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'propierties')
-                    <a href="{{ route('propierties') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Propiedades</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Propiedades</a>
                 @else
-                    <a href="{{ route('propierties') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Propiedades</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Propiedades</a>
                 @endif
             </li>
             
@@ -111,33 +92,33 @@
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'zones')
-                    <a href="{{ route('zones') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Zonas</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Zonas</a>
                 @else
-                    <a href="{{ route('zones') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Zonas</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Zonas</a>
                 @endif
             </li>
 
-            <li class="sidebar__nav-item">
+           <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'banks')
-                    <a href="{{ route('banks') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Bancos</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Bancos</a>
                 @else
-                    <a href="{{ route('banks') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Bancos</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Bancos</a>
                 @endif
             </li>
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'history')
-                    <a href="{{ route('history') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Historial</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Historial</a>
                 @else
-                    <a href="{{ route('history') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Historial</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Historial</a>
                 @endif
             </li>
 
             <li class="sidebar__nav-item">
                  @if(Request::route()->getName() == 'roless')
-                    <a href="{{ route('roless') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Roles</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Roles</a>
                  @else
-                    <a href="{{ route('roles') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Roles</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Roles</a>
                  @endif
             </li>
 
@@ -165,5 +146,20 @@
     <!-- end main content -->
 
     <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('assets/js/script.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/jquery.smartWizard.min.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/toastr.min.js')}}"></script>
+    <script>
+        @if (session('success'))
+            toastr.success("{{session('success')}}", "Listo", {timeOut: "1500"})
+        @endif
+        @if (session('error'))
+            toastr.error("{{session('error')}}", "Listo", {timeOut: "1500"})
+        @endif
+    </script>
+    @yield('page-js')
+    
 </body>
 </html>

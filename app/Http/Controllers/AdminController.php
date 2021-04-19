@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,6 +11,24 @@ class AdminController extends Controller
             return redirect('/dashboard');
         }else{
             return view('login');
+        }
+    }
+
+    public function login_post(Request $request){
+        $user = User::where('username',$request->input('user'))->first();
+        if(isset($user)){
+            if (\Hash::check($request->input('password'), $user->password)) {
+                session()->flush();
+                session(['success' => 'Sesion iniciada exitosamente']);
+                session(['user' => $user->name]);
+                return redirect('/dashboard');
+            } else {
+                session(['error' => 'Password no coincide']);
+                return view('login')->with('error','Password no coincide');
+            }
+        }else{
+            session(['error' => 'Usuario no existe']);
+            return view('login')->with('error','Usuario no existe');
         }
     }
 
@@ -27,7 +45,6 @@ class AdminController extends Controller
     public function dashboard(){
     	//las primeras 2 lineas las debe de tener el autenticar
     	//session(['success' => 'Sesion iniciada correctamente']);
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/dashboard');
         }else{
@@ -36,7 +53,6 @@ class AdminController extends Controller
     }
 
     public function propierties(){
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/propierties');
         }else{
@@ -45,7 +61,6 @@ class AdminController extends Controller
     }
 
     public function regions(){
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/regions');
         }else{
@@ -54,7 +69,6 @@ class AdminController extends Controller
     }
 
     public function zones(){
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/zones');
         }else{
@@ -63,7 +77,6 @@ class AdminController extends Controller
     }
 
     public function banks(){
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/banks');
         }else{
@@ -72,7 +85,6 @@ class AdminController extends Controller
     }
 
     public function history(){
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/history');
         }else{
@@ -81,7 +93,6 @@ class AdminController extends Controller
     }
 
     public function roles(){
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/roles');
         }else{
@@ -90,7 +101,6 @@ class AdminController extends Controller
     }
 
     public function users(){
-        session(['user' => 'Vinicio J. Lopez']);
         if(session()->get('user')){
             return view('/users');
         }else{

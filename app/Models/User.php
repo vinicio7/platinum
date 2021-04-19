@@ -38,4 +38,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function rol()
+    {
+        return $this->hasOne(Rol::class, 'rol_id', 'rol_id');
+    }
 }
