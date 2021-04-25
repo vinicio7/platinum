@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="main__title">
-                    <h2 style="color: #12264d">Zonas</h2>
+                    <h2 style="color: #12264d">Municipios</h2>
                 </div>
             </div>
             
             <div id="app">
-                <zones-component></zones-component>
+                <municipality-component></municipality-component>
                 @section('content_admin')
                     {{--  <div class="separator-breadcrumb border-top"></div>
                     <div class="separator-breadcrumb border-top"></div>--}}

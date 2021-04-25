@@ -4,8 +4,8 @@
             <div class="modal-dialog modal-center modal-lg" role="document" align="center">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear zona</h5>
-                        <h5 class="modal-title" id="exampleModalLabel" v-if="update != 0">Actualizar zona</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" v-if="update == 0">Crear municipio</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" v-if="update != 0">Actualizar municipio</h5>
                         <br>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
@@ -15,10 +15,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label>Municipio</label>
-                                    <select class="form-control" v-model="municipality" v-on:change="selectTipo()">
+                                    <label>Departamento</label>
+                                    <select class="form-control" v-model="departament" v-on:change="selectTipo()">
                                         <option disabled value="">Seleccione una opcion</option>
-                                        <option v-for="data in municipalities" :value="data.municipality_id" >{{ data.name }}</option>
+                                        <option v-for="data in departaments" :value="data.departament_id" >{{ data.name }}</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -46,7 +46,7 @@
         </div>
 
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
-          + Crear zona
+          + Crear municipio
         </button>
         <div class="row" style="margin-top: 10px">
             
@@ -58,22 +58,21 @@
     export default {
         data() {
             return {
-                zone_id:"",
+                municipality_id:"",
                 name:"",
                 status:"",
-                municipality:"",
-                municipality_id:"",
-                municipalities:[],
+                departament:"",
+                departament_id:"",
+                departaments:[],
                 arrayData:[],
                 update:0,
             }
         },
         mounted: function() {
-            let url = '/api/municipalities';
+            let url = '/api/departaments';
             let me =this;
             axios.get(url,{}).then(function (response) {
-                me.municipalities   = response.data.records;
-                console.log(responde.data.records);
+                me.departaments   = response.data.records;
             })
             .catch(function (error) {
                 console.log(error);
@@ -85,12 +84,12 @@
                  this.loadFieldsUpdate($(evt.target)[0].id); 
                }
                if($(evt.target)[0].innerText == 'Eliminar'){
-                    let url = '/api/zones/delete' 
+                    let url = '/api/municipalities/delete' 
                     let Data_id = event.target.id
                     console.log(Data_id);
                     if (confirm('¿Seguro que deseas eliminar este registro?')) {
                         axios.post(url,{ 
-                        'zone_id': Data_id,
+                        'municipality_id': Data_id,
                         }).then(function (response) {
                             console.log(response);
                             location.reload();
@@ -105,12 +104,12 @@
         methods:{
             saveData(){
                 let me =this;
-                let url = '/api/zones/create' 
+                let url = '/api/municipalities/create' 
                 const formData  = new FormData()
                 if(this.files){
                     formData.append('file', this.files, this.files.name)
                 }
-                formData.append('municipality_id',this.municipality)
+                formData.append('departament_id',this.departament)
                 formData.append('name',this.name)
                 formData.append('status',this.status)
                 axios.post(url,formData,{}).then(function (response) {
@@ -131,14 +130,14 @@
             updateData(){
                 console.log(this.update);
                 let me  = this;
-                let url = '/api/zones/edit' 
+                let url = '/api/municipalities/edit' 
                 const formData  = new FormData()
                 console.log(this.files)
                 if(this.files){
                    formData.append('file', this.files, this.files.name) 
                 }
-                formData.append('zone_id',this.update)
-                formData.append('municipality_id',this.municipality)
+                formData.append('municipality_id',this.update)
+                formData.append('departament_id',this.departament)
                 formData.append('name',this.name)
                 formData.append('status',this.status)
                 axios.post(url,formData,{}).then(function (response) {
@@ -154,12 +153,12 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me =this;
-                let url = '/api/zones/showid/';
+                let url = '/api/municipalities/showid/';
                 axios.post(url,{ 
-                    'zone_id': this.update,
+                    'municipality_id': this.update,
                 }).then(function (response) {
+                    me.country   = response.data.records.departament_id;
                     me.municipality_id   = response.data.records.municipality_id;
-                    me.zone_id   = response.data.records.zone_id;
                     me.name             = response.data.records.name;
                     me.status           = response.data.records.status;
 
@@ -169,13 +168,13 @@
                 }); 
             },
             deleteData(data){
-                let url = '/api/zones/delete' 
+                let url = '/api/municipalities/delete' 
                 let me = this;
-                let Data_id = data.zone_id
+                let Data_id = data.municipality_id
                 console.log(Data_id);
                 if (confirm('¿Seguro que deseas eliminar este registro?')) {
                     axios.post(url,{ 
-                    'zone_id': Data_id,
+                    'municipality_id': Data_id,
                     }).then(function (response) {
                         console.log(response);
                     })
@@ -190,7 +189,7 @@
                 this.formulario = [];
             },
             clearFields(){
-                this.zone_id = "";
+                this.municipality_id = "";
                 this.name = "";
                 this.account = "";
                 this.status = "";

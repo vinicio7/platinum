@@ -46,3 +46,7 @@ Route::get('users',                     'UserController@index')->name('users');
 Route::get('regions',                   'RegionController@index')->name('regions');
 Route::get('banks',                     'BankController@index')->name('banks');
 
+Route::get('asociate/detail/{id}',		'UserController@asociate');
+Route::get('departaments',              'DepartamentController@index')->name('departaments');
+Route::get('municipalities',            'MunicipalityController@index')->name('municipalities');
+Route::get('zones',            			'ZoneController@index')->name('zones');

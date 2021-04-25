@@ -83,6 +83,23 @@
             </li>
             
             <li class="sidebar__nav-item">
+                @if(Request::route()->getName() == 'departaments')
+                    <a href="{{ route('departaments') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-copy"></i> Departamentos</a>
+                @else()
+                    <a href="{{ route('departaments') }}" class="sidebar__nav-link"><i class="icon ion-ios-copy"></i> Departamentos</a>
+                @endif
+            </li>
+
+            <li class="sidebar__nav-item">
+                @if(Request::route()->getName() == 'municipalities')
+                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-copy"></i> Municipios</a>
+                @else()
+                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link"><i class="icon ion-ios-copy"></i> Municipios</a>
+                @endif
+            </li>
+
+
+            <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'regions')
                     <a href="{{ route('regions') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-copy"></i> Regiones</a>
                 @else()
@@ -92,17 +109,17 @@
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'zones')
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Zonas</a>
+                    <a href="{{ route('zones') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Zonas</a>
                 @else
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Zonas</a>
+                    <a href="{{ route('zones') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Zonas</a>
                 @endif
             </li>
 
            <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'banks')
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Bancos</a>
+                    <a href="{{ route('banks') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Bancos</a>
                 @else
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Bancos</a>
+                    <a href="{{ route('banks') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Bancos</a>
                 @endif
             </li>
 

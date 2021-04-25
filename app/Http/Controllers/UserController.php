@@ -184,6 +184,11 @@ class UserController extends Controller
         
     }
 
+    public function asociate($id){
+        $data = User::find($id);
+        return view('asociate', compact('data'));
+    }
+
     public function showid(Request $request)
     {
         try {

@@ -41,6 +41,27 @@ class CountryController extends Controller
         }
     }
     
+    public function get(Request $request)
+    {
+        try {
+            $rol = Country::get();
+            $this->message = "Consulta correcta";
+            $this->result = true;
+            $this->records = $rol;
+        } catch (\Exception $e) {
+            $statusCode     = 200;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
+    }
+
     public function showAll()
     {
         try {

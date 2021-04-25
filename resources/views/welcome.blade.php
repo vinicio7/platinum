@@ -1,6 +1,8 @@
 <?php 
 use App\Models\User;
+use App\Models\Region;
 $asociats = User::where('rol_id',2)->with('rol')->get();
+$regions  = Region::all();
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
@@ -158,26 +160,26 @@ $asociats = User::where('rol_id',2)->with('rol')->get();
                            <form method="get" action="#">
                               <div class="sc_ps_status">
                                  <select name="ps_status">
-                                    <option value="-1">Estado de propiedad</option>
                                     <option value="sale">En Venta</option>
                                     <option value="rent">En Renta</option>
+                                    <option value="5">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_location">
                                  <select name="ps_location">
-                                    <option value="-1">Ubicacion</option>
-                                    <option value="Upper East Side">Guatemala</option>
-                                    <option value="Upper East Side">Antigua</option>
-                                    <option value="Upper East Side">Puerto Quetzal</option>
+                                    @foreach($regions as $region)
+                                    <option value="{{$region->regions_id}}">{{$region->name}}</option>
+                                    @endforeach
+                                    <option value="0">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_type">
                                  <select name="ps_type">
-                                    <option value="-1">Tipo de propiedad</option>
-                                    <option value="Cooperative">Apertamento</option>
+                                    <option value="Cooperative">Apartamentos</option>
                                     <option value="Condominium">Casa</option>
                                     <option value="Cond-op">Condominio</option>
                                     <option value="House">Loft</option>
+                                    <option value="House">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_bedrooms">
@@ -187,7 +189,7 @@ $asociats = User::where('rol_id',2)->with('rol')->get();
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-                                    <option value="5">5 o mas</option>
+                                    <option value="5">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_bedrooms">
@@ -197,7 +199,7 @@ $asociats = User::where('rol_id',2)->with('rol')->get();
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-                                    <option value="5">5 o mas</option>
+                                    <option value="5">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_bathrooms">
@@ -237,7 +239,7 @@ $asociats = User::where('rol_id',2)->with('rol')->get();
                                  </div>
                               </div>
                               <div class="sc_ps_submit">
-                                 <input type="submit" class="sc_button sc_button_box sc_button_style_style2" value="Search">
+                                 <input type="submit" class="sc_button sc_button_box sc_button_style_style2" value="Buscar">
                               </div>
                            </form>
                         </div>

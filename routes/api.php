@@ -47,4 +47,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('banks/showid',                 'BankController@showid')->name('banks.showid');
     Route::post('banks/delete',                 'BankController@delete')->name('regions.delete');
 
-    Route::get('roles',                        'RoleController@get')->name('roles');
+    Route::get('roles',                        'RoleController@get')->name('roles');    
+    Route::get('countries',                    'CountryController@get')->name('countries');
+    Route::get('departaments',                 'DepartamentController@get')->name('departaments');
+    Route::get('municipalities',               'MunicipalityController@get')->name('municipalities');
+
+    Route::post('departaments/create',          'DepartamentController@create');
+    Route::post('departaments/edit',            'DepartamentController@edit')->name('departaments.edit');
+    Route::get('departaments/show',             'DepartamentController@show')->name('departaments.show');
+    Route::post('departaments/showid',          'DepartamentController@showid')->name('departaments.showid');
+    Route::post('departaments/delete',          'DepartamentController@delete')->name('departaments.delete');
+
+    Route::post('municipalities/create',        'MunicipalityController@create');
+    Route::post('municipalities/edit',          'MunicipalityController@edit')->name('municipalities.edit');
+    Route::get('municipalities/show',           'MunicipalityController@show')->name('municipalities.show');
+    Route::post('municipalities/showid',        'MunicipalityController@showid')->name('municipalities.showid');
+    Route::post('municipalities/delete',        'MunicipalityController@delete')->name('municipalities.delete');
+
+    Route::post('zones/create',                 'ZoneController@create');
+    Route::post('zones/edit',                   'ZoneController@edit')->name('zones.edit');
+    Route::get('zones/show',                    'ZoneController@show')->name('zones.show');
+    Route::post('zones/showid',                 'ZoneController@showid')->name('zones.showid');
+    Route::post('zones/delete',                 'ZoneController@delete')->name('zones.delete');
