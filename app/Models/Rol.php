@@ -11,7 +11,7 @@ class Rol extends Model
 	use LaravelVueDatatableTrait;
     protected $table = 'roles';
     public $primaryKey = 'rol_id';
-	protected $fillable = ['name','dashboard','propierties','favorieties','reports','logs','user','status'];
+	protected $fillable = ['name','dashboard','propierties','departaments','municipality','regions','user','status','zones','banks','history','rols'];
 
 	protected $dataTableColumns = [
         'name' => [
@@ -23,19 +23,31 @@ class Rol extends Model
         'propierties' => [
             'searchable' => false,
         ],
-        'favorieties' => [
+        'departaments' => [
             'searchable' => false,
         ],
-        'reports' => [
+        'municipality' => [
             'searchable' => false,
         ],
-        'logs' => [
+        'regions' => [
             'searchable' => false,
         ],
         'user' => [
             'searchable' => false,
         ],
         'status' => [
+            'searchable' => false,
+        ],
+        'zones' => [
+            'searchable' => false,
+        ],
+        'banks' => [
+            'searchable' => false,
+        ],
+        'history' => [
+            'searchable' => false,
+        ],
+        'rols' => [
             'searchable' => false,
         ],
     ];

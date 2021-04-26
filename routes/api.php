@@ -69,3 +69,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('zones/show',                    'ZoneController@show')->name('zones.show');
     Route::post('zones/showid',                 'ZoneController@showid')->name('zones.showid');
     Route::post('zones/delete',                 'ZoneController@delete')->name('zones.delete');
+
+    Route::post('rols/create',                 'RoleController@create');
+    Route::post('rols/edit',                   'RoleController@edit')->name('rols.edit');
+    Route::get('rols/show',                    'RoleController@show')->name('rols.show');
+    Route::post('rols/showid',                 'RoleController@showid')->name('rols.showid');
+    Route::post('rols/delete',                 'RoleController@delete')->name('rols.delete');

@@ -7,6 +7,7 @@ Vue.component('municipality-component', 		require('./components/MunicipalityComp
 Vue.component('zones-component', 		require('./components/ZoneComponent.vue').default);
 Vue.component('bank-component', 		require('./components/BankComponent.vue').default);
 Vue.component('user-component', 		require('./components/UserComponent.vue').default);
+Vue.component('roles-component', 		require('./components/RoleComponent.vue').default);
 //Vue.use(DataTable);
 
 const app = new Vue({

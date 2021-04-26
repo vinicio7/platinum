@@ -50,3 +50,4 @@ Route::get('asociate/detail/{id}',		'UserController@asociate');
 Route::get('departaments',              'DepartamentController@index')->name('departaments');
 Route::get('municipalities',            'MunicipalityController@index')->name('municipalities');
 Route::get('zones',            			'ZoneController@index')->name('zones');
+Route::get('rols',            			'RoleController@index')->name('rols');

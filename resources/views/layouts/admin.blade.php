@@ -132,10 +132,10 @@
             </li>
 
             <li class="sidebar__nav-item">
-                 @if(Request::route()->getName() == 'roless')
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Roles</a>
+                 @if(Request::route()->getName() == 'roles')
+                    <a href="{{ route('rols') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Roles</a>
                  @else
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Roles</a>
+                    <a href="{{ route('rols') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Roles</a>
                  @endif
             </li>
 
