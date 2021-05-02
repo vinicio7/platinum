@@ -51,3 +51,4 @@ Route::get('departaments',              'DepartamentController@index')->name('de
 Route::get('municipalities',            'MunicipalityController@index')->name('municipalities');
 Route::get('zones',            			'ZoneController@index')->name('zones');
 Route::get('rols',            			'RoleController@index')->name('rols');
+Route::get('propierties',            	'PropertyController@index')->name('propierties');

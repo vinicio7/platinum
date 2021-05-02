@@ -15,7 +15,21 @@ class PropertyController extends Controller
     public $result         = false;
     public $records     = array();
     public $statusCode     = 200;
-   
+    
+    public function index()
+    {
+        $titulo     = 'propierty';
+        $dt_route   = route('propierty.show');
+        $dt_order   = [[0, 'desc']];
+        $dt_columns = [
+            ['data' => 'propierty_id','title'=>'ID'],
+            ['data' => 'name', 'title'=>'NOMBRE'],
+            ['data' => 'estado', 'title'=>'ESTADO'],
+            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
+        ]; 
+        return view('propierty', compact('dt_route', 'dt_columns','dt_order' ));
+    }
+
     public function create(Request $request)
     {
          try { 
@@ -365,26 +379,25 @@ class PropertyController extends Controller
         } 
     }
 
-    public function show(Property $property)
+    public function show(Property $data)
     {
-        try {
-
-            $properties = Property::all();
-            $this->message = "Consulta correcta";
-            $this->result = true;
-            $this->records = $properties;
-        } catch (\Exception $e) {
-            $statusCode     = 200;
-            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
-        } finally {
-            $response =
-                [
-                    'message'   => $this->message,
-                    'result'    => $this->result,
-                    'records'   => $this->records,
-                ];
-            return response()->json($response, $this->statusCode);
-        }
+        return datatables()->of( Property::get())
+            ->addColumn('acciones', function ($record) {
+                return
+                    "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->regions_id."'>Editar</a>".
+                    "<a class='btn btn-danger btn-danger rounded m-1 text-white btn-delete' id='".$record->regions_id."'>Eliminar</a>";  
+            })
+            ->addColumn('estado', function ($record){
+                if ($record->status == 0) {
+                    $class       = 'badge-secondary';
+                    $descripcion = 'Inactivo';
+                } else {
+                    $class       = 'badge-success';
+                    $descripcion = 'Activo';
+                }
+                return "<span class='badge text-white {$class}'>{$descripcion}</span>";
+            })->rawColumns(['estado','acciones'])
+            ->toJson();
     }
 
     public function showid(Request $request)

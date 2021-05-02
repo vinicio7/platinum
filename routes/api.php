@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DepartamentController;
@@ -75,3 +76,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('rols/show',                    'RoleController@show')->name('rols.show');
     Route::post('rols/showid',                 'RoleController@showid')->name('rols.showid');
     Route::post('rols/delete',                 'RoleController@delete')->name('rols.delete');
+
+    Route::post('propierty/create',            'PropertyController@create');
+    Route::post('propierty/edit',              'PropertyController@edit')->name('propierty.edit');
+    Route::get('propierty/show',               'PropertyController@show')->name('propierty.show');
+    Route::post('propierty/showid',            'PropertyController@showid')->name('propierty.showid');
+    Route::post('propierty/delete',            'PropertyController@delete')->name('propierty.delete');
