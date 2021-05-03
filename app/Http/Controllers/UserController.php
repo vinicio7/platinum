@@ -37,6 +37,27 @@ class UserController extends Controller
         return view('users', compact('dt_route', 'dt_columns','dt_order' ));
     }
     
+    public function get(Request $request)
+    {
+        try {
+            $rol = User::where('rol_id',4)->get();
+            $this->message = "Consulta correcta";
+            $this->result = true;
+            $this->records = $rol;
+        } catch (\Exception $e) {
+            $statusCode     = 200;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
+    }
+
     public function show(User $user)
     {
         return datatables()->of( User::get())

@@ -10,7 +10,7 @@ Vue.component('user-component', 				require('./components/UserComponent.vue').de
 Vue.component('property-component', 			require('./components/PropertyComponent.vue').default);
 Vue.component('roles-component', 				require('./components/RoleComponent.vue').default);
 //Vue.use(DataTable);
-
+import Editor from '@tinymce/tinymce-vue'
 const app = new Vue({
     el: '#app',
 });

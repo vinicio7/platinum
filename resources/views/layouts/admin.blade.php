@@ -168,6 +168,7 @@
     <script src="{{asset('assets/js/script.js')}}"></script>
     <script src="{{asset('assets/js/vendor/jquery.smartWizard.min.js')}}"></script>
     <script src="{{asset('assets/js/vendor/toastr.min.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/tinymce/tinymce.min.js') }}"></script>
     <script>
         @if (session('success'))
             toastr.success("{{session('success')}}", "Listo", {timeOut: "1500"})
