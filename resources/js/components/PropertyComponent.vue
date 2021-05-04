@@ -282,8 +282,9 @@
                                 </div>
                             </tab-content>
                             <tab-content :key="1" :title="titulo_2" >
-                                <div class="row">
-                                    <div class="col-sm-3" >
+                              <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
+                                <div class="col-sm-12"><h2>Descripcion</h2></div>
+                                <div class="col-sm-3" >
                                         <label>Terreno</label>
                                         <input type="text" class="form-control" v-model="titulo" />
                                     </div>
@@ -331,276 +332,282 @@
                                         <label>Parqueos no techados</label>
                                         <input type="text" class="form-control" v-model="titulo" />
                                     </div>
-                                    <div class="col-sm-3" >
-                                        <label>Oficinas</label>
-                                        <input type="text" class="form-control" v-model="titulo" />
-                                    </div>
-                                    <div class="col-sm-3" >
-                                        <label>Bodegas</label>
-                                        <input type="text" class="form-control" v-model="titulo" />
-                                    </div>
-                                    <div class="col-sm-3" >
-                                        <label>Locales</label>
-                                        <input type="text" class="form-control" v-model="titulo" />
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Porton</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Alacena</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Closet de Blancos</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Jardin Frontal</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Despensa</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Tina</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Jardin trasero</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Desayunador</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Ducha</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Baño de visita</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Lavanderia</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Bidet</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Dormitorio de visitas</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Patio</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Jetina</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Estudio</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Pergola</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Jacuzzi</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Sala</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Bodega</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Sauna</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Chimenea</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Bodega de Jardin</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Balcon</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Sala/Comedor</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Sala Familiar</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Terraza</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Comedor</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Walkin Closet</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Churrasquera</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Cocina con gabinetes</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>Closet</label>
-                                        <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
-                                              <option value="1">Si</option>
-                                              <option value="0">No</option>
-                                        </select>
-                                    </div>
+                              </div>
+                              <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
+                                <div class="col-sm-12"><h2>Ambientes</h2></div>
+                                <div class="col-sm-3" >
+                                    <label>Oficinas</label>
+                                    <input type="text" class="form-control" v-model="titulo" />
                                 </div>
-                                <div class="row">
+                                <div class="col-sm-3" >
+                                    <label>Bodegas</label>
+                                    <input type="text" class="form-control" v-model="titulo" />
+                                </div>
+                                <div class="col-sm-3" >
+                                    <label>Locales</label>
+                                    <input type="text" class="form-control" v-model="titulo" />
+                                </div>
+                              </div>
+                              <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
+                                <div class="col-sm-12"><h2>Detalle</h2></div>
+                                <div class="col-sm-3">
+                                      <label>Porton</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Alacena</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Closet de Blancos</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Jardin Frontal</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Despensa</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Tina</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Jardin trasero</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Desayunador</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Ducha</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Baño de visita</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-sm-3">
+                                      <label>Lavanderia</label>
+                                      <select v-model="incluid_mensual" class="form-control">
+                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option value="1">Si</option>
+                                            <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Bidet</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Dormitorio de visitas</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Patio</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Jetina</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Estudio</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Pergola</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Jacuzzi</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Sala</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Bodega</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Sauna</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Chimenea</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Bodega de Jardin</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Balcon</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Sala/Comedor</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Sala Familiar</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Terraza</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Comedor</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Walkin Closet</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Churrasquera</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Cocina con gabinetes</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Closet</label>
+                                    <select v-model="incluid_mensual" class="form-control">
+                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option value="1">Si</option>
+                                          <option value="0">No</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div class="row">
                                     <div class="col-sm-6">
                                         <label>Otros detalles</label>
                                         <editor :init="{branding:false, plugins: [
@@ -618,7 +625,8 @@
                                              type="text"  class="form-control" v-model="titulo"/>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
+                                  <div class="col-sm-12"><h2>Incluye</h2></div>
                                   <div class="col-sm-3">
                                         <label>Refrigeradora</label>
                                         <select v-model="incluid_mensual" class="form-control">

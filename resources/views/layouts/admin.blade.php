@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/select2.min.css">
     <link rel="stylesheet" href="../css/ionicons.min.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('page-css')
     <!-- Favicons -->
@@ -169,6 +170,7 @@
     <script src="{{asset('assets/js/vendor/jquery.smartWizard.min.js')}}"></script>
     <script src="{{asset('assets/js/vendor/toastr.min.js')}}"></script>
     <script src="{{ asset('assets/js/vendor/tinymce/tinymce.min.js') }}"></script>
+    <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
     <script>
         @if (session('success'))
             toastr.success("{{session('success')}}", "Listo", {timeOut: "1500"})
