@@ -11,6 +11,8 @@ Vue.component('property-component', 			require('./components/PropertyComponent.v
 Vue.component('roles-component', 				require('./components/RoleComponent.vue').default);
 //Vue.use(DataTable);
 import Editor from '@tinymce/tinymce-vue'
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 const app = new Vue({
     el: '#app',
 });
