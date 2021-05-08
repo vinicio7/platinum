@@ -55,7 +55,7 @@ class PropertyController extends Controller
                 });
                 Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 30));
                 $imagen = Images::create([
-                    'path'          => env('RAIZ','http://127.0.0.1:8000/').$path,
+                    'path'          => env('RAIZ','https://platinum.mavis.com.gt/').$path,
                     'extension'    => $archivo->extension()
                 ]);
                 $records = $imagen;
