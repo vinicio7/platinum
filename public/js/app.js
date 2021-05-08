@@ -3164,18 +3164,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_form_wizard__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_form_wizard__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_7__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3184,6 +3172,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -4323,6 +4314,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _ref;
 
     return _ref = {
+      imagenes: [],
       propietario_id: 0,
       lavavajillas: 0,
       ambientes: 0,
@@ -4384,7 +4376,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       blackouts: 0,
       camaras_seguridad: 0
     }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", ''), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "descripcion_propiedad", ''), _defineProperty(_ref, "valor_registro_dolares", 0), _defineProperty(_ref, "valor_registro_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_dolares", 0), _defineProperty(_ref, "folio", 0), _defineProperty(_ref, "finca", 0), _defineProperty(_ref, "libro", 0), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", 0), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", 0), _defineProperty(_ref, "gravamen_dolares", 0), _defineProperty(_ref, "nombre_banco", 0), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", 0), _defineProperty(_ref, "avaluo_quetzales", 0), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "timbres", 0), _defineProperty(_ref, "iva", 0), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ""), _defineProperty(_ref, "propietario", 0), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 0), _defineProperty(_ref, "municipio", 0), _defineProperty(_ref, "zona", 0), _defineProperty(_ref, "region", 0), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 1), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", ''), _defineProperty(_ref, "contacto_visita", 0), _defineProperty(_ref, "cuota_mantenimiento", 0), _defineProperty(_ref, "servicios", 0), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 0), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", 0), _defineProperty(_ref, "enganche_nivelado", 0), _defineProperty(_ref, "enganche_cuota", 0), _defineProperty(_ref, "enganche_tasa", 0), _defineProperty(_ref, "enganche_quetzales", 0), _defineProperty(_ref, "enganche_dolares", 0), _defineProperty(_ref, "mantenimiento_dolares", 0), _defineProperty(_ref, "mantenimiento_quetzales", 0), _defineProperty(_ref, "compartida_porcentaje", 0), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "propierty_id", ""), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", 0), _defineProperty(_ref, "dropzoneOptions", {
-      url: '/api/propierty',
+      url: '/api/propierty/image',
       method: 'post',
       paramName: 'archivo',
       uploadMultiple: false,
@@ -4403,7 +4395,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       dictCancelUploadConfirmation: "¿Deseas cancelar?",
       dictRemoveFile: "Eliminar",
       dictMaxFilesExceeded: 'El máximo de archivos fue superado'
-    }), _defineProperty(_ref, "indexFlujoActual", null), _defineProperty(_ref, "isLoading", false), _ref;
+    }), _defineProperty(_ref, "isLoading", false), _ref;
   },
   mounted: function mounted() {
     var _this = this;
@@ -4477,6 +4469,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
+      formData.append('title', this.name);
       axios.post(url, formData, {}).then(function (response) {
         console.log(response.data.records);
 
@@ -4491,9 +4509,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         alert(error);
         console.log(error);
       });
-    },
-    selectDropzone: function selectDropzone(flujo, indexFlujo) {
-      this.indexFlujoActual = indexFlujo;
     },
     onCompleteWizard: function () {
       var _onCompleteWizard = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -4518,19 +4533,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return onCompleteWizard;
     }(),
     uploadExitoso: function uploadExitoso(file, response) {
-      var indexFlujoActual = this.indexFlujoActual;
-
-      if (indexFlujoActual != null) {
-        var nombres = response.records; //response.records.map(i => i.path);
-
-        if (typeof this.detalle_flujo[indexFlujoActual].objeto === 'undefined') {
-          this.detalle_flujo[indexFlujoActual].objeto = [];
-        }
-
-        this.detalle_flujo[indexFlujoActual].objeto = [].concat(_toConsumableArray(this.detalle_flujo[indexFlujoActual].objeto), _toConsumableArray(nombres)); //this.indexFlujoActual = null;
-        //console.log(    this.detalle_flujo[indexFlujoActual].objeto)
-      } else {//console.log("es null")
-        }
+      this.imagenes.push(response.records[0].path);
     },
 
     /*
@@ -61789,250 +61792,197 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-sm-3" }, [
-                              _c("label", [_vm._v("Departamento")]),
-                              _vm._v(" "),
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
+                            _c(
+                              "div",
+                              { staticClass: "col-sm-3" },
+                              [
+                                _c("label", [_vm._v("Departamento")]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-select",
+                                  {
+                                    attrs: {
+                                      value: _vm.departamentos.departament_id,
+                                      options: _vm.departamentos,
+                                      getOptionLabel: function(departamento) {
+                                        return departamento.name
+                                      }
+                                    },
+                                    on: {
+                                      "update:value": function($event) {
+                                        return _vm.$set(
+                                          _vm.departamentos,
+                                          "departament_id",
+                                          $event
+                                        )
+                                      }
+                                    },
+                                    model: {
                                       value: _vm.departamento,
+                                      callback: function($$v) {
+                                        _vm.departamento = $$v
+                                      },
                                       expression: "departamento"
                                     }
-                                  ],
-                                  staticClass: "form-control",
-                                  on: {
-                                    change: [
-                                      function($event) {
-                                        var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function(
-                                            o
-                                          ) {
-                                            return o.selected
-                                          })
-                                          .map(function(o) {
-                                            var val =
-                                              "_value" in o ? o._value : o.value
-                                            return val
-                                          })
-                                        _vm.departamento = $event.target
-                                          .multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      },
-                                      function($event) {
-                                        return _vm.selectTipo()
-                                      }
-                                    ]
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    { attrs: { disabled: "", value: "0" } },
-                                    [_vm._v("Seleccione una opcion")]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.departamentos, function(
-                                    departamento
-                                  ) {
-                                    return _c(
-                                      "option",
+                                  },
+                                  [
+                                    _c(
+                                      "span",
                                       {
-                                        domProps: {
-                                          value: departamento.departament_id
-                                        }
+                                        attrs: { slot: "no-options" },
+                                        slot: "no-options"
                                       },
-                                      [_vm._v(_vm._s(departamento.name))]
+                                      [_vm._v(" No se encontro la busqueda")]
                                     )
-                                  })
-                                ],
-                                2
-                              )
-                            ]),
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-sm-3" }, [
-                              _c("label", [_vm._v("Municipio")]),
-                              _vm._v(" "),
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
+                            _c(
+                              "div",
+                              { staticClass: "col-sm-3" },
+                              [
+                                _c("label", [_vm._v("Municipio")]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-select",
+                                  {
+                                    attrs: {
+                                      value: _vm.municipios.municipality_id,
+                                      options: _vm.municipios,
+                                      getOptionLabel: function(municipio) {
+                                        return municipio.name
+                                      }
+                                    },
+                                    on: {
+                                      "update:value": function($event) {
+                                        return _vm.$set(
+                                          _vm.municipios,
+                                          "municipality_id",
+                                          $event
+                                        )
+                                      }
+                                    },
+                                    model: {
                                       value: _vm.municipio,
+                                      callback: function($$v) {
+                                        _vm.municipio = $$v
+                                      },
                                       expression: "municipio"
                                     }
-                                  ],
-                                  staticClass: "form-control",
-                                  on: {
-                                    change: [
-                                      function($event) {
-                                        var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function(
-                                            o
-                                          ) {
-                                            return o.selected
-                                          })
-                                          .map(function(o) {
-                                            var val =
-                                              "_value" in o ? o._value : o.value
-                                            return val
-                                          })
-                                        _vm.municipio = $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      },
-                                      function($event) {
-                                        return _vm.selectTipo()
-                                      }
-                                    ]
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    { attrs: { disabled: "", value: "0" } },
-                                    [_vm._v("Seleccione una opcion")]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.municipios, function(municipio) {
-                                    return _c(
-                                      "option",
+                                  },
+                                  [
+                                    _c(
+                                      "span",
                                       {
-                                        domProps: {
-                                          value: municipio.municipality_id
-                                        }
+                                        attrs: { slot: "no-options" },
+                                        slot: "no-options"
                                       },
-                                      [_vm._v(_vm._s(municipio.name))]
+                                      [_vm._v(" No se encontro la busqueda")]
                                     )
-                                  })
-                                ],
-                                2
-                              )
-                            ]),
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-sm-3" }, [
-                              _c("label", [_vm._v("Zona")]),
-                              _vm._v(" "),
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
+                            _c(
+                              "div",
+                              { staticClass: "col-sm-3" },
+                              [
+                                _c("label", [_vm._v("Zona")]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-select",
+                                  {
+                                    attrs: {
+                                      value: _vm.zona.zone_id,
+                                      options: _vm.zonas,
+                                      getOptionLabel: function(zona) {
+                                        return zona.name
+                                      }
+                                    },
+                                    on: {
+                                      "update:value": function($event) {
+                                        return _vm.$set(
+                                          _vm.zona,
+                                          "zone_id",
+                                          $event
+                                        )
+                                      }
+                                    },
+                                    model: {
                                       value: _vm.zona,
+                                      callback: function($$v) {
+                                        _vm.zona = $$v
+                                      },
                                       expression: "zona"
                                     }
-                                  ],
-                                  staticClass: "form-control",
-                                  on: {
-                                    change: [
-                                      function($event) {
-                                        var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function(
-                                            o
-                                          ) {
-                                            return o.selected
-                                          })
-                                          .map(function(o) {
-                                            var val =
-                                              "_value" in o ? o._value : o.value
-                                            return val
-                                          })
-                                        _vm.zona = $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
+                                  },
+                                  [
+                                    _c(
+                                      "span",
+                                      {
+                                        attrs: { slot: "no-options" },
+                                        slot: "no-options"
                                       },
-                                      function($event) {
-                                        return _vm.selectTipo()
-                                      }
-                                    ]
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    { attrs: { disabled: "", value: "0" } },
-                                    [_vm._v("Seleccione una opcion")]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.zonas, function(zona) {
-                                    return _c(
-                                      "option",
-                                      { domProps: { value: zona.zone_id } },
-                                      [_vm._v(_vm._s(zona.name))]
+                                      [_vm._v(" No se encontro la busqueda")]
                                     )
-                                  })
-                                ],
-                                2
-                              )
-                            ]),
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-sm-3" }, [
-                              _c("label", [_vm._v("Region")]),
-                              _vm._v(" "),
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
+                            _c(
+                              "div",
+                              { staticClass: "col-sm-3" },
+                              [
+                                _c("label", [_vm._v("Region")]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-select",
+                                  {
+                                    attrs: {
+                                      value: _vm.region.region_id,
+                                      options: _vm.regiones,
+                                      getOptionLabel: function(region) {
+                                        return region.name
+                                      }
+                                    },
+                                    on: {
+                                      "update:value": function($event) {
+                                        return _vm.$set(
+                                          _vm.region,
+                                          "region_id",
+                                          $event
+                                        )
+                                      }
+                                    },
+                                    model: {
                                       value: _vm.region,
+                                      callback: function($$v) {
+                                        _vm.region = $$v
+                                      },
                                       expression: "region"
                                     }
-                                  ],
-                                  staticClass: "form-control",
-                                  on: {
-                                    change: [
-                                      function($event) {
-                                        var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function(
-                                            o
-                                          ) {
-                                            return o.selected
-                                          })
-                                          .map(function(o) {
-                                            var val =
-                                              "_value" in o ? o._value : o.value
-                                            return val
-                                          })
-                                        _vm.region = $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      },
-                                      function($event) {
-                                        return _vm.selectTipo()
-                                      }
-                                    ]
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    { attrs: { disabled: "", value: "0" } },
-                                    [_vm._v("Seleccione una opcion")]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.regiones, function(region) {
-                                    return _c(
-                                      "option",
+                                  },
+                                  [
+                                    _c(
+                                      "span",
                                       {
-                                        domProps: { value: region.regions_id }
+                                        attrs: { slot: "no-options" },
+                                        slot: "no-options"
                                       },
-                                      [_vm._v(_vm._s(region.name))]
+                                      [_vm._v(" No se encontro la busqueda")]
                                     )
-                                  })
-                                ],
-                                2
-                              )
-                            ]),
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-sm-3" }, [
                               _c("label", [_vm._v("Direccion")]),
@@ -67531,15 +67481,7 @@ var render = function() {
                                   id: "dropzone",
                                   options: _vm.dropzoneOptions
                                 },
-                                on: {
-                                  "vdropzone-file-added": function($event) {
-                                    return _vm.selectDropzone(
-                                      _vm.flujo,
-                                      _vm.indexFlujo
-                                    )
-                                  },
-                                  "vdropzone-success": _vm.uploadExitoso
-                                }
+                                on: { "vdropzone-success": _vm.uploadExitoso }
                               })
                             ],
                             1

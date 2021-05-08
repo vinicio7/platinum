@@ -59,31 +59,35 @@
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Departamento</label>
-                                         <select class="form-control" v-model="departamento" v-on:change="selectTipo()">
-                                            <option disabled value="0">Seleccione una opcion</option>
-                                            <option v-for="departamento in departamentos" :value="departamento.departament_id" >{{ departamento.name }}</option>
-                                        </select>
+                                        <v-select v-model="departamento"
+                                                :value.sync="departamentos.departament_id"
+                                                :options="departamentos" :getOptionLabel="departamento => departamento.name">
+                                                <span slot="no-options"> No se encontro la busqueda</span>
+                                        </v-select>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Municipio</label>
-                                        <select class="form-control" v-model="municipio" v-on:change="selectTipo()">
-                                            <option disabled value="0">Seleccione una opcion</option>
-                                            <option v-for="municipio in municipios" :value="municipio.municipality_id" >{{ municipio.name }}</option>
-                                        </select>
+                                        <v-select v-model="municipio"
+                                                :value.sync="municipios.municipality_id"
+                                                :options="municipios" :getOptionLabel="municipio => municipio.name">
+                                                <span slot="no-options"> No se encontro la busqueda</span>
+                                        </v-select>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Zona</label>
-                                         <select class="form-control" v-model="zona" v-on:change="selectTipo()">
-                                            <option disabled value="0">Seleccione una opcion</option>
-                                            <option v-for="zona in zonas" :value="zona.zone_id" >{{ zona.name }}</option>
-                                        </select>
+                                        <v-select v-model="zona"
+                                                :value.sync="zona.zone_id"
+                                                :options="zonas" :getOptionLabel="zona => zona.name">
+                                                <span slot="no-options"> No se encontro la busqueda</span>
+                                        </v-select>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Region</label>
-                                         <select class="form-control" v-model="region" v-on:change="selectTipo()">
-                                            <option disabled value="0">Seleccione una opcion</option>
-                                            <option v-for="region in regiones" :value="region.regions_id" >{{ region.name }}</option>
-                                        </select>
+                                        <v-select v-model="region"
+                                                :value.sync="region.region_id"
+                                                :options="regiones" :getOptionLabel="region => region.name">
+                                                <span slot="no-options"> No se encontro la busqueda</span>
+                                        </v-select>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Direccion</label>
@@ -954,7 +958,6 @@
                                 </div>
                                 <div class="row">
                                    <vue-dropzone
-                                      v-on:vdropzone-file-added="selectDropzone(flujo,indexFlujo)"
                                       v-on:vdropzone-success="uploadExitoso"
                                       ref="vueDropzoneArchivos"
                                       id="dropzone"
@@ -1136,6 +1139,7 @@
         },
         data() {
             return {
+                imagenes:[],
                 propietario_id:0,
                 lavavajillas:0,
                 ambientes:0,
@@ -1303,7 +1307,7 @@
                 arrayData:[],
                 update:0,
                 dropzoneOptions: {
-                    url: '/api/propierty',
+                    url: '/api/propierty/image',
                     method:'post',
                     paramName:'archivo',
                     uploadMultiple: false,
@@ -1323,7 +1327,6 @@
                     dictRemoveFile: "Eliminar",
                     dictMaxFilesExceeded:'El máximo de archivos fue superado' ,
                 },
-                indexFlujoActual: null,
                 isLoading: false
             }
         },
@@ -1403,6 +1406,32 @@
                     formData.append('file', this.files, this.files.name)
                 }
                 formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
+                formData.append('title',this.name)
                 axios.post(url,formData,{}).then(function (response) {
                     console.log(response.data.records);
                     if (response.data.result == false) {
@@ -1418,25 +1447,11 @@
                     console.log(error);
                 });   
             },
-            selectDropzone(flujo, indexFlujo){
-                this.indexFlujoActual = indexFlujo;
-            },
             onCompleteWizard: async function() {
                 console.log(this.propietario_id.user_id);
             },
             uploadExitoso(file, response ) {
-                const { indexFlujoActual } = this;
-                if (indexFlujoActual != null) {
-                    const nombres = response.records;//response.records.map(i => i.path);
-                    if(typeof(this.detalle_flujo[indexFlujoActual].objeto) === 'undefined'){
-                        this.detalle_flujo[indexFlujoActual].objeto = [];
-                    }
-                    this.detalle_flujo[indexFlujoActual].objeto = [...this.detalle_flujo[indexFlujoActual].objeto, ...nombres];
-                    //this.indexFlujoActual = null;
-                    //console.log(    this.detalle_flujo[indexFlujoActual].objeto)
-                }else{
-                    //console.log("es null")
-                }
+              this.imagenes.push(response.records[0].path);
             },
             /*
             updateData(){

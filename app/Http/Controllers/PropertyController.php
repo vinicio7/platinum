@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\PropertyWrite;
 use Maatwebsite\Excel\Excel;
 use App\Exports\PropiertiesExport;
-
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PropertyController extends Controller
 {
@@ -28,6 +29,29 @@ class PropertyController extends Controller
             ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
         ]; 
         return view('propierty', compact('dt_route', 'dt_columns','dt_order' ));
+    }
+
+    public function image(Request $request){
+        $archivo = $request->archivo;
+        $respuesta = [];
+        if ($archivo) {
+            try {
+                $path = $archivo->store('storage/uploads');
+                $fileName = collect(explode('/', $path))->last();
+                $image = Image::make(Storage::get($path));
+                $image->resize(1280, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 30));
+                $respuesta[] = ['path' => env('RAIZ','localhost/solicitudes-flujos-elroble/public/').$path, 'extension' => $archivo->extension()];
+            } catch(\Exception $e){
+                return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
+            }
+            return response()->json(['result' => true, 'message' => "Archivo subido completamente.", 'records' => $respuesta]);
+        } else {
+            return response()->json(['result' => false, 'message' => 'El archivo es obligatorio', 'records' => []]);
+        }
     }
 
     public function create(Request $request)
