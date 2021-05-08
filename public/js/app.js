@@ -4293,6 +4293,88 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4314,6 +4396,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _ref;
 
     return _ref = {
+      precio_renta_dolares: 0,
+      precio_renta_quetzales: 0,
+      honorarios_renta: 0,
+      precio_venta_dolares: 0,
+      precio_venta_quetzales: 0,
+      honorarios_venta: 0,
       imagenes: [],
       propietario_id: 0,
       lavavajillas: 0,
@@ -4375,7 +4463,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       estufa_electrica: 0,
       blackouts: 0,
       camaras_seguridad: 0
-    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", ''), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "descripcion_propiedad", ''), _defineProperty(_ref, "valor_registro_dolares", 0), _defineProperty(_ref, "valor_registro_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_dolares", 0), _defineProperty(_ref, "folio", 0), _defineProperty(_ref, "finca", 0), _defineProperty(_ref, "libro", 0), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", 0), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", 0), _defineProperty(_ref, "gravamen_dolares", 0), _defineProperty(_ref, "nombre_banco", 0), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", 0), _defineProperty(_ref, "avaluo_quetzales", 0), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "timbres", 0), _defineProperty(_ref, "iva", 0), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ""), _defineProperty(_ref, "propietario", 0), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 0), _defineProperty(_ref, "municipio", 0), _defineProperty(_ref, "zona", 0), _defineProperty(_ref, "region", 0), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 1), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", ''), _defineProperty(_ref, "contacto_visita", 0), _defineProperty(_ref, "cuota_mantenimiento", 0), _defineProperty(_ref, "servicios", 0), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 0), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", 0), _defineProperty(_ref, "enganche_nivelado", 0), _defineProperty(_ref, "enganche_cuota", 0), _defineProperty(_ref, "enganche_tasa", 0), _defineProperty(_ref, "enganche_quetzales", 0), _defineProperty(_ref, "enganche_dolares", 0), _defineProperty(_ref, "mantenimiento_dolares", 0), _defineProperty(_ref, "mantenimiento_quetzales", 0), _defineProperty(_ref, "compartida_porcentaje", 0), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "propierty_id", ""), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", 0), _defineProperty(_ref, "dropzoneOptions", {
+    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", ''), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "descripcion_propiedad", ''), _defineProperty(_ref, "valor_registro_dolares", 0), _defineProperty(_ref, "valor_registro_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_dolares", 0), _defineProperty(_ref, "folio", 0), _defineProperty(_ref, "finca", 0), _defineProperty(_ref, "libro", 0), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", 0), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", 0), _defineProperty(_ref, "gravamen_dolares", 0), _defineProperty(_ref, "nombre_banco", 0), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", 0), _defineProperty(_ref, "avaluo_quetzales", 0), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "timbres", 0), _defineProperty(_ref, "iva", 0), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ""), _defineProperty(_ref, "propietario", 0), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 0), _defineProperty(_ref, "municipio", 0), _defineProperty(_ref, "zona", 0), _defineProperty(_ref, "region", 0), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 1), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", ''), _defineProperty(_ref, "contacto_visita", 1), _defineProperty(_ref, "cuota_mantenimiento", 1), _defineProperty(_ref, "servicios", 1), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 1), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", 0), _defineProperty(_ref, "enganche_nivelado", 0), _defineProperty(_ref, "enganche_cuota", 0), _defineProperty(_ref, "enganche_tasa", 0), _defineProperty(_ref, "enganche_quetzales", 0), _defineProperty(_ref, "enganche_dolares", 0), _defineProperty(_ref, "mantenimiento_dolares", 0), _defineProperty(_ref, "mantenimiento_quetzales", 0), _defineProperty(_ref, "compartida_porcentaje", 0), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "propierty_id", ""), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", 0), _defineProperty(_ref, "dropzoneOptions", {
       url: '/api/propierty/image',
       method: 'post',
       paramName: 'archivo',
@@ -4440,6 +4528,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.loadFieldsUpdate(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       }
 
+      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Rentar') {
+        _this.loadRenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+      }
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Vender') {
+        _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+      }
+
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
         var _url = '/api/propierty/delete';
         var Data_id = event.target.id;
@@ -4468,33 +4564,165 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         formData.append('file', this.files, this.files.name);
       }
 
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
-      formData.append('title', this.name);
+      formData.append('imagenes', this.imagenes);
+      formData.append('title', this.title);
+      formData.append('type', this.tipo);
+      formData.append('user_id', 39); //usuario logeado
+
+      formData.append('owner_id', this.propietario_id.user_id);
+      formData.append('country_id', this.pais);
+      formData.append('departament_id', this.departamento.departament_id);
+      formData.append('municipality_id', this.municipio.municipality_id);
+      formData.append('zone_id', this.zona.zone_id);
+      formData.append('region_id', this.region.region_id);
+      formData.append('sale_usd', this.precio_venta_dolares);
+      formData.append('sale_gtq', this.precio_venta_quetzales);
+      formData.append('rent_usd', this.precio_renta_dolares);
+      formData.append('rent_gtq', this.precio_renta_quetzales);
+      formData.append('fee_rent', this.honorarios_renta);
+      formData.append('fee_sale', this.honorarios_venta);
+      formData.append('lavavajillas', this.lavavajillas);
+      formData.append('ambientes', this.ambientes);
+      formData.append('land_vrs', this.terreno);
+      formData.append('build_mts', this.construccion);
+      formData.append('front_mts', this.frente);
+      formData.append('bottom_mts', this.fondo);
+      formData.append('build_year', this.ano_construccion);
+      formData.append('levels', this.niveles);
+      formData.append('rooms', this.dormitorios);
+      formData.append('service_rooms', this.dormitorios_servicio);
+      formData.append('bathrooms', this.banos);
+      formData.append('bathrooms_service', this.banos_servicio);
+      formData.append('parking_roof', this.parqueos_techados);
+      formData.append('parking', this.parqueos_notechados);
+      formData.append('offices', this.oficinas);
+      formData.append('cellars', this.bodegas);
+      formData.append('places', this.locales);
+      formData.append('door', this.porton);
+      formData.append('cupboard', this.alacena);
+      formData.append('white_closet', this.closet_blancos);
+      formData.append('gardeen_front', this.jardin_frontal);
+      formData.append('pantry', this.despensa);
+      formData.append('tub', this.tina);
+      formData.append('jardin_trasero', this.jardin_trasero);
+      formData.append('desayunador', this.desayunador);
+      formData.append('ducha', this.ducha);
+      formData.append('bathroom_visit', this.bano_visita);
+      formData.append('laundry', this.lavanderia);
+      formData.append('bidet', this.bidet);
+      formData.append('room_visit', this.dormitorio_visita);
+      formData.append('yard', this.patio);
+      formData.append('jetina', this.jetina);
+      formData.append('study', this.estudio);
+      formData.append('pergola', this.pergola);
+      formData.append('jacuzzi', this.jacuzzi);
+      formData.append('living_room', this.sala);
+      formData.append('winery', this.bodega);
+      formData.append('sauna', this.sauna);
+      formData.append('chimeny', this.chimenea);
+      formData.append('garden_winery', this.bodega_jardin);
+      formData.append('balcony', this.balcon);
+      formData.append('dining_room', this.sala_comedor);
+      formData.append('family_room', this.sala_familiar);
+      formData.append('roof_room', this.terraza);
+      formData.append('dining', this.comedor);
+      formData.append('walkin_closet', this.walkin_closet);
+      formData.append('grill', this.churrasquera);
+      formData.append('kitchen_room', this.cocina_gabinetes);
+      formData.append('closet', this.closet);
+      formData.append('another_details', this.otros_detalles);
+      formData.append('fridge', this.refrigeradora);
+      formData.append('lamps', this.lamparas);
+      formData.append('air', this.aire_acondicionado);
+      formData.append('kitchen', this.estufa);
+      formData.append('curtain', this.cortinas);
+      formData.append('alarm', this.alarma);
+      formData.append('electricy_kitchen', this.estufa_electrica);
+      formData.append('blackouts', this.blackouts);
+      formData.append('camera_security', this.camaras_seguridad);
+      formData.append('dishwater', this.lavavajillas);
+      formData.append('bathroom_curtain', this.cortinas_bano);
+      formData.append('solar_panel', this.paneles_solares);
+      formData.append('bell', this.campana);
+      formData.append('water_heater', this.calentador_agua);
+      formData.append('cistern', this.bomba_cisterna);
+      formData.append('washing_machine', this.lavadora);
+      formData.append('bathroom_mirros', this.espejo_bano);
+      formData.append('trash_deposit', this.deposito_basura);
+      formData.append('dryer', this.secadora);
+      formData.append('another_include', this.otros_incluye);
+      formData.append('cabin', this.garita);
+      formData.append('gym', this.gimnasio);
+      formData.append('kids_area', this.juegos_infantiles);
+      formData.append('daycare', this.guardiania);
+      formData.append('sauna_shared', this.sauna);
+      formData.append('floor_shared', this.piscina);
+      formData.append('social_area', this.area_social);
+      formData.append('spa', this.spa);
+      formData.append('acceso_silla', this.acceso_silla);
+      formData.append('pet_area', this.area_mascotas);
+      formData.append('beauty_salon', this.salon_belleza);
+      formData.append('phone_plant', this.planta_telefonica);
+      formData.append('parking_visit', this.parqueo_visitas);
+      formData.append('court', this.canchas_deportivas);
+      formData.append('ribbon', this.razor_ribbon);
+      formData.append('bussines_center', this.bussines_center);
+      formData.append('another_pleasantness', this.otras_amenidades);
+      formData.append('description', this.descripcion_propiedad);
+      formData.append('registry_usd', this.valor_registro_dolares);
+      formData.append('registry_gtq', this.valor_registro_quetzales);
+      formData.append('iusi_gtq', this.iusi_trimestral_quetzales);
+      formData.append('iusi_usd', this.iusi_trimestral_dolares);
+      formData.append('sheet', this.folio);
+      formData.append('property', this.finca);
+      formData.append('book', this.libro);
+      formData.append('society', this.inscrito_sociedad_anonima);
+      formData.append('name_society', this.sociedad_anonima);
+      formData.append('mortgage', this.gravamen_hipotecario);
+      formData.append('mortgage_gtq', this.gravamen_quetzales);
+      formData.append('mortgage_usd', this.gravamen_dolares);
+      formData.append('bank_id', this.nombre_banco);
+      formData.append('appraisal', this.avalui_reciente);
+      formData.append('appraisal_usd', this.avaluo_dolares);
+      formData.append('appraisal_gtq', this.avaluo_quetzales);
+      formData.append('appraisal_type', this.tipo_avaluo);
+      formData.append('rings', this.timbres);
+      formData.append('iva', this.iva);
+      formData.append('youtube', this.link_tour);
+      formData.append('internal_note', this.notas_internas);
+      formData.append('title', this.titulo);
+      formData.append('propietario', this.propietario);
+      formData.append('adress', this.direccion);
+      formData.append('finance', this.financiamiento);
+      formData.append('term', this.enganche_plazo);
+      formData.append('enganche_nivelado', this.enganche_nivelado);
+      formData.append('term_text', this.enganche_cuota);
+      formData.append('rate', this.enganche_tasa);
+      formData.append('fee_gtq', this.enganche_quetzales);
+      formData.append('fee_usd', this.enganche_dolares);
+      formData.append('exchange', this.canje);
+      formData.append('especifique_canje', this.especifique_canje);
+      formData.append('maintenance', this.cuota_mantenimiento);
+      formData.append('servicios', this.servicios);
+      formData.append('social_media', this.publicacion_redes);
+      formData.append('exclusivity', this.exclusividad);
+      formData.append('share', this.compartida);
+      formData.append('name_contact', this.nombre_visita);
+      formData.append('telephone_contact', this.telefono_visita);
+      formData.append('phone_contact', this.celular_visita);
+      formData.append('email_contact', this.email_visita);
+      formData.append('fee_maintenance_usd', this.mantenimiento_dolares);
+      formData.append('fee_maintenance_gtq', this.mantenimiento_quetzales);
+      formData.append('rate_share', this.compartida_porcentaje);
+      formData.append('company_share', this.compartida_empresa);
+      formData.append('partner_share', this.compartida_asesor);
+      formData.append('water_service', this.agua);
+      formData.append('electricy_service', this.luz);
+      formData.append('security_service', this.seguridad);
+      formData.append('trash_service', this.extraccion);
+      formData.append('clean_service', this.limpieza_areas);
+      formData.append('include_maintenance', this.incluid_mensual);
+      console.log(formData);
       axios.post(url, formData, {}).then(function (response) {
         console.log(response.data.records);
 
@@ -4516,9 +4744,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(this.propietario_id.user_id);
+                _context.next = 2;
+                return this.saveData();
 
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -4533,7 +4762,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return onCompleteWizard;
     }(),
     uploadExitoso: function uploadExitoso(file, response) {
-      this.imagenes.push(response.records[0].path);
+      console.log(response.records);
+      this.imagenes.push(response.records.id);
+      console.log(this.imagenes);
     },
 
     /*
@@ -4571,54 +4802,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         .catch(function (error) {
             console.log(error);
         });
+    },*/
+    loadRenta: function loadRenta(id) {
+      jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalrenta').modal('show');
     },
-    loadFieldsUpdate(id){ 
-        $('#exampleModal').modal('show');
-        this.update = id
-        let me =this;
-        let url = '/api/propierty/showid/';
-        axios.post(url,{ 
-            'propierty_id': this.update,
+    loadVenta: function loadVenta(id) {
+      jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalventa').modal('show');
+    },
+    loadFieldsUpdate: function loadFieldsUpdate(id) {
+      jquery__WEBPACK_IMPORTED_MODULE_7___default()('#exampleModal').modal('show');
+      this.update = id;
+      var me = this;
+      var url = '/api/propierty/showid/';
+      axios.post(url, {
+        'propierty_id': this.update
+      }).then(function (response) {})["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    deleteData: function deleteData(data) {
+      console.log(data);
+      var url = '/api/propierty/delete';
+      var me = this;
+      var Data_id = data.propiertiy_id;
+      console.log(Data_id);
+
+      if (confirm('¿Seguro que deseas eliminar este registro?')) {
+        axios.post(url, {
+          'propierty_id': Data_id
         }).then(function (response) {
-            me.propierty_id          = response.data.records.propierty_id;
-            me.name             = response.data.records.name;
-            me.user             = response.data.records.username;
-            me.password         = response.data.records.password;
-            me.email            = response.data.records.email;
-            me.phone            = response.data.records.phone;
-            me.adress           = response.data.records.adress;
-            me.gender           = response.data.records.gender;
-            me.document_id      = response.data.records.document_id;
-            me.birthdate        = response.data.records.birthdate;
-            me.marital_status   = response.data.records.marital_status;
-            me.title            = response.data.records.title;
-            me.facebook         = response.data.records.facebook;
-            me.twitter          = response.data.records.twitter;
-            me.whatsapp         = response.data.records.whatsapp;
-            me.instagram        = response.data.records.instagram;
-            me.status           = response.data.records.status;
-         })
-        .catch(function (error) {
-            console.log(error);
-        }); 
+          console.log(response);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
     },
-    deleteData(data){
-        let url = '/api/propierty/delete' 
-        let me = this;
-        let Data_id = data.propierty_id
-        console.log(Data_id);
-        if (confirm('¿Seguro que deseas eliminar este registro?')) {
-            axios.post(url,{ 
-            'propierty_id': Data_id,
-            }).then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            }); 
-        }
-    },
-    */
     selectTipo: function selectTipo(tipo) {
       this.titulos = [];
       this.valores = [];
@@ -61489,6 +61707,238 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
+          id: "modalrenta",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modalrenta",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-center modal-md",
+            attrs: { role: "document", align: "center" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-12" },
+                    [
+                      _c("label", [_vm._v("Rentada por")]),
+                      _vm._v(" "),
+                      _c(
+                        "v-select",
+                        {
+                          attrs: {
+                            value: _vm.propietarios.user_id,
+                            options: _vm.propietarios,
+                            getOptionLabel: function(propietario) {
+                              return propietario.name
+                            }
+                          },
+                          on: {
+                            "update:value": function($event) {
+                              return _vm.$set(
+                                _vm.propietarios,
+                                "user_id",
+                                $event
+                              )
+                            }
+                          },
+                          model: {
+                            value: _vm.propietario_id,
+                            callback: function($$v) {
+                              _vm.propietario_id = $$v
+                            },
+                            expression: "propietario_id"
+                          }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              attrs: { slot: "no-options" },
+                              slot: "no-options"
+                            },
+                            [_vm._v(" No se encontro la busqueda")]
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _vm.update == 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        staticStyle: {
+                          "background-color": "#12264d",
+                          "border-color": "#12264d"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.guardarRenta()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.update != 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn",
+                        on: {
+                          click: function($event) {
+                            return _vm.clearFields()
+                          }
+                        }
+                      },
+                      [_vm._v("Atrás")]
+                    )
+                  : _vm._e()
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modalventa",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modalventa",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-center modal-md",
+            attrs: { role: "document", align: "center" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-12" },
+                    [
+                      _c("label", [_vm._v("Vendida por")]),
+                      _vm._v(" "),
+                      _c(
+                        "v-select",
+                        {
+                          attrs: {
+                            value: _vm.propietarios.user_id,
+                            options: _vm.propietarios,
+                            getOptionLabel: function(propietario) {
+                              return propietario.name
+                            }
+                          },
+                          on: {
+                            "update:value": function($event) {
+                              return _vm.$set(
+                                _vm.propietarios,
+                                "user_id",
+                                $event
+                              )
+                            }
+                          },
+                          model: {
+                            value: _vm.propietario_id,
+                            callback: function($$v) {
+                              _vm.propietario_id = $$v
+                            },
+                            expression: "propietario_id"
+                          }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              attrs: { slot: "no-options" },
+                              slot: "no-options"
+                            },
+                            [_vm._v(" No se encontro la busqueda")]
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _vm.update == 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        staticStyle: {
+                          "background-color": "#12264d",
+                          "border-color": "#12264d"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.guardarVenta()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.update != 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn",
+                        on: {
+                          click: function($event) {
+                            return _vm.clearFields()
+                          }
+                        }
+                      },
+                      [_vm._v("Atrás")]
+                    )
+                  : _vm._e()
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
           id: "exampleModal",
           tabindex: "-1",
           role: "dialog",
@@ -61530,7 +61980,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _vm._m(0)
+                _vm._m(2)
               ]),
               _vm._v(" "),
               _c(
@@ -62005,6 +62455,166 @@ var render = function() {
                                       return
                                     }
                                     _vm.direccion = $event.target.value
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c("label", [_vm._v("Precio de venta (Q.)")]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.precio_venta_quetzales,
+                                    expression: "precio_venta_quetzales"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number" },
+                                domProps: { value: _vm.precio_venta_quetzales },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.precio_venta_quetzales =
+                                      $event.target.value
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c("label", [_vm._v("Precio de venta ($.)")]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.precio_venta_dolares,
+                                    expression: "precio_venta_dolares"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number" },
+                                domProps: { value: _vm.precio_venta_dolares },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.precio_venta_dolares =
+                                      $event.target.value
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c("label", [_vm._v("Honorarios venta (%)")]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.honorarios_venta,
+                                    expression: "honorarios_venta"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number" },
+                                domProps: { value: _vm.honorarios_venta },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.honorarios_venta = $event.target.value
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c("label", [_vm._v("Precio de renta (Q.)")]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.precio_renta_quetzales,
+                                    expression: "precio_renta_quetzales"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number" },
+                                domProps: { value: _vm.precio_renta_quetzales },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.precio_renta_quetzales =
+                                      $event.target.value
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c("label", [_vm._v("Precio de renta ($/)")]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.precio_renta_dolares,
+                                    expression: "precio_renta_dolares"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number" },
+                                domProps: { value: _vm.precio_renta_dolares },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.precio_renta_dolares =
+                                      $event.target.value
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-sm-3" }, [
+                              _c("label", [_vm._v("Honorarios renta (%)")]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.honorarios_renta,
+                                    expression: "honorarios_renta"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "number" },
+                                domProps: { value: _vm.honorarios_renta },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.honorarios_renta = $event.target.value
                                   }
                                 }
                               })
@@ -64863,8 +65473,8 @@ var render = function() {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.incluid_mensual,
-                                        expression: "incluid_mensual"
+                                        value: _vm.sauna,
+                                        expression: "sauna"
                                       }
                                     ],
                                     staticClass: "form-control",
@@ -64881,8 +65491,7 @@ var render = function() {
                                               "_value" in o ? o._value : o.value
                                             return val
                                           })
-                                        _vm.incluid_mensual = $event.target
-                                          .multiple
+                                        _vm.sauna = $event.target.multiple
                                           ? $$selectedVal
                                           : $$selectedVal[0]
                                       }
@@ -65541,7 +66150,7 @@ var render = function() {
                                 _c("h2", [_vm._v("Incluye")])
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Refrigeradora")]),
                                 _vm._v(" "),
                                 _c(
@@ -65594,7 +66203,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Lamparas")]),
                                 _vm._v(" "),
                                 _c(
@@ -65646,7 +66255,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Aire acondicionado")]),
                                 _vm._v(" "),
                                 _c(
@@ -65699,7 +66308,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Estufa")]),
                                 _vm._v(" "),
                                 _c(
@@ -65751,7 +66360,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Cortinas")]),
                                 _vm._v(" "),
                                 _c(
@@ -65803,7 +66412,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Alarma")]),
                                 _vm._v(" "),
                                 _c(
@@ -65855,7 +66464,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Estufa electrica")]),
                                 _vm._v(" "),
                                 _c(
@@ -65908,7 +66517,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Blackouts")]),
                                 _vm._v(" "),
                                 _c(
@@ -65960,7 +66569,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Camaras de seguridad")]),
                                 _vm._v(" "),
                                 _c(
@@ -66013,7 +66622,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Lavavajillas")]),
                                 _vm._v(" "),
                                 _c(
@@ -66066,7 +66675,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Cortinas de baño")]),
                                 _vm._v(" "),
                                 _c(
@@ -66076,8 +66685,8 @@ var render = function() {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.incluid_mensual,
-                                        expression: "incluid_mensual"
+                                        value: _vm.cortinas_bano,
+                                        expression: "cortinas_bano"
                                       }
                                     ],
                                     staticClass: "form-control",
@@ -66094,7 +66703,7 @@ var render = function() {
                                               "_value" in o ? o._value : o.value
                                             return val
                                           })
-                                        _vm.incluid_mensual = $event.target
+                                        _vm.cortinas_bano = $event.target
                                           .multiple
                                           ? $$selectedVal
                                           : $$selectedVal[0]
@@ -66119,7 +66728,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Paneles solares")]),
                                 _vm._v(" "),
                                 _c(
@@ -66172,7 +66781,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Campana")]),
                                 _vm._v(" "),
                                 _c(
@@ -66224,7 +66833,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Calentador de agua")]),
                                 _vm._v(" "),
                                 _c(
@@ -66234,8 +66843,8 @@ var render = function() {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.incluid_mensual,
-                                        expression: "incluid_mensual"
+                                        value: _vm.calentador_agua,
+                                        expression: "calentador_agua"
                                       }
                                     ],
                                     staticClass: "form-control",
@@ -66252,7 +66861,7 @@ var render = function() {
                                               "_value" in o ? o._value : o.value
                                             return val
                                           })
-                                        _vm.incluid_mensual = $event.target
+                                        _vm.calentador_agua = $event.target
                                           .multiple
                                           ? $$selectedVal
                                           : $$selectedVal[0]
@@ -66277,7 +66886,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Bomba y cisterna")]),
                                 _vm._v(" "),
                                 _c(
@@ -66330,7 +66939,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Lavadora")]),
                                 _vm._v(" "),
                                 _c(
@@ -66382,7 +66991,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Espejos de baño")]),
                                 _vm._v(" "),
                                 _c(
@@ -66434,7 +67043,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Depositos de basura")]),
                                 _vm._v(" "),
                                 _c(
@@ -66487,7 +67096,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Secadora")]),
                                 _vm._v(" "),
                                 _c(
@@ -67224,8 +67833,8 @@ var render = function() {
                                     {
                                       name: "model",
                                       rawName: "v-model",
-                                      value: _vm.incluid_mensual,
-                                      expression: "incluid_mensual"
+                                      value: _vm.parqueo_visitas,
+                                      expression: "parqueo_visitas"
                                     }
                                   ],
                                   staticClass: "form-control",
@@ -67242,7 +67851,7 @@ var render = function() {
                                             "_value" in o ? o._value : o.value
                                           return val
                                         })
-                                      _vm.incluid_mensual = $event.target
+                                      _vm.parqueo_visitas = $event.target
                                         .multiple
                                         ? $$selectedVal
                                         : $$selectedVal[0]
@@ -68256,6 +68865,56 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "modalrenta" } }, [
+        _vm._v("Rentar propiedad")
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "modalventa" } }, [
+        _vm._v("Vender propiedad")
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
