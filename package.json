@@ -39,6 +39,7 @@
     "dependencies": {
         "@tinymce/tinymce-vue": "^3.2.8",
         "babel-loader": "^8.2.2",
-        "tinymce": "^5.7.1"
+        "tinymce": "^5.7.1",
+        "vue-select": "^3.11.2"
     }
 }

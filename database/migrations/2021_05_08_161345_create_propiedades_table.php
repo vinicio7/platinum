@@ -1,0 +1,193 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePropiedadesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+       Schema::create('propiedades', function (Blueprint $table) {
+            $table->id('propiertiy_id')->nullable();
+            $table->string('title')->nullable();
+            $table->string('type')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->string('owner_id')->nullable();
+            $table->integer('country_id')->nullable();
+            $table->integer('departament_id')->nullable();
+            $table->integer('municipality_id')->nullable();
+            $table->integer('zone_id')->nullable();
+            $table->integer('region_id')->nullable();
+            $table->string('adress')->nullable();
+            $table->string('partner')->nullable();
+            $table->double('sale_usd', 8, 2);
+            $table->double('sale_gtq', 8, 2);
+            $table->double('rent_usd', 8, 2);
+            $table->double('rent_gtq', 8, 2);
+            $table->string('fee_rent')->nullable();
+            $table->string('fee_sale')->nullable();
+            $table->double('finance')->nullable();
+            $table->double('exchange')->nullable();
+            $table->double('engage_usd')->nullable();
+            $table->double('engage_gtq')->nullable();
+            $table->string('rate')->nullable();
+            $table->string('fee_usd')->nullable();
+            $table->string('fee_gtq')->nullable();
+            $table->string('term')->nullable();
+            $table->string('term_text')->nullable();
+            $table->string('maintenance')->nullable();
+            $table->double('fee_maintenance_gtq')->nullable();
+            $table->double('fee_maintenance_usd')->nullable();
+            $table->boolean('include_maintenance')->nullable();
+            $table->boolean('water_service')->nullable();
+            $table->boolean('security_service')->nullable();
+            $table->boolean('electricy_service')->nullable();
+            $table->boolean('trash_service')->nullable();
+            $table->boolean('clean_service')->nullable();
+            $table->string('name_contact')->nullable();
+            $table->string('phone_contact')->nullable();
+            $table->string('telephone_contact')->nullable();
+            $table->string('email_contact')->nullable();
+            $table->string('name_contact_2')->nullable();
+            $table->string('phone_contact_2')->nullable();
+            $table->string('telephone_contact_2')->nullable();
+            $table->string('email_contact_2')->nullable();
+            $table->string('social_media')->nullable();
+            $table->string('exclusivity')->nullable();
+            $table->string('share')->nullable();
+            $table->string('partner_share')->nullable();
+            $table->string('company_share')->nullable();
+            $table->string('rate_share')->nullable();
+            $table->double('land_vrs')->nullable();
+            $table->double('build_mts')->nullable();
+            $table->double('front_mts')->nullable();
+            $table->double('bottom_mts')->nullable();
+            $table->double('build_year')->nullable();
+            $table->integer('levels')->nullable();
+            $table->integer('rooms')->nullable();
+            $table->integer('service_rooms')->nullable();
+            $table->integer('bathrooms')->nullable();
+            $table->integer('bathrooms_service')->nullable();
+            $table->integer('parking')->nullable();
+            $table->integer('parking_roof')->nullable();
+            $table->boolean('offices')->nullable();
+            $table->boolean('cellars')->nullable();
+            $table->boolean('places')->nullable();
+            $table->boolean('door')->nullable();
+            $table->boolean('front_door')->nullable();
+            $table->boolean('cupboard')->nullable();
+            $table->boolean('white_closet')->nullable();
+            $table->boolean('gardeen_front')->nullable();
+            $table->boolean('pantry')->nullable();
+            $table->boolean('tub')->nullable();
+            $table->boolean('bathroom_visit')->nullable();
+            $table->boolean('laundry')->nullable();
+            $table->boolean('bidet')->nullable();
+            $table->boolean('room_visit')->nullable();
+            $table->boolean('yard')->nullable();
+            $table->boolean('jetina')->nullable();
+            $table->boolean('study')->nullable();
+            $table->boolean('jacuzzi')->nullable();
+            $table->boolean('pergola')->nullable();
+            $table->boolean('living_room')->nullable();
+            $table->boolean('winery')->nullable();
+            $table->boolean('sauna')->nullable();
+            $table->boolean('chimeny')->nullable();
+            $table->boolean('garden_winery')->nullable();
+            $table->boolean('balcony')->nullable();
+            $table->boolean('dining_room')->nullable();
+            $table->boolean('walkin_closet')->nullable();
+            $table->boolean('grill')->nullable();
+            $table->boolean('family_room')->nullable();
+            $table->boolean('roof_room')->nullable();
+            $table->boolean('dining')->nullable();
+            $table->boolean('kitchen_room')->nullable();
+            $table->boolean('closet')->nullable();
+            $table->boolean('another_details')->nullable();
+            $table->string('build')->nullable();
+            $table->integer('floors')->nullable();
+            $table->integer('doors')->nullable();
+            $table->integer('roofs')->nullable();
+            $table->integer('windows')->nullable();
+            $table->string('another_finished')->nullable();
+            $table->boolean('fridge')->nullable();
+            $table->boolean('lamps')->nullable();
+            $table->boolean('air')->nullable();
+            $table->boolean('kitchen')->nullable();
+            $table->boolean('curtain')->nullable();
+            $table->boolean('alarm')->nullable();
+            $table->boolean('electricy_kitchen')->nullable();
+            $table->boolean('blackouts')->nullable();
+            $table->boolean('camera_security')->nullable();
+            $table->boolean('dishwater')->nullable();
+            $table->boolean('bathroom_curtain')->nullable();
+            $table->boolean('solar_panel')->nullable();
+            $table->boolean('bell')->nullable();
+            $table->boolean('water_heater')->nullable();
+            $table->boolean('cistern')->nullable();
+            $table->boolean('washing_machine')->nullable();
+            $table->boolean('bathroom_mirros')->nullable();
+            $table->boolean('trash_deposit')->nullable();
+            $table->boolean('dryer')->nullable();
+            $table->string('another_include')->nullable();
+            $table->boolean('cabin')->nullable();
+            $table->boolean('gym')->nullable();
+            $table->boolean('kids_area')->nullable();
+            $table->boolean('daycare')->nullable();
+            $table->boolean('sauna_shared')->nullable();
+            $table->boolean('floor_shared')->nullable();
+            $table->boolean('social_area')->nullable();
+            $table->boolean('spa')->nullable();
+            $table->boolean('pet_area')->nullable();
+            $table->boolean('beauty_salon')->nullable();
+            $table->boolean('phone_plant')->nullable();
+            $table->boolean('parking_visit')->nullable();
+            $table->boolean('court')->nullable();
+            $table->boolean('ribbon')->nullable();
+            $table->boolean('bussines_center')->nullable();
+            $table->string('another_pleasantness')->nullable();
+            $table->string('picture_pleasantness')->nullable();
+            $table->double('registry_usd')->nullable();
+            $table->double('registry_gtq')->nullable();
+            $table->double('iusi_usd')->nullable();
+            $table->double('iusi_gtq')->nullable();
+            $table->string('sheet')->nullable();
+            $table->string('property')->nullable();
+            $table->string('book')->nullable();
+            $table->string('society')->nullable();
+            $table->string('name_society')->nullable();
+            $table->double('mortgage')->nullable();
+            $table->double('mortgage_usd')->nullable();
+            $table->double('mortgage_gtq')->nullable();
+            $table->integer('bank_id')->nullable();
+            $table->double('appraisal')->nullable();
+            $table->double('appraisal_usd')->nullable();
+            $table->double('appraisal_gtq')->nullable();
+            $table->double('appraisal_type')->nullable();
+            $table->double('iva')->nullable();
+            $table->string('rings')->nullable();
+            $table->string('description')->nullable();
+            $table->string('youtube')->nullable();
+            $table->integer('code')->nullable();
+            $table->string('internal_note')->nullable();
+            $table->boolean('status')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('propiedades');
+    }
+}

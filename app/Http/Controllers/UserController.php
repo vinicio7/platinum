@@ -40,7 +40,7 @@ class UserController extends Controller
     public function get(Request $request)
     {
         try {
-            $rol = User::where('rol_id',4)->get();
+            $rol = User::select('user_id','name')->where('rol_id',4)->get();
             $this->message = "Consulta correcta";
             $this->result = true;
             $this->records = $rol;
