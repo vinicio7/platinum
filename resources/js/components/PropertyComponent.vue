@@ -153,11 +153,11 @@
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Precio de venta (Q.)</label>
-                                        <input type="number" class="form-control" v-model="precio_venta_quetzales" />
+                                        <input type="number" class="form-control" v-model="precio_venta_quetzales" v-on:keyup="cambio_venta_gtq"/>
                                     </div>
                                      <div class="col-sm-3" >
                                         <label>Precio de venta ($.)</label>
-                                        <input type="number" class="form-control" v-model="precio_venta_dolares" />
+                                        <input type="number" class="form-control" v-model="precio_venta_dolares" v-on:keyup="cambio_venta_usd" />
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Honorarios venta (%)</label>
@@ -165,11 +165,11 @@
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Precio de renta (Q.)</label>
-                                        <input type="number" class="form-control" v-model="precio_renta_quetzales" />
+                                        <input type="number" class="form-control" v-model="precio_renta_quetzales" v-on:keyup="cambio_renta_gtq" />
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Precio de renta ($/)</label>
-                                        <input type="number" class="form-control" v-model="precio_renta_dolares" />
+                                        <input type="number" class="form-control" v-model="precio_renta_dolares" v-on:keyup="cambio_renta_usd"/>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Honorarios renta (%)</label>
@@ -1192,12 +1192,10 @@
                 </div>
             </div>
         </div>
-
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
-          + Crear propiedad
-        </button>
-        <div class="row" style="margin-top: 10px">
-            
+        <div class="row" style="margin-top: 5px;margin-left:-230px">
+           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
+            + Crear propiedad
+          </button> 
         </div>
     </div>
 </template>
@@ -1489,6 +1487,18 @@
             });
         },
         methods:{
+            cambio_venta_usd(){
+              this.precio_venta_quetzales = (this.precio_venta_dolares * 7.8).toFixed(2);
+            },
+            cambio_venta_gtq(){
+              this.precio_venta_dolares = (this.precio_venta_quetzales / 7.8).toFixed(2);
+            },
+            cambio_renta_usd(){
+              this.precio_renta_quetzales = (this.precio_renta_dolares * 7.8).toFixed(2);
+            },
+            cambio_renta_gtq(){
+              this.precio_renta_dolares = (this.precio_renta_quetzales / 7.8).toFixed(2);
+            },
             saveData(){
                 let me =this;
                 let url = '/api/propierty/create' 

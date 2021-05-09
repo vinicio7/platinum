@@ -49,11 +49,11 @@ class PropertyController extends Controller
                 $path = $archivo->store('storage/uploads');
                 $fileName = collect(explode('/', $path))->last();
                 $image = Image::make(Storage::get($path));
-                $image->resize(1280, null, function ($constraint) {
+                $image->resize(2560, null, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
-                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 30));
+                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 60));
                 $imagen = Images::create([
                     'path'          => env('RAIZ','https://platinum.mavis.com.gt/').$path,
                     'extension'    => $archivo->extension()
