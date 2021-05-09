@@ -159,13 +159,19 @@
     <!-- end sidebar -->
 
     <!-- main content -->
+    <div class="main__title">
+        <h2 style="color:white">Inicio</h2>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <a href="{{ route('logout') }}" class="main__title-link">Cerrar sesión</a>
+    </div>
     @yield('content_admin')
+
    
     <!-- end main content -->
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js?vr700') }}" defer></script>
+    <script src="{{ asset('js/app.js?vr900') }}" defer></script>
     <script src="{{asset('assets/js/script.js')}}"></script>
     <script src="{{asset('assets/js/vendor/jquery.smartWizard.min.js')}}"></script>
     <script src="{{asset('assets/js/vendor/toastr.min.js')}}"></script>

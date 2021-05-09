@@ -1,8 +1,76 @@
 <?php 
 use App\Models\User;
+use App\Models\Property;
 use App\Models\Region;
-$asociats = User::where('rol_id',2)->with('rol')->get();
-$regions  = Region::all();
+use App\Models\Images;
+
+
+//$asociats    = User::where('rol_id',2)->with('rol')->get();
+$asociats    = User::all();
+$regions     = Region::all();
+$propiedades = Property::orderBy('propiertiy_id','ASC')->get()->take(4);
+$todas       = Property::orderBy('propiertiy_id','DESC')->get()->take(6);
+
+$titulo_1 = $propiedades[0]->title;
+if($propiedades[0]->sale_usd > 0){
+   $tipo_1   = 'En venta';
+   $precio_1 = number_format($propiedades[0]->sale_usd,2);
+}else{
+   $tipo_1   = 'En renta';
+   $precio_1 = number_format($propiedades[0]->rent_usd,2);
+}
+$direccion_1 = $propiedades[0]->adress;
+$buscar_imagen    = Images::where('propierty_id',$propiedades[0]->propiertiy_id)->first();
+if($buscar_imagen){
+   $imagen_1 = $buscar_imagen->path;
+}
+
+$titulo_2 = $propiedades[1]->title;
+if($propiedades[1]->sale_usd > 0){
+   $tipo_2   = 'En venta';
+   $precio_2 = number_format($propiedades[1]->sale_usd,2);
+}else{
+   $tipo_2   = 'En renta';
+   $precio_2 = number_format($propiedades[1]->rent_usd,2);
+}
+$direccion_2 = $propiedades[1]->adress;
+$buscar_imagen_2    = Images::where('propierty_id',$propiedades[1]->propiertiy_id)->first();
+if($buscar_imagen_2){
+   $imagen_2 = $buscar_imagen_2->path;
+}
+
+$titulo_3 = $propiedades[2]->title;
+if($propiedades[2]->sale_usd > 0){
+   $tipo_3   = 'En venta';
+   $precio_3 = number_format($propiedades[2]->sale_usd,2);
+}else{
+   $tipo_3   = 'En renta';
+   $precio_3 = number_format($propiedades[2]->rent_usd,2);
+}
+$direccion_3 = $propiedades[2]->adress;
+$buscar_imagen_3    = Images::where('propierty_id',$propiedades[2]->propiertiy_id)->first();
+if($buscar_imagen_3){
+   $imagen_3 = $buscar_imagen_3->path;
+}
+
+$titulo_4 = $propiedades[3]->title;
+if($propiedades[3]->sale_usd > 0){
+   $tipo_4   = 'En venta';
+   $precio_4 = number_format($propiedades[3]->sale_usd,2);
+}else{
+   $tipo_4   = 'En renta';
+   $precio_4 = number_format($propiedades[3]->rent_usd,2);
+}
+$direccion_4   = $propiedades[3]->adress;
+$descripcion_4 = $propiedades[3]->description;
+$metros_4      = $propiedades[3]->build_mts;
+$dormitorios_4 = $propiedades[3]->rooms;
+$parqueos_4    = $propiedades[3]->parking;
+$banos_4       = $propiedades[3]->bathrooms;
+$buscar_imagen_4    = Images::where('propierty_id',$propiedades[3]->propiertiy_id)->first();
+if($buscar_imagen_4){
+   $imagen_4 = $buscar_imagen_4->path;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
@@ -75,23 +143,23 @@ $regions  = Region::all();
                   <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
                      <ul>
                         <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="image/pslider1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img src="{{$imagen_1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
                                     <div class="sc_property_item">
                                        <div class="sc_pr_h1">
-                                          <div class="sc_pr_h2">House for sale</div>
+                                          <div class="sc_pr_h2">{{$tipo_1}}</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">87 Mishaum Point Rd</a>
+                                          <a href="single-post.html">{{$titulo_1}}</a>
                                        </div>
-                                       <div class="sc_pr_t2">Dartmouth, MA 02748</div>
+                                       <div class="sc_pr_t2">{{$direccion_1}}</div>
                                        <div class="sc_pr_f1">
                                           <div class="sc_pr_f11">
-                                             <div class="sc_pr_f111"><span>House for sale</span></div>
+                                             <div class="sc_pr_f111"><span>{{$tipo_1}}</span></div>
                                           </div>
-                                          <div class="sc_pr_f12"><span>$</span>1,249,000</div>
+                                          <div class="sc_pr_f12"><span>$</span>{{$precio_1}}</div>
                                        </div>
                                     </div>
                                  </div>
@@ -99,23 +167,23 @@ $regions  = Region::all();
                            </div>
                         </li>
                         <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="image/pslider2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img src="{{$imagen_2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
                                     <div class="sc_property_item">
                                        <div class="sc_pr_h1">
-                                          <div class="sc_pr_h2">Townhouse for sale</div>
+                                          <div class="sc_pr_h2">{{$tipo_2}}</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">9615 Shore Rd APT BA</a>
+                                          <a href="single-post.html">{{$titulo_2}}</a>
                                        </div>
-                                       <div class="sc_pr_t2">Brooklyn, NY 11209</div>
+                                       <div class="sc_pr_t2">{{$direccion_2}}</div>
                                        <div class="sc_pr_f1">
                                           <div class="sc_pr_f11">
-                                             <div class="sc_pr_f111"><span>Townhouse for sale</span></div>
+                                             <div class="sc_pr_f111"><span>{{$tipo_2}}</span></div>
                                           </div>
-                                          <div class="sc_pr_f12"><span>$</span>2,189,000</div>
+                                          <div class="sc_pr_f12"><span>$</span>{{$precio_2}}</div>
                                        </div>
                                     </div>
                                  </div>
@@ -123,23 +191,23 @@ $regions  = Region::all();
                            </div>
                         </li>
                         <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="image/pslider5.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img src="{{$imagen_3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
                                     <div class="sc_property_item">
                                        <div class="sc_pr_h1">
-                                          <div class="sc_pr_h2">House for rent</div>
+                                          <div class="sc_pr_h2">{{$tipo_3}}</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">80646 Via Pessaro</a>
+                                          <a href="single-post.html">{{$titulo_3}}</a>
                                        </div>
-                                       <div class="sc_pr_t2">La Quinta, CA 32453</div>
+                                       <div class="sc_pr_t2">{{$direccion_3}}</div>
                                        <div class="sc_pr_f1">
                                           <div class="sc_pr_f11">
-                                             <div class="sc_pr_f111"><span>House for rent</span></div>
+                                             <div class="sc_pr_f111"><span>{{$tipo_3}}</span></div>
                                           </div>
-                                          <div class="sc_pr_f12"><span>$</span>3,449<span>/year</span></div>
+                                          <div class="sc_pr_f12"><span>$</span>{{$precio_3}}<span> / mes</span></div>
                                        </div>
                                     </div>
                                  </div>
@@ -257,13 +325,13 @@ $regions  = Region::all();
                            <h2 class="sc_title sc_title_iconed ind2 margin_top_null margin_bottom_xmedium">
                               <span class="sc_title_icon sc_title_icon_left sc_title_icon_small icon-map-pointer18 sc_left"></span>
                               <span class="sc_title_box">
-                              <a href="#">87 Mishaum Point Rd,</a>
-                              <span class="sc_title_subtitle">Dartmouth, MA 02748</span>
+                              <a href="#">{{$titulo_4}}</a>
+                              <span class="sc_title_subtitle">{{$direccion_4}}</span>
                               </span>
                            </h2>
                            <div class="sc_section margin_bottom_xmedium section_style_1">
                               <div class="sc_section_inner">
-                                 <p>On the best lot at Phuket is situated the Kailua Residence. It features Ipe hardwood flooring on the interior and granite stone flooring on the lanais, high vaulted cedar ceilings.</p>
+                                 <p>{!!$descripcion_4!!}</p>
                               </div>
                            </div>
                            <div class="columns_wrap sc_columns margin_bottom_medium">
@@ -271,11 +339,11 @@ $regions  = Region::all();
                                  <ul class="sc_list sc_list_style_iconed color_1">
                                     <li class="sc_list_item">
                                        <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Quiet Neighbourhood</p>
+                                       <p>Zona tranquila</p>
                                     </li>
                                     <li class="sc_list_item">
                                        <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Great Local Community</p>
+                                       <p>Excelente comunidad</p>
                                     </li>
                                  </ul>
                               </div>
@@ -283,11 +351,11 @@ $regions  = Region::all();
                                  <ul class="sc_list sc_list_style_iconed color_1">
                                     <li class="sc_list_item">
                                        <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Fabulous Views</p>
+                                       <p>Vistas Fabulosas</p>
                                     </li>
                                     <li class="sc_list_item">
                                        <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Large Play Center In Yard</p>
+                                       <p>Reciente construccion</p>
                                     </li>
                                  </ul>
                               </div>
@@ -297,13 +365,13 @@ $regions  = Region::all();
                                  <div class="sc_property_item">
                                     <div class="ps_single_info">
                                        <div class="property_price_box">
-                                          <span class="property_price_box_sign">$</span><span class="property_price_box_price">1,249,000</span>
+                                          <span class="property_price_box_sign">$</span><span class="property_price_box_price">{{$precio_4}}</span>
                                        </div>
                                        <div class="sc_property_info_list">
-                                          <span class="icon-area_2">1,286 sqft</span>
-                                          <span class="icon-bed">2</span>
-                                          <span class="icon-bath">3</span>
-                                          <span class="icon-warehouse">2</span>
+                                          <span class="icon-area_2">{{$metros_4}} mts</span>
+                                          <span class="icon-bed">{{$dormitorios_4}}</span>
+                                          <span class="icon-bath">{{$banos_4}}</span>
+                                          <span class="icon-warehouse">{{$parqueos_4}}</span>
                                        </div>
                                        <div class="cL"></div>
                                     </div>
@@ -313,7 +381,7 @@ $regions  = Region::all();
                         </div>
                         <div class="column-1_2">
                            <figure class="sc_image ">
-                              <a href="#"><img src="image/propierties/1/1.jpg" alt="" /></a>
+                              <a href="#"><img src="{{$imagen_4}}" alt="" /></a>
                            </figure>
                         </div>
                      </div>
@@ -325,90 +393,51 @@ $regions  = Region::all();
                      <div class="sc_property_wrap">
                         <div class="sc_property sc_property_style_property-1">
                            <div class="sc_columns columns_wrap">
+
+                              @foreach($todas as $item)
                               <div class="column-1_3 column_padding_bottom">
                                  <div class="sc_property_item">
                                     <div class="sc_property_image">
                                        <a href="single-post.html">
                                           <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">1,249,000</span></div>
-                                          <img alt="" src="image/propierties/1/1.jpg">
+                                          <?php
+                                          $busqueda    = Images::where('propierty_id',$item->propiertiy_id)->first();
+                                          if($busqueda){
+                                             $imagen =  $busqueda->path;
+                                          }else{
+                                             $imagen = ''; 
+                                          }
+                                          ?>
+                                          <img alt="" src="{{$imagen}}">
+                                          
                                        </a>
                                     </div>
                                     <div class="sc_property_info">
-                                       <div class="sc_property_description">House for sale</div>
+                                       @if($item->sale_usd > 0)
+                                          <div class="sc_property_description">En Venta</div>
+                                       @else
+                                          <div class="sc_property_description">En Renta</div>
+                                       @endif
                                        <div>
                                           <div class="sc_property_icon">
                                              <span class="icon-location"></span>
                                           </div>
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">87 Mishaum Point Rd</a>
+                                                <a href="single-post.html">{{$item->title}}</a>
                                              </div>
-                                             <div class="sc_property_title_address_2">Dartmouth, MA 02748</div>
+                                             <div class="sc_property_title_address_2">{{$item->adress}}</div>
                                           </div>
                                           <div class="cL"></div>
                                        </div>
                                     </div>
                                     <div class="sc_property_info_list">
-                                       <span class="icon-building113">1,286 sqft</span><span class="icon-bed">2</span><span class="icon-bath">3</span><span class="icon-warehouse">2</span>
+                                       <span class="icon-building113">{{$item->build_mts}} mts</span><span class="icon-bed">{{$item->rooms}}</span><span class="icon-bath">{{$item->bathrooms}}</span><span class="icon-warehouse">{{$item->parking}}</span>
                                     </div>
                                  </div>
                               </div>
-                              <div class="column-1_3 column_padding_bottom">
-                                 <div class="sc_property_item">
-                                    <div class="sc_property_image">
-                                       <a href="single-post.html">
-                                          <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">2,189,000</span></div>
-                                          <img alt="" src="image/propierties/1/1.jpg">
-                                       </a>
-                                    </div>
-                                    <div class="sc_property_info">
-                                       <div class="sc_property_description">Townhouse for sale</div>
-                                       <div>
-                                          <div class="sc_property_icon">
-                                             <span class="icon-location"></span>
-                                          </div>
-                                          <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">9615 Shore Rd APT BA</a>
-                                             </div>
-                                             <div class="sc_property_title_address_2">Brooklyn, NY 11209</div>
-                                          </div>
-                                          <div class="cL"></div>
-                                       </div>
-                                    </div>
-                                    <div class="sc_property_info_list">
-                                       <span class="icon-building113">1,286 sqft</span><span class="icon-bed">2</span><span class="icon-bath">3</span><span class="icon-warehouse">3</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="column-1_3 column_padding_bottom">
-                                 <div class="sc_property_item">
-                                    <div class="sc_property_image">
-                                       <a href="single-post.html">
-                                          <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">3,449</span><span class="property_price_box_per">/year</span></div>
-                                          <img alt="" src="image/propierties/1/1.jpg">
-                                       </a>
-                                    </div>
-                                    <div class="sc_property_info">
-                                       <div class="sc_property_description">House for rent</div>
-                                       <div>
-                                          <div class="sc_property_icon">
-                                             <span class="icon-location"></span>
-                                          </div>
-                                          <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">80646 Via Pessaro</a>
-                                             </div>
-                                             <div class="sc_property_title_address_2">La Quinta, CA 32453</div>
-                                          </div>
-                                          <div class="cL"></div>
-                                       </div>
-                                    </div>
-                                    <div class="sc_property_info_list">
-                                       <span class="icon-building113">886 sqft</span><span class="icon-bed">2</span><span class="icon-bath">3</span><span class="icon-warehouse">2</span>
-                                    </div>
-                                 </div>
-                              </div>
+                              @endforeach
+
                            </div>
                         </div>
                      </div>
