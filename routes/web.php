@@ -47,8 +47,10 @@ Route::get('regions',                   'RegionController@index')->name('regions
 Route::get('banks',                     'BankController@index')->name('banks');
 
 Route::get('asociate/detail/{id}',		'UserController@asociate');
+Route::get('/propierty/view/{id}',		'PropertyController@ver_propiedad');
 Route::get('departaments',              'DepartamentController@index')->name('departaments');
 Route::get('municipalities',            'MunicipalityController@index')->name('municipalities');
 Route::get('zones',            			'ZoneController@index')->name('zones');
 Route::get('rols',            			'RoleController@index')->name('rols');
 Route::get('propierties',            	'PropertyController@index')->name('propierties');
+Route::get('propiedades',            	'PropertyController@propiedades')->name('propiedades');

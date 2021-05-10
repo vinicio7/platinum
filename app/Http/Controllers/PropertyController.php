@@ -19,6 +19,15 @@ class PropertyController extends Controller
     public $records     = array();
     public $statusCode     = 200;
     
+    public function ver_propiedad($id){
+        $data = Property::find($id);
+        return view('ver_propiedad', compact('data'));
+    }
+
+    public function propiedades(){
+        return view('propiedades');
+    }
+
     public function index()
     {
         $titulo     = 'propierty';
@@ -70,7 +79,7 @@ class PropertyController extends Controller
 
     public function create(Request $request)
     {
-         try { 
+        try { 
             $properties = Property::create([
                 'title'                     => $request->input('title'),
                 'type'                      => $request->input('type') ,
