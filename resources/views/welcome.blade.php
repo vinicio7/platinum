@@ -12,6 +12,7 @@ $propiedades = Property::orderBy('propiertiy_id','ASC')->get()->take(4);
 $todas       = Property::orderBy('propiertiy_id','DESC')->get()->take(6);
 
 $titulo_1 = $propiedades[0]->title;
+$id_1     = $propiedades[0]->propiertiy_id;
 if($propiedades[0]->sale_usd > 0){
    $tipo_1   = 'En venta';
    $precio_1 = number_format($propiedades[0]->sale_usd,2);
@@ -26,6 +27,7 @@ if($buscar_imagen){
 }
 
 $titulo_2 = $propiedades[1]->title;
+$id_2     = $propiedades[1]->propiertiy_id;
 if($propiedades[1]->sale_usd > 0){
    $tipo_2   = 'En venta';
    $precio_2 = number_format($propiedades[1]->sale_usd,2);
@@ -40,6 +42,7 @@ if($buscar_imagen_2){
 }
 
 $titulo_3 = $propiedades[2]->title;
+$id_3     = $propiedades[2]->propiertiy_id;
 if($propiedades[2]->sale_usd > 0){
    $tipo_3   = 'En venta';
    $precio_3 = number_format($propiedades[2]->sale_usd,2);
@@ -54,6 +57,7 @@ if($buscar_imagen_3){
 }
 
 $titulo_4 = $propiedades[3]->title;
+$id_4     = $propiedades[3]->propiertiy_id;
 if($propiedades[3]->sale_usd > 0){
    $tipo_4   = 'En venta';
    $precio_4 = number_format($propiedades[3]->sale_usd,2);
@@ -152,7 +156,7 @@ if($buscar_imagen_4){
                                           <div class="sc_pr_h2">{{$tipo_1}}</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">{{$titulo_1}}</a>
+                                          <a href="/propierty/view/{{$id_1}}">{{$titulo_1}}</a>
                                        </div>
                                        <div class="sc_pr_t2">{{$direccion_1}}</div>
                                        <div class="sc_pr_f1">
@@ -176,7 +180,7 @@ if($buscar_imagen_4){
                                           <div class="sc_pr_h2">{{$tipo_2}}</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">{{$titulo_2}}</a>
+                                          <a href="/propierty/view/{{$id_2}}">{{$titulo_2}}</a>
                                        </div>
                                        <div class="sc_pr_t2">{{$direccion_2}}</div>
                                        <div class="sc_pr_f1">
@@ -200,7 +204,7 @@ if($buscar_imagen_4){
                                           <div class="sc_pr_h2">{{$tipo_3}}</div>
                                        </div>
                                        <div class="sc_pr_t1">
-                                          <a href="single-post.html">{{$titulo_3}}</a>
+                                          <a href="/propierty/view/{{$id_3}}">{{$titulo_3}}</a>
                                        </div>
                                        <div class="sc_pr_t2">{{$direccion_3}}</div>
                                        <div class="sc_pr_f1">
@@ -307,7 +311,7 @@ if($buscar_imagen_4){
                                  </div>
                               </div>
                               <div class="sc_ps_submit">
-                                 <input type="submit" class="sc_button sc_button_box sc_button_style_style2" value="Buscar">
+                                    <a href="/propiedades" class="sc_button sc_button_box sc_button_style_style2" style="color:white">Buscar</a>
                               </div>
                            </form>
                         </div>
@@ -325,7 +329,7 @@ if($buscar_imagen_4){
                            <h2 class="sc_title sc_title_iconed ind2 margin_top_null margin_bottom_xmedium">
                               <span class="sc_title_icon sc_title_icon_left sc_title_icon_small icon-map-pointer18 sc_left"></span>
                               <span class="sc_title_box">
-                              <a href="#">{{$titulo_4}}</a>
+                              <a href="/propierty/view/{{$id_4}}">{{$titulo_4}}</a>
                               <span class="sc_title_subtitle">{{$direccion_4}}</span>
                               </span>
                            </h2>
@@ -381,7 +385,7 @@ if($buscar_imagen_4){
                         </div>
                         <div class="column-1_2">
                            <figure class="sc_image ">
-                              <a href="#"><img src="{{$imagen_4}}" alt="" /></a>
+                              <a href="/propierty/view/{{$id_4}}"><img src="{{$imagen_4}}" alt="" /></a>
                            </figure>
                         </div>
                      </div>
@@ -398,7 +402,7 @@ if($buscar_imagen_4){
                               <div class="column-1_3 column_padding_bottom">
                                  <div class="sc_property_item">
                                     <div class="sc_property_image">
-                                       <a href="single-post.html">
+                                       <a href="/propierty/view/{{$item->propiertiy_id}}">
                                           <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">1,249,000</span></div>
                                           <?php
                                           $busqueda    = Images::where('propierty_id',$item->propiertiy_id)->first();
@@ -424,7 +428,7 @@ if($buscar_imagen_4){
                                           </div>
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1">
-                                                <a href="single-post.html">{{$item->title}}</a>
+                                                <a href="/propierty/view/{{$item->propiertiy_id}}">{{$item->title}}</a>
                                              </div>
                                              <div class="sc_property_title_address_2">{{$item->adress}}</div>
                                           </div>
@@ -458,7 +462,7 @@ if($buscar_imagen_4){
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
-                                          <h3 class="sc_team_item_title"><a href="single-team.html">{{$item->name}}</a></h3>
+                                          <h3 class="sc_team_item_title"><a href="/asociate/detail/{{$item->user_id}}">{{$item->name}}</a></h3>
                                           <div class="sc_team_item_position">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
                                              <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
