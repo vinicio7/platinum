@@ -23,13 +23,6 @@ $regiones = Region::orderBy('regions_id')->get()->take(3);
  <main class="main">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
-                    <div class="main__title">
-                        <h2 style="color:white">Inicio</h2>
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <a href="{{ route('logout') }}" class="main__title-link">Cerrar sesión</a>
-                    </div>
-                </div>
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stats">
                         <span >Total de propiedades</span>

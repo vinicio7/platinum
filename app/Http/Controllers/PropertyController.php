@@ -280,10 +280,10 @@ class PropertyController extends Controller
         return datatables()->of( Property::get())
             ->addColumn('acciones', function ($record) {
                 return
-                    "<a class='btn btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a>".
-                    "<a class='btn btn-success btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a><br>".
-                    "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
-                    "<a class='btn btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>";  
+                    "<div style='display:inline-block'><ul style='list-style:none'><li style='display:inline'><a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a></li>".
+                    "<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a></ul></div>".
+                    "<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
+                    "<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>";  
             })
             ->addColumn('imagen', function ($record) {
                 $buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
@@ -344,11 +344,17 @@ class PropertyController extends Controller
                 if ($record->status == 0) {
                     $class       = 'badge-secondary';
                     $descripcion = 'Inactivo';
-                } else {
+                } else if($record->status == 1) {
                     $class       = 'badge-success';
                     $descripcion = 'Activo';
+                } else if($record->status == 2) {
+                    $class       = 'badge-warning';
+                    $descripcion = 'Rentada';
+                } else if($record->status == 3) {
+                    $class       = 'badge-info';
+                    $descripcion = 'Vendida';
                 }
-                return "<span class='badge text-white {$class}'>{$descripcion}</span>";
+                return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
             })->rawColumns(['estado','acciones','propietario','tipo','imagen'])
             ->toJson();
     }
@@ -377,336 +383,170 @@ class PropertyController extends Controller
 
     public function edit(Request $request)
     {
-        
-         try { 
-            $validate = $request->validate([
-                'title' => 'required',
-                'type' => 'required' ,
-                'user_id' => 'required',
-                'owner_id' => 'required',
-                'country_id' => 'required',
-                'departament_id' => 'required',
-                'municipality_id' => 'required',
-                'zone_id' => 'required',
-                'region_id' => 'required',
-                'adress' => 'required',
-                'partner' => 'required',
-                'sale_usd' => 'required',
-                'sale_gtq' => 'required',
-                'rent_usd' => 'required',
-                'rent_gtq' => 'required',
-                'fee_rent' => 'required',
-                'fee_sale' => 'required',
-                'finance' => 'required',
-                'exchange' => 'required',
-                'engage_usd' => 'required',
-                'engage_gtq' => 'required',
-                'rate' => 'required',
-                'fee_usd' => 'required',
-                'fee_gtq' => 'required',
-                'term' => 'required',
-                'term_text' => 'required',
-                'maintenance' => 'required',
-                'fee_maintenance_gtq' => 'required',
-                'fee_maintenance_usd' => 'required',
-                'include_maintenance' => 'required',
-                'water_service' => 'required',
-                'security_service' => 'required',
-                'electricy_service' => 'required',
-                'trash_service' => 'required',
-                'clean_service' => 'required',
-                'name_contact' => 'required',
-                'phone_contact' => 'required',
-                'telephone_contact' => 'required',
-                'email_contact' => 'required',
-                'name_contact_2' => 'required',
-                'phone_contact_2' => 'required', 
-                'telephone_contact_2' => 'required',
-                'email_contact_2' => 'required',
-                'social_media' => 'required',
-                'exclusivity' => 'required',
-                'share' => 'required',
-                'partner_share' => 'required',
-                'company_share' => 'required',
-                'rate_share' => 'required',
-                'land_vrs' => 'required',
-                'build_mts' => 'required',
-                'front_mts' => 'required',
-                'bottom_mts' => 'required',
-                'build_year' => 'required',
-                'levels' => 'required',
-                'rooms' => 'required',
-                'service_rooms' => 'required',
-                'bathrooms' => 'required',
-                'bathrooms_service' => 'required',
-                'parking' => 'required',
-                'parking_roof' => 'required',
-                'offices' => 'required',
-                'cellars' => 'required',
-                'places' => 'required',
-                'door' => 'required',
-                'front_door' => 'required',
-                'cupboard' => 'required',
-                'white_closet' => 'required',
-                'gardeen_front' => 'required',
-                'pantry' => 'required',
-                'tub' => 'required',
-                'bathroom_visit' => 'required',
-                'laundry'=> 'required',
-                'bidet' => 'required',
-                'room_visit' => 'required',
-                'yard' => 'required',
-                'jetina' => 'required',
-                'study' => 'required',
-                'jacuzzi' => 'required',
-                'pergola' => 'required',
-                'living_room' => 'required',
-                'winery' => 'required',
-                'sauna' => 'required',
-                'chimeny' => 'required',
-                'garden_winery' => 'required',
-                'balcony' => 'required',
-                'dining_room' => 'required',
-                'walkin_closet' => 'required',
-                'grill' => 'required',
-                'family_room' => 'required',
-                'roof_room' => 'required',
-                'dining' => 'required',
-                'kitchen_room' => 'required',
-                'closet' => 'required',
-                'another_details' => 'required',
-                'build' => 'required',
-                'floors' => 'required',
-                'doors' => 'required',
-                'roofs' => 'required',
-                'windows' => 'required',
-                'another_finished' => 'required',
-                'fridge' => 'required',
-                'lamps' => 'required',
-                'air' => 'required',
-                'kitchen' => 'required',
-                'curtain' => 'required',
-                'alarm' => 'required',
-                'electricy_kitchen' => 'required',
-                'blackouts' => 'required',
-                'camera_security' => 'required',
-                'dishwater' => 'required',
-                'bathroom_curtain' => 'required',
-                'solar_panel' => 'required',
-                'bell' => 'required',
-                'water_heater' => 'required',
-                'cistern' => 'required',
-                'washing_machine' => 'required',
-                'bathroom_mirros' => 'required',
-                'trash_deposit' => 'required',
-                'dryer' => 'required',
-                'another_include' => 'required',
-                'cabin' => 'required',
-                'gym' => 'required',
-                'kids_area' => 'required',
-                'daycare' => 'required',
-                'sauna_shared' => 'required',
-                'floor_shared' => 'required',
-                'social_area' => 'required',
-                'spa' => 'required',
-                'pet_area' => 'required',
-                'beauty_salon' => 'required',
-                'phone_plant' => 'required',
-                'parking_visit' => 'required',
-                'court' => 'required',
-                'ribbon' => 'required',
-                'bussines_center' => 'required',
-                'another_pleasantness' => 'required',
-                'picture_pleasantness' => 'required',
-                'registry_usd' => 'required',
-                'registry_gtq' => 'required',
-                'iusi_usd' => 'required',
-                'iusi_gtq' => 'required',
-                'sheet' => 'required',
-                'property' => 'required',
-                'book' => 'required',
-                'society' => 'required',
-                'name_society' => 'required',
-                'mortgage' => 'required',
-                'mortgage_usd' => 'required',
-                'mortgage_gtq' => 'required',
-                'bank_id' => 'required',
-                'appraisal' => 'required',
-                'appraisal_usd' => 'required',
-                'appraisal_gtq' => 'required',
-                'appraisal_type' => 'required',
-                'iva' => 'required',
-                'rings' => 'required',
-                'description' => 'required',
-                'youtube' => 'required',
-                'code' => 'required',
-                'internal_note' => 'required',
-                'status' => 'required' 
-            ]);
-
+        try { 
             $properties = Property::find($request->propiety_id);
-            $properties->title                     = $validate['title'];
-            $properties->type                      = $validate['type'] ;
-            $properties->user_id                   = $validate['user_id'];
-            $properties->owner_id                  = $validate['owner_id'];
-            $properties->country_id                = $validate['country_id'];
-            $properties->departament_id            = $validate['departament_id'];
-            $properties->municipality_id           = $validate['municipality_id'];
-            $properties->zone_id                   = $validate['zone_id'];
-            $properties->region_id                 = $validate['region_id'];
-            $properties->adress                    = $validate['adress'];
-            $properties->partner                   = $validate['partner'];
-            $properties->sale_usd                  = $validate['sale_usd'];
-            $properties->sale_gtq                  = $validate['sale_gtq'];
-            $properties->rent_usd                  = $validate['rent_usd'];
-            $properties->rent_gtq                  = $validate['rent_gtq'];
-            $properties->fee_rent                  = $validate['fee_rent'];
-            $properties->fee_sale                  = $validate['fee_sale'];
-            $properties->finance                   = $validate['finance'];
-            $properties->exchange                  = $validate['exchange'];
-            $properties->engage_usd                = $validate['engage_usd'];
-            $properties->engage_gtq                = $validate['engage_gtq'];
-            $properties->rate_share                = $validate['rate'];
-            $properties->fee_usd                   = $validate['fee_usd'];
-            $properties->fee_gtq                   = $validate['fee_gtq'];
-            $properties->term                      = $validate['term'];
-            $properties->term_text                 = $validate['term_text'];
-            $properties->maintenance               = $validate['maintenance'];
-            $properties->fee_maintenance_gtq       = $validate['fee_maintenance_gtq'];
-            $properties->fee_maintenance_usd       = $validate['fee_maintenance_usd'];
-            $properties->include_maintenance       = $validate['include_maintenance'];
-            $properties->water_service             = $validate['water_service'];
-            $properties->security_service          = $validate['security_service'];
-            $properties->electricy_service         = $validate['electricy_service'];
-            $properties->trash_service             = $validate['trash_service'];
-            $properties->clean_service             = $validate['clean_service'];
-            $properties->name_contact              = $validate['name_contact']; 
-            $properties->phone_contact             = $validate['phone_contact'];
-            $properties->telephone_contact         = $validate['telephone_contact'];
-            $properties->email_contact             = $validate['email_contact'];
-            $properties->name_contact_2            = $validate['name_contact_2'];
-            $properties->phone_contact_2           = $validate['phone_contact_2']; 
-            $properties->telephone_contact_2       = $validate['telephone_contact_2'];
-            $properties->email_contact_2           = $validate['email_contact_2'];
-            $properties->social_media              = $validate['social_media'];
-            $properties->exclusivity               = $validate['exclusivity'];
-            $properties->share                     = $validate['share'];
-            $properties->partner_share             = $validate['partner_share'];
-            $properties->company_share             = $validate['company_share'];
-            $properties->rate_share                = $validate['rate_share'];
-            $properties->land_vrs                  = $validate['land_vrs'];
-            $properties->build_mts                 = $validate['build_mts'];
-            $properties->front_mts                 = $validate['front_mts'];
-            $properties->bottom_mts                = $validate['bottom_mts'];
-            $properties->build_year                = $validate['build_year'];
-            $properties->levels                    = $validate['levels'];
-            $properties->rooms                     = $validate['rooms'];
-            $properties->service_rooms             = $validate['service_rooms'];
-            $properties->bathrooms                 = $validate['bathrooms'];
-            $properties->bathrooms_service         = $validate['bathrooms_service'];
-            $properties->parking                   = $validate['parking'];
-            $properties->parking_roof              = $validate['parking_roof'];
-            $properties->offices                   = $validate['offices'];
-            $properties->cellars                   = $validate['cellars'];
-            $properties->places                    = $validate['places'];
-            $properties->door                      = $validate['door'];
-            $properties->front_door                = $validate['front_door'];
-            $properties->cupboard                  = $validate['cupboard'];
-            $properties->white_closet              = $validate['white_closet'];
-            $properties->gardeen_front             = $validate['gardeen_front'];
-            $properties->pantry                    = $validate['pantry'];
-            $properties->tub                       = $validate['tub'];
-            $properties->bathroom_visit            = $validate['bathroom_visit'];
-            $properties->laundry                   = $validate['laundry'];
-            $properties->bidet                     = $validate['bidet'];
-            $properties->room_visit                = $validate['room_visit'];
-            $properties->yard                      = $validate['yard'];
-            $properties->jetina                    = $validate['jetina'];
-            $properties->study                     = $validate['study'];
-            $properties->jacuzzi                   = $validate['jacuzzi'];
-            $properties->pergola                   = $validate['pergola'];
-            $properties->living_room               = $validate['living_room'];
-            $properties->winery                    = $validate['winery'];
-            $properties->sauna                     = $validate['sauna'];
-            $properties->chimeny                   = $validate['chimeny'];
-            $properties->garden_winery             = $validate['garden_winery'];
-            $properties->balcony                   = $validate['balcony'];
-            $properties->dining_room               = $validate['dining_room'];
-            $properties->walkin_closet             = $validate['walkin_closet'];
-            $properties->grill                     = $validate['grill'];
-            $properties->family_room               = $validate['family_room'];
-            $properties->roof_room                 = $validate['roof_room'];
-            $properties->dining                    = $validate['dining'];
-            $properties->kitchen_room              = $validate['kitchen_room'];
-            $properties->closet                    = $validate['closet'];
-            $properties->another_details           = $validate['another_details'];
-            $properties->build                     = $validate['build'];
-            $properties->floors                    = $validate['floors'];
-            $properties->doors                     = $validate['doors'];
-            $properties->roofs                     = $validate['roofs'];
-            $properties->windows                   = $validate['windows'];
-            $properties->another_finished          = $validate['another_finished'];
-            $properties->fridge                    = $validate['fridge'];
-            $properties->lamps                     = $validate['lamps'];
-            $properties->air                       = $validate['air'];
-            $properties->kitchen                   = $validate['kitchen'];
-            $properties->curtain                   = $validate['curtain'];
-            $properties->alarm                     = $validate['alarm'];
-            $properties->electricy_kitchen         = $validate['electricy_kitchen'];
-            $properties->blackouts                 = $validate['blackouts'];
-            $properties->camera_security           = $validate['camera_security'];
-            $properties->dishwater                 = $validate['dishwater'];
-            $properties->bathroom_curtain          = $validate['bathroom_curtain'];
-            $properties->solar_panel               = $validate['solar_panel'];
-            $properties->bell                      = $validate['bell'];
-            $properties->water_heater              = $validate['water_heater'];
-            $properties->cistern                   = $validate['cistern'];
-            $properties->washing_machine           = $validate['washing_machine'];
-            $properties->bathroom_mirros           = $validate['bathroom_mirros'];
-            $properties->trash_deposit             = $validate['trash_deposit'];
-            $properties->dryer                     = $validate['dryer'];
-            $properties->another_include           = $validate['another_include'];
-            $properties->cabin                     = $validate['cabin'];
-            $properties->gym                       = $validate['gym'];
-            $properties->kids_area                 = $validate['kids_area'];
-            $properties->daycare                   = $validate['daycare'];
-            $properties->sauna_shared              = $validate['sauna_shared'];
-            $properties->floor_shared              = $validate['floor_shared'];
-            $properties->social_area               = $validate['social_area'];
-            $properties->spa                       = $validate['spa'];
-            $properties->pet_area                  = $validate['pet_area'];
-            $properties->beauty_salon              = $validate['beauty_salon'];
-            $properties->phone_plant               = $validate['phone_plant'];
-            $properties->parking_visit             = $validate['parking_visit'];
-            $properties->court                     = $validate['court'];
-            $properties->ribbon                    = $validate['ribbon'];
-            $properties->bussines_center           = $validate['bussines_center'];
-            $properties->another_pleasantness      = $validate['another_pleasantness'];
-            $properties->picture_pleasantness      = $validate['picture_pleasantness'];
-            $properties->registry_usd              = $validate['registry_usd'];
-            $properties->registry_gtq              = $validate['registry_gtq'];
-            $properties->iusi_usd                  = $validate['iusi_usd'];
-            $properties->iusi_gtq                  = $validate['iusi_gtq'];
-            $properties->sheet                     = $validate['sheet'];
-            $properties->property                  = $validate['property'];
-            $properties->book                      = $validate['book'];
-            $properties->society                   = $validate['society'];
-            $properties->name_society              = $validate['name_society'];
-            $properties->mortgage                  = $validate['mortgage'];
-            $properties->mortgage_usd              = $validate['mortgage_usd'];
-            $properties->mortgage_gtq              = $validate['mortgage_gtq'];
-            $properties->bank_id                   = $validate['bank_id'];
-            $properties->appraisal                 = $validate['appraisal'];
-            $properties->appraisal_usd             = $validate['appraisal_usd'];
-            $properties->appraisal_gtq             = $validate['appraisal_gtq'];
-            $properties->appraisal_type            = $validate['appraisal_type'];
-            $properties->iva                       = $validate['iva'];
-            $properties->rings                     = $validate['rings'];
-            $properties->description               = $validate['description'];
-            $properties->youtube                   = $validate['youtube'];
-            $properties->code                      = $validate['code'];
-            $properties->internal_note             = $validate['internal_note'];
-            $properties->status                    = $validate['status'];
+            $properties->title                     = $request->input('title');
+            $properties->type                      = $request->input('type') ;
+            $properties->user_id                   = $request->input('user_id');
+            $properties->owner_id                  = $request->input('owner_id');
+            $properties->country_id                = $request->input('country_id');
+            $properties->departament_id            = $request->input('departament_id');
+            $properties->municipality_id           = $request->input('municipality_id');
+            $properties->zone_id                   = $request->input('zone_id');
+            $properties->region_id                 = $request->input('region_id');
+            $properties->adress                    = $request->input('adress');
+            $properties->partner                   = $request->input('partner');
+            $properties->sale_usd                  = $request->input('sale_usd');
+            $properties->sale_gtq                  = $request->input('sale_gtq');
+            $properties->rent_usd                  = $request->input('rent_usd');
+            $properties->rent_gtq                  = $request->input('rent_gtq');
+            $properties->fee_rent                  = $request->input('fee_rent');
+            $properties->fee_sale                  = $request->input('fee_sale');
+            $properties->finance                   = $request->input('finance');
+            $properties->exchange                  = $request->input('exchange');
+            $properties->engage_usd                = $request->input('engage_usd');
+            $properties->engage_gtq                = $request->input('engage_gtq');
+            $properties->rate_share                = $request->input('rate');
+            $properties->fee_usd                   = $request->input('fee_usd');
+            $properties->fee_gtq                   = $request->input('fee_gtq');
+            $properties->term                      = $request->input('term');
+            $properties->term_text                 = $request->input('term_text');
+            $properties->maintenance               = $request->input('maintenance');
+            $properties->fee_maintenance_gtq       = $request->input('fee_maintenance_gtq');
+            $properties->fee_maintenance_usd       = $request->input('fee_maintenance_usd');
+            $properties->include_maintenance       = $request->input('include_maintenance');
+            $properties->water_service             = $request->input('water_service');
+            $properties->security_service          = $request->input('security_service');
+            $properties->electricy_service         = $request->input('electricy_service');
+            $properties->trash_service             = $request->input('trash_service');
+            $properties->clean_service             = $request->input('clean_service');
+            $properties->name_contact              = $request->input('name_contact'); 
+            $properties->phone_contact             = $request->input('phone_contact');
+            $properties->telephone_contact         = $request->input('telephone_contact');
+            $properties->email_contact             = $request->input('email_contact');
+            $properties->name_contact_2            = $request->input('name_contact_2');
+            $properties->phone_contact_2           = $request->input('phone_contact_2'); 
+            $properties->telephone_contact_2       = $request->input('telephone_contact_2');
+            $properties->email_contact_2           = $request->input('email_contact_2');
+            $properties->social_media              = $request->input('social_media');
+            $properties->exclusivity               = $request->input('exclusivity');
+            $properties->share                     = $request->input('share');
+            $properties->partner_share             = $request->input('partner_share');
+            $properties->company_share             = $request->input('company_share');
+            $properties->rate_share                = $request->input('rate_share');
+            $properties->land_vrs                  = $request->input('land_vrs');
+            $properties->build_mts                 = $request->input('build_mts');
+            $properties->front_mts                 = $request->input('front_mts');
+            $properties->bottom_mts                = $request->input('bottom_mts');
+            $properties->build_year                = $request->input('build_year');
+            $properties->levels                    = $request->input('levels');
+            $properties->rooms                     = $request->input('rooms');
+            $properties->service_rooms             = $request->input('service_rooms');
+            $properties->bathrooms                 = $request->input('bathrooms');
+            $properties->bathrooms_service         = $request->input('bathrooms_service');
+            $properties->parking                   = $request->input('parking');
+            $properties->parking_roof              = $request->input('parking_roof');
+            $properties->offices                   = $request->input('offices');
+            $properties->cellars                   = $request->input('cellars');
+            $properties->places                    = $request->input('places');
+            $properties->door                      = $request->input('door');
+            $properties->front_door                = $request->input('front_door');
+            $properties->cupboard                  = $request->input('cupboard');
+            $properties->white_closet              = $request->input('white_closet');
+            $properties->gardeen_front             = $request->input('gardeen_front');
+            $properties->pantry                    = $request->input('pantry');
+            $properties->tub                       = $request->input('tub');
+            $properties->bathroom_visit            = $request->input('bathroom_visit');
+            $properties->laundry                   = $request->input('laundry');
+            $properties->bidet                     = $request->input('bidet');
+            $properties->room_visit                = $request->input('room_visit');
+            $properties->yard                      = $request->input('yard');
+            $properties->jetina                    = $request->input('jetina');
+            $properties->study                     = $request->input('study');
+            $properties->jacuzzi                   = $request->input('jacuzzi');
+            $properties->pergola                   = $request->input('pergola');
+            $properties->living_room               = $request->input('living_room');
+            $properties->winery                    = $request->input('winery');
+            $properties->sauna                     = $request->input('sauna');
+            $properties->chimeny                   = $request->input('chimeny');
+            $properties->garden_winery             = $request->input('garden_winery');
+            $properties->balcony                   = $request->input('balcony');
+            $properties->dining_room               = $request->input('dining_room');
+            $properties->walkin_closet             = $request->input('walkin_closet');
+            $properties->grill                     = $request->input('grill');
+            $properties->family_room               = $request->input('family_room');
+            $properties->roof_room                 = $request->input('roof_room');
+            $properties->dining                    = $request->input('dining');
+            $properties->kitchen_room              = $request->input('kitchen_room');
+            $properties->closet                    = $request->input('closet');
+            $properties->another_details           = $request->input('another_details');
+            $properties->build                     = $request->input('build');
+            $properties->floors                    = $request->input('floors');
+            $properties->doors                     = $request->input('doors');
+            $properties->roofs                     = $request->input('roofs');
+            $properties->windows                   = $request->input('windows');
+            $properties->another_finished          = $request->input('another_finished');
+            $properties->fridge                    = $request->input('fridge');
+            $properties->lamps                     = $request->input('lamps');
+            $properties->air                       = $request->input('air');
+            $properties->kitchen                   = $request->input('kitchen');
+            $properties->curtain                   = $request->input('curtain');
+            $properties->alarm                     = $request->input('alarm');
+            $properties->electricy_kitchen         = $request->input('electricy_kitchen');
+            $properties->blackouts                 = $request->input('blackouts');
+            $properties->camera_security           = $request->input('camera_security');
+            $properties->dishwater                 = $request->input('dishwater');
+            $properties->bathroom_curtain          = $request->input('bathroom_curtain');
+            $properties->solar_panel               = $request->input('solar_panel');
+            $properties->bell                      = $request->input('bell');
+            $properties->water_heater              = $request->input('water_heater');
+            $properties->cistern                   = $request->input('cistern');
+            $properties->washing_machine           = $request->input('washing_machine');
+            $properties->bathroom_mirros           = $request->input('bathroom_mirros');
+            $properties->trash_deposit             = $request->input('trash_deposit');
+            $properties->dryer                     = $request->input('dryer');
+            $properties->another_include           = $request->input('another_include');
+            $properties->cabin                     = $request->input('cabin');
+            $properties->gym                       = $request->input('gym');
+            $properties->kids_area                 = $request->input('kids_area');
+            $properties->daycare                   = $request->input('daycare');
+            $properties->sauna_shared              = $request->input('sauna_shared');
+            $properties->floor_shared              = $request->input('floor_shared');
+            $properties->social_area               = $request->input('social_area');
+            $properties->spa                       = $request->input('spa');
+            $properties->pet_area                  = $request->input('pet_area');
+            $properties->beauty_salon              = $request->input('beauty_salon');
+            $properties->phone_plant               = $request->input('phone_plant');
+            $properties->parking_visit             = $request->input('parking_visit');
+            $properties->court                     = $request->input('court');
+            $properties->ribbon                    = $request->input('ribbon');
+            $properties->bussines_center           = $request->input('bussines_center');
+            $properties->another_pleasantness      = $request->input('another_pleasantness');
+            $properties->picture_pleasantness      = $request->input('picture_pleasantness');
+            $properties->registry_usd              = $request->input('registry_usd');
+            $properties->registry_gtq              = $request->input('registry_gtq');
+            $properties->iusi_usd                  = $request->input('iusi_usd');
+            $properties->iusi_gtq                  = $request->input('iusi_gtq');
+            $properties->sheet                     = $request->input('sheet');
+            $properties->property                  = $request->input('property');
+            $properties->book                      = $request->input('book');
+            $properties->society                   = $request->input('society');
+            $properties->name_society              = $request->input('name_society');
+            $properties->mortgage                  = $request->input('mortgage');
+            $properties->mortgage_usd              = $request->input('mortgage_usd');
+            $properties->mortgage_gtq              = $request->input('mortgage_gtq');
+            $properties->bank_id                   = $request->input('bank_id');
+            $properties->appraisal                 = $request->input('appraisal');
+            $properties->appraisal_usd             = $request->input('appraisal_usd');
+            $properties->appraisal_gtq             = $request->input('appraisal_gtq');
+            $properties->appraisal_type            = $request->input('appraisal_type');
+            $properties->iva                       = $request->input('iva');
+            $properties->rings                     = $request->input('rings');
+            $properties->description               = $request->input('description');
+            $properties->youtube                   = $request->input('youtube');
+            $properties->code                      = $request->input('code');
+            $properties->internal_note             = $request->input('internal_note');
+            $properties->status                    = $request->input('status');
             $properties->update();
 
             $this->message = "Consulta correcta";
@@ -724,6 +564,52 @@ class PropertyController extends Controller
                 ];
             return response()->json($response, $this->statusCode);
          } 
+    }
+
+    public function rent(Request $request)
+    {
+        try {
+            $propierty = Property::find($request->propiedad_id);
+            $propierty->status = 2;
+            $propierty->save();
+            $this->message  = "Registro eliminado correctamente";
+            $this->result   = true;
+            $this->records  = $propierty;
+        } catch (\Exception $e) {
+            $statusCode     = 400;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
+    }
+
+    public function sale(Request $request)
+    {
+        try {
+            $propierty = Property::find($request->propiedad_id);
+            $propierty->status = 3;
+            $propierty->save();
+            $this->message  = "Registro eliminado correctamente";
+            $this->result   = true;
+            $this->records  = $propierty;
+        } catch (\Exception $e) {
+            $statusCode     = 400;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
     }
 
     public function delete(Request $request)
@@ -748,7 +634,7 @@ class PropertyController extends Controller
     }
 
     // php artisan make:export BankExport --model=Bank generar el archivo para la exportacion
-    public function exportExcel(Excel $excel)
+    public function export(Excel $excel)
     {
         return $excel->download(new PropiertiesExport, 'propierties.xlsx');
     }

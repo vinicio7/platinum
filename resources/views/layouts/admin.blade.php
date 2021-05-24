@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<link id="gull-theme" rel="stylesheet" href="{{  asset('assets/styles/css/themes/lite-roble.min.css')}}">
     <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="../css/magnific-popup.css">
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../css/select2.min.css">
     <link rel="stylesheet" href="../css/ionicons.min.css">
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('page-css')
     <!-- Favicons -->
@@ -69,83 +68,87 @@
         <ul class="sidebar__nav">
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'dashboard')
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-keypad"></i> Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-monitor"></i> Dashboard</a>
                 @else
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link "><i class="icon ion-ios-keypad"></i> Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link "><i class="icon ion-ios-monitor"></i> Dashboard</a>
                 @endif
             </li>
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'propierties')
-                    <a href="{{ route('propierties') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Propiedades</a>
+                    <a href="{{ route('propierties') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Propiedades</a>
                 @else
-                    <a href="{{ route('propierties') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Propiedades</a>
+                    <a href="{{ route('propierties') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Propiedades</a>
                 @endif
             </li>
             
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'departaments')
-                    <a href="{{ route('departaments') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-copy"></i> Departamentos</a>
+                    <a href="{{ route('departaments') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-world"></i> Departamentos</a>
                 @else()
-                    <a href="{{ route('departaments') }}" class="sidebar__nav-link"><i class="icon ion-ios-copy"></i> Departamentos</a>
+                    <a href="{{ route('departaments') }}" class="sidebar__nav-link"><i class="icon ion-ios-world"></i> Departamentos</a>
                 @endif
             </li>
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'municipalities')
-                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-copy"></i> Municipios</a>
+                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-location"></i> Municipios</a>
                 @else()
-                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link"><i class="icon ion-ios-copy"></i> Municipios</a>
+                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link"><i class="icon ion-ios-location"></i> Municipios</a>
                 @endif
             </li>
 
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'regions')
-                    <a href="{{ route('regions') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-copy"></i> Regiones</a>
+                    <a href="{{ route('regions') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-information"></i> Regiones</a>
                 @else()
-                    <a href="{{ route('regions') }}" class="sidebar__nav-link"><i class="icon ion-ios-copy"></i> Regiones</a>
+                    <a href="{{ route('regions') }}" class="sidebar__nav-link"><i class="icon ion-ios-information"></i> Regiones</a>
                 @endif
             </li>
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'zones')
-                    <a href="{{ route('zones') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Zonas</a>
+                    <a href="{{ route('zones') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-list"></i> Zonas</a>
                 @else
-                    <a href="{{ route('zones') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Zonas</a>
+                    <a href="{{ route('zones') }}" class="sidebar__nav-link"><i class="icon ion-ios-list"></i> Zonas</a>
                 @endif
             </li>
 
            <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'banks')
-                    <a href="{{ route('banks') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Bancos</a>
+                    <a href="{{ route('banks') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-home"></i> Bancos</a>
                 @else
-                    <a href="{{ route('banks') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Bancos</a>
+                    <a href="{{ route('banks') }}" class="sidebar__nav-link"><i class="icon ion-home"></i> Bancos</a>
                 @endif
             </li>
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'history')
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-film"></i> Historial</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-search"></i> Historial</a>
                 @else
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> Historial</a>
+                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-search"></i> Historial</a>
                 @endif
             </li>
 
             <li class="sidebar__nav-item">
                  @if(Request::route()->getName() == 'roles')
-                    <a href="{{ route('rols') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Roles</a>
+                    <a href="{{ route('rols') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-eye"></i> Roles</a>
                  @else
-                    <a href="{{ route('rols') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Roles</a>
+                    <a href="{{ route('rols') }}" class="sidebar__nav-link"><i class="icon ion-eye"></i> Roles</a>
                  @endif
             </li>
 
             <li class="sidebar__nav-item">
                  @if(Request::route()->getName() == 'users')
-                    <a href="{{ route('users') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-star-half"></i> Usuarios</a>
+                    <a href="{{ route('users') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-person"></i> Usuarios</a>
                  @else
-                    <a href="{{ route('users') }}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> Usuarios</a>
+                    <a href="{{ route('users') }}" class="sidebar__nav-link"><i class="icon ion-person"></i> Usuarios</a>
                  @endif
+            </li>
+            <li class="sidebar__nav-item">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <a href="{{ route('logout') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-log-out"></i> Cerrar sesion</a>
             </li>
 
            
@@ -159,11 +162,7 @@
     <!-- end sidebar -->
 
     <!-- main content -->
-    <div class="main__title">
-        <h2 style="color:white">Inicio</h2>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <a href="{{ route('logout') }}" class="main__title-link">Cerrar sesión</a>
-    </div>
+   
     @yield('content_admin')
 
    
