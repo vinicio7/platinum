@@ -80,7 +80,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('rols/showid',                 'RoleController@showid')->name('rols.showid');
     Route::post('rols/delete',                 'RoleController@delete')->name('rols.delete');
 
+    Route::get('propierty/export',            'PropertyController@export');
     Route::post('propierty/create',            'PropertyController@create');
+    Route::post('propierty/rent',              'PropertyController@rent');
+    Route::post('propierty/sale',              'PropertyController@sale');
     Route::post('propierty/image',             'PropertyController@image');
     Route::post('propierty/edit',              'PropertyController@edit')->name('propierty.edit');
     Route::get('propierty/show',               'PropertyController@show')->name('propierty.show');

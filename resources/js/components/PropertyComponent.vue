@@ -1,5 +1,23 @@
 <template>
-    <div class="container container-Data" >
+    <div class="container container-Data" style="margin-left:0px;padding-left:0px;margin-bottom:10px">
+            <div class="row">
+              <div class="col-sm-3">
+                 <span>Fecha inicial<input type="date" name="" v-model="fecha_inicial" class="form-control"></span>
+              </div>
+              <div class="col-sm-3">
+                 <span>Fecha inicial<input type="date" name="" v-model="fecha_final" class="form-control"></span>
+              </div>
+               <div class="col-sm-3">
+                <br>
+                 <button type="button" class="btn btn-success" @click="generarExcel()" style="background-color: #12264d;border-color: #12264d;">
+              -> Generar excel
+            </button>
+              </div>
+            </div>
+            <br>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
+              + Crear propiedad
+            </button> 
         <div class="modal fade" id="modalrenta" tabindex="-1" role="dialog" aria-labelledby="modalrenta" aria-hidden="true" >
           <div class="modal-dialog modal-center modal-md" role="document" align="center">
             <div class="modal-content">
@@ -14,7 +32,7 @@
                   <div class="row">
                     <div class="col-sm-12" >
                         <label>Rentada por</label>
-                        <v-select v-model="propietario_id"
+                        <v-select v-model="rentada_por"
                                 :value.sync="propietarios.user_id"
                                 :options="propietarios" :getOptionLabel="propietario => propietario.name">
                                 <span slot="no-options"> No se encontro la busqueda</span>
@@ -23,8 +41,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button v-if="update == 0" @click="guardarRenta()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Guardar</button>
-                  <button v-if="update != 0" @click="clearFields()" class="btn">Atrás</button>
+                  <button @click="guardarRenta()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Guardar</button>
+                  <button @click="clearFields()" class="btn">Atrás</button>
                 </div>
             </div>
           </div>
@@ -43,7 +61,7 @@
                   <div class="row">
                     <div class="col-sm-12" >
                         <label>Vendida por</label>
-                        <v-select v-model="propietario_id"
+                        <v-select v-model="vendida_por"
                                 :value.sync="propietarios.user_id"
                                 :options="propietarios" :getOptionLabel="propietario => propietario.name">
                                 <span slot="no-options"> No se encontro la busqueda</span>
@@ -52,8 +70,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button v-if="update == 0" @click="guardarVenta()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Guardar</button>
-                  <button v-if="update != 0" @click="clearFields()" class="btn">Atrás</button>
+                  <button  @click="guardarVenta()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Guardar</button>
+                  <button  @click="clearFields()" class="btn">Atrás</button>
                 </div>
             </div>
           </div>
@@ -71,11 +89,23 @@
                       </div>
                     <div class="modal-body">
                         <form-wizard title=""subtitle="" @on-complete="onCompleteWizard" shape="tab" color="#20a0ff" error-color="#ff4949" back-button-text="Atrás" next-button-text="Siguiente" finish-button-text="Finalizar">
-                            <tab-content :key="0" :title="titulo_1" >
+                            <tab-content :key="0" :title="titulo_1" :icon="getIcon('formulario')">
                                 <div class="row">
-                                    <div class="col-sm-3" >
+                                    <div class="col-sm-12" >
                                         <label>Titulo</label>
-                                        <input type="text" class="form-control" v-model="titulo" />
+                                        <editor :init="{branding:false, plugins: [
+                                                       'advlist autolink lists link image charmap print preview anchor',
+                                                       'searchreplace visualblocks code fullscreen',
+                                                       'insertdatetime media table paste code help wordcount'
+                                                     ],
+                                                     toolbar:
+                                                       'undo redo | formatselect | bold italic backcolor | \
+                                                       alignleft aligncenter alignright alignjustify | \
+                                                       bullist numlist outdent indent | removeformat | help',
+                                                     paste_as_text: true,
+                                                     toolbar_mode: 'sliding',
+                                                     language:'es'}"
+                                             type="text"  class="form-control" v-model="titulo"/>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Tipo</label>
@@ -308,9 +338,6 @@
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;"  v-if="servicios == 1">
-                                    <div class="col-sm-12"><h2>Datos de Servicios</h2></div>
                                     <div class="col-sm-3">
                                         <label>Agua</label>
                                         <select v-model="agua" class="form-control">
@@ -368,7 +395,7 @@
                                     </div>
                                 </div>
                             </tab-content>
-                            <tab-content :key="1" :title="titulo_2" >
+                            <tab-content :key="1" :title="titulo_2" :icon="getIcon('geoposicion')">
                               <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
                                 <div class="col-sm-12"><h2>Descripcion</h2></div>
                                 <div class="col-sm-3" >
@@ -886,7 +913,7 @@
                                     </div>
                               </div>
                             </tab-content>
-                            <tab-content :key="2" :title="titulo_3" >
+                            <tab-content :key="2" :title="titulo_3" :icon="getIcon('tabla')">
                                <div class="row">
                                  <div class="col-sm-3">
                                         <label>Garita</label>
@@ -1047,7 +1074,7 @@
                                   </vue-dropzone>
                                 </div>
                             </tab-content>
-                            <tab-content :key="3" :title="titulo_4" >
+                            <tab-content :key="3" :title="titulo_4" :icon="getIcon('conclusiones')">
                                <div class="row">
                                  <div class="col-sm-3">
                                     <label>Valor del registro ($.)</label>
@@ -1192,11 +1219,6 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top: 5px;margin-left:-230px">
-           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
-            + Crear propiedad
-          </button> 
-        </div>
     </div>
 </template>
 <script>
@@ -1219,6 +1241,10 @@
         },
         data() {
             return {
+                fecha_final:'',
+                fecha_inicial:'',
+                vendida_por:0,
+                rentada_por:0,
                 precio_renta_dolares:0,
                 precio_renta_quetzales:0,
                 honorarios_renta:0,
@@ -1487,6 +1513,30 @@
             });
         },
         methods:{
+           getIcon(tipo_flujo){
+                let icono = 'i-Map-Marker';
+                switch(tipo_flujo){
+                    case 'formulario':
+                        icono = 'i-File-Clipboard-File--Text';
+                        break;
+                    case 'geoposicion':
+                        icono = 'i-Map-Marker';
+                        break;
+                    case 'tabla':
+                        icono = 'i-Receipt-4';
+                        break;
+                    case 'galeria':
+                        icono = 'i-Camera';
+                        break;
+                    case 'seccion':
+                        icono = 'i-Tag-2';
+                        break;
+                    case 'conclusiones':
+                        icono = 'i-Tag-2';
+                        break;
+                }
+                return icono
+            },
             cambio_venta_usd(){
               this.precio_venta_quetzales = (this.precio_venta_dolares * 7.8).toFixed(2);
             },
@@ -1679,6 +1729,68 @@
                     console.log(error);
                 });   
             },
+            guardarRenta(){
+                let me  = this;
+                let url = '/api/propierty/rent' 
+                const formData  = new FormData()
+                formData.append('propiedad_id',this.update)
+                formData.append('usuario_id',this.rentada_por)
+                console.log(formData);
+                axios.post(url,formData,{}).then(function (response) {
+                    console.log(response.data.records);
+                    if (response.data.result == false) {
+                        location.reload();
+                    }else{
+                        me.clearFields();
+                        $('#exampleModal').modal('hide');
+                        location.reload();
+                    }
+                })
+                .catch(function (error) {
+                    alert(error);
+                    console.log(error);
+                });   
+            },
+            generarExcel(){
+                let me  = this;
+                let url = '/api/propierty/export' 
+                axios({
+                  url: url,
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'propiedades.xlsx');
+                   document.body.appendChild(fileLink);
+
+                   fileLink.click();
+              });
+              },
+            guardarVenta(){
+                let me  = this;
+                let url = '/api/propierty/sale' 
+                const formData  = new FormData()
+                formData.append('propiedad_id',this.update)
+                formData.append('usuario_id',this.rentada_por)
+                console.log(formData);
+                axios.get(url,formData,{}).then(function (response) {
+                    console.log(response.data.records);
+                    if (response.data.result == false) {
+                        location.reload();
+                    }else{
+                        me.clearFields();
+                        $('#exampleModal').modal('hide');
+                        location.reload();
+                    }
+                })
+                .catch(function (error) {
+                    alert(error);
+                    console.log(error);
+                });   
+            },
             onCompleteWizard: async function() {
               await this.saveData();
             },
@@ -1687,46 +1799,12 @@
               this.imagenes.push(response.records.id);
               console.log(this.imagenes);
             },
-            /*
-            updateData(){
-                console.log(this.update);
-                let me  = this;
-                let url = '/api/propierty/edit' 
-                const formData  = new FormData()
-                console.log(this.files)
-                if(this.files){
-                   formData.append('file', this.files, this.files.name) 
-               }
-                formData.append('propierty_id',this.update)
-                formData.append('name',this.name)
-                formData.append('user',this.user)
-                formData.append('password',this.password)
-                formData.append('email',this.email)
-                formData.append('phone',this.phone)
-                formData.append('adress',this.adress)
-                formData.append('gender',this.gender)
-                formData.append('document_id',this.document_id)
-                formData.append('birthdate',this.birthdate)
-                formData.append('marital_status',this.marital_status)
-                formData.append('title',this.title)
-                formData.append('facebook',this.facebook)
-                formData.append('instagram',this.instagram)
-                formData.append('whatsapp',this.whatsapp)
-                formData.append('twitter',this.twitter)
-                formData.append('status',this.status)
-                axios.post(url,formData,{}).then(function (response) {
-                    $('#exampleModal').modal('hide');
-                    me.clearFields();
-                    location.reload();
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            },*/
             loadRenta(id){ 
-                $('#modalrenta').modal('show');
+              this.update = id
+              $('#modalrenta').modal('show');
             }, 
             loadVenta(id){ 
+                this.update = id
                 $('#modalventa').modal('show');
             },     
             loadFieldsUpdate(id){ 

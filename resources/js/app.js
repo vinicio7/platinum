@@ -1,4 +1,5 @@
 require('./bootstrap');
+
 window.Vue = require('vue').default;
 Vue.component('data-table',             		require('./components/DataTable.vue').default);
 Vue.component('region-component', 				require('./components/RegionComponent.vue').default);
