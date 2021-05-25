@@ -10,7 +10,11 @@ $asociats    = User::all();
 $regions     = Region::all();
 $propiedades = Property::orderBy('propiertiy_id','ASC')->get()->take(4);
 $todas       = Property::orderBy('propiertiy_id','DESC')->get()->take(6);
-
+$i1 = asset('pslider1.jpg');
+$i2 = asset('pslider2.jpg');;
+$i3 = asset('pslider3.jpg');
+$i4 = asset('pslider4.jpg');;
+$i5 = asset('pslider5.jpg');
 $titulo_1 = $propiedades[0]->title;
 $id_1     = $propiedades[0]->propiertiy_id;
 if($propiedades[0]->sale_usd > 0){
@@ -147,73 +151,51 @@ if($buscar_imagen_4){
                   <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
                      <ul>
                         <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$imagen_1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img src="{{$i1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
-                                    <div class="sc_property_item">
-                                       <div class="sc_pr_h1">
-                                          <div class="sc_pr_h2">{{$tipo_1}}</div>
-                                       </div>
-                                       <div class="sc_pr_t1">
-                                          <a href="/propierty/view/{{$id_1}}">{{$titulo_1}}</a>
-                                       </div>
-                                       <div class="sc_pr_t2">{{$direccion_1}}</div>
-                                       <div class="sc_pr_f1">
-                                          <div class="sc_pr_f11">
-                                             <div class="sc_pr_f111"><span>{{$tipo_1}}</span></div>
-                                          </div>
-                                          <div class="sc_pr_f12"><span>$</span>{{$precio_1}}</div>
-                                       </div>
-                                    </div>
+                                     
                                  </div>
                               </div>
                            </div>
                         </li>
                         <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$imagen_2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
-                                    <div class="sc_property_item">
-                                       <div class="sc_pr_h1">
-                                          <div class="sc_pr_h2">{{$tipo_2}}</div>
-                                       </div>
-                                       <div class="sc_pr_t1">
-                                          <a href="/propierty/view/{{$id_2}}">{{$titulo_2}}</a>
-                                       </div>
-                                       <div class="sc_pr_t2">{{$direccion_2}}</div>
-                                       <div class="sc_pr_f1">
-                                          <div class="sc_pr_f11">
-                                             <div class="sc_pr_f111"><span>{{$tipo_2}}</span></div>
-                                          </div>
-                                          <div class="sc_pr_f12"><span>$</span>{{$precio_2}}</div>
-                                       </div>
-                                    </div>
+                                    
                                  </div>
                               </div>
                            </div>
                         </li>
                         <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$imagen_3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
-                                    <div class="sc_property_item">
-                                       <div class="sc_pr_h1">
-                                          <div class="sc_pr_h2">{{$tipo_3}}</div>
-                                       </div>
-                                       <div class="sc_pr_t1">
-                                          <a href="/propierty/view/{{$id_3}}">{{$titulo_3}}</a>
-                                       </div>
-                                       <div class="sc_pr_t2">{{$direccion_3}}</div>
-                                       <div class="sc_pr_f1">
-                                          <div class="sc_pr_f11">
-                                             <div class="sc_pr_f111"><span>{{$tipo_3}}</span></div>
-                                          </div>
-                                          <div class="sc_pr_f12"><span>$</span>{{$precio_3}}<span> / mes</span></div>
-                                       </div>
-                                    </div>
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li data-index="rs-14" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                           <img src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                              <div class="sc_property_wrap">
+                                 <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li data-index="rs-15" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                           <img src="{{$i5}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                              <div class="sc_property_wrap">
+                                 <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
+                                    
                                  </div>
                               </div>
                            </div>
