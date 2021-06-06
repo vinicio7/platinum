@@ -24,113 +24,45 @@
     <link rel='stylesheet' href='css/custom/skin.responsive.css' type='text/css' media='all' />
     <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
 </head>
 <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
 <div class="body_wrap">
     <div class="page_wrap">
-        <header class="top_panel_wrap top_panel_style_1 scheme_original">
-            <div class="header-bg">
-                <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_above">
-                    <div class="content_wrap clearfix">
-                        <div class="top_panel_logo" style="width: 300px">
-                            <div class="logo">
-                                <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main" alt="" ></a>
-                            </div>
-                        </div>
-                        <div class="top_panel_contacts">
-                            <div class="top_panel_contacts_left">
-                                <div class="contact_phone">Guatemala</div>
-                                <div class="contact_email">info@propiedadesplatinum.com</div>
-                            </div>
-                            <div class="top_panel_contacts_right">Telefono: <strong><i>+(502)</i> 5368-9090</strong></div>
-                            <div class="cL"></div>
+        <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000">
+               <div class="header-bg">
+                  <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
+                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
+                        <div class="top_panel_logo">
+                           <div class="logo">
+                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
+                           </div>
                         </div>
                         <div class="top_panel_menu">
-                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
-                            <nav class="menu_main_nav_area">
-                                <ul id="menu_main" class="menu_main_nav">
-                                  <li class="menu-item"><a href="/">Inicio</a></li>
-                                  <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                  <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                  <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                  <li class="menu-item"><a href="/login">Ingresar</a></li>
-                                </ul>
-                            </nav>
+                           <img src="/images/plecka.png" style="width:100px;margin-left: 40px;margin-right: 10px">
                         </div>
-                        <div class="cL"></div>
-                    </div>
-                </div>
-            </div>
-        </header>
+                        <div class="top_panel_menu" style="margin-top: 50px;">
+                           <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
+                           <nav class="menu_main_nav_area">
+                              <ul id="menu_main" class="menu_main_nav">
+                                <li class="menu-item"><a href="/">Inicio</a></li>
+                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
+                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
+                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
+                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                              </ul>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </header>
 
         <div class="page_content_wrap page_paddings_no" style="margin-top: 50px">
           <div class="sc_section">
             <div class="content_wrap">
               <div class="columns_wrap">
               <div class="column-1_2">
-                <div class="sc_section margin_top_xlarge margin_bottom_xlarge">
-                  <div class="sc_section_inner">
-                    <div class="bgtext1">
-                    </div>
-                    <h3 class="sc_title ind1 margin_top_null margin_bottom_null">CONTACTENOS</h3>
-                    <div class="margin_top_xmedium">
-                      <p>Para Propiedades Platinum es un gusto poder atender asi como tambien lo es poder solventar cualquier tipo de duda que tengas o simplemente leer tus comentarios y/o ovbservaciones, te dejamos nuestras opciones para tu comodidad.</p>
-                    </div>
-                    <div class="columns_wrap sc_columns margin_top_xmedium margin_bottom_xmedium">
-                      <div class="column-1_2 sc_column_item">
-                        <ul class="sc_list sc_list_style_iconed">
-                          <li class="sc_list_item">
-                            <span class="sc_list_icon icon-message106 color_2"></span>
-                            <p>info@propiedadesplatinum.com</p>
-                          </li>
-                          <li class="sc_list_item">
-                            <span class="sc_list_icon icon-open97 color_2"></span>
-                            <p>www.propiedadesplatinum.com</p>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="column-1_2 sc_column_item">
-                        <ul class="sc_list sc_list_style_iconed">
-                          <li class="sc_list_item">
-                            <span class="sc_list_icon icon-mobile29 color_2"></span>
-                            <p>5368-9090</p>
-                          </li>
-                          <li class="sc_list_item">
-                            <span class="sc_list_icon icon-paper6 color_2"></span>
-                            <p>7777-7777</p>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                      <span style="font-weight: bold">Recuerda seguirnos en nuestras redes para mas informacion</span><br>
-                      <div class="sc_socials_item"><a href="https://www.facebook.com/PropiedadesPlatinum/" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                      <div class="sc_socials_item"><a href="https://twitter.com/AlzugaraySarah" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
-                      <div class="sc_socials_item"><a href="https://www.instagram.com/propiedades_platinum/" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
-                      <div class="sc_socials_item"><a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
-                      <div class="sc_socials_item"><a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" class="social_icons"><span class="icon-youtube-play"></span></a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="column-1_2">
-                <div class="sc_section margin_top_xlarge margin_bottom_xlarge">
-                  <div class="sc_section_inner">
-                    <figure class="sc_image"><img src="image/simple.png" alt="" /></figure>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="sc_section bg_color_1">
-            <div class="columns_wrap sc_columns">
-              <div class="column-1_2 sc_column_item">
-                <div id="sc_googlemap_1" class="sc_googlemap" data-zoom="18" data-style="default">
-                  <div class="sc_googlemap_marker" data-title="" data-description="" data-latlng="" data-address="Paseo Cayala, Distrito Moda, Edificio B Oficina 401 nivel 4 Guatemala" data-point="image/data1.png"></div>
-                </div>
-              </div>
-              <div class="column-1_2 sc_column_item">
                 <div class="sc_section custom_box_form">
                   <div class="sc_section_inner">
                     <h4 class="sc_title margin_top_null margin_bottom_xmedium">Envianos tu mensaje</h4>
@@ -151,6 +83,22 @@
                   </div>
                 </div>
               </div>
+              <div class="column-1_2">
+                <div class="sc_section margin_top_xlarge margin_bottom_xlarge">
+                  <div class="sc_section_inner">
+                    <figure class="sc_image"><img src="image/simple.png" alt="" /></figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="sc_section bg_color_1">
+            <div class="columns_wrap sc_columns">
+              <div class="column-1_2 sc_column_item">
+               
+              </div>
+              
             </div>
           </div>
         </div>
@@ -180,6 +128,29 @@
         </div>
     </div>
 </div>
+
+      <div class="float-sm">
+        <div class="fl-fl float-fb">          
+          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <i class="fa fa-facebook" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-tw">
+          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
+          <i class="fa fa-twitter" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-gp">
+          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <i class="fa fa-instagram" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-ig">
+          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <i class="fa fa-linkedin" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-pn">
+          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <i class="fa fa-youtube" style="text-align: right!important;"></i>
+        </div>
+      </div>
 <a href="#" class="scroll_to_top icon-up"></a>
 <script type='text/javascript' src='js/vendor/jquery.js'></script>
 <script type='text/javascript' src='js/custom/plugins.js'></script>

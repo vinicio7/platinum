@@ -107,7 +107,7 @@ if($buscar_imagen_4){
       <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
       <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
-       <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
+      <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
    </head>
    <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
       <div class="body_wrap">
@@ -484,10 +484,10 @@ if($buscar_imagen_4){
                            <div class="fb-page" data-href="https://www.facebook.com/PropiedadesPlatinum/" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PropiedadesPlatinum/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PropiedadesPlatinum/">Propiedades Platinum / Sarah Alzugaray</a></blockquote></div>
                         </aside>
 
-                        <aside class="column-1_3 widget widget_tiktok">
+                        <aside class="column-1_3 widget widget_facebook">
                            <h5 class="widget_title">Ultimos videos</h5>
-                           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@karlapropiedadesplatinum/video/6965920374139784454" data-video-id="6965920374139784454" style="max-width: 500px;min-width: 300px;" > <section> <a target="_blank" title="@karlapropiedadesplatinum" href="https://www.tiktok.com/@karlapropiedadesplatinum">@karlapropiedadesplatinum</a> <p><a title="apartamentosguatemala" target="_blank" href="https://www.tiktok.com/tag/apartamentosguatemala">##apartamentosguatemala</a> <a title="agenteinmobiliario" target="_blank" href="https://www.tiktok.com/tag/agenteinmobiliario">##agenteinmobiliario</a> <a title="propiedadesplatinum" target="_blank" href="https://www.tiktok.com/tag/propiedadesplatinum">##propiedadesplatinum</a> <a title="guatemala🇬🇹viral" target="_blank" href="https://www.tiktok.com/tag/guatemala%F0%9F%87%AC%F0%9F%87%B9viral">##guatemala🇬🇹viral</a> <a title="foryou" target="_blank" href="https://www.tiktok.com/tag/foryou">##foryou</a> <a title="agentekarlajuarez" target="_blank" href="https://www.tiktok.com/tag/agentekarlajuarez">##agentekarlajuarez</a></p> <a target="_blank" title="♬ Run Free (feat. IVIE) - Deep Chills" href="https://www.tiktok.com/music/Run-Free-feat-IVIE-6594233508997106433">♬ Run Free (feat. IVIE) - Deep Chills</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-                        </aside>
+                           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@pilarluxuryrealstate/video/6969657755770637573" data-video-id="6969657755770637573" style="max-width: 500px;min-width: 300px;" > <section> <a target="_blank" title="@pilarluxuryrealstate" href="https://www.tiktok.com/@pilarluxuryrealstate">@pilarluxuryrealstate</a> <p>Venta apartamento zona 10 <a title="guatemala" target="_blank" href="https://www.tiktok.com/tag/guatemala">#guatemala</a> <a title="ciudadeguatemala" target="_blank" href="https://www.tiktok.com/tag/ciudadeguatemala">#ciudadeguatemala</a> <a title="beauty" target="_blank" href="https://www.tiktok.com/tag/beauty">#beauty</a> <a title="luxury" target="_blank" href="https://www.tiktok.com/tag/luxury">#luxury</a> <a title="ventasguatemala" target="_blank" href="https://www.tiktok.com/tag/ventasguatemala">#ventasguatemala</a> <a title="syp" target="_blank" href="https://www.tiktok.com/tag/syp">#syp</a>  <a title="luxuryreastate" target="_blank" href="https://www.tiktok.com/tag/luxuryreastate">#luxuryreastate</a> <a title="viral" target="_blank" href="https://www.tiktok.com/tag/viral">#viral</a> <a title="home" target="_blank" href="https://www.tiktok.com/tag/home">#home</a> <a title="foryou" target="_blank" href="https://www.tiktok.com/tag/foryou">#foryou</a> <a title="invest" target="_blank" href="https://www.tiktok.com/tag/invest">#invest</a> <a title="apartament" target="_blank" href="https://www.tiktok.com/tag/apartament">#apartament</a></p> <a target="_blank" title="♬ SugarCrash! - ElyOtto" href="https://www.tiktok.com/music/SugarCrash-6920125567752734722">♬ SugarCrash! - ElyOtto</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                           </aside>
                      </div>
                   </div>
                </div>
@@ -555,6 +555,7 @@ if($buscar_imagen_4){
           <i class="fa fa-youtube" style="text-align: right!important;"></i>
         </div>
       </div>
+
       <a href="#" class="scroll_to_top icon-up"></a>
       <script type='text/javascript' src='js/vendor/jquery.js'></script>
       <script type='text/javascript' src='js/custom/plugins.js'></script>

@@ -107,3 +107,11 @@ img {
   background: #bb0000 !important;
 }
 /* Floating Social Media Bar Style Ends Here */
+
+.single-post blockquote.tiktok-embed:before{display: none;}
+@media (max-width: 767px) {
+.entry-title{padding-left: 0px;}
+}
+@media (max-width: 320px) {
+.entry-title{margin-left: -22px;}
+}
