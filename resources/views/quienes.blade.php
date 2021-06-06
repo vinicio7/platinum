@@ -1,3 +1,9 @@
+<?php 
+use App\Models\User;
+use App\Models\Property;
+//$asociats    = User::where('rol_id',2)->with('rol')->get();
+$asociats    = User::all();
+?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
 <head>
@@ -72,11 +78,12 @@
                            </div>
                            <h2 class="sc_title sc_title_iconed ind2 margin_top_null margin_bottom_xmedium margin_left_null">
                               <span class="sc_title_icon sc_title_icon_left  sc_title_icon_small icon-worker12 sc_left"></span>
-                              <span class="sc_title_box">Nuestro equipo profesional<span class="sc_title_subtitle">Somos un apasionado equipo de corredores</span></span>
+                              <span class="sc_title_box">NUESTRO EQUIPO:
                            </h2>
                            <div class="sc_section margin_bottom_xmedium section_style_1">
                               <div class="sc_section_inner">
-                                 <p>Trabajamos con devoción a nuestros clientes. Todos los aspectos del negocio están dirigidos al éxito. Le agradecemos que confíe en nosotros para ayudarle a encontrar las mejores soluciones para usted.</p>
+                                 <p>
+Trabajamos con devoción a nuestros clientes, honramos la historia de cada propiedad, cuidamos los detalles, y nos capacitamos constantemente en todos los aspectos que se involucran en nuestra profesión, para dar acompañamiento y una asesoría profesional con responsabilidad y honestidad! <p> Somos un equipo de Asesores jóvenes con un respaldo solido de una Líder en este mercado  con experiencia de mas de 28 años en la compra/venta, arrendamiento y permutas de propiedades en Guatemala.</p>
                               </div>
                            </div>
                            <div class="columns_wrap sc_columns margin_bottom_medium">
@@ -105,7 +112,6 @@
                                  </ul>
                               </div>
                            </div>
-                           <a href="#" class="sc_button sc_button_box margin_bottom_small">Nuestra recomendacion</a>
                         </div>
                         <div class="column-1_2">
                            <figure class="sc_image"><img src="images/IMG_6061.jpg" alt="" /></figure>
@@ -115,7 +121,7 @@
                </div>
                <div class="sc_section overflow_hidden bg_color_1">
                   <div class="content_wrap margin_top_large margin_bottom_medium">
-                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Asociados</b></h4>
+                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Nuestros agentes:</b></h4>
                      <div class="sc_property_wrap">
                         <div class="sc_property sc_property_style_property-1">
                            <div class="sc_columns columns_wrap">
@@ -141,51 +147,6 @@
                                  </div>
                               </div>
                               @endforeach
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="sc_section">
-                  <div class="sc_content content_wrap margin_top_xlarge margin_bottom_xlarge">
-                     <h4 class="sc_title margin_top_null margin_bottom_medium">Nuestras especialidades</h4>
-                     <div class="sc_skills sc_skills_pie sc_skills_compact_off" data-type="pie" data-caption="Skills">
-                        <div class="columns_wrap sc_skills_columns sc_skills_columns_4">
-                           <div class="sc_skills_column column-1_4">
-                              <div class="sc_skills_item sc_skills_style_1">
-                                 <canvas></canvas>
-                                 <div class="sc_skills_total" data-start="0" data-stop="80" data-step="1" data-steps="100" data-max="100" data-speed="17" data-duration="1360" data-color="#11264e" data-bg_color="#f0f1f5" data-border_color="#ffffff" data-cutout="88" data-easing="easeOutCirc" data-ed="%">0%</div>
-                              </div>
-                              <div class="sc_skills_info">
-                                 <div class="sc_skills_label">Residenciales familiares</div>
-                              </div>
-                           </div>
-                           <div class="sc_skills_column column-1_4">
-                              <div class="sc_skills_item sc_skills_style_1">
-                                 <canvas></canvas>
-                                 <div class="sc_skills_total" data-start="0" data-stop="75" data-step="1" data-steps="100" data-max="100" data-speed="40" data-duration="3000" data-color="#11264e" data-bg_color="#f0f1f5" data-border_color="#ffffff" data-cutout="88" data-easing="easeOutCirc" data-ed="%">0%</div>
-                              </div>
-                              <div class="sc_skills_info">
-                                 <div class="sc_skills_label">Alquileres vacacionales</div>
-                              </div>
-                           </div>
-                           <div class="sc_skills_column column-1_4">
-                              <div class="sc_skills_item sc_skills_style_1">
-                                 <canvas></canvas>
-                                 <div class="sc_skills_total" data-start="0" data-stop="95" data-step="1" data-steps="100" data-max="100" data-speed="20" data-duration="1900" data-color="#11264e" data-bg_color="#f0f1f5" data-border_color="#ffffff" data-cutout="88" data-easing="easeOutCirc" data-ed="%">0%</div>
-                              </div>
-                              <div class="sc_skills_info">
-                                 <div class="sc_skills_label">Arrendamientos residencial</div>
-                              </div>
-                           </div>
-                           <div class="sc_skills_column column-1_4">
-                              <div class="sc_skills_item sc_skills_style_1">
-                                 <canvas></canvas>
-                                 <div class="sc_skills_total" data-start="0" data-stop="95" data-step="1" data-steps="100" data-max="100" data-speed="13" data-duration="1235" data-color="#11264e" data-bg_color="#f0f1f5" data-border_color="#ffffff" data-cutout="88" data-easing="easeOutCirc" data-ed="%">0%</div>
-                              </div>
-                              <div class="sc_skills_info">
-                                 <div class="sc_skills_label">Nuevos departamentos</div>
-                              </div>
                            </div>
                         </div>
                      </div>

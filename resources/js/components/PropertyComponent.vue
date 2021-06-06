@@ -9,14 +9,24 @@
               </div>
                <div class="col-sm-3">
                 <br>
-                 <button type="button" class="btn btn-success" @click="generarExcel()" style="background-color: #12264d;border-color: #12264d;">
-              -> Generar excel
-            </button>
+                
               </div>
             </div>
             <br>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
               + Crear propiedad
+            </button> 
+             <button type="button" class="btn btn-success" @click="generarExcel()">
+              -> Generar excel
+                 </button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+              -> Generar PDF
+            </button> 
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+              -> Enviar PDF
+            </button> 
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+              - Limpiar
             </button> 
         <div class="modal fade" id="modalrenta" tabindex="-1" role="dialog" aria-labelledby="modalrenta" aria-hidden="true" >
           <div class="modal-dialog modal-center modal-md" role="document" align="center">

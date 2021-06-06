@@ -72,8 +72,7 @@
                   <div class="sc_section_inner">
                     <div class="bgtext1">
                     </div>
-                    <h3 class="sc_title ind1 margin_top_null margin_bottom_null">Contactanos</h3>
-                    <p>Estamos para servirte</p>
+                    <h3 class="sc_title ind1 margin_top_null margin_bottom_null">CONTACTENOS</h3>
                     <div class="margin_top_xmedium">
                       <p>Para Propiedades Platinum es un gusto poder atender asi como tambien lo es poder solventar cualquier tipo de duda que tengas o simplemente leer tus comentarios y/o ovbservaciones, te dejamos nuestras opciones para tu comodidad.</p>
                     </div>

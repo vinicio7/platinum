@@ -107,28 +107,24 @@ if($buscar_imagen_4){
       <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
       <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
+       <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
    </head>
    <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
       <div class="body_wrap">
          <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original">
+            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix">
-                        <div class="top_panel_logo" style="width: 300px">
+                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
+                        <div class="top_panel_logo">
                            <div class="logo">
-                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main" alt="" ></a>
+                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
-                        </div>
-                        <div class="top_panel_contacts">
-                           <div class="top_panel_contacts_left">
-                              <div class="contact_phone">Guatemala</div>
-                              <div class="contact_email">info@propiedadesplatinum.com</div>
-                           </div>
-                           <div class="top_panel_contacts_right">Telefono: <strong><i>+(502)</i> 5368-9090</strong></div>
-                           <div class="cL"></div>
                         </div>
                         <div class="top_panel_menu">
+                           <img src="/images/plecka.png" style="width:100px;margin-left: 40px;margin-right: 10px">
+                        </div>
+                        <div class="top_panel_menu" style="margin-top: 50px;">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
@@ -140,7 +136,6 @@ if($buscar_imagen_4){
                               </ul>
                            </nav>
                         </div>
-                        <div class="cL"></div>
                      </div>
                   </div>
                </div>
@@ -431,7 +426,7 @@ if($buscar_imagen_4){
                </div>
                <div class="sc_section overflow_hidden bg_color_1">
                   <div class="content_wrap margin_top_large margin_bottom_medium">
-                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Asociados</b></h4>
+                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Agentes Inmobiliarios</b></h4>
                      <div class="sc_property_wrap">
                         <div class="sc_property sc_property_style_property-1">
                            <div class="sc_columns columns_wrap">
@@ -462,50 +457,6 @@ if($buscar_imagen_4){
                      </div>
                   </div>
                </div>
-               <div class="sc_section back_image_2">
-                  <div class="sc_testimonials sc_testimonials_style_testimonials-2 sc_slider_swiper sc_slider_pagination sc_slider_pagination_bottom sc_slider_nocontrols scheme_dark" data-interval="7529" data-slides-min-width="250">
-                     <div class="slides swiper-wrapper">
-                        <div class="swiper-slide">
-                           <div class="sc_testimonial_item">
-                              <div class="sc_testimonial_content">
-                                 <p>El mejor servico, muy facil y muy rapido le brindan el seguimiento a uno.</p>
-                              </div>
-                              <div class="sc_testimonial_author">
-                                 <a href="#" class="sc_testimonial_author_name">Irine Gosh</a>
-                                 <br><span class="sc_testimonial_author_position">22 years</span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <div class="sc_testimonial_item">
-                              <div class="sc_testimonial_content">
-                                 <p>Llevaba mucho tiempo sin lograr vender exitosamente mi casa con otros y en una semana aqui se ha vendido!</p>
-                              </div>
-                              <div class="sc_testimonial_author">
-                                 <span class="sc_testimonial_author_name">Emma Bennett</span>
-                                 <br><span class="sc_testimonial_author_position">40 years</span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <div  class="sc_testimonial_item">
-                              <div class="sc_testimonial_content">
-                                 <p>La seguridad y confianza que brindan es implacable, muy bueno el trato de los asesores.</p>
-                              </div>
-                              <div class="sc_testimonial_author">
-                                 <a href="#" class="sc_testimonial_author_name">Logan Hughes</a>
-                                 <br><span class="sc_testimonial_author_position">31 years</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="sc_slider_controls_wrap">
-                        <a class="sc_slider_prev" href="#"></a>
-                        <a class="sc_slider_next" href="#"></a>
-                     </div>
-                     <div class="sc_slider_pagination_wrap"></div>
-                  </div>
-               </div>
             </div>
             <footer class="footer_wrap widget_area scheme_original">
                <div class="footer_wrap_inner widget_area_inner">
@@ -533,9 +484,9 @@ if($buscar_imagen_4){
                            <div class="fb-page" data-href="https://www.facebook.com/PropiedadesPlatinum/" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PropiedadesPlatinum/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PropiedadesPlatinum/">Propiedades Platinum / Sarah Alzugaray</a></blockquote></div>
                         </aside>
 
-                        <aside class="column-1_3 widget widget_twitter">
-                           <h5 class="widget_title">Ultimos tweets</h5>
-                           <a class="twitter-timeline" data-width="500" data-height="300" data-theme="light" href="https://twitter.com/AlzugaraySarah?ref_src=twsrc%5Etfw">Tweets by AlzugaraySarah</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <aside class="column-1_3 widget widget_tiktok">
+                           <h5 class="widget_title">Ultimos videos</h5>
+                           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@karlapropiedadesplatinum/video/6965920374139784454" data-video-id="6965920374139784454" style="max-width: 500px;min-width: 300px;" > <section> <a target="_blank" title="@karlapropiedadesplatinum" href="https://www.tiktok.com/@karlapropiedadesplatinum">@karlapropiedadesplatinum</a> <p><a title="apartamentosguatemala" target="_blank" href="https://www.tiktok.com/tag/apartamentosguatemala">##apartamentosguatemala</a> <a title="agenteinmobiliario" target="_blank" href="https://www.tiktok.com/tag/agenteinmobiliario">##agenteinmobiliario</a> <a title="propiedadesplatinum" target="_blank" href="https://www.tiktok.com/tag/propiedadesplatinum">##propiedadesplatinum</a> <a title="guatemala🇬🇹viral" target="_blank" href="https://www.tiktok.com/tag/guatemala%F0%9F%87%AC%F0%9F%87%B9viral">##guatemala🇬🇹viral</a> <a title="foryou" target="_blank" href="https://www.tiktok.com/tag/foryou">##foryou</a> <a title="agentekarlajuarez" target="_blank" href="https://www.tiktok.com/tag/agentekarlajuarez">##agentekarlajuarez</a></p> <a target="_blank" title="♬ Run Free (feat. IVIE) - Deep Chills" href="https://www.tiktok.com/music/Run-Free-feat-IVIE-6594233508997106433">♬ Run Free (feat. IVIE) - Deep Chills</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
                         </aside>
                      </div>
                   </div>
@@ -569,6 +520,7 @@ if($buscar_imagen_4){
                   </div>
                </div>
             </footer>
+            
             <div class="copyright_wrap copyright_style_menu scheme_original">
                <div class="copyright_wrap_inner">
                   <div class="content_wrap">
@@ -579,6 +531,29 @@ if($buscar_imagen_4){
                </div>
             </div>
          </div>
+      </div>
+      <!-- Floating Social Media bar Starts -->
+      <div class="float-sm">
+        <div class="fl-fl float-fb">          
+          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <i class="fa fa-facebook" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-tw">
+          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
+          <i class="fa fa-twitter" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-gp">
+          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <i class="fa fa-instagram" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-ig">
+          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <i class="fa fa-linkedin" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-pn">
+          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <i class="fa fa-youtube" style="text-align: right!important;"></i>
+        </div>
       </div>
       <a href="#" class="scroll_to_top icon-up"></a>
       <script type='text/javascript' src='js/vendor/jquery.js'></script>

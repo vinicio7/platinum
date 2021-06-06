@@ -45,7 +45,8 @@ class PropertyController extends Controller
             ['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
             ['data' => 'sale_usd', 'title'=>'VENTA $.'],
             ['data' => 'estado', 'title'=>'ESTADO'],
-            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
+            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+            ['data' => 'pdf',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
         ]; 
         return view('propierty', compact('dt_route', 'dt_columns','dt_order' ));
     }
@@ -285,6 +286,10 @@ class PropertyController extends Controller
                     "<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
                     "<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>";  
             })
+            ->addColumn('pdf', function ($record) {
+                return
+                    "<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
+            })
             ->addColumn('imagen', function ($record) {
                 $buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
                 if($buscar){
@@ -355,7 +360,7 @@ class PropertyController extends Controller
                     $descripcion = 'Vendida';
                 }
                 return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-            })->rawColumns(['estado','acciones','propietario','tipo','imagen'])
+            })->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf'])
             ->toJson();
     }
 
