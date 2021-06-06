@@ -121,21 +121,37 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                         <div class="sc_property sc_property_style_property-1">
                            <div class="sc_columns columns_wrap">
                               @foreach($asociats as $item)
-                              <div class="column-1_4 column_padding_bottom">
+                              
+                              <div class="column-1_4 column_padding_bottom" style="">
+                                 <center><h6 class="agent d-block text-center m-0 p-2 py-3" style="padding:12px;margin:0px;font-size: 1rem;color: white;font-weight: 600;display: block;background-color: #11264e;-webkit-box-shadow: none;box-shadow: none;text-transform: uppercase;letter-spacing: 0.15rem;pb-3, .py-3 {
+    padding-bottom: 2rem !important;
+}
+
+.pt-3, .py-3 {
+    padding-top: 2rem !important;
+}.p-2 {
+    padding: 2.5rem !important;
+}
+
+.m-0 {
+    margin: 0 !important;
+}">
+                                 {{$item->name}}
+                              </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
                                        <a href="/asociate/detail/{{$item->user_id}}" class="hover_icon hover_icon_view">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: 90%;padding: 12px"></a>
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: 270px;height: 310px"></a>
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
-                                          <h3 class="sc_team_item_title"><a href="single-team.html">{{$item->name}}</a></h3>
                                           <div class="sc_team_item_position">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->twitter }}" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-phone"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->twitter }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
+                                             <button style="background-color: #11264e">Propiedades</button>
                                           </div>
                                        </center>
                                     </div>

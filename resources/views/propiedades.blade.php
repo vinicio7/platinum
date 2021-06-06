@@ -41,6 +41,26 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
     <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
     <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
+    <style type="text/css">
+      .input-icono {
+        background-image: url('/images/search.png');
+        background-repeat: no-repeat;
+        background-position: 4px center;
+        background-size: 20px;
+        display: flex;
+        align-items: center;
+        padding-left: 28px;
+        border: 1px solid white;
+        border-radius: 3px;
+      }
+      .input-icono input {
+        width: 100%;
+        font-size: 0.9em;
+      }
+      .input-icono input:focus {
+        outline: none;
+      }
+    </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
       <div class="body_wrap">
@@ -93,12 +113,12 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                     <a href="/propierty/view/{{$item->propiertiy_id}}">
                                        <div class="property_price_box">
                                         @if($item->sale_usd > 0)
-                                          <span class="property_price_box_sign">$</span><span class="property_price_box_price">{{number_format($item->sale_usd,2)}}</span>
+                                          <span class="property_price_box_price">$.{{number_format($item->sale_usd,2)}}</span>
                                         @else
-                                          <span class="property_price_box_sign">$</span><span class="property_price_box_price">{{number_format($item->rent_usd,2)}}</span>
+                                          <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
                                         @endif
                                        </div>
-                                       <img alt="" src="{{$imagen}}">
+                                       <img alt="" style="width: 400px;height: 300px" src="{{$imagen}}">
                                     </a>
                                  </div>
                                  <div class="sc_property_info">
@@ -122,10 +142,10 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                     </div>
                                  </div>
                                  <div class="sc_property_info_list">
-                                    <span class="icon-building113">{{$item->build_mts}} mts</span>
-                                    <span class="icon-bed">{{$item->rooms}}</span>
-                                    <span class="icon-bath">{{$item->bathrooms}}</span>
-                                    <span class="icon-warehouse">{{$item->parking}}</span>
+                                    <span class="icon-building113" style="display: inline-block;">{{$item->build_mts}} mts</span>
+                                    <span class="icon-bed" style="display: inline-block;">{{$item->rooms}}</span>
+                                    <span class="icon-bath" style="display: inline-block;">{{$item->bathrooms}}</span>
+                                    <span class="icon-warehouse" style="display: inline-block;">{{$item->parking}}</span>
                                  </div>
                               </div>
                             </div>
@@ -143,8 +163,9 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                      <div class="sidebar_inner widget_area_inner">
                         <aside class="widget widget_property_search scheme_dark" style="color:white">
                            <form method="get" action="#">
-                              <span style="font-weight: bold">Texto de busqueda:</span><br>
-                              <input type="text" name="ps_keyword" placeholder="" value="" style="border-color: white">
+                             <div class="input-icono">
+                                <input type="text" name="input" value="" >
+                              </div>
                               <select name="ps_status" style="border-color: white">
                                  <option value="sale">En venta</option>
                                  <option value="rent">En renta</option>
@@ -206,41 +227,8 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                  <option value="5">5 o mas</option>
                               </select>
                               <div class="ps_area ps_range_slider" style="color: white!important">
-                                 <div class="ps_area_info">
-                                    <div class="ps_area_info_title" style="color:white!important">Area</div>
-                                    <div class="ps_area_info_value" style="color:white!important;border"></div>
-                                    <div class="cL" ></div>
-                                 </div>
-                                 <div id="slider-range-area" style="border:white;background: white"></div>
-                                 <input type="hidden" class="ps_area_min" name="ps_area_min" value="0" >
-                                 <input type="hidden" class="ps_area_max" name="ps_area_max" value="10000" >
-                                 <input type="hidden" class="ps_area_big" name="ps_area_big" value="10000" >
-                              </div>
-                              <div class="ps_price ps_range_slider" style="color: white">
-                                 <div class="ps_price_info">
-                                    <div class="ps_price_info_title" style="color:white!important">Price</div>
-                                    <div class="ps_price_info_value" style="color:white!important"></div>
-                                    <div class="cL"></div>
-                                 </div>
-                                 <div id="slider-range-price" style="border:white;background: white"></div>
-                                 <input type="hidden" class="ps_price_min" name="ps_price_min" value="0">
-                                 <input type="hidden" class="ps_price_max" name="ps_price_max" value="10000000">
-                                 <input type="hidden" class="ps_price_big" name="ps_price_big" value="10000000">
-                              </div>
-                              <div class="ps_amenities">
-                                 <div class="accent1h">Amenities</div>
-                                 <label class="estateLabelCheckBox">
-                                 <input  class="estateCheckBox" type="checkbox" name="ps_amenities[Attended Lobby]" value="1">Lavanderia</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Concierge]" value="1">Jacuzzi</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Fireplace]" value="1">Jardin</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Gym]" value="1">Pergola</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Outdoor Space]" value="1">Chimenea</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Parking]" value="1">Churrasquera</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Pet Friendly]" value="1">Estudio</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Pool]" value="1">Terraza</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Views]" value="1">Balcon</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Washer / Drye]" value="1">Patio</label>
-
+                                 Precio maximo:
+                                  <input type="text" name="ps_keyword" placeholder="US$" value="" style="border-color: white">
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>
