@@ -39,7 +39,7 @@ use App\Models\Images;
             left: 0cm;
             right: 0cm;
             height:2cm ;
-            padding:0;
+            padding:20;
             background-color:  #11264e;
 
         }
@@ -226,24 +226,27 @@ use App\Models\Images;
 @endphp
     <center>
         <section class="sheet-one" style="display: inline-block;">
-            <br>
-            <h2 style="color: #11264e;display: inline-block;">COD. {{$data->propiertiy_id}}</h2>
-            <h1 style="color: #11264e;font-size: 30px;display: inline-block; margin-left: 50px">{{strtoupper($data->title)}}</h1>
-            <img style="width: 100px;" src="http://localhost/platinum/public/assets/simple.png">
-            <table style="margin: 0px">
-               <tr>
-                    <td rowspan="4" style="border-style: none;border:0;"><img style="width: 400px;height: 300px;" src="{{$imagenes[0]->path}}"></td>
-                </tr>
-                <tr>
-                    <td style="border-style: none;border:0;"><img style="width: 300px;height: 150px;" src="{{$imagenes[1]->path}}"></td>
-                </tr>
-                <tr>
-                    <td style="border-style: none;border:0;"><img style="width: 300px;height: 150px;" src="{{$imagenes[2]->path}}"></td>
+            <br><br><br><br>
+            <table style="margin: 0!important;border-style: none!important;border:0!important;background-color: white">
+                <tr style="border-style: none!important;border:0!important;">
+                    <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$data->propiertiy_id}}</h2></td>
+                    <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 30px;">{{strtoupper($data->title)}}</h1></center></td>
+                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="http://localhost/platinum/public/assets/simple.png"></td>
                 </tr>
             </table>
-            <table style="margin:0px">
+            
+            <table style="margin-top: 20px">
                 <tr>
-                    <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 500px">
+                    <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
+                    <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[0]->path}}"></td>
+                </tr>
+                <tr>
+                    <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[0]->path}}"></td>
+                </tr>
+            </table>
+            <table style="margin:0px;height: 250px">
+                <tr>
+                    <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 500px;vertical-align: top">
                         <p>DESCRIPCION<br>
                             {!!$data->description!!}
                         </p>
@@ -269,26 +272,28 @@ use App\Models\Images;
                 </tr>
             </table>
         </section>
-        <footer style="background-color: #11264e;width:900px">
-                <h1 style="color: white;font-size: 40px;font-style: bold;display: inline-block;">${{$data->sale_usd}}</h1>
-                <h1 style="color: white;font-size: 20px;font-style: bold;display: inline-block;margin-left: 40px">Info/Cel 502 3276-9893</h1>
-                <h1 style="color: white;font-size: 20px;font-style: bold;margin-left: 40px">Email: vjlopezdeleon@gmail.com</h1>
+        <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px">
+                <h1 style="color: white;font-size: 40px;font-style: bold;display: inline-block;margin-left: 120px">${{$data->sale_usd}}</h1>
+                <h1 style="color: white;font-size: 20px;font-style: bold;display: inline-block;margin-left: 100px">Info/Cel 502 3276-9893</h1>
+                <h1 style="color: white;font-size: 20px;font-style: bold;margin-left: 80px">Email: vjlopezdeleon@gmail.com</h1>
         </footer>
     </center>
     <center>
         <section class="sheet-last" style="display: inline-block;">
-            <br>
-            <h2 style="color: #11264e;display: inline-block;">COD. {{$data->propiertiy_id}}</h2>
-            <h1 style="color: #11264e;font-size: 40px;display: inline-block; margin-left: 50px">{{strtoupper($data->title)}}</h1>
-            <img style="width: 100px;" src="/assets/simple.png">
-            <br>
-            <br>
+            <br><br><br><br>
+            <table style="margin: 0!important;border-style: none!important;border:0!important;background-color: white;margin-bottom: 40px">
+                <tr style="border-style: none!important;border:0!important;">
+                    <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$data->propiertiy_id}}</h2></td>
+                    <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 30px;">{{strtoupper($data->title)}}</h1></center></td>
+                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="http://localhost/platinum/public/assets/simple.png"></td>
+                </tr>
+            </table>
             @php
                 $contador = 0;
             @endphp
             @foreach($imagenes as $imagen)
             @if($contador < 6)
-                <img src="{{$imagen->path}}" style="width: 400px;height: 200px">
+                <img src="{{$imagen->path}}" style="width: 350px;height: 180px;margin: 5px">
                 @if($contador == 1 || $contador == 3 || $contador == 5)
                 <br>
                 @endif
@@ -297,12 +302,12 @@ use App\Models\Images;
                 @endphp
             @endif
             @endforeach
-            <footer style="background-color: #11264e;width: 900px">
-                <h1 style="color: white;font-size: 20px;font-style: bold;display: inline-block;">Agente: Andres Figueroa</h1>
-                <h1 style="color: white;font-size: 20px;font-style: bold;display: inline-block;margin-left: 40px">Info/Cel 502 3276-9893</h1>
-                <h1 style="color: white;font-size: 20px;font-style: bold;margin-left: 40px">Email: vjlopezdeleon@gmail.com</h1>
-            </footer>
         </section>
+        <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px">
+                <h1 style="color: white;font-size: 40px;font-style: bold;display: inline-block;margin-left: 120px">${{$data->sale_usd}}</h1>
+                <h1 style="color: white;font-size: 20px;font-style: bold;display: inline-block;margin-left: 100px">Info/Cel 502 3276-9893</h1>
+                <h1 style="color: white;font-size: 20px;font-style: bold;margin-left: 80px">Email: vjlopezdeleon@gmail.com</h1>
+        </footer>
     </center>
 
 </body>

@@ -1521,6 +1521,9 @@
                if ($(evt.target)[0].innerText == 'Vender') {
                  this.loadVenta($(evt.target)[0].id); 
                }
+               if ($(evt.target)[0].innerText == 'PDF') {
+                 this.downloadPdf($(evt.target)[0].id); 
+               }
                if($(evt.target)[0].innerText == 'Eliminar'){
                     let url = '/api/propierty/delete' 
                     let Data_id = event.target.id
@@ -1834,7 +1837,23 @@
             loadVenta(id){ 
                 this.update = id
                 $('#modalventa').modal('show');
-            },     
+            },    
+            downloadPdf(id){ 
+                let me  = this;
+                let url = '/pdf/'+id 
+                axios({
+                  url: url,
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'propiedad'+id+'.pdf');
+                   document.body.appendChild(fileLink);
+                   fileLink.click();
+              });
+            },   
             loadFieldsUpdate(id){ 
                 $('#exampleModal').modal('show');
                 this.update = id

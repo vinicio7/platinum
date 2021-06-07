@@ -32,9 +32,9 @@ class PropertyController extends Controller
             //return view('pdf_propiedad',compact('data'));
             //dd($pdf);
             $nombre     = 'Propiedad '.$id.".pdf";
-            return $pdf->setPaper('letter')->stream();
+            return $pdf->setPaper('letter')->download($nombre);
         }catch(\Exception $e){
-            dd($e->getMessage());
+            return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
         }
     }
 

@@ -4587,6 +4587,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       }
 
+      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
+        _this.downloadPdf(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+      }
+
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
         var _url = '/api/propierty/delete';
         var Data_id = event.target.id;
@@ -4928,6 +4932,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     loadVenta: function loadVenta(id) {
       this.update = id;
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalventa').modal('show');
+    },
+    downloadPdf: function downloadPdf(id) {
+      var me = this;
+      var url = '/pdf/' + id;
+      axios({
+        url: url,
+        method: 'GET',
+        responseType: 'blob'
+      }).then(function (response) {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'propiedad' + id + '.pdf');
+        document.body.appendChild(fileLink);
+        fileLink.click();
+      });
     },
     loadFieldsUpdate: function loadFieldsUpdate(id) {
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#exampleModal').modal('show');
