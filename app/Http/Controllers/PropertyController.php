@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Excel;
 use App\Exports\PropiertiesExport;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
+use PDF;
 
 class PropertyController extends Controller
 {
@@ -22,6 +23,19 @@ class PropertyController extends Controller
     public function ver_propiedad($id){
         $data = Property::find($id);
         return view('ver_propiedad', compact('data'));
+    }
+
+    public function pdf($id){
+        try{
+            $data       = Property::where('propiertiy_id',$id)->first(); 
+            $pdf        = PDF::loadView('pdf_propiedad',compact('data'));
+            //return view('pdf_propiedad',compact('data'));
+            //dd($pdf);
+            $nombre     = 'Propiedad '.$id.".pdf";
+            return $pdf->setPaper('letter')->download($nombre);
+        }catch(\Exception $e){
+            return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
+        }
     }
 
     public function propiedades(){
@@ -45,7 +59,9 @@ class PropertyController extends Controller
             ['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
             ['data' => 'sale_usd', 'title'=>'VENTA $.'],
             ['data' => 'estado', 'title'=>'ESTADO'],
-            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
+            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+            ['data' => 'pdf',"title"=>"PDF", 'orderable'=> false, 'searchable' => false],
+            ['data' => 'generar',"title"=>"Generar", 'orderable'=> false, 'searchable' => false]
         ]; 
         return view('propierty', compact('dt_route', 'dt_columns','dt_order' ));
     }
@@ -82,6 +98,7 @@ class PropertyController extends Controller
         try { 
             $properties = Property::create([
                 'title'                     => $request->input('title'),
+                'subtitle'                  => $request->input('subtitle'),
                 'type'                      => $request->input('type') ,
                 'user_id'                   => $request->input('user_id'),
                 'owner_id'                  => $request->input('owner_id'),
@@ -285,6 +302,14 @@ class PropertyController extends Controller
                     "<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
                     "<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>";  
             })
+            ->addColumn('pdf', function ($record) {
+                return
+                    "<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
+            })
+            ->addColumn('generar', function ($record) {
+                return
+                    "<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-genera' id='".$record->propiertiy_id."'>PDF</a>";  
+            })
             ->addColumn('imagen', function ($record) {
                 $buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
                 if($buscar){
@@ -355,7 +380,7 @@ class PropertyController extends Controller
                     $descripcion = 'Vendida';
                 }
                 return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-            })->rawColumns(['estado','acciones','propietario','tipo','imagen'])
+            })->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar'])
             ->toJson();
     }
 

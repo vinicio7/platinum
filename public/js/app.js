@@ -4395,6 +4395,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4416,6 +4442,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _ref;
 
     return _ref = {
+      subtitulo: '',
       fecha_final: '',
       fecha_inicial: '',
       vendida_por: 0,
@@ -4558,6 +4585,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Vender') {
         _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+      }
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
+        _this.downloadPdf(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       }
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
@@ -4758,6 +4789,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formData.append('youtube', this.link_tour);
       formData.append('internal_note', this.notas_internas);
       formData.append('title', this.titulo);
+      formData.append('subtitle', this.subtitulo);
       formData.append('propietario', this.propietario);
       formData.append('adress', this.direccion);
       formData.append('finance', this.financiamiento);
@@ -4900,6 +4932,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     loadVenta: function loadVenta(id) {
       this.update = id;
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalventa').modal('show');
+    },
+    downloadPdf: function downloadPdf(id) {
+      var me = this;
+      var url = '/pdf/' + id;
+      axios({
+        url: url,
+        method: 'GET',
+        responseType: 'blob'
+      }).then(function (response) {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'propiedad' + id + '.pdf');
+        document.body.appendChild(fileLink);
+        fileLink.click();
+      });
     },
     loadFieldsUpdate: function loadFieldsUpdate(id) {
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#exampleModal').modal('show');
@@ -61859,27 +61907,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm-3" }, [
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-success",
-              staticStyle: {
-                "background-color": "#12264d",
-                "border-color": "#12264d"
-              },
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.generarExcel()
-                }
-              }
-            },
-            [_vm._v("\n          -> Generar excel\n        ")]
-          )
-        ])
+        _vm._m(0)
       ]),
       _vm._v(" "),
       _c("br"),
@@ -61899,6 +61927,59 @@ var render = function() {
           }
         },
         [_vm._v("\n          + Crear propiedad\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success",
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              return _vm.generarExcel()
+            }
+          }
+        },
+        [_vm._v("\n          -> Generar excel\n             ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-target": "#exampleModal"
+          }
+        },
+        [_vm._v("\n          -> Generar PDF\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-info",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-target": "#exampleModal"
+          }
+        },
+        [_vm._v("\n          -> Enviar PDF\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-warning",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-target": "#exampleModal"
+          }
+        },
+        [_vm._v("\n          - Limpiar\n        ")]
       ),
       _vm._v(" "),
       _c(
@@ -61922,7 +62003,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(0),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "row" }, [
@@ -62034,7 +62115,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(1),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "row" }, [
@@ -62171,7 +62252,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(3)
                 ]),
                 _vm._v(" "),
                 _c(
@@ -62237,6 +62318,44 @@ var render = function() {
                                         _vm.titulo = $$v
                                       },
                                       expression: "titulo"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-sm-12" },
+                                [
+                                  _c("label", [_vm._v("Subtitulo")]),
+                                  _vm._v(" "),
+                                  _c("editor", {
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      init: {
+                                        branding: false,
+                                        plugins: [
+                                          "advlist autolink lists link image charmap print preview anchor",
+                                          "searchreplace visualblocks code fullscreen",
+                                          "insertdatetime media table paste code help wordcount"
+                                        ],
+                                        toolbar:
+                                          "undo redo | formatselect | bold italic backcolor | \
+                                                   alignleft aligncenter alignright alignjustify | \
+                                                   bullist numlist outdent indent | removeformat | help",
+                                        paste_as_text: true,
+                                        toolbar_mode: "sliding",
+                                        language: "es"
+                                      },
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.subtitulo,
+                                      callback: function($$v) {
+                                        _vm.subtitulo = $$v
+                                      },
+                                      expression: "subtitulo"
                                     }
                                   })
                                 ],
@@ -69251,6 +69370,12 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-3" }, [_c("br")])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

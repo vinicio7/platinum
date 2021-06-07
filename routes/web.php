@@ -54,3 +54,5 @@ Route::get('zones',            			'ZoneController@index')->name('zones');
 Route::get('rols',            			'RoleController@index')->name('rols');
 Route::get('propierties',            	'PropertyController@index')->name('propierties');
 Route::get('propiedades',            	'PropertyController@propiedades')->name('propiedades');
+
+Route::get('/pdf/{id}',                	'PropertyController@pdf');

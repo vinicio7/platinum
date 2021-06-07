@@ -1,0 +1,117 @@
+.float-sm{
+  float: left;
+  font-size: 10px;
+}
+.twitter {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.twitter:hover {
+  color: #FF7D6D;
+  text-decoration: none;
+}
+
+span {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+/* Floating Social Media Bar Style Starts Here */
+
+.fl-fl {
+  align-content: right;
+  margin-right: 0px;
+  color:white!important;
+  background: white;
+  letter-spacing: 3px;
+  padding: 4px;
+  width: 220px;
+  position: fixed;
+  left: -190px;
+  z-index: 1000;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.fa {
+  color: gray;
+  padding: 10px 0;
+  width: 40px;
+  margin-right: 0px;
+}
+
+.fl-fl:hover {
+  left: 0;
+}
+
+.fl-fl a {
+  text-decoration: none;
+  text-align: right;
+  vertical-align: top!important;
+}
+
+.float-fb {
+  top: 390px;
+}
+
+.float-tw {
+  top: 427.5px;
+}
+.float-gp {
+  top: 464px;
+}
+.float-ig {
+  top: 501px;
+}
+.float-pn {
+  top: 537.5px;
+}
+
+
+
+
+.float-fb:hover {
+  color:white!important;
+  background: #3B5998 !important;
+}
+
+.float-tw:hover {
+  color:white!important;
+  background: #55ACEE !important;
+}
+
+.float-gp:hover {
+  color:white!important;
+   background: #d6249f !important;
+}
+
+.float-ig:hover {
+  color:white!important;
+  background: #007bb5 !important;
+}
+
+.float-pn:hover {
+  color:white!important;
+  background: #bb0000 !important;
+}
+/* Floating Social Media Bar Style Ends Here */
+
+.single-post blockquote.tiktok-embed:before{display: none;}
+@media (max-width: 767px) {
+.entry-title{padding-left: 0px;}
+}
+@media (max-width: 320px) {
+.entry-title{margin-left: -22px;}
+}

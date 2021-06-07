@@ -9,14 +9,24 @@
               </div>
                <div class="col-sm-3">
                 <br>
-                 <button type="button" class="btn btn-success" @click="generarExcel()" style="background-color: #12264d;border-color: #12264d;">
-              -> Generar excel
-            </button>
+                
               </div>
             </div>
             <br>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
               + Crear propiedad
+            </button> 
+             <button type="button" class="btn btn-success" @click="generarExcel()">
+              -> Generar excel
+                 </button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+              -> Generar PDF
+            </button> 
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+              -> Enviar PDF
+            </button> 
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+              - Limpiar
             </button> 
         <div class="modal fade" id="modalrenta" tabindex="-1" role="dialog" aria-labelledby="modalrenta" aria-hidden="true" >
           <div class="modal-dialog modal-center modal-md" role="document" align="center">
@@ -106,6 +116,22 @@
                                                      toolbar_mode: 'sliding',
                                                      language:'es'}"
                                              type="text"  class="form-control" v-model="titulo"/>
+                                    </div>
+                                    <div class="col-sm-12" >
+                                        <label>Subtitulo</label>
+                                        <editor :init="{branding:false, plugins: [
+                                                       'advlist autolink lists link image charmap print preview anchor',
+                                                       'searchreplace visualblocks code fullscreen',
+                                                       'insertdatetime media table paste code help wordcount'
+                                                     ],
+                                                     toolbar:
+                                                       'undo redo | formatselect | bold italic backcolor | \
+                                                       alignleft aligncenter alignright alignjustify | \
+                                                       bullist numlist outdent indent | removeformat | help',
+                                                     paste_as_text: true,
+                                                     toolbar_mode: 'sliding',
+                                                     language:'es'}"
+                                             type="text"  class="form-control" v-model="subtitulo"/>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Tipo</label>
@@ -1241,6 +1267,7 @@
         },
         data() {
             return {
+                subtitulo:'',
                 fecha_final:'',
                 fecha_inicial:'',
                 vendida_por:0,
@@ -1494,6 +1521,9 @@
                if ($(evt.target)[0].innerText == 'Vender') {
                  this.loadVenta($(evt.target)[0].id); 
                }
+               if ($(evt.target)[0].innerText == 'PDF') {
+                 this.downloadPdf($(evt.target)[0].id); 
+               }
                if($(evt.target)[0].innerText == 'Eliminar'){
                     let url = '/api/propierty/delete' 
                     let Data_id = event.target.id
@@ -1682,6 +1712,7 @@
                 formData.append('youtube',this.link_tour)
                 formData.append('internal_note',this.notas_internas)
                 formData.append('title',this.titulo)
+                formData.append('subtitle',this.subtitulo)
                 formData.append('propietario',this.propietario)
                 formData.append('adress',this.direccion)
                 formData.append('finance',this.financiamiento)
@@ -1806,7 +1837,23 @@
             loadVenta(id){ 
                 this.update = id
                 $('#modalventa').modal('show');
-            },     
+            },    
+            downloadPdf(id){ 
+                let me  = this;
+                let url = '/pdf/'+id 
+                axios({
+                  url: url,
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'propiedad'+id+'.pdf');
+                   document.body.appendChild(fileLink);
+                   fileLink.click();
+              });
+            },   
             loadFieldsUpdate(id){ 
                 $('#exampleModal').modal('show');
                 this.update = id

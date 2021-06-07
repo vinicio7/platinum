@@ -40,46 +40,61 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
     <link rel='stylesheet' href='css/custom/skin.responsive.css' type='text/css' media='all' />
     <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
+    <style type="text/css">
+      .input-icono {
+        background-image: url('/images/search.png');
+        background-repeat: no-repeat;
+        background-position: 4px center;
+        background-size: 20px;
+        display: flex;
+        align-items: center;
+        padding-left: 28px;
+        border: 1px solid white;
+        border-radius: 3px;
+      }
+      .input-icono input {
+        width: 100%;
+        font-size: 0.9em;
+      }
+      .input-icono input:focus {
+        outline: none;
+      }
+    </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
       <div class="body_wrap">
          <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original">
-            <div class="header-bg">
-                <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_above">
-                    <div class="content_wrap clearfix">
-                        <div class="top_panel_logo" style="width: 300px">
-                            <div class="logo">
-                                <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main" alt="" ></a>
-                            </div>
-                        </div>
-                        <div class="top_panel_contacts">
-                            <div class="top_panel_contacts_left">
-                                <div class="contact_phone">Guatemala</div>
-                                <div class="contact_email">info@propiedadesplatinum.com</div>
-                            </div>
-                            <div class="top_panel_contacts_right">Telefono: <strong><i>+(502)</i> 5368-9090</strong></div>
-                            <div class="cL"></div>
+            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000">
+               <div class="header-bg">
+                  <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
+                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
+                        <div class="top_panel_logo">
+                           <div class="logo">
+                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
+                           </div>
                         </div>
                         <div class="top_panel_menu">
-                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
-                            <nav class="menu_main_nav_area">
-                                <ul id="menu_main" class="menu_main_nav">
-                                  <li class="menu-item"><a href="/">Inicio</a></li>
-                                  <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                  <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                  <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                  <li class="menu-item"><a href="/login">Ingresar</a></li>
-                                </ul>
-                            </nav>
+                           <img src="/images/plecka.png" style="width:100px;margin-left: 40px;margin-right: 10px">
                         </div>
-                        <div class="cL"></div>
-                    </div>
-                </div>
-            </div>
-        </header>
+                        <div class="top_panel_menu" style="margin-top: 50px;">
+                           <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
+                           <nav class="menu_main_nav_area">
+                              <ul id="menu_main" class="menu_main_nav">
+                                <li class="menu-item"><a href="/">Inicio</a></li>
+                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
+                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
+                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
+                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                              </ul>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </header>
             <div class="page_content_wrap">
-               <div class="content_wrap">
+               <div class="content_wrap" style="margin-top: 50px">
                   <div class="content">
                      <div class="sc_property sc_property_style_property-1">
                         <div class="columns_wrap ">
@@ -98,12 +113,12 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                     <a href="/propierty/view/{{$item->propiertiy_id}}">
                                        <div class="property_price_box">
                                         @if($item->sale_usd > 0)
-                                          <span class="property_price_box_sign">$</span><span class="property_price_box_price">{{number_format($item->sale_usd,2)}}</span>
+                                          <span class="property_price_box_price">$.{{number_format($item->sale_usd,2)}}</span>
                                         @else
-                                          <span class="property_price_box_sign">$</span><span class="property_price_box_price">{{number_format($item->rent_usd,2)}}</span>
+                                          <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
                                         @endif
                                        </div>
-                                       <img alt="" src="{{$imagen}}">
+                                       <img alt="" style="width: 400px;height: 300px" src="{{$imagen}}">
                                     </a>
                                  </div>
                                  <div class="sc_property_info">
@@ -127,10 +142,10 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                     </div>
                                  </div>
                                  <div class="sc_property_info_list">
-                                    <span class="icon-building113">{{$item->build_mts}} mts</span>
-                                    <span class="icon-bed">{{$item->rooms}}</span>
-                                    <span class="icon-bath">{{$item->bathrooms}}</span>
-                                    <span class="icon-warehouse">{{$item->parking}}</span>
+                                    <span class="icon-building113" style="display: inline-block;">{{$item->build_mts}} mts</span>
+                                    <span class="icon-bed" style="display: inline-block;">{{$item->rooms}}</span>
+                                    <span class="icon-bath" style="display: inline-block;">{{$item->bathrooms}}</span>
+                                    <span class="icon-warehouse" style="display: inline-block;">{{$item->parking}}</span>
                                  </div>
                               </div>
                             </div>
@@ -148,8 +163,9 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                      <div class="sidebar_inner widget_area_inner">
                         <aside class="widget widget_property_search scheme_dark" style="color:white">
                            <form method="get" action="#">
-                              <span style="font-weight: bold">Texto de busqueda:</span><br>
-                              <input type="text" name="ps_keyword" placeholder="" value="" style="border-color: white">
+                             <div class="input-icono">
+                                <input type="text" name="input" value="" >
+                              </div>
                               <select name="ps_status" style="border-color: white">
                                  <option value="sale">En venta</option>
                                  <option value="rent">En renta</option>
@@ -211,41 +227,8 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                  <option value="5">5 o mas</option>
                               </select>
                               <div class="ps_area ps_range_slider" style="color: white!important">
-                                 <div class="ps_area_info">
-                                    <div class="ps_area_info_title" style="color:white!important">Area</div>
-                                    <div class="ps_area_info_value" style="color:white!important;border"></div>
-                                    <div class="cL" ></div>
-                                 </div>
-                                 <div id="slider-range-area" style="border:white;background: white"></div>
-                                 <input type="hidden" class="ps_area_min" name="ps_area_min" value="0" >
-                                 <input type="hidden" class="ps_area_max" name="ps_area_max" value="10000" >
-                                 <input type="hidden" class="ps_area_big" name="ps_area_big" value="10000" >
-                              </div>
-                              <div class="ps_price ps_range_slider" style="color: white">
-                                 <div class="ps_price_info">
-                                    <div class="ps_price_info_title" style="color:white!important">Price</div>
-                                    <div class="ps_price_info_value" style="color:white!important"></div>
-                                    <div class="cL"></div>
-                                 </div>
-                                 <div id="slider-range-price" style="border:white;background: white"></div>
-                                 <input type="hidden" class="ps_price_min" name="ps_price_min" value="0">
-                                 <input type="hidden" class="ps_price_max" name="ps_price_max" value="10000000">
-                                 <input type="hidden" class="ps_price_big" name="ps_price_big" value="10000000">
-                              </div>
-                              <div class="ps_amenities">
-                                 <div class="accent1h">Amenities</div>
-                                 <label class="estateLabelCheckBox">
-                                 <input  class="estateCheckBox" type="checkbox" name="ps_amenities[Attended Lobby]" value="1">Lavanderia</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Concierge]" value="1">Jacuzzi</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Fireplace]" value="1">Jardin</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Gym]" value="1">Pergola</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Outdoor Space]" value="1">Chimenea</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Parking]" value="1">Churrasquera</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Pet Friendly]" value="1">Estudio</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Pool]" value="1">Terraza</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Views]" value="1">Balcon</label>
-                                 <label class="estateLabelCheckBox"><input  class="estateCheckBox" type="checkbox" name="ps_amenities[Washer / Drye]" value="1">Patio</label>
-
+                                 Precio maximo:
+                                  <input type="text" name="ps_keyword" placeholder="US$" value="" style="border-color: white">
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>
@@ -265,6 +248,30 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
         </div>
          </div>
       </div>
+
+      <div class="float-sm">
+        <div class="fl-fl float-fb">          
+          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <i class="fa fa-facebook" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-tw">
+          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
+          <i class="fa fa-twitter" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-gp">
+          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <i class="fa fa-instagram" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-ig">
+          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <i class="fa fa-linkedin" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-pn">
+          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <i class="fa fa-youtube" style="text-align: right!important;"></i>
+        </div>
+      </div>
+
       <a href="#" class="scroll_to_top icon-up"></a>
       <script type='text/javascript' src='js/vendor/jquery.js'></script>
       <script type='text/javascript' src='js/custom/plugins.js'></script>

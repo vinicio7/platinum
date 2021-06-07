@@ -107,28 +107,24 @@ if($buscar_imagen_4){
       <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
       <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
+      <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
    </head>
    <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
       <div class="body_wrap">
          <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original">
+            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix">
-                        <div class="top_panel_logo" style="width: 300px">
+                     <div class="content_wrap clearfix" style="margin-left:50px;margin-right:0px;width: auto">
+                        <div class="top_panel_logo" style="margin-right: 0px">
                            <div class="logo">
-                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main" alt="" ></a>
+                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
-                        <div class="top_panel_contacts">
-                           <div class="top_panel_contacts_left">
-                              <div class="contact_phone">Guatemala</div>
-                              <div class="contact_email">info@propiedadesplatinum.com</div>
-                           </div>
-                           <div class="top_panel_contacts_right">Telefono: <strong><i>+(502)</i> 5368-9090</strong></div>
-                           <div class="cL"></div>
+                        <div class="top_panel_menu" style="margin-left: 0px">
+                           <img src="/images/plecka.png" style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px">
                         </div>
-                        <div class="top_panel_menu">
+                        <div class="top_panel_menu" style="margin-top: 50px;padding-left: -50px">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
@@ -140,7 +136,6 @@ if($buscar_imagen_4){
                               </ul>
                            </nav>
                         </div>
-                        <div class="cL"></div>
                      </div>
                   </div>
                </div>
@@ -267,32 +262,9 @@ if($buscar_imagen_4){
                                  </select>
                               </div>
                               <div class="sc_ps_area">
-                                 <div class="ps_area ps_range_slider">
-                                    <div class="ps_area_info">
-                                       <div class="ps_area_info_title">Precio $.</div>
-                                       <div class="ps_area_info_value"></div>
-                                       <div class="cL"></div>
-                                    </div>
-                                    <div id="slider-range-area"></div>
-                                    <input type="hidden" class="ps_area_min" name="ps_area_min" value="0">
-                                    <input type="hidden" class="ps_area_max" name="ps_area_max" value="10000">
-                                    <input type="hidden" class="ps_area_big" name="ps_area_big" value="10000">
-                                 </div>
+                                  <input type="text" name="ps_keyword" placeholder="US$ Precio maximo" value="" style="border-color: white">
                               </div>
-                              <div class="sc_ps_price">
-                                 <div class="ps_price ps_range_slider">
-                                    <div class="ps_price_info">
-                                       <div class="ps_price_info_title">Precio Q.</div>
-                                       <div class="ps_price_info_value"></div>
-                                       <div class="cL"></div>
-                                    </div>
-                                    <div id="slider-range-price"></div>
-                                    <input type="hidden" class="ps_price_min" name="ps_price_min" value="0">
-                                    <input type="hidden" class="ps_price_max" name="ps_price_max" value="10000000">
-                                    <input type="hidden" class="ps_price_big" name="ps_price_big" value="10000000">
-                                 </div>
-                              </div>
-                              <div class="sc_ps_submit">
+                              <div class="sc_ps_submit" style="text-align: left;">
                                     <a href="/propiedades" class="sc_button sc_button_box sc_button_style_style2" style="color:white">Buscar</a>
                               </div>
                            </form>
@@ -351,13 +323,13 @@ if($buscar_imagen_4){
                                  <div class="sc_property_item">
                                     <div class="ps_single_info">
                                        <div class="property_price_box">
-                                          <span class="property_price_box_sign">$</span><span class="property_price_box_price">{{$precio_4}}</span>
+                                          <span class="property_price_box_price">$.{{$precio_4}}</span>
                                        </div>
                                        <div class="sc_property_info_list">
-                                          <span class="icon-area_2">{{$metros_4}} mts</span>
-                                          <span class="icon-bed">{{$dormitorios_4}}</span>
-                                          <span class="icon-bath">{{$banos_4}}</span>
-                                          <span class="icon-warehouse">{{$parqueos_4}}</span>
+                                          <span class="icon-area_2" style="display: inline-block;">{{$metros_4}} mts</span>
+                                          <span class="icon-bed" style="display: inline-block;">{{$dormitorios_4}}</span>
+                                          <span class="icon-bath" style="display: inline-block;">{{$banos_4}}</span>
+                                          <span class="icon-warehouse" style="display: inline-block;">{{$parqueos_4}}</span>
                                        </div>
                                        <div class="cL"></div>
                                     </div>
@@ -385,7 +357,7 @@ if($buscar_imagen_4){
                                  <div class="sc_property_item">
                                     <div class="sc_property_image">
                                        <a href="/propierty/view/{{$item->propiertiy_id}}">
-                                          <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">1,249,000</span></div>
+                                          <div class="property_price_box"><span class="property_price_box_price">${{$item->sale_usd}}</span></div>
                                           <?php
                                           $busqueda    = Images::where('propierty_id',$item->propiertiy_id)->first();
                                           if($busqueda){
@@ -394,7 +366,7 @@ if($buscar_imagen_4){
                                              $imagen = ''; 
                                           }
                                           ?>
-                                          <img alt="" src="{{$imagen}}">
+                                          <img alt="" style="width: 400px;height: 300px" src="{{$imagen}}">
                                           
                                        </a>
                                     </div>
@@ -418,7 +390,7 @@ if($buscar_imagen_4){
                                        </div>
                                     </div>
                                     <div class="sc_property_info_list">
-                                       <span class="icon-building113">{{$item->build_mts}} mts</span><span class="icon-bed">{{$item->rooms}}</span><span class="icon-bath">{{$item->bathrooms}}</span><span class="icon-warehouse">{{$item->parking}}</span>
+                                       <span style="display:inline-block" class="icon-building113">{{$item->build_mts}} mts</span><span style="display:inline-block" class="icon-bed">{{$item->rooms}}</span><span style="display:inline-block" class="icon-bath">{{$item->bathrooms}}</span><span style="display:inline-block" class="icon-warehouse">{{$item->parking}}</span>
                                     </div>
                                  </div>
                               </div>
@@ -431,26 +403,42 @@ if($buscar_imagen_4){
                </div>
                <div class="sc_section overflow_hidden bg_color_1">
                   <div class="content_wrap margin_top_large margin_bottom_medium">
-                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Asociados</b></h4>
+                     <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Agentes Inmobiliarios</b></h4>
                      <div class="sc_property_wrap">
                         <div class="sc_property sc_property_style_property-1">
                            <div class="sc_columns columns_wrap">
                               @foreach($asociats as $item)
-                              <div class="column-1_4 column_padding_bottom">
+                              
+                              <div class="column-1_4 column_padding_bottom" style="">
+                                 <center><h6 class="agent d-block text-center m-0 p-2 py-3" style="padding:12px;margin:0px;font-size: 1rem;color: white;font-weight: 600;display: block;background-color: #11264e;-webkit-box-shadow: none;box-shadow: none;text-transform: uppercase;letter-spacing: 0.15rem;pb-3, .py-3 {
+    padding-bottom: 2rem !important;
+}
+
+.pt-3, .py-3 {
+    padding-top: 2rem !important;
+}.p-2 {
+    padding: 2.5rem !important;
+}
+
+.m-0 {
+    margin: 0 !important;
+}">
+                                 {{$item->name}}
+                              </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
                                        <a href="/asociate/detail/{{$item->user_id}}" class="hover_icon hover_icon_view">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: 90%;padding: 12px"></a>
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: 270px;height: 310px"></a>
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
-                                          <h3 class="sc_team_item_title"><a href="/asociate/detail/{{$item->user_id}}">{{$item->name}}</a></h3>
                                           <div class="sc_team_item_position">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->twitter }}" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-phone"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->twitter }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
+                                             <button style="background-color: #11264e">Propiedades</button>
                                           </div>
                                        </center>
                                     </div>
@@ -460,50 +448,6 @@ if($buscar_imagen_4){
                            </div>
                         </div>
                      </div>
-                  </div>
-               </div>
-               <div class="sc_section back_image_2">
-                  <div class="sc_testimonials sc_testimonials_style_testimonials-2 sc_slider_swiper sc_slider_pagination sc_slider_pagination_bottom sc_slider_nocontrols scheme_dark" data-interval="7529" data-slides-min-width="250">
-                     <div class="slides swiper-wrapper">
-                        <div class="swiper-slide">
-                           <div class="sc_testimonial_item">
-                              <div class="sc_testimonial_content">
-                                 <p>El mejor servico, muy facil y muy rapido le brindan el seguimiento a uno.</p>
-                              </div>
-                              <div class="sc_testimonial_author">
-                                 <a href="#" class="sc_testimonial_author_name">Irine Gosh</a>
-                                 <br><span class="sc_testimonial_author_position">22 years</span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <div class="sc_testimonial_item">
-                              <div class="sc_testimonial_content">
-                                 <p>Llevaba mucho tiempo sin lograr vender exitosamente mi casa con otros y en una semana aqui se ha vendido!</p>
-                              </div>
-                              <div class="sc_testimonial_author">
-                                 <span class="sc_testimonial_author_name">Emma Bennett</span>
-                                 <br><span class="sc_testimonial_author_position">40 years</span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <div  class="sc_testimonial_item">
-                              <div class="sc_testimonial_content">
-                                 <p>La seguridad y confianza que brindan es implacable, muy bueno el trato de los asesores.</p>
-                              </div>
-                              <div class="sc_testimonial_author">
-                                 <a href="#" class="sc_testimonial_author_name">Logan Hughes</a>
-                                 <br><span class="sc_testimonial_author_position">31 years</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="sc_slider_controls_wrap">
-                        <a class="sc_slider_prev" href="#"></a>
-                        <a class="sc_slider_next" href="#"></a>
-                     </div>
-                     <div class="sc_slider_pagination_wrap"></div>
                   </div>
                </div>
             </div>
@@ -530,13 +474,24 @@ if($buscar_imagen_4){
                         <aside class="column-1_3 widget widget_facebook">
                            <h5 class="widget_title">Ultimas publicaciones</h5>
                            <div id="fb-root"></div>
-                           <div class="fb-page" data-href="https://www.facebook.com/PropiedadesPlatinum/" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PropiedadesPlatinum/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PropiedadesPlatinum/">Propiedades Platinum / Sarah Alzugaray</a></blockquote></div>
+                           <div class="fb-page" data-href="https://www.facebook.com/PropiedadesPlatinum/" data-tabs="timeline" data-width="500" data-height="790" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PropiedadesPlatinum/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PropiedadesPlatinum/">Propiedades Platinum / Sarah Alzugaray</a></blockquote></div>
                         </aside>
 
-                        <aside class="column-1_3 widget widget_twitter">
-                           <h5 class="widget_title">Ultimos tweets</h5>
-                           <a class="twitter-timeline" data-width="500" data-height="300" data-theme="light" href="https://twitter.com/AlzugaraySarah?ref_src=twsrc%5Etfw">Tweets by AlzugaraySarah</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        </aside>
+                        <aside class="column-1_3 widget widget_facebook">
+                           <h5 class="widget_title" style="padding-left: 40px">Ultimos videos</h5>
+                           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@pilarluxuryrealstate/video/6969657755770637573" data-video-id="6969657755770637573" style="padding-top: 0px!important;width: 110%" >
+                            <section style="margin-top: -20px"> <a target="_blank" title="@pilarluxuryrealstate" href="https://www.tiktok.com/@pilarluxuryrealstate">@pilarluxuryrealstate</a>
+                             <p>Venta apartamento zona 10 <a title="guatemala" target="_blank" href="https://www.tiktok.com/tag/guatemala">#guatemala</a>
+                              <a title="ciudadeguatemala" target="_blank" href="https://www.tiktok.com/tag/ciudadeguatemala">#ciudadeguatemala</a> 
+                              <a title="beauty" target="_blank" href="https://www.tiktok.com/tag/beauty">#beauty</a> <a title="luxury" target="_blank" href="https://www.tiktok.com/tag/luxury">#luxury</a>
+                               <a title="ventasguatemala" target="_blank" href="https://www.tiktok.com/tag/ventasguatemala">#ventasguatemala</a> <a title="syp" target="_blank" href="https://www.tiktok.com/tag/syp">#syp</a>  
+                               <a title="luxuryreastate" target="_blank" href="https://www.tiktok.com/tag/luxuryreastate">#luxuryreastate</a> <a title="viral" target="_blank" href="https://www.tiktok.com/tag/viral">#viral</a> 
+                               <a title="home" target="_blank" href="https://www.tiktok.com/tag/home">#home</a> <a title="foryou" target="_blank" href="https://www.tiktok.com/tag/foryou">#foryou</a> 
+                               <a title="invest" target="_blank" href="https://www.tiktok.com/tag/invest">#invest</a> <a title="apartament" target="_blank" href="https://www.tiktok.com/tag/apartament">#apartament</a>
+                            </p> <a target="_blank" title="♬ SugarCrash! - ElyOtto" href="https://www.tiktok.com/music/SugarCrash-6920125567752734722">♬ SugarCrash! - ElyOtto</a> 
+                              </section>
+                           </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                           </aside>
                      </div>
                   </div>
                </div>
@@ -569,6 +524,7 @@ if($buscar_imagen_4){
                   </div>
                </div>
             </footer>
+            
             <div class="copyright_wrap copyright_style_menu scheme_original">
                <div class="copyright_wrap_inner">
                   <div class="content_wrap">
@@ -580,6 +536,30 @@ if($buscar_imagen_4){
             </div>
          </div>
       </div>
+      <!-- Floating Social Media bar Starts -->
+      <div class="float-sm">
+        <div class="fl-fl float-fb">          
+          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <i class="fa fa-facebook" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-tw">
+          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
+          <i class="fa fa-twitter" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-gp">
+          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <i class="fa fa-instagram" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-ig">
+          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <i class="fa fa-linkedin" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-pn">
+          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <i class="fa fa-youtube" style="text-align: right!important;"></i>
+        </div>
+      </div>
+
       <a href="#" class="scroll_to_top icon-up"></a>
       <script type='text/javascript' src='js/vendor/jquery.js'></script>
       <script type='text/javascript' src='js/custom/plugins.js'></script>
