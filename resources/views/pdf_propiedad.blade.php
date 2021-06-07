@@ -219,7 +219,7 @@ use App\Models\Images;
 </head>
 <body>
 <header style="margin-bottom:0px">
-    <center><img src="http://localhost/platinum/public/image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
+    <center><img src="https://platinum.mavis.com.gt//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
 </header>
 @php    
     $imagenes   = Images::where('propierty_id',$data->propiertiy_id)->get();
@@ -231,7 +231,7 @@ use App\Models\Images;
                 <tr style="border-style: none!important;border:0!important;">
                     <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$data->propiertiy_id}}</h2></td>
                     <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 30px;">{{strtoupper($data->title)}}</h1></center></td>
-                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="http://localhost/platinum/public/assets/simple.png"></td>
+                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
                 </tr>
             </table>
             
@@ -285,7 +285,7 @@ use App\Models\Images;
                 <tr style="border-style: none!important;border:0!important;">
                     <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$data->propiertiy_id}}</h2></td>
                     <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 30px;">{{strtoupper($data->title)}}</h1></center></td>
-                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="http://localhost/platinum/public/assets/simple.png"></td>
+                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
                 </tr>
             </table>
             @php
