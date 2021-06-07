@@ -4405,6 +4405,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4426,6 +4442,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _ref;
 
     return _ref = {
+      subtitulo: '',
       fecha_final: '',
       fecha_inicial: '',
       vendida_por: 0,
@@ -4768,6 +4785,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formData.append('youtube', this.link_tour);
       formData.append('internal_note', this.notas_internas);
       formData.append('title', this.titulo);
+      formData.append('subtitle', this.subtitulo);
       formData.append('propietario', this.propietario);
       formData.append('adress', this.direccion);
       formData.append('finance', this.financiamiento);
@@ -62280,6 +62298,44 @@ var render = function() {
                                         _vm.titulo = $$v
                                       },
                                       expression: "titulo"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-sm-12" },
+                                [
+                                  _c("label", [_vm._v("Subtitulo")]),
+                                  _vm._v(" "),
+                                  _c("editor", {
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      init: {
+                                        branding: false,
+                                        plugins: [
+                                          "advlist autolink lists link image charmap print preview anchor",
+                                          "searchreplace visualblocks code fullscreen",
+                                          "insertdatetime media table paste code help wordcount"
+                                        ],
+                                        toolbar:
+                                          "undo redo | formatselect | bold italic backcolor | \
+                                                   alignleft aligncenter alignright alignjustify | \
+                                                   bullist numlist outdent indent | removeformat | help",
+                                        paste_as_text: true,
+                                        toolbar_mode: "sliding",
+                                        language: "es"
+                                      },
+                                      type: "text"
+                                    },
+                                    model: {
+                                      value: _vm.subtitulo,
+                                      callback: function($$v) {
+                                        _vm.subtitulo = $$v
+                                      },
+                                      expression: "subtitulo"
                                     }
                                   })
                                 ],

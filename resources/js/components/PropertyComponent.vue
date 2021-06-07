@@ -117,6 +117,22 @@
                                                      language:'es'}"
                                              type="text"  class="form-control" v-model="titulo"/>
                                     </div>
+                                    <div class="col-sm-12" >
+                                        <label>Subtitulo</label>
+                                        <editor :init="{branding:false, plugins: [
+                                                       'advlist autolink lists link image charmap print preview anchor',
+                                                       'searchreplace visualblocks code fullscreen',
+                                                       'insertdatetime media table paste code help wordcount'
+                                                     ],
+                                                     toolbar:
+                                                       'undo redo | formatselect | bold italic backcolor | \
+                                                       alignleft aligncenter alignright alignjustify | \
+                                                       bullist numlist outdent indent | removeformat | help',
+                                                     paste_as_text: true,
+                                                     toolbar_mode: 'sliding',
+                                                     language:'es'}"
+                                             type="text"  class="form-control" v-model="subtitulo"/>
+                                    </div>
                                     <div class="col-sm-3" >
                                         <label>Tipo</label>
                                             <select v-model="tipo" class="form-control">
@@ -1251,6 +1267,7 @@
         },
         data() {
             return {
+                subtitulo:'',
                 fecha_final:'',
                 fecha_inicial:'',
                 vendida_por:0,
@@ -1692,6 +1709,7 @@
                 formData.append('youtube',this.link_tour)
                 formData.append('internal_note',this.notas_internas)
                 formData.append('title',this.titulo)
+                formData.append('subtitle',this.subtitulo)
                 formData.append('propietario',this.propietario)
                 formData.append('adress',this.direccion)
                 formData.append('finance',this.financiamiento)
