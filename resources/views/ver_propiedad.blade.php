@@ -1,13 +1,24 @@
 <?php
-  use App\Models\Property;
-  use App\Models\Images;
+use App\Models\Departament;
+use App\Models\Municipality;
+use App\Models\Zone;
+use App\Models\Region;
+use App\Models\Property;
+use App\Models\Images;
+
   $busqueda    = Images::where('propierty_id',$data->propiertiy_id)->first();
   if($busqueda){
      $imagen =  $busqueda->path;
   }else{
      $imagen = ''; 
   }
+$departamentos = Departament::all();  
+$municipios    = Municipality::all();  
+$zonas         = Zone::all();  
+$regiones      = Departament::all();  
+$propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
 <head>
@@ -17,67 +28,77 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <title>Propiedades &#8211; Platinum</title>
-      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif%3A400%2C700%7CRaleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7COpen+Sans%3A300%2C400%2C600%2C700%2C800%7CMontserrat%3A700%2C400&amp;subset=cyrillic%2Ccyrillic-ext%2Clatin%2Cgreek-ext%2Cgreek%2Clatin-ext%2Cvietnamese&amp;ver=1.6.11" type="text/css" media="all">
-      <link rel='stylesheet' href='../../js/vendor/booked/font-awesome.min.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../js/vendor/essgrid/tooltipster.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../js/vendor/essgrid/tooltipster-light.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../js/vendor/booked/styles.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../js/vendor/revslider/settings.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/fontello/css/fontello.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/style.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/_animation.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/shortcodes.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../js/vendor/booked/booked.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/instagram-widget.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/skin.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/custom-style.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/colors.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/responsive.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/skin.responsive.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../js/vendor/magnific-popup/magnific-popup.css' type='text/css' media='all' />
-      <link rel='stylesheet' href='../../css/custom/_messages.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="/css/fuente1.css" type="text/css" media="all">
+    <link rel='stylesheet' href='/js/vendor/booked/font-awesome.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/js/vendor/essgrid/tooltipster.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/js/vendor/essgrid/tooltipster-light.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/js/vendor/booked/styles.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/js/vendor/revslider/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/fontello/css/fontello.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/_animation.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/shortcodes.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/skin.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/custom-style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/colors.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/skin.responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/js/vendor/swiper/swiper.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='/css/custom/_messages.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="/css/social_bar.css" type="text/css" media="all">
+    <style type="text/css">
+      .input-icono {
+        background-image: url('/images/search.png');
+        background-repeat: no-repeat;
+        background-position: 4px center;
+        background-size: 20px;
+        display: flex;
+        align-items: center;
+        padding-left: 28px;
+        border: 1px solid white;
+        border-radius: 3px;
+      }
+      .input-icono input {
+        width: 100%;
+        font-size: 0.9em;
+      }
+      .input-icono input:focus {
+        outline: none;
+      }
+    </style>
 </head>
-<body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
-<div class="body_wrap">
-    <div class="page_wrap">
-        <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original">
-            <div class="header-bg">
-                <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_above">
-                    <div class="content_wrap clearfix">
-                        <div class="top_panel_logo" style="width: 300px">
-                            <div class="logo">
-                                <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main" alt="" ></a>
-                            </div>
-                        </div>
-                        <div class="top_panel_contacts">
-                            <div class="top_panel_contacts_left">
-                                <div class="contact_phone">Guatemala</div>
-                                <div class="contact_email">info@propiedadesplatinum.com</div>
-                            </div>
-                            <div class="top_panel_contacts_right">Telefono: <strong><i>+(502)</i> 5368-9090</strong></div>
-                            <div class="cL"></div>
+ <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
+      <div class="body_wrap">
+         <div class="page_wrap">
+            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000;width: 100%;">
+               <div class="header-bg">
+                  <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
+                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
+                        <div class="top_panel_logo">
+                           <div class="logo">
+                              <a href="./"><img src="/image/logo_lg_blanco.svg" class="logo_main"></a>
+                           </div>
                         </div>
                         <div class="top_panel_menu">
-                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
-                            <nav class="menu_main_nav_area">
-                                <ul id="menu_main" class="menu_main_nav">
-                                  <li class="menu-item"><a href="/">Inicio</a></li>
-                                  <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                  <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                  <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                  <li class="menu-item"><a href="/login">Ingresar</a></li>
-                                </ul>
-                            </nav>
+                           <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
-                        <div class="cL"></div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="page_content_wrap">
-               <div class="content_wrap">
+                        <div class="top_panel_menu" style="margin-top: 50px;">
+                           <nav class="menu_main_nav_area">
+                              <ul id="menu_main" class="menu_main_nav">
+                                <li class="menu-item"><a href="/">Inicio</a></li>
+                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
+                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
+                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
+                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                              </ul>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </header>
+              <div class="page_content_wrap">
+               <div class="content_wrap" style="margin-top: 50px">
                   <div class="content">
                      <section class="post_featured">
                         <div class="post_thumb">
@@ -138,69 +159,7 @@
                                  </ul>
                               </div>
                            </div>
-                           <div class="sc_line sc_line_position_center_center sc_line_style_solid margin_top_medium margin_bottom_medium"></div>
-                           <h4 class="sc_title">Additional Details</h4>
-                           <div class="property_text_1">
-                              <p>AC: Ceiling Fan(s), Central<br /> ACRES: 0.16<br /> ACRES SOURCE: Assessor<br /> AP #: 374-493-13<br /> APPLIANCES: Dishwasher, Freestanding Gas Range, Garbage Disposal, Microwave<br /> BATHROOM DESCRIPTION: Stall Shower<br /> BEDROOM FEATURES: Main Floor Master Bedroom<br /> CROSS STREETS: Lincoln and Anchor<br /> DINING AREA: Family Kitchen</p>
-                           </div>
-                           <div class="sc_line sc_line_position_center_center sc_line_style_solid margin_top_medium margin_bottom_medium"></div>
-                           <h4 class="sc_title">Nearby Public places and transportion</h4>
-                           <div class="property_text_1">
-                              <p>Subway (line 1E): 0.12 mi – 18th St (18th St and 7th Ave)<br /> Market: 0.15 mi – 14th St (16th St and 8th Ave)<br /> Kindergarden: 0.26 mi – 23rd St (23rd St and 8th Ave)<br /> School: 0.15 mi – 14th St (16th St and 8th Ave)</p>
-                           </div>
-                           <div class="sc_line sc_line_position_center_center sc_line_style_solid margin_top_medium margin_bottom_medium"></div>
-                           <h4 class="sc_title">Contacts Us</h4>
-                           <div  class="sc_team_wrap">
-                              <div class="sc_team sc_team_style_team-2">
-                                 <div class="sc_columns columns_wrap">
-                                    <div class="column-1_2 column_padding_bottom">
-                                       <div  class="sc_team_item columns_wrap">
-                                          <div class="sc_team_item_avatar">
-                                             <img alt="" src="images/370x370.jpg"> 
-                                          </div>
-                                          <div class="sc_team_item_info">
-                                             <div class="sc_team_item_title"><a href="single-team.html">Sarah Doe</a></div>
-                                             <div class="sc_team_item_position">Agent</div>
-                                             <div class="sc_socials sc_socials_type_icons sc_socials_size_tiny">
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
-                                             </div>
-                                          </div>
-                                          <div class="cL"></div>
-                                          <div class="sc_team_item_phone"><span class="icon-mobile29"></span>800 123 45 67</div>
-                                          <div class="sc_team_item_email"><span class="icon-message106"></span>email@company.com</div>
-                                       </div>
-                                    </div>
-                                    <div class="column-1_2 column_padding_bottom">
-                                       <div class="sc_team_item even columns_wrap">
-                                          <div class="sc_team_item_avatar">
-                                             <img alt="" src="images/370x370.jpg"> 
-                                          </div>
-                                          <div class="sc_team_item_info">
-                                             <div class="sc_team_item_title"><a href="single-team.html">Sebastian Jones</a></div>
-                                             <div class="sc_team_item_position">Sales manager</div>
-                                             <div class="sc_socials sc_socials_type_icons sc_socials_size_tiny">
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
-                                                <div class="sc_socials_item"><a href="#" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
-                                             </div>
-                                          </div>
-                                          <div class="cL"></div>
-                                          <div class="sc_team_item_phone"><span class="icon-mobile29"></span>800 123 45 67</div>
-                                          <div class="sc_team_item_email"><span class="icon-message106"></span>email@company.com</div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="sc_line sc_line_position_center_center sc_line_style_solid margin_top_medium margin_bottom_medium"></div>
-                           <h4 class="sc_title">Property Map</h4>
-                           <div id="sc_googlemap_1126664593" class="sc_googlemap" data-zoom="18" data-style="default">
-                              <div class="sc_googlemap_marker" data-title="" data-description="" data-latlng="" data-address="121 King Street, NY, USA" data-point="images/logo-map.png"></div>
-                           </div>
+                         
                         </div>
                      </section>
                   </div>
@@ -396,19 +355,36 @@
         </div>
     </div>
 </div>
-<a href="#" class="scroll_to_top icon-up"></a>
-      <script type='text/javascript' src='../../js/vendor/jquery.js'></script>
-      <script type='text/javascript' src='../../js/custom/plugins.js'></script>
-      <script type='text/javascript' src='../../js/custom/messages.js'></script>
-      <script type='text/javascript' src='../../js/vendor/jquery-migrate.min.js'></script>
-      <script type='text/javascript' src='../../js/vendor/modernizr.min.js'></script>
-      <script type='text/javascript' src='../../js/vendor/ui/jquery-ui.min.js'></script>
-      <script type='text/javascript' src='../../js/vendor/superfish.js'></script>
-      <script type='text/javascript' src='../../js/custom/_utils.js'></script>
-      <script type='text/javascript' src='../../js/custom/_init.js'></script>
-      <script type='text/javascript' src='../../js/custom/_shortcodes.js'></script>
-      <script type='text/javascript' src='../../js/vendor/magnific-popup/jquery.magnific-popup.min.js'></script>
-      <script type='text/javascript' src='../../http://maps.google.com/maps/api/js?sensor=false'></script>
-      <script type='text/javascript' src='../../js/custom/_googlemap.js'></script>
-</body>
+<div class="float-sm">
+        <div class="fl-fl float-fb">          
+          <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <i class="fa fa-facebook" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-gp">
+          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <i class="fa fa-instagram" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-ig">
+          <a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <i class="fa fa-linkedin" style="text-align: right!important;"></i>
+        </div>
+        <div class="fl-fl float-pn">
+          <a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <i class="fa fa-youtube" style="text-align: right!important;"></i>
+        </div>
+      </div>
+
+      <a href="#" class="scroll_to_top icon-up"></a>
+      <script type='text/javascript' src='/js/vendor/jquery.js'></script>
+      <script type='text/javascript' src='/js/custom/plugins.js'></script>
+      <script type='text/javascript' src='/js/custom/messages.js'></script>
+      <script type='text/javascript' src='/js/vendor/jquery-migrate.min.js'></script>
+      <script type='text/javascript' src='/js/vendor/modernizr.min.js'></script>
+      <script type='text/javascript' src='/js/vendor/ui/jquery-ui.min.js'></script>
+      <script type='text/javascript' src='/js/vendor/superfish.js'></script>
+      <script type='text/javascript' src='/js/custom/_utils.js'></script>
+      <script type='text/javascript' src='/js/custom/_init.js'></script>
+      <script type='text/javascript' src='/js/custom/_shortcodes.js'></script>
+      <script type='text/javascript' src='/js/vendor/magnific-popup/jquery.magnific-popup.min.js'></script>
+   </body>
 </html>

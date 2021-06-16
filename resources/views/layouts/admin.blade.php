@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <link id="gull-theme" rel="stylesheet" href="{{  asset('assets/styles/css/themes/lite-roble.min.css')}}">
     <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
@@ -17,7 +17,21 @@
     <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/toastr.css')}}">
     <title>Propiedades Platinum</title>
+      <style type="text/css">
+         @media screen 
+              and (min-device-width: 1200px) 
+              and (max-device-width: 1600px) 
+              and (-webkit-min-device-pixel-ratio: 1) { 
+            }
 
+            /* ----------- Retina Screens ----------- */
+            @media screen 
+              and (min-device-width: 1200px) 
+              and (max-device-width: 1600px) 
+              and (-webkit-min-device-pixel-ratio: 2)
+              and (min-resolution: 192dpi) { 
+            }
+      </style>
 </head>
 <body>
 

@@ -65,7 +65,7 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
       <div class="body_wrap">
          <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000">
+            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000;width: 100%;">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
                      <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
@@ -75,10 +75,9 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                            </div>
                         </div>
                         <div class="top_panel_menu">
-                           <img src="/images/plecka.png" style="width:100px;margin-left: 40px;margin-right: 10px">
+                            <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
                         <div class="top_panel_menu" style="margin-top: 50px;">
-                           <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
                                 <li class="menu-item"><a href="/">Inicio</a></li>
@@ -189,12 +188,7 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                  <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
                               </select>
-                              <select name="ps_location"style="border-color: white">
-                                <option value="0">Seleccione una region</option>
-                                @foreach($regiones as $item)
-                                 <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                              </select>
+                              
                               <select name="ps_type" style="border-color: white">
                                     <option value="Cooperative">Apartamentos</option>
                                     <option value="Condominium">Casa</option>
@@ -202,30 +196,9 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                                     <option value="House">Loft</option>
                                     <option value="House">Cualquiera</option>
                               </select>
-                              <select name="ps_rooms" style="border-color: white">
-                                 <option value="-1">Habitaciones</option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                                 <option value="3">3</option>
-                                 <option value="4">4</option>
-                                 <option value="5">5 o mas</option>
-                              </select>
-                              <select name="ps_bathroom" style="border-color: white">
-                                 <option value="-1">Baños</option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                                 <option value="3">3</option>
-                                 <option value="4">4</option>
-                                 <option value="5">5 o mas</option>
-                              </select>
-                              <select name="ps_garages" style="border-color: white">
-                                 <option value="-1">Parqueos</option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                                 <option value="3">3</option>
-                                 <option value="4">4</option>
-                                 <option value="5">5 o mas</option>
-                              </select>
+                              
+                              
+                              
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio maximo:
                                   <input type="text" name="ps_keyword" placeholder="US$" value="" style="border-color: white">
@@ -248,26 +221,21 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
         </div>
          </div>
       </div>
-
-      <div class="float-sm">
+<div class="float-sm">
         <div class="fl-fl float-fb">          
-          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
-        <div class="fl-fl float-tw">
-          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
-          <i class="fa fa-twitter" style="text-align: right!important;"></i>
-        </div>
         <div class="fl-fl float-gp">
-          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">
-          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
           <i class="fa fa-linkedin" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-pn">
-          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
           <i class="fa fa-youtube" style="text-align: right!important;"></i>
         </div>
       </div>
