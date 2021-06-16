@@ -14,7 +14,7 @@
                            </div>
                         </div>
                         <div class="top_panel_menu">
-                           <img src="/images/plecka.png" style="width:100px;margin-left: 40px;margin-right: 10px">
+                           <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
                         <div class="top_panel_menu" style="margin-top: 50px;">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
@@ -109,12 +109,12 @@ span.psw {
     <div class="page_wrap">
         <div class="container">
                 <div class="rev_slider_wrapper" style="margin-top:60px;margin-bottom: 180px">
-                  <b><h2 style="color:#11264e !important;font-size: 1.2rem; text-transform: uppercase;letter-spacing: 0.15rem;">INICIAR SESION</h2>
+                  <b><h2 style="color:#11264e !important;font-size: 1.2rem; text-transform: uppercase;letter-spacing: 0.15rem;">SITIO ADMINISTRATIVO</h2>
                     </b>       
                      <a href="{{ route('home') }}" class="sign__logo">
-                                <img src="image/simple.png" alt="" style="width: 10%">
+                                <img src="image/simple.png" alt="" style="width: 15%">
                             </a> 
-                    <div class="" style="width: 400px;border-color: white">
+                    <div class="" style="width: 25%;border-color: white">
                         <script>
 
                           @if(Session::has('success'))
@@ -139,7 +139,7 @@ span.psw {
                         <form method="POST" action="{{ route('login') }}" class="" autocomplete="new-password">
                             {{ csrf_field() }}
 
-                            <span> test {{ Session::has('error') }}</span>
+                            <span> {{ Session::has('error') }}</span>
                             <div class="">
                                 <input type="text" class="sign__input" placeholder="Usuario" id="user" name="user" autocomplete="new-password">
                             </div>
@@ -159,25 +159,21 @@ span.psw {
   </section>
 </center>
 @endsection
-      <div class="float-sm">
+<div class="float-sm">
         <div class="fl-fl float-fb">          
-          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
-        <div class="fl-fl float-tw">
-          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
-          <i class="fa fa-twitter" style="text-align: right!important;"></i>
-        </div>
         <div class="fl-fl float-gp">
-          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">
-          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
           <i class="fa fa-linkedin" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-pn">
-          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
           <i class="fa fa-youtube" style="text-align: right!important;"></i>
         </div>
       </div>

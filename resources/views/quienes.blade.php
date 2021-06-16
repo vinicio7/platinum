@@ -45,7 +45,7 @@ $asociats    = User::all();
                            </div>
                         </div>
                         <div class="top_panel_menu">
-                           <img src="/images/plecka.png" style="width:100px;margin-left: 40px;margin-right: 10px">
+                           <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
                         <div class="top_panel_menu" style="margin-top: 50px;">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
@@ -81,35 +81,10 @@ $asociats    = User::all();
 Trabajamos con devoción a nuestros clientes, honramos la historia de cada propiedad, cuidamos los detalles, y nos capacitamos constantemente en todos los aspectos que se involucran en nuestra profesión, para dar acompañamiento y una asesoría profesional con responsabilidad y honestidad! <p> Somos un equipo de Asesores jóvenes con un respaldo solido de una Líder en este mercado  con experiencia de mas de 28 años en la compra/venta, arrendamiento y permutas de propiedades en Guatemala.</p>
                               </div>
                            </div>
-                           <div class="columns_wrap sc_columns margin_bottom_medium">
-                              <div class="column-1_2 sc_column_item">
-                                 <ul class="sc_list sc_list_style_iconed color_1">
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Zonas seguras</p>
-                                    </li>
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Excelentes vecinos</p>
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div class="column-1_2 sc_column_item">
-                                 <ul class="sc_list sc_list_style_iconed color_1">
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Vistas fabulosas</p>
-                                    </li>
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Areas verdes inmejorables</p>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
+                         
                         </div>
                         <div class="column-1_2">
-                           <figure class="sc_image"><img src="images/IMG_6061.jpg" alt="" /></figure>
+                           <figure class="sc_image"><img src="images/todos.jpg" alt="" /></figure>
                         </div>
                      </div>
                   </div>
@@ -177,25 +152,21 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
     </div>
 </div>
 
- <div class="float-sm">
+<div class="float-sm">
         <div class="fl-fl float-fb">          
-          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
-        <div class="fl-fl float-tw">
-          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
-          <i class="fa fa-twitter" style="text-align: right!important;"></i>
-        </div>
         <div class="fl-fl float-gp">
-          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">
-          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
           <i class="fa fa-linkedin" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-pn">
-          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
           <i class="fa fa-youtube" style="text-align: right!important;"></i>
         </div>
       </div>

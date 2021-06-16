@@ -53,7 +53,7 @@
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v10.0" nonce="0ss8Crp2"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
    </body>
-    <div class="copyright_wrap copyright_style_menu scheme_original">
+    <footer class="copyright_wrap copyright_style_menu scheme_original" style="bottom: 0;position: absolute;width: 100%">
          <div class="copyright_wrap_inner">
             <div class="content_wrap">
               
@@ -61,5 +61,5 @@
             </div>
          </div>
       </div>
-   </div>
+   </footer>
 </html>

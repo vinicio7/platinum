@@ -85,7 +85,7 @@ if($buscar_imagen_4){
    <head>
       <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
       <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="format-detection" content="telephone=no">
       <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
       <title>Propiedades &#8211; Platinum</title>
@@ -108,6 +108,21 @@ if($buscar_imagen_4){
       <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
       <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
+      <style type="text/css">
+         @media screen 
+              and (min-device-width: 1200px) 
+              and (max-device-width: 1600px) 
+              and (-webkit-min-device-pixel-ratio: 1) { 
+            }
+
+            /* ----------- Retina Screens ----------- */
+            @media screen 
+              and (min-device-width: 1200px) 
+              and (max-device-width: 1600px) 
+              and (-webkit-min-device-pixel-ratio: 2)
+              and (min-resolution: 192dpi) { 
+            }
+      </style>
    </head>
    <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
       <div class="body_wrap">
@@ -122,7 +137,7 @@ if($buscar_imagen_4){
                            </div>
                         </div>
                         <div class="top_panel_menu" style="margin-left: 0px">
-                           <img src="/images/plecka.png" style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px">
+                          <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
                         <div class="top_panel_menu" style="margin-top: 50px;padding-left: -50px">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
@@ -207,19 +222,11 @@ if($buscar_imagen_4){
                      <div class="sc_section_inner">
                         <div class="sc_property_search">
                            <form method="get" action="#">
-                              <div class="sc_ps_status">
-                                 <select name="ps_status">
+                              <div class="sc_ps_type">
+                                 <select name="sc_ps_type">
                                     <option value="sale">En Venta</option>
                                     <option value="rent">En Renta</option>
                                     <option value="5">Cualquiera</option>
-                                 </select>
-                              </div>
-                              <div class="sc_ps_location">
-                                 <select name="ps_location">
-                                    @foreach($regions as $region)
-                                    <option value="{{$region->regions_id}}">{{$region->name}}</option>
-                                    @endforeach
-                                    <option value="0">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_type">
@@ -229,36 +236,6 @@ if($buscar_imagen_4){
                                     <option value="Cond-op">Condominio</option>
                                     <option value="House">Loft</option>
                                     <option value="House">Cualquiera</option>
-                                 </select>
-                              </div>
-                              <div class="sc_ps_bedrooms">
-                                 <select name="ps_bedrooms">
-                                    <option value="-1">Parqueos</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">Cualquiera</option>
-                                 </select>
-                              </div>
-                              <div class="sc_ps_bedrooms">
-                                 <select name="ps_bedrooms">
-                                    <option value="-1">Habitaciones</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">Cualquiera</option>
-                                 </select>
-                              </div>
-                              <div class="sc_ps_bathrooms">
-                                 <select name="ps_bathrooms">
-                                    <option value="-1">Baños</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 o mas</option>
                                  </select>
                               </div>
                               <div class="sc_ps_area">
@@ -435,7 +412,6 @@ if($buscar_imagen_4){
                                           <div class="sc_team_item_position">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
                                              <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-phone"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->twitter }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
                                              <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
                                              <button style="background-color: #11264e">Propiedades</button>
@@ -451,72 +427,26 @@ if($buscar_imagen_4){
                   </div>
                </div>
             </div>
-            <footer class="footer_wrap widget_area scheme_original">
-               <div class="footer_wrap_inner widget_area_inner">
-                  <div class="content_wrap">
-                     <div class="columns_wrap">
-                        <aside class="column-1_3 widget widget_text">
-                           <h5 class="widget_title">SARAH ALZUGARAY</h5>
-                           <div class="textwidget" style="color:white">
-                             Guatemalteca, Empresaria y Emprendedora, Licenciada en Administración de Empresas, Socia, Fundadora y Directora de empresas, Corredora de Bienes Raíces y Asesora de Inversiones por más de 25 años.
-                              <br><br>
-                              <br>
-                               <img src="\images\cbrlogo.png">
-                              <div class="footer-widget-contacts">
-                                 <span class="accent1h margin_right_tiny icon-location"></span>
-                                 <br>
-                                 <span class="accent1h margin_right_tiny icon-tablet"></span>
-                                 <br>
-                                 <span class="accent1h margin_right_tiny icon-mail"></span>
-                              </div>
-                           </div>
-                        </aside>
-                        <aside class="column-1_3 widget widget_facebook">
-                           <h5 class="widget_title">Ultimas publicaciones</h5>
-                           <div id="fb-root"></div>
-                           <div class="fb-page" data-href="https://www.facebook.com/PropiedadesPlatinum/" data-tabs="timeline" data-width="500" data-height="790" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PropiedadesPlatinum/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PropiedadesPlatinum/">Propiedades Platinum / Sarah Alzugaray</a></blockquote></div>
-                        </aside>
-
-                        <aside class="column-1_3 widget widget_facebook">
-                           <h5 class="widget_title" style="padding-left: 40px">Ultimos videos</h5>
-                           <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@pilarluxuryrealstate/video/6969657755770637573" data-video-id="6969657755770637573" style="padding-top: 0px!important;width: 110%" >
-                            <section style="margin-top: -20px"> <a target="_blank" title="@pilarluxuryrealstate" href="https://www.tiktok.com/@pilarluxuryrealstate">@pilarluxuryrealstate</a>
-                             <p>Venta apartamento zona 10 <a title="guatemala" target="_blank" href="https://www.tiktok.com/tag/guatemala">#guatemala</a>
-                              <a title="ciudadeguatemala" target="_blank" href="https://www.tiktok.com/tag/ciudadeguatemala">#ciudadeguatemala</a> 
-                              <a title="beauty" target="_blank" href="https://www.tiktok.com/tag/beauty">#beauty</a> <a title="luxury" target="_blank" href="https://www.tiktok.com/tag/luxury">#luxury</a>
-                               <a title="ventasguatemala" target="_blank" href="https://www.tiktok.com/tag/ventasguatemala">#ventasguatemala</a> <a title="syp" target="_blank" href="https://www.tiktok.com/tag/syp">#syp</a>  
-                               <a title="luxuryreastate" target="_blank" href="https://www.tiktok.com/tag/luxuryreastate">#luxuryreastate</a> <a title="viral" target="_blank" href="https://www.tiktok.com/tag/viral">#viral</a> 
-                               <a title="home" target="_blank" href="https://www.tiktok.com/tag/home">#home</a> <a title="foryou" target="_blank" href="https://www.tiktok.com/tag/foryou">#foryou</a> 
-                               <a title="invest" target="_blank" href="https://www.tiktok.com/tag/invest">#invest</a> <a title="apartament" target="_blank" href="https://www.tiktok.com/tag/apartament">#apartament</a>
-                            </p> <a target="_blank" title="♬ SugarCrash! - ElyOtto" href="https://www.tiktok.com/music/SugarCrash-6920125567752734722">♬ SugarCrash! - ElyOtto</a> 
-                              </section>
-                           </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-                           </aside>
-                     </div>
-                  </div>
-               </div>
-            </footer>
-            <footer class="contacts_wrap">
-               <div class="contacts_wrap_inner">
+            <footer class="contacts_wrap" style="color: white!important">
+               <div class="contacts_wrap_inner" style="background-color:#11264e!important;color: white!important">
                   <div class="content_wrap">
                      <div class="columns_wrap">
                         <div class="column-1_4 show_logo_footer">
                            <div class="logo">
-                              <a href="index.html"><img src="image/simple.png" style="width: 50%"></a>
+                              <img src="\images\cbrlogo.png">
                            </div>
                         </div>
                         <div class="column-2_4">
                            <h5>Acerca de</h5>
                            Somos una empresa de Bienes Raíces, integrada con Agentes muy profesionales, debidamente entrenados para dar asesoramiento en todo lo relacionado a la compra/venta, arrendamiento y permutas de propiedades, Contamos con bastantes opciones de propiedades en toda Guatemala, y nos especializamos en Propiedades de Alto Nivel.
                         </div>
-                        <div class="column-1_4">
-                           <h5>Siguenos</h5>
-                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                              <div class="sc_socials_item"><a href="https://www.facebook.com/PropiedadesPlatinum/" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                              <div class="sc_socials_item"><a href="https://twitter.com/alzugaraysarah" target="_blank" class="social_icons"><span class="icon-twitter"></span></a></div>
-                              <div class="sc_socials_item"><a href="https://www.instagram.com/propiedades_platinum/" target="_blank" class="social_icons"><span class="icon-instagramm"></span></a></div>
-                              <div class="sc_socials_item"><a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" class="social_icons"><span class="icon-linkedin"></span></a></div>
-                              <div class="sc_socials_item"><a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" class="social_icons"><span class="icon-youtube-play"></span></a></div>
+                        <div class="column-1_4" style="color: white!important">
+                           <h5 style="color: white">Siguenos</h5>
+                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small" style="color: white!important">
+                              <div class="sc_socials_item"><a href="https://www.facebook.com/PropiedadesPlatinum/" target="_blank" class="social_icons"><span class="icon-facebook" style="color:white!important"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.instagram.com/propiedades_platinum/" target="_blank" class="social_icons"><span class="icon-instagramm" style="color:white!important"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" class="social_icons"><span class="icon-linkedin" style="color:white!important"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" class="social_icons"><span class="icon-youtube-play" style="color:white!important"></span></a></div>
                            </div>
                         </div>
                         <div class="cL"></div>
@@ -539,23 +469,19 @@ if($buscar_imagen_4){
       <!-- Floating Social Media bar Starts -->
       <div class="float-sm">
         <div class="fl-fl float-fb">          
-          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
-        <div class="fl-fl float-tw">
-          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
-          <i class="fa fa-twitter" style="text-align: right!important;"></i>
-        </div>
         <div class="fl-fl float-gp">
-          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">
-          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
           <i class="fa fa-linkedin" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-pn">
-          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
           <i class="fa fa-youtube" style="text-align: right!important;"></i>
         </div>
       </div>

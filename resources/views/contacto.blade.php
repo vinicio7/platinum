@@ -39,7 +39,7 @@
                            </div>
                         </div>
                         <div class="top_panel_menu">
-                           <img src="/images/plecka.png" style="width:100px;margin-left: 40px;margin-right: 10px">
+                            <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
                         <div class="top_panel_menu" style="margin-top: 50px;">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
@@ -86,7 +86,7 @@
               <div class="column-1_2">
                 <div class="sc_section margin_top_xlarge margin_bottom_xlarge">
                   <div class="sc_section_inner">
-                    <figure class="sc_image"><img src="image/simple.png" alt="" /></figure>
+                    <figure class="sc_image"><a href="/"><img src="image/simple.png" alt="" /></a></figure>
                   </div>
                 </div>
               </div>
@@ -129,25 +129,21 @@
     </div>
 </div>
 
-      <div class="float-sm">
+<div class="float-sm">
         <div class="fl-fl float-fb">          
-          <a href="" target="_blank" style="color:white!important">Búscanos en Facebook</a>
+          <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
-        <div class="fl-fl float-tw">
-          <a href="" target="_blank" style="color:white!important;padding-left: 20px">Síguenos en Twitter</a>
-          <i class="fa fa-twitter" style="text-align: right!important;"></i>
-        </div>
         <div class="fl-fl float-gp">
-          <a href="" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">
-          <a href="" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
+          <a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" style="color:white!important">Conéctate en LinkedIn</a>
           <i class="fa fa-linkedin" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-pn">
-          <a href="" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
+          <a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" style="color:white!important">Suscríbete en Youtube</a>
           <i class="fa fa-youtube" style="text-align: right!important;"></i>
         </div>
       </div>
