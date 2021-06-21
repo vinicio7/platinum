@@ -10,10 +10,162 @@ $departamentos = Departament::all();
 $municipios    = Municipality::all();  
 $zonas         = Zone::all();  
 $regiones      = Departament::all();  
-$propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
+
+if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && isset($tipo_inmueble) && $precio_maximo > 0 ){
+  if($tipo_inmueble == 'apartamento'){
+    $inmueble = 1;
+  }else if($tipo_inmueble == 'casa'){
+    $inmueble = 2;
+  }
+  else if($tipo_inmueble == 'condominio'){
+    $inmueble = 3;
+  }
+  else if($tipo_inmueble == 'loft'){
+    $inmueble = 4;
+  }
+  else if($tipo_inmueble == 'cualquiera'){
+    $inmueble = 5;
+  }
+  if($tipo_venta == 'venta'){
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    ->where('rent_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }else{
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    ->where('sale_usd',0)->where('rent_usd','<',$precio_maximo)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }
+}else if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && isset($tipo_inmueble)){
+  if($tipo_inmueble == 'apartamento'){
+    $inmueble = 1;
+  }else if($tipo_inmueble == 'casa'){
+    $inmueble = 2;
+  }
+  else if($tipo_inmueble == 'condominio'){
+    $inmueble = 3;
+  }
+  else if($tipo_inmueble == 'loft'){
+    $inmueble = 4;
+  }
+  else if($tipo_inmueble == 'cualquiera'){
+    $inmueble = 5;
+  }
+  if($tipo_venta == 'venta'){
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    ->where('rent_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }else{
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    ->where('sale_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }
+}else if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0){
+  if($tipo_inmueble == 'apartamento'){
+    $inmueble = 1;
+  }else if($tipo_inmueble == 'casa'){
+    $inmueble = 2;
+  }
+  else if($tipo_inmueble == 'condominio'){
+    $inmueble = 3;
+  }
+  else if($tipo_inmueble == 'loft'){
+    $inmueble = 4;
+  }
+  else if($tipo_inmueble == 'cualquiera'){
+    $inmueble = 5;
+  }
+  if($tipo_venta == 'venta'){
+    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    ->where('rent_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }else{
+    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    ->where('sale_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }
+}else if(isset($tipo_venta) && isset($departamento) && $municipio > 0){
+  if($tipo_inmueble == 'apartamento'){
+    $inmueble = 1;
+  }else if($tipo_inmueble == 'casa'){
+    $inmueble = 2;
+  }
+  else if($tipo_inmueble == 'condominio'){
+    $inmueble = 3;
+  }
+  else if($tipo_inmueble == 'loft'){
+    $inmueble = 4;
+  }
+  else if($tipo_inmueble == 'cualquiera'){
+    $inmueble = 5;
+  }
+  if($tipo_venta == 'venta'){
+    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)
+    ->where('rent_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }else{
+    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)
+    ->where('sale_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }
+}else if(isset($tipo_venta) && isset($departamento)){
+  if($tipo_inmueble == 'apartamento'){
+    $inmueble = 1;
+  }else if($tipo_inmueble == 'casa'){
+    $inmueble = 2;
+  }
+  else if($tipo_inmueble == 'condominio'){
+    $inmueble = 3;
+  }
+  else if($tipo_inmueble == 'loft'){
+    $inmueble = 4;
+  }
+  else if($tipo_inmueble == 'cualquiera'){
+    $inmueble = 5;
+  }
+  if($tipo_venta == 'venta'){
+    $propiedades   = Property::where('departament_id',$departamento)
+    ->where('rent_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }else{
+    $propiedades   = Property::where('departament_id',$departamento)
+    ->where('sale_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }
+}else if(isset($tipo_venta)){
+  if($tipo_inmueble == 'apartamento'){
+    $inmueble = 1;
+  }else if($tipo_inmueble == 'casa'){
+    $inmueble = 2;
+  }
+  else if($tipo_inmueble == 'condominio'){
+    $inmueble = 3;
+  }
+  else if($tipo_inmueble == 'loft'){
+    $inmueble = 4;
+  }
+  else if($tipo_inmueble == 'cualquiera'){
+    $inmueble = 5;
+  }
+  if($tipo_venta == 'venta'){
+    $propiedades   = Property::where('rent_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }else{
+    $propiedades   = Property::where('sale_usd',0)
+    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+  }
+}else{
+  $tipo_venta = 'venta';
+  $departamento = 0;
+  $municipio = 0;
+  $zona = 0;
+  $tipo_inmueble = 'casa';
+  $precio_maximo = '';
+  $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
+}
+
+
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
 <head>
@@ -161,47 +313,84 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
                   <div class="sidebar widget_area scheme_original">
                      <div class="sidebar_inner widget_area_inner">
                         <aside class="widget widget_property_search scheme_dark" style="color:white">
-                           <form method="get" action="#">
+                           <form method="get" action="propiedades_post">
                              <div class="input-icono">
                                 <input type="text" name="input" value="" >
                               </div>
-                              <select name="ps_status" style="border-color: white">
-                                 <option value="sale">En venta</option>
-                                 <option value="rent">En renta</option>
+                              <select name="tipo_venta" value="{{$tipo_venta}}" style="border-color: white">
+                                 @if($tipo_venta == 'venta')
+                                 <option value="venta" selected>En venta</option>
+                                 @else
+                                  <option value="venta">En venta</option>
+                                 @endif
+                                 @if($tipo_venta == 'renta')
+                                 <option value="renta" selected>En renta</option>
+                                 @else
+                                  <option value="renta">En renta</option>
+                                 @endif
                               </select>
                               
-                              <select name="ps_location" style="border-color: white">
+                              <select name="departamento" value="{{$departamento}}" style="border-color: white">
                                 <option value="0">Seleccione un departamento</option>
                                 @foreach($departamentos as $item)
-                                 <option value="{{$item->id}}">{{$item->name}}</option>
+                                  @if($departamento == $item->departament_id)
+                                    <option value="{{$item->departament_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->departament_id}}">{{$item->name}}</option>
+                                  @endif
                                 @endforeach
                               </select>
-                              <select name="ps_location"style="border-color: white">
+                              <select name="municipio" value="{{$municipio}}" style="border-color: white">
                                 <option value="0">Seleccione un municipio</option>
                                 @foreach($municipios as $item)
-                                 <option value="{{$item->id}}">{{$item->name}}</option>
+                                 @if($municipio == $item->municipality_id)
+                                    <option value="{{$item->municipality_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->municipality_id}}">{{$item->name}}</option>
+                                  @endif
                                 @endforeach
                               </select>
-                              <select name="ps_location"style="border-color: white">
+                              <select name="zona" value="{{$zona}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
-                                 <option value="{{$item->id}}">{{$item->name}}</option>
+                                  @if($zona == $item->zone_id)
+                                    <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endif
                                 @endforeach
                               </select>
                               
-                              <select name="ps_type" style="border-color: white">
-                                    <option value="Cooperative">Apartamentos</option>
-                                    <option value="Condominium">Casa</option>
-                                    <option value="Cond-op">Condominio</option>
-                                    <option value="House">Loft</option>
-                                    <option value="House">Cualquiera</option>
+                              <select name="tipo_inmueble" value="{{$tipo_inmueble}}" style="border-color: white">
+                                @if($tipo_inmueble == 'apartamento')
+                                  <option value="apartamento" selected>Apartamentos</option>
+                                @else
+                                  <option value="apartamento">Apartamentos</option>
+                                @endif
+                                @if($tipo_inmueble == 'casa')
+                                  <option value="casa" selected>Casa</option>
+                                @else
+                                  <option value="casa">Casa</option>
+                                @endif
+                                @if($tipo_inmueble == 'condominio')
+                                  <option value="condominio" selected>Condominio</option>
+                                @else
+                                  <option value="condominio">Condominio</option>
+                                @endif
+                                @if($tipo_inmueble == 'loft')
+                                  <option value="loft" selected>Loft</option>
+                                @else
+                                  <option value="loft">Loft</option>
+                                @endif
+                                @if($tipo_inmueble == 'cualquiera')
+                                  <option value="cualquiera" selected>Cualquiera</option>
+                                @else
+                                  <option value="cualquiera">Cualquiera</option>
+                                @endif
                               </select>
-                              
-                              
-                              
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio maximo:
-                                  <input type="text" name="ps_keyword" placeholder="US$" value="" style="border-color: white">
+                                  <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>

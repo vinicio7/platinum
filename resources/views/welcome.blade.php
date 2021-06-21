@@ -4,7 +4,6 @@ use App\Models\Property;
 use App\Models\Region;
 use App\Models\Images;
 
-
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
 $asociats    = User::all();
 $regions     = Region::all();
@@ -221,28 +220,28 @@ if($buscar_imagen_4){
                   <div class="sc_section scheme_dark">
                      <div class="sc_section_inner">
                         <div class="sc_property_search">
-                           <form method="get" action="#">
+                           <form method="get" action="propiedades_post">
                               <div class="sc_ps_type">
-                                 <select name="sc_ps_type">
-                                    <option value="sale">En Venta</option>
-                                    <option value="rent">En Renta</option>
-                                    <option value="5">Cualquiera</option>
+                                 <select name="tipo_venta">
+                                    <option value="venta">En Venta</option>
+                                    <option value="renta">En Renta</option>
+                                    <option value="cualquiera">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_type">
-                                 <select name="ps_type">
-                                    <option value="Cooperative">Apartamentos</option>
-                                    <option value="Condominium">Casa</option>
-                                    <option value="Cond-op">Condominio</option>
-                                    <option value="House">Loft</option>
-                                    <option value="House">Cualquiera</option>
+                                 <select name="tipo_inmueble">
+                                    <option value="apartamento">Apartamentos</option>
+                                    <option value="casa">Casa</option>
+                                    <option value="condominio">Condominio</option>
+                                    <option value="loft">Loft</option>
+                                    <option value="cualquiera">Cualquiera</option>
                                  </select>
                               </div>
                               <div class="sc_ps_area">
-                                  <input type="text" name="ps_keyword" placeholder="US$ Precio maximo" value="" style="border-color: white">
+                                  <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
                               </div>
                               <div class="sc_ps_submit" style="text-align: left;">
-                                    <a href="/propiedades" class="sc_button sc_button_box sc_button_style_style2" style="color:white">Buscar</a>
+                                    <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE">
                               </div>
                            </form>
                         </div>

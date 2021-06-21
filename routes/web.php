@@ -20,7 +20,7 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('propiedades_post',            	'PropertyController@propiedades_post')->name('propiedades_post');
 Route::get('/', function () {
     $asociats = User::with('rol')->where('rol_id',2)->get();
     return view('welcome',['asociats' => $asociats]);
@@ -55,5 +55,6 @@ Route::get('rols',            			'RoleController@index')->name('rols');
 Route::get('propierties',            	'PropertyController@index')->name('propierties');
 Route::get('pdf_list',            		'PropertyController@pdf_list')->name('pdf_list');
 Route::get('propiedades',            	'PropertyController@propiedades')->name('propiedades');
+
 
 Route::get('/pdf/{id}',                	'PropertyController@pdf');
