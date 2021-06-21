@@ -17,21 +17,7 @@
     <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/toastr.css')}}">
     <title>Propiedades Platinum</title>
-      <style type="text/css">
-         @media screen 
-              and (min-device-width: 1200px) 
-              and (max-device-width: 1600px) 
-              and (-webkit-min-device-pixel-ratio: 1) { 
-            }
-
-            /* ----------- Retina Screens ----------- */
-            @media screen 
-              and (min-device-width: 1200px) 
-              and (max-device-width: 1600px) 
-              and (-webkit-min-device-pixel-ratio: 2)
-              and (min-resolution: 192dpi) { 
-            }
-      </style>
+     
 </head>
 <body>
 
@@ -93,6 +79,13 @@
                     <a href="{{ route('propierties') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Propiedades</a>
                 @else
                     <a href="{{ route('propierties') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Propiedades</a>
+                @endif
+            </li>
+            <li class="sidebar__nav-item">
+                @if(Request::route()->getName() == 'pdf_list')
+                    <a href="{{ route('pdf_list') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Lista PDF</a>
+                @else
+                    <a href="{{ route('pdf_list') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Lista PDF</a>
                 @endif
             </li>
             

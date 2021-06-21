@@ -53,6 +53,7 @@ Route::get('municipalities',            'MunicipalityController@index')->name('m
 Route::get('zones',            			'ZoneController@index')->name('zones');
 Route::get('rols',            			'RoleController@index')->name('rols');
 Route::get('propierties',            	'PropertyController@index')->name('propierties');
+Route::get('pdf_list',            		'PropertyController@pdf_list')->name('pdf_list');
 Route::get('propiedades',            	'PropertyController@propiedades')->name('propiedades');
 
 Route::get('/pdf/{id}',                	'PropertyController@pdf');

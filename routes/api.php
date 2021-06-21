@@ -22,7 +22,9 @@ use App\Http\Controllers\ZoneController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::get('propierty/pdf_total/{usuario_id}',          'PropertyController@pdf_total');
+Route::get('propierty/limpiar/{usuario_id}',            'PropertyController@limpiar');
+Route::post('remove/pdf',                               'PropertyController@remove_pdf');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -80,12 +82,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('rols/showid',                 'RoleController@showid')->name('rols.showid');
     Route::post('rols/delete',                 'RoleController@delete')->name('rols.delete');
 
-    Route::get('propierty/export',            'PropertyController@export');
+    
+    Route::get('propierty/export',             'PropertyController@export');
     Route::post('propierty/create',            'PropertyController@create');
     Route::post('propierty/rent',              'PropertyController@rent');
     Route::post('propierty/sale',              'PropertyController@sale');
     Route::post('propierty/image',             'PropertyController@image');
     Route::post('propierty/edit',              'PropertyController@edit')->name('propierty.edit');
     Route::get('propierty/show',               'PropertyController@show')->name('propierty.show');
+    Route::get('propierty/showlist',           'PropertyController@show_list')->name('propierty.show_list');
     Route::post('propierty/showid',            'PropertyController@showid')->name('propierty.showid');
     Route::post('propierty/delete',            'PropertyController@delete')->name('propierty.delete');
+    Route::post('propierty/add_pdf',           'PropertyController@add_pdf')->name('propierty.add_pdf');

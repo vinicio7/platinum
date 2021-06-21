@@ -9,6 +9,7 @@ Vue.component('zones-component', 				require('./components/ZoneComponent.vue').d
 Vue.component('bank-component', 				require('./components/BankComponent.vue').default);
 Vue.component('user-component', 				require('./components/UserComponent.vue').default);
 Vue.component('property-component', 			require('./components/PropertyComponent.vue').default);
+Vue.component('propertypdf-component', 			require('./components/PropertyPDFComponent.vue').default);
 Vue.component('roles-component', 				require('./components/RoleComponent.vue').default);
 //Vue.use(DataTable);
 import Editor from '@tinymce/tinymce-vue'
