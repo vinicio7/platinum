@@ -3,6 +3,12 @@ use App\Models\User;
 use App\Models\Property;
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
 $asociats    = User::all();
+$nombre      = 'todos';
+$numero      = rand(1,2);
+if ($numero == 2){
+$nombre = $nombre."2";
+}
+$imagen_random      = 'images/'.$nombre.'.jpg';
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
@@ -84,7 +90,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                          
                         </div>
                         <div class="column-1_2">
-                           <figure class="sc_image"><img src="images/todos.jpg" alt="" /></figure>
+                           <figure class="sc_image"><img src="{{$imagen_random}}" alt="" /></figure>
                         </div>
                      </div>
                   </div>

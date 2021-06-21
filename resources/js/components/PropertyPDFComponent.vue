@@ -1,30 +1,11 @@
 <template>
-    <div class="container container-Data" style="margin-left:0px;padding-left:0px;margin-bottom:10px">
-            <div class="row">
-              <div class="col-sm-3">
-                 <span>Fecha inicial<input type="date" name="" v-model="fecha_inicial" class="form-control"></span>
-              </div>
-              <div class="col-sm-3">
-                 <span>Fecha inicial<input type="date" name="" v-model="fecha_final" class="form-control"></span>
-              </div>
-               <div class="col-sm-3">
-                <br>
-                
-              </div>
-            </div>
-            <br>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
-              + Crear propiedad
-            </button> 
-             <button type="button" class="btn btn-success" @click="generarExcel()">
-              -> Generar excel
-                 </button>
+    <div class="container container-Data" style="margin-left:0px;padding-left:0px;margin-bottom:10px;">
             <button type="button" class="btn btn-danger" @click="pdf_total()">
               -> Generar PDF
             </button> 
             <button type="button" class="btn btn-warning" @click="limpiar_pdf()">
               -> Limpiar
-            </button> 
+            </button>
         <div class="modal fade" id="modalrenta" tabindex="-1" role="dialog" aria-labelledby="modalrenta" aria-hidden="true" >
           <div class="modal-dialog modal-center modal-md" role="document" align="center">
             <div class="modal-content">
@@ -1540,12 +1521,13 @@
                  this.downloadPdf($(evt.target)[0].id); 
                }
                if($(evt.target)[0].innerText == 'Eliminar'){
-                    let url = '/api/propierty/delete' 
                     let Data_id = event.target.id
+                    let url = '/api/remove/pdf'
                     console.log(Data_id);
                     if (confirm('¿Seguro que deseas eliminar este registro?')) {
                         axios.post(url,{ 
                         'propierty_id': Data_id,
+                        'usuario_id': this.usuario_id,
                         }).then(function (response) {
                             console.log(response);
                             location.reload();
