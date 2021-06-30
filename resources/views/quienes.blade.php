@@ -41,19 +41,19 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
 <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
 <div class="body_wrap">
     <div class="page_wrap">
-        <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
+        <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed; top: 0;">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
-                        <div class="top_panel_logo">
+                     <div class="content_wrap clearfix container_header" >
+                        <div class="top_panel_logo" style="margin-right: 0px">
                            <div class="logo">
                               <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
-                        <div class="top_panel_menu">
-                           <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
+                        <div class="top_panel_menu container_logo_right">
+                           <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
-                        <div class="top_panel_menu" style="margin-top: 50px;">
+                        <div class="top_panel_menu container_menu">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
@@ -70,7 +70,7 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
                </div>
             </header>
 
-        <div class="page_content_wrap page_paddings_top" style="margin-top: 50px">
+        <div class="page_content_wrap page_paddings_top" style="position: relative; top: 100px;">
                <div class="sc_section">
                   <div class="content_wrap">
                      <div class="columns_wrap margin_bottom_xmedium">

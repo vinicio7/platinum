@@ -129,16 +129,16 @@ if($buscar_imagen_4){
             <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix" style="margin-left:50px;margin-right:0px;width: auto">
+                     <div class="content_wrap clearfix container_header">
                         <div class="top_panel_logo" style="margin-right: 0px">
                            <div class="logo">
                               <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
-                        <div class="top_panel_menu" style="margin-left: 0px">
-                          <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
+                        <div class="top_panel_menu container_logo_right">
+                          <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
-                        <div class="top_panel_menu" style="margin-top: 50px;padding-left: -50px">
+                        <div class="top_panel_menu container_menu">
                            <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">

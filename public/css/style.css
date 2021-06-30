@@ -1565,6 +1565,22 @@ select {
     margin: 0 auto;
 }
 
+.content_wrap.container_header {
+    margin-left:50px;
+    margin-right:0px;
+    padding-top: 1em;
+    width: auto;
+}
+
+.container_logo_right {
+    width: 120px;
+}
+
+.container_menu {
+    /* background-color: orange; */
+    margin-right: 1em;
+}
+
 .content_wrap {
     position: relative;
 }

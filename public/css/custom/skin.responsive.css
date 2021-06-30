@@ -100,6 +100,32 @@ Samsung Galaxy
 */
 /* Without side menu */
 @media (min-width: 768px) and (max-width: 959px) {
+	.content_wrap.container_header {
+		margin-left: 0;
+		margin-right: 0;
+		padding-top: 0;
+		width: auto;
+	}
+
+	.content_wrap.container_header .top_panel_logo {
+		text-align: right;
+	}
+
+	.content_wrap.container_header .top_panel_logo {
+		width: 70%;
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	.container_logo_right {
+		width: 15% !important;
+	}
+
+	.content_wrap.container_header .top_panel_menu {
+		padding-top: 0;
+		margin-top: 0 !important;
+	}
+
 /*	html, body {	font-size: 13px; }
 	h1 { font-size:3em; }		 39px 
 	h2 { font-size:2.3077em; }	 30px 
@@ -179,6 +205,28 @@ HTC Desire, Desire Z, Desire S & One V
 Samsung Galaxy
 */
 @media (min-width: 480px) and (max-width: 767px) {
+
+	.content_wrap.container_header {
+		margin-left: 0;
+		margin-right: 0;
+		padding-top: 0;
+		width: auto;
+	}
+
+	.content_wrap.container_header .top_panel_logo {
+		width: 70%;
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	.container_logo_right {
+		width: 15% !important;
+	}
+
+	.content_wrap.container_header .top_panel_menu {
+		padding-top: 0;
+		margin-top: 0 !important;
+	}
 /*	html, body {	font-size: 12px; }
 	h1 { font-size:2.5em; }		 30px 
 	h2 { font-size:2em; }		 24px 
@@ -257,6 +305,34 @@ Samsung Galaxy
 Very common low res
 */
 @media (max-width: 479px) {
+	.content_wrap.container_header {
+		margin-left: 0;
+		margin-right: 0;
+		padding-top: 0;
+		width: auto;
+	}
+
+	.content_wrap.container_header .top_panel_logo {
+		width: 100%;
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	.container_logo_right {
+		display: inline-block;
+		width: 75px;
+	}
+
+	.container_menu {
+		width: 100%;
+	}
+
+	.content_wrap.container_header .top_panel_menu {
+		padding-top: 0;
+		margin-top: 0 !important;
+		padding-bottom: 0;
+		margin-right: 0;
+	}
 /*	html, body {	font-size: 12px; }
 	h1 { font-size:2.5em; }		 30px 
 	h2 { font-size:2em; }		 24px 
@@ -344,4 +420,13 @@ Very common low res
 	.sc_tabs.sc_tabs_style_2 .sc_tabs_titles li a {
 		border-width: 1px;
 	}	*/
+}
+
+@media (max-width: 320px) {
+	
+	.container_logo_right {
+		background-color: orange;
+	}
+
+	
 }
