@@ -140,7 +140,7 @@
                 user_id:"",
                 name:"",
                 account:"",
-                status:"",
+                status:"1",
                 rol:[],
                 whatsapp:'',
                 instagram:'',

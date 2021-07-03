@@ -169,6 +169,7 @@ class UserController extends Controller
                 $user->save();
             }
             $user->rol_id          = $request->rol ?($request->rol):$user->rol_id;
+            $user->status          = $request->status;
             $user->name            = $request->name;
             $user->username        = $request->user;
             $user->password        = bcrypt($request->password);

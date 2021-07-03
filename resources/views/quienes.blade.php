@@ -72,7 +72,7 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
 
         <div class="page_content_wrap page_paddings_top">
                <div class="sc_section">
-                  <div class="content_wrap">
+                  <div class="content_wrap" style="margin-top: 60px">
                      <div class="columns_wrap margin_bottom_xmedium">
                         <div class="column-1_2">
                            <div class="bgtext1">
@@ -90,7 +90,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                          
                         </div>
                         <div class="column-1_2">
-                           <figure class="sc_image"><img src="{{$imagen_random}}" alt="" /></figure>
+                           <figure class="sc_image"><img src="{{$imagen_random}}" style="border-radius: 20px" /></figure>
                         </div>
                      </div>
                   </div>
@@ -121,17 +121,16 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <a href="/asociate/detail/{{$item->user_id}}" class="hover_icon hover_icon_view">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: 270px;height: 310px"></a>
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: auto;height: auto!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
-                                          <div class="sc_team_item_position">{{$item->rol->name}}</div>
+                                          <div class="sc_team_item_position" style="text-transform: uppercase;">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-phone"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->twitter }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
+                                             <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
+                                             <div class="sc_socials_item"><a href="mailto:{{ $item->email }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                                             <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
                                              <button style="background-color: #11264e">Propiedades</button>
                                           </div>
                                        </center>

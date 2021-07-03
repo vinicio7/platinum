@@ -7927,7 +7927,7 @@ __webpack_require__.r(__webpack_exports__);
       user_id: "",
       name: "",
       account: "",
-      status: "",
+      status: "1",
       rol: [],
       whatsapp: '',
       instagram: '',
