@@ -32,6 +32,7 @@ class User extends Authenticatable
         'linkedin',
         'picture',
         'api_token',
+        'status'
     ];
 
     protected $hidden = [
