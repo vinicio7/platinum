@@ -13,6 +13,11 @@ $zona         = 1;
 $tipo_inmueble = 1;
 $precio_maximo = 0;
 $busqueda    = Images::where('propierty_id',$data->propiertiy_id)->first();
+$imagenes    = Images::where('propierty_id',$data->propiertiy_id)->get();
+$contador1    = 1;
+$contador2    = 1;
+$contador3    = 1;
+$total_imagenes = count($imagenes);
 if($busqueda){
    $imagen =  $busqueda->path;
 }else{
@@ -74,6 +79,131 @@ $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()-
         outline: none;
       }
       table {border: none;}
+      .row > .column {
+  padding: 0 0px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Create four equal columns that floats next to eachother */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
@@ -106,13 +236,45 @@ $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()-
                   </div>
                </div>
             </header>
+              <div id="myModal" class="modal" style="z-index: 9999999">
+                <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+
+                  @foreach($imagenes as $item)
+                    <div class="mySlides">
+                      <div class="numbertext">{{$contador1}} / {{$total_imagenes}}</div>
+                      <img src="{{$item->path}}" style="width:100%">
+                    </div>  
+                    @php
+                    $contador1 = $contador1 + 1;  
+                    @endphp
+                  @endforeach
+
+                  <!-- Next/previous controls -->
+                  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                  <!-- Caption text -->
+                  <div class="caption-container">
+                    <p id="caption"></p>
+                  </div>
+                   @foreach($imagenes as $item)
+                    <div class="column">
+                      <img class="demo" src="{{$item->path}}" onclick="currentSlide({{$contador2}})" style="display: inline-block;">
+                    </div>
+                    @php
+                    $contador2 = $contador2 + 1;  
+                    @endphp
+                  @endforeach
+                </div>
+              </div>
               <div class="page_content_wrap">
                <div class="content_wrap" style="margin-top: 50px">
                   <div class="content">
                     <h3 class="post_title" style="text-transform: uppercase;">{{$item->title}}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
-                           <a class="hover_icon hover_icon_view" href="/test" target="_blank" title="{{$item->title}}">
+                           <a class="" title="{{$item->title}}">
                             @if($item->sale_usd > 0)
                               <span class="ps_single_status">Venta</span>
                             @else
@@ -120,6 +282,19 @@ $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()-
                             @endif
                            
                            <img alt="" src="{{$imagen}}"></a>
+                           <div class="row">
+                            @foreach($imagenes as $item)
+                              @if($contador3 <= 4)
+                                <div class="column">
+                                  <img src="{{$item->path}}" onclick="openModal();currentSlide({{$contador3}})" class="hover-shadow">
+                                </div>
+                                @php
+                                $contador3 = $contador3 + 1;  
+                                @endphp
+                              @endif
+                            @endforeach
+                          </div>
+
                         </div>
                      </section>
                      <section class="post_content">
@@ -465,5 +640,47 @@ $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()-
       <script type='text/javascript' src='/js/custom/_init.js'></script>
       <script type='text/javascript' src='/js/custom/_shortcodes.js'></script>
       <script type='text/javascript' src='/js/vendor/magnific-popup/jquery.magnific-popup.min.js'></script>
+      <script type="text/javascript">
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+      </script>
    </body>
 </html>
