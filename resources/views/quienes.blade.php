@@ -121,7 +121,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: auto;height: 400px!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: auto;height: 405px!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
