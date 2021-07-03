@@ -28,7 +28,7 @@ $municipios    = Municipality::all();
 $zonas         = Zone::all();  
 $regiones      = Departament::all();  
 $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
-$item          = Property::where('propiertiy_id',$data->propiertiy_id)->first();
+$test          = Property::where('propiertiy_id',$data->propiertiy_id)->first();
 $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()->toArray();
 ?>
 
@@ -271,11 +271,11 @@ img.hover-shadow {
               <div class="page_content_wrap">
                <div class="content_wrap" style="margin-top: 50px">
                   <div class="content">
-                    <h3 class="post_title" style="text-transform: uppercase;">{{$item->title}}</h3>
+                    <h3 class="post_title" style="text-transform: uppercase;">{{$test->title}}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
-                           <a class="" title="{{$item->title}}">
-                            @if($item->sale_usd > 0)
+                           <a class="" title="{{$test->title}}">
+                            @if($test->sale_usd > 0)
                               <span class="ps_single_status">Venta</span>
                             @else
                               <span class="ps_single_status">Renta</span>
@@ -309,7 +309,7 @@ img.hover-shadow {
                            <a class="property_group_link" href="/">Propiedades Platinum</a></span>
                            <span class="post_info_item">Creada el <a href="single-post.html" class="post_info_date date updated">{{$item->created_at}}</a></span>
                            </span>
-                           <span> Codigo de la propiedad: {{$item->propiertiy_id}}</span>
+                           <span> Codigo de la propiedad: {{$test->propiertiy_id}}</span>
                         </div>
                         <div class="sc_section">
                           <h4 class="sc_title" style="font-weight: bold">DESCRIPCION:</h4>
@@ -317,52 +317,52 @@ img.hover-shadow {
                             <tbody>
                               <tr style="border:none">
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Construccion</td>
-                                <td style="border: none">{{$item->build_mts}} mts2</td>
+                                <td style="border: none">{{$test->build_mts}} mts2</td>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Frente</td>
-                                 <td style="border: none">{{$item->front_mts}} mts2</td>
+                                 <td style="border: none">{{$test->front_mts}} mts2</td>
                               </tr>
                               <tr>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Fondo</td>
-                                 <td style="border: none">{{$item->bottom_mts}} mts2</td>
+                                 <td style="border: none">{{$test->bottom_mts}} mts2</td>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Año de construccion</td>
-                                 <td style="border: none">{{$item->build_year}} mts2</td>
+                                 <td style="border: none">{{$test->build_year}} mts2</td>
                               </tr>
                               <tr>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Niveles</td>
-                                 <td style="border: none">{{$item->levels}} </td>
+                                 <td style="border: none">{{$test->levels}} </td>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios</td>
-                                 <td style="border: none">{{$item->rooms}}</td>
+                                 <td style="border: none">{{$test->rooms}}</td>
                               </tr>
                               <tr>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Baños</td>
-                                 <td style="border: none">{{$item->bathrooms}} </td>
+                                 <td style="border: none">{{$test->bathrooms}} </td>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios de servicio</td>
-                                 <td style="border: none">{{$item->rooms_service}}</td>
+                                 <td style="border: none">{{$test->rooms_service}}</td>
                               </tr>
                               <tr>
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Baños de servicio</td>
-                                 <td style="border: none">{{$item->bathrooms_service}}</td>
+                                 <td style="border: none">{{$test->bathrooms_service}}</td>
                               </tr>
                             </tbody>
                           </table>
                         <div class="sc_section">
-                           {!!$item->description!!}
+                           {!!$test->description!!}
                            <div class="sc_property sc_property_style_property-2">
                                  <div class="sc_property_item">
                                     <div class="ps_single_info">
                                        <div class="property_price_box">
-                                         @if($item->sale_usd > 0)
-                                          <span class="property_price_box_price">$.{{number_format($item->sale_usd,2)}}</span>
+                                         @if($test->sale_usd > 0)
+                                          <span class="property_price_box_price">$.{{number_format($test->sale_usd,2)}}</span>
                                         @else
-                                          <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
+                                          <span class="property_price_box_price">$.{{number_format($test->rent_usd,2)}}</span>
                                         @endif
                                           
                                        </div>
                                        <div class="sc_property_info_list">
-                                          <span class="icon-area_2" style="display: inline-block;">{{$item->build_mts}} mts</span>
-                                          <span class="icon-bed" style="display: inline-block;">{{$item->rooms}}</span>
-                                          <span class="icon-bath" style="display: inline-block;">{{$item->bathrooms}}</span>
-                                          <span class="icon-warehouse" style="display: inline-block;">{{$item->parking}}</span>
+                                          <span class="icon-area_2" style="display: inline-block;">{{$test->build_mts}} mts</span>
+                                          <span class="icon-bed" style="display: inline-block;">{{$test->rooms}}</span>
+                                          <span class="icon-bath" style="display: inline-block;">{{$test->bathrooms}}</span>
+                                          <span class="icon-warehouse" style="display: inline-block;">{{$test->parking}}</span>
                                        </div>
                                        <div class="cL"></div>
                                     </div>
@@ -371,7 +371,7 @@ img.hover-shadow {
                            <h4 class="sc_title" style="font-weight: bold">Caracteristicas &amp; Amenidades</h4>
                            <div class="columns_wrap ">
                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
-                              @if($item->cabin == 1)
+                              @if($test->cabin == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -379,7 +379,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->gym == 1)
+                              @if($test->gym == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -387,7 +387,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->kids_area == 1)
+                              @if($test->kids_area == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -395,7 +395,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->daycare == 1)
+                              @if($test->daycare == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -403,7 +403,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->sauna_shared == 1)
+                              @if($test->sauna_shared == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -411,7 +411,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->floor_shared == 1)
+                              @if($test->floor_shared == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -419,7 +419,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->social_area == 1)
+                              @if($test->social_area == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -428,7 +428,7 @@ img.hover-shadow {
                               </div>
                               @endif
 
-                              @if($item->spa == 1)
+                              @if($test->spa == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -437,7 +437,7 @@ img.hover-shadow {
                               </div>
                               @endif
 
-                              @if($item->floor_shared == 1)
+                              @if($test->floor_shared == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -445,7 +445,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->pet_area == 1)
+                              @if($test->pet_area == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -453,7 +453,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->beauty_salon == 1)
+                              @if($test->beauty_salon == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -461,7 +461,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->plant_phone == 1)
+                              @if($test->plant_phone == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -470,7 +470,7 @@ img.hover-shadow {
                               </div>
                               @endif
 
-                              @if($item->parking_visit == 1)
+                              @if($test->parking_visit == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -478,7 +478,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->court == 1)
+                              @if($test->court == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -486,7 +486,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->ribbon == 1)
+                              @if($test->ribbon == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -494,7 +494,7 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                              @if($item->bussines_center == 1)
+                              @if($test->bussines_center == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                  <span class="sc_list_icon icon-stop color_2"></span>
@@ -504,7 +504,7 @@ img.hover-shadow {
                               @endif
                              </ul>
                              <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
-                             <iframe width="634" height="155" src="{{$item->youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                             <iframe width="634" height="155" src="{{$test->youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                            </div>
                      </section>
                   </div>
