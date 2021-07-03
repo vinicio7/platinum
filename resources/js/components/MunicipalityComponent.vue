@@ -153,7 +153,7 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me =this;
-                let url = '/api/municipalities/showid/';
+                let url = '/api/municipalities/showid';
                 axios.post(url,{ 
                     'municipality_id': this.update,
                 }).then(function (response) {

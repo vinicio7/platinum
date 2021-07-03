@@ -132,7 +132,7 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me =this;
-                let url = '/api/regions/showid/';
+                let url = '/api/regions/showid';
                 axios.post(url,{ 
                     'regions_id': this.update,
                 }).then(function (response) {

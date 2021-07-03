@@ -1904,7 +1904,7 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me  = this;
-                let url = '/api/propierty/showid/';
+                let url = '/api/propierty/showid';
                 axios.post(url,{ 
                     'propierty_id': this.update,
                 }).then(function (response) {

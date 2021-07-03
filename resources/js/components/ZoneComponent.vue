@@ -154,7 +154,7 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me =this;
-                let url = '/api/zones/showid/';
+                let url = '/api/zones/showid';
                 axios.post(url,{ 
                     'zone_id': this.update,
                 }).then(function (response) {
