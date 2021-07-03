@@ -357,10 +357,14 @@ if($buscar_imagen_4){
                                              <span class="icon-location"></span>
                                           </div>
                                           <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1">
-                                                <a href="/propierty/view/{{$item->propiertiy_id}}">{{$item->title}}</a>
+                                             <div class="sc_property_title_address_1" style="height: 84px">
+                                                <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{{$item->title}}</a>
                                              </div>
-                                             <div class="sc_property_title_address_2">{{$item->adress}}</div>
+                                             @if(strlen($item->adress) > 0)
+                                                <div class="sc_property_title_address_2">{{$item->adress}}</div>
+                                             @else
+                                                <div class="sc_property_title_address_2">Sin direccion</div>
+                                             @endif
                                           </div>
                                           <div class="cL"></div>
                                        </div>
@@ -403,17 +407,18 @@ if($buscar_imagen_4){
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <a href="/asociate/detail/{{$item->user_id}}" class="hover_icon hover_icon_view">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: 270px;height: 310px"></a>
+                                       <img alt="" src="{{asset($item->picture)}}" style="width:auto!important;height: auto!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
-                                          <div class="sc_team_item_position">{{$item->rol->name}}</div>
+                                          <div class="sc_team_item_position" style="text-transform: uppercase;">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-phone"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->instagram }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->linkedin }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
-                                             <button style="background-color: #11264e">Propiedades</button>
+                                             <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
+                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                                             <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
+                                             <form action="/propiedades">
+                                                <button style="background-color: #11264e" hre>Propiedades</button>  
+                                             </form>
                                           </div>
                                        </center>
                                     </div>

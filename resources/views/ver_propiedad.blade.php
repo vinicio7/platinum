@@ -6,17 +6,25 @@ use App\Models\Region;
 use App\Models\Property;
 use App\Models\Images;
 
-  $busqueda    = Images::where('propierty_id',$data->propiertiy_id)->first();
-  if($busqueda){
-     $imagen =  $busqueda->path;
-  }else{
-     $imagen = ''; 
-  }
+$tipo_venta   = 1;
+$departamento = 1;
+$municipio    = 1;
+$zona         = 1;
+$tipo_inmueble = 1;
+$precio_maximo = 0;
+$busqueda    = Images::where('propierty_id',$data->propiertiy_id)->first();
+if($busqueda){
+   $imagen =  $busqueda->path;
+}else{
+   $imagen = ''; 
+}
 $departamentos = Departament::all();  
 $municipios    = Municipality::all();  
 $zonas         = Zone::all();  
 $regiones      = Departament::all();  
 $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
+$item          = Property::where('propiertiy_id',$data->propiertiy_id)->first();
+$amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()->toArray();
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +73,7 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
       .input-icono input:focus {
         outline: none;
       }
+      table {border: none;}
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
@@ -100,244 +109,314 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
               <div class="page_content_wrap">
                <div class="content_wrap" style="margin-top: 50px">
                   <div class="content">
+                    <h3 class="post_title" style="text-transform: uppercase;">{{$item->title}}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
-                           <a class="hover_icon hover_icon_view" href="{{$imagen}}" title="87 Mishaum Point Rd, Dartmouth, MA 02748">
-                           <span class="ps_single_status">sale</span>
+                           <a class="hover_icon hover_icon_view" href="/test" target="_blank" title="{{$item->title}}">
+                            @if($item->sale_usd > 0)
+                              <span class="ps_single_status">Venta</span>
+                            @else
+                              <span class="ps_single_status">Renta</span>
+                            @endif
+                           
                            <img alt="" src="{{$imagen}}"></a>
                         </div>
                      </section>
                      <section class="post_content">
+                       
                         <div class="post_info">
-                           <span class="post_info_item">in <a class="property_group_link" href="#">For Sale</a>, 
-                           <a class="property_group_link" href="#">Lux Property</a></span>
-                           <span class="post_info_item">Started <a href="single-post.html" class="post_info_date date updated">February 5, 2016</a></span>
-                           <span class="post_info_item post_info_counters">
-                           <a class="post_counters_item" href="#"><span>0</span> Comments</a>
+                           @if($item->sale_usd > 0)
+                              <span class="post_info_item"><a class="property_group_link" href="#">Para venta</a>, 
+                            @else
+                              <span class="post_info_item"><a class="property_group_link" href="#">Para renta</a>, 
+                            @endif
+                           
+                           <a class="property_group_link" href="/">Propiedades Platinum</a></span>
+                           <span class="post_info_item">Creada el <a href="single-post.html" class="post_info_date date updated">{{$item->created_at}}</a></span>
                            </span>
-                        </div>
-                        <h3 class="post_title">87 Mishaum Point Rd, Dartmouth, MA 02748</h3>
-                        <div class="ps_single_info">
-                           <div class="ps_single_info_descr">
-                              Property ID: 20055, House. 
-                           </div>
-                           <div class="property_price_box"><span class="property_price_box_sign">$</span><span class="property_price_box_price">1,249,000</span></div>
-                           <div class="sc_property_info_list">
-                              <span class="icon-area_2">1,286 sqft</span><span class="icon-floor_plan">8</span><span class="icon-bed">2</span>
-                              <span class="icon-bath">3</span><span class="icon-warehouse">2</span><span class="icon-crane">2001</span> 
-                           </div>
-                           <div class="cL"></div>
+                           <span> Codigo de la propiedad: {{$item->propiertiy_id}}</span>
                         </div>
                         <div class="sc_section">
-                           <p>The Moana Residence is situated on the best lot at Kohanaiki and is a 5 bedroom, 5 1/2 bath home of approximately 8,000 interior sq. ft. It features Ipe hardwood flooring on the interior and granite stone flooring on the lanais, granite countertops, vaulted cedar ceilings, clerestory windows for lots of light.</p>
-                           <p>mahogany cabinetry, mahogany trim and pocketing doors throughout. The beautifully landscaped grounds include a large lap pool, spa and separate Pool.</p>
-                           <div class="sc_line sc_line_position_center_center sc_line_style_solid margin_top_medium margin_bottom_medium"></div>
-                           <h4 class="sc_title">Features &amp; Amenities</h4>
-                           <div class="columns_wrap sc_columns">
-                              <div class="column-1_2 sc_column_item">
-                                 <ul class="sc_list sc_list_style_iconed color_1">
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Quiet Neighbourhood</p>
-                                    </li>
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Great Local Community</p>
-                                    </li>
-                                 </ul>
+                          <h4 class="sc_title" style="font-weight: bold">DESCRIPCION:</h4>
+                          <table style="border:none" border="0">
+                            <tbody>
+                              <tr style="border:none">
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Construccion</td>
+                                <td style="border: none">{{$item->build_mts}} mts2</td>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Frente</td>
+                                 <td style="border: none">{{$item->front_mts}} mts2</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Fondo</td>
+                                 <td style="border: none">{{$item->bottom_mts}} mts2</td>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Año de construccion</td>
+                                 <td style="border: none">{{$item->build_year}} mts2</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Niveles</td>
+                                 <td style="border: none">{{$item->levels}} </td>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios</td>
+                                 <td style="border: none">{{$item->rooms}}</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Baños</td>
+                                 <td style="border: none">{{$item->bathrooms}} </td>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios de servicio</td>
+                                 <td style="border: none">{{$item->rooms_service}}</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Baños de servicio</td>
+                                 <td style="border: none">{{$item->bathrooms_service}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        <div class="sc_section">
+                           {!!$item->description!!}
+                           <div class="sc_property sc_property_style_property-2">
+                                 <div class="sc_property_item">
+                                    <div class="ps_single_info">
+                                       <div class="property_price_box">
+                                         @if($item->sale_usd > 0)
+                                          <span class="property_price_box_price">$.{{number_format($item->sale_usd,2)}}</span>
+                                        @else
+                                          <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
+                                        @endif
+                                          
+                                       </div>
+                                       <div class="sc_property_info_list">
+                                          <span class="icon-area_2" style="display: inline-block;">{{$item->build_mts}} mts</span>
+                                          <span class="icon-bed" style="display: inline-block;">{{$item->rooms}}</span>
+                                          <span class="icon-bath" style="display: inline-block;">{{$item->bathrooms}}</span>
+                                          <span class="icon-warehouse" style="display: inline-block;">{{$item->parking}}</span>
+                                       </div>
+                                       <div class="cL"></div>
+                                    </div>
+                                 </div>
                               </div>
-                              <div class="column-1_2 sc_column_item">
-                                 <ul class="sc_list sc_list_style_iconed color_1">
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Fabulous Views</p>
-                                    </li>
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Large Play Center In Yard</p>
-                                    </li>
-                                 </ul>
+                           <h4 class="sc_title" style="font-weight: bold">Caracteristicas &amp; Amenidades</h4>
+                           <div class="columns_wrap ">
+                             <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
+                              @if($item->cabin == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Garita</p>
+                              </li>
                               </div>
+                              @endif
+                              @if($item->gym == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Gimnasio</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->kids_area == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Area de niños</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->daycare == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Guadriania</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->sauna_shared == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Sauna</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->floor_shared == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Piscina</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->social_area == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Area social</p>
+                              </li>
+                              </div>
+                              @endif
+
+                              @if($item->spa == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>SPA</p>
+                              </li>
+                              </div>
+                              @endif
+
+                              @if($item->floor_shared == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Acceso para silla de ruedas</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->pet_area == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Area de mascotas</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->beauty_salon == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Salon de belleza</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->plant_phone == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Planta telefonica</p>
+                              </li>
+                              </div>
+                              @endif
+
+                              @if($item->parking_visit == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Parqueo de visitas</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->court == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Canchas deportivas</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->ribbon == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Razor Ribbon</p>
+                              </li>
+                              </div>
+                              @endif
+                              @if($item->bussines_center == 1)
+                              <div>
+                              <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <p>Bussines Center</p>
+                              </li>
+                              </div>
+                              @endif
+                             </ul>
+                             <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
+                             <iframe width="634" height="155" src="{{$item->youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                            </div>
-                         
-                        </div>
                      </section>
                   </div>
-                  <div class="sidebar widget_area scheme_original">
+                  <div class="sidebar widget_area scheme_original" style="margin-top: 120px">
                      <div class="sidebar_inner widget_area_inner">
-                        <aside class="widget widget_search">
-                           <form method="get" class="search_form" action="#">
-                              <input type="text" class="search_field" placeholder="Search &hellip;" value="" name="s" title="Search for:" /><button type="submit" class="search_button icon-search"></button>
+                        <aside class="widget widget_property_search scheme_dark" style="color:white;">
+                           <form method="get" action="propiedades_post">
+                             <div class="input-icono">
+                                <input type="text" name="input" value="" >
+                              </div>
+                              <select name="tipo_venta" value="{{$tipo_venta}}" style="border-color: white">
+                                 @if($tipo_venta == 'venta')
+                                 <option value="venta" selected>En venta</option>
+                                 @else
+                                  <option value="venta">En venta</option>
+                                 @endif
+                                 @if($tipo_venta == 'renta')
+                                 <option value="renta" selected>En renta</option>
+                                 @else
+                                  <option value="renta">En renta</option>
+                                 @endif
+                              </select>
+                              
+                              <select name="departamento" value="{{$departamento}}" style="border-color: white">
+                                <option value="0">Seleccione un departamento</option>
+                                @foreach($departamentos as $item)
+                                  @if($departamento == $item->departament_id)
+                                    <option value="{{$item->departament_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->departament_id}}">{{$item->name}}</option>
+                                  @endif
+                                @endforeach
+                              </select>
+                              <select name="municipio" value="{{$municipio}}" style="border-color: white">
+                                <option value="0">Seleccione un municipio</option>
+                                @foreach($municipios as $item)
+                                 @if($municipio == $item->municipality_id)
+                                    <option value="{{$item->municipality_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->municipality_id}}">{{$item->name}}</option>
+                                  @endif
+                                @endforeach
+                              </select>
+                              <select name="zona" value="{{$zona}}" style="border-color: white">
+                                <option value="0">Seleccione una zona</option>
+                                @foreach($zonas as $item)
+                                  @if($zona == $item->zone_id)
+                                    <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endif
+                                @endforeach
+                              </select>
+                              
+                              <select name="tipo_inmueble" value="{{$tipo_inmueble}}" style="border-color: white">
+                                @if($tipo_inmueble == 'apartamento')
+                                  <option value="apartamento" selected>Apartamentos</option>
+                                @else
+                                  <option value="apartamento">Apartamentos</option>
+                                @endif
+                                @if($tipo_inmueble == 'casa')
+                                  <option value="casa" selected>Casa</option>
+                                @else
+                                  <option value="casa">Casa</option>
+                                @endif
+                                @if($tipo_inmueble == 'condominio')
+                                  <option value="condominio" selected>Condominio</option>
+                                @else
+                                  <option value="condominio">Condominio</option>
+                                @endif
+                                @if($tipo_inmueble == 'loft')
+                                  <option value="loft" selected>Loft</option>
+                                @else
+                                  <option value="loft">Loft</option>
+                                @endif
+                                @if($tipo_inmueble == 'cualquiera')
+                                  <option value="cualquiera" selected>Cualquiera</option>
+                                @else
+                                  <option value="cualquiera">Cualquiera</option>
+                                @endif
+                              </select>
+                              <div class="ps_area ps_range_slider" style="color: white!important">
+                                 Precio maximo:
+                                  <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
+                              </div>
+                              <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>
-                        </aside>
-                        <aside class="widget widget_categories">
-                           <h5 class="widget_title">categories</h5>
-                           <ul>
-                              <li class="cat-item"><a href="classic-with-sidebar.html">Classic With Sidebar</a> (15)
-                              </li>
-                              <li class="cat-item"><a href="classic-without-sidebar.html">Classic Without Sidebar</a> (15)
-                              </li>
-                              <li class="cat-item"><a href="#">Gallery</a> (12)
-                              </li>
-                              <li class="cat-item"><a href="masonry-2-columns.html">Masonry 2 columns</a> (15)
-                              </li>
-                              <li class="cat-item"><a href="masonry-3-columns.html">Masonry 3 columns</a> (15)
-                              </li>
-                              <li class="cat-item"><a href="#">New properties</a> (3)
-                              </li>
-                              <li class="cat-item"><a href="portfolio-2-columns.html">Portfolio 2 columns</a> (15)
-                              </li>
-                              <li class="cat-item"><a href="portfolio-3-columns.html">Portfolio 3 columns</a> (15)
-                              </li>
-                              <li class="cat-item"><a href="post-formats.html">Post Formats</a> (10)
-                              </li>
-                           </ul>
-                        </aside>
-                        <aside class="widget widget_recent_posts">
-                           <h5 class="widget_title">Recent posts</h5>
-                           <article class="post_item">
-                              <div class="post_thumb"><img alt="" src="images/50x50.jpg"></div>
-                              <div class="post_content">
-                                 <div class="post_title"><a href="single-post.html">Making the Most of Your Small Space with Furniture</a></div>
-                                 <div class="post_info"><span class="post_info_item">by <a href="#" class="post_info_author">Jesse Doe</a></span> <span class="post_info_item">on <a href="single-post.html">March 9, 2016</a></span>
-                                 </div>
-                              </div>
-                           </article>
-                           <article class="post_item">
-                              <div class="post_thumb"><img alt="" src="images/50x50.jpg"></div>
-                              <div class="post_content">
-                                 <div class="post_title"><a href="single-post.html">4 Ways to Decorate Your First Apartment on a Budget</a></div>
-                                 <div class="post_info"><span class="post_info_item">by <a href="#" class="post_info_author">Jesse Doe</a></span> <span class="post_info_item">on <a href="single-post.html">March 9, 2016</a></span>
-                                 </div>
-                              </div>
-                           </article>
-                           <article class="post_item">
-                              <div class="post_thumb"><img alt="" src="images/50x50.jpg"></div>
-                              <div class="post_content">
-                                 <div class="post_title"><a href="single-post.html">How to Infuse Your Space with Natural Light</a></div>
-                                 <div class="post_info"><span class="post_info_item">by <a href="#" class="post_info_author">Jesse Doe</a></span> <span class="post_info_item">on <a href="single-post.html">March 9, 2016</a></span>
-                                 </div>
-                              </div>
-                           </article>
-                        </aside>
-                        <aside class="widget widget_archive">
-                           <h5 class="widget_title">Archives</h5>
-                           <ul>
-                              <li><a href='#'>March 2016</a>&nbsp;(3)</li>
-                              <li><a href='#'>February 2016</a>&nbsp;(104)</li>
-                              <li><a href='#'>December 2015</a>&nbsp;(3)</li>
-                              <li><a href='#'>November 2015</a>&nbsp;(2)</li>
-                              <li><a href='#'>September 2015</a>&nbsp;(1)</li>
-                              <li><a href='#'>August 2015</a>&nbsp;(1)</li>
-                              <li><a href='#'>July 2015</a>&nbsp;(1)</li>
-                           </ul>
-                        </aside>
-                        <aside class="widget widget_calendar">
-                           <div class="calendar_wrap">
-                              <table>
-                                 <thead>
-                                    <tr>
-                                       <th class="month_prev">
-                                          <a href="#"></a>
-                                       </th>
-                                       <th class="month_cur" colspan="5">August <span>2016</span></th>
-                                       <th class="month_next">&nbsp;</th>
-                                    </tr>
-                                    <tr>
-                                       <th class="weekday" scope="col" title="Monday">M</th>
-                                       <th class="weekday" scope="col" title="Tuesday">T</th>
-                                       <th class="weekday" scope="col" title="Wednesday">W</th>
-                                       <th class="weekday" scope="col" title="Thursday">T</th>
-                                       <th class="weekday" scope="col" title="Friday">F</th>
-                                       <th class="weekday" scope="col" title="Saturday">S</th>
-                                       <th class="weekday" scope="col" title="Sunday">S</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td class="day"><span class="day_wrap">1</span></td>
-                                       <td class="day"><span class="day_wrap">2</span></td>
-                                       <td class="day"><span class="day_wrap">3</span></td>
-                                       <td class="day"><span class="day_wrap">4</span></td>
-                                       <td class="day"><span class="day_wrap">5</span></td>
-                                       <td class="day"><span class="day_wrap">6</span></td>
-                                       <td class="day"><span class="day_wrap">7</span></td>
-                                    </tr>
-                                    <tr>
-                                       <td class="day"><span class="day_wrap">8</span></td>
-                                       <td class="day"><span class="day_wrap">9</span></td>
-                                       <td class="day"><span class="day_wrap">10</span></td>
-                                       <td class="day"><span class="day_wrap">11</span></td>
-                                       <td class="day"><span class="day_wrap">12</span></td>
-                                       <td class="day"><span class="day_wrap">13</span></td>
-                                       <td class="day"><span class="day_wrap">14</span></td>
-                                    </tr>
-                                    <tr>
-                                       <td class="day"><span class="day_wrap">15</span></td>
-                                       <td class="day"><span class="day_wrap">16</span></td>
-                                       <td class="day"><span class="day_wrap">17</span></td>
-                                       <td class="day"><span class="day_wrap">18</span></td>
-                                       <td class="day"><span class="day_wrap">19</span></td>
-                                       <td class="day"><span class="day_wrap">20</span></td>
-                                       <td class="day"><span class="day_wrap">21</span></td>
-                                    </tr>
-                                    <tr>
-                                       <td class="day"><span class="day_wrap">22</span></td>
-                                       <td class="day"><span class="day_wrap">23</span></td>
-                                       <td class="day"><span class="day_wrap">24</span></td>
-                                       <td class="day"><span class="day_wrap">25</span></td>
-                                       <td class="day"><span class="day_wrap">26</span></td>
-                                       <td class="day"><span class="day_wrap">27</span></td>
-                                       <td class="day"><span class="day_wrap">28</span></td>
-                                    </tr>
-                                    <tr>
-                                       <td class="day"><span class="day_wrap">29</span></td>
-                                       <td class="day"><span class="day_wrap">30</span></td>
-                                       <td class="today"><span class="day_wrap">31</span></td>
-                                       <td class="pad" colspan="4"><span class="day_wrap">&nbsp;</span></td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </aside>
-                        <aside class="widget widget_tag_cloud">
-                           <h5 class="widget_title">Tags</h5>
-                           <div class="tagcloud"><a href='#'>Attic</a>
-                              <a href='#'>Basement</a>
-                              <a href='#'>Bedroom</a>
-                              <a href='#'>Commute</a>
-                              <a href='#'>Driveway</a>
-                              <a href='#'>Features</a>
-                              <a href='#'>Garage</a>
-                              <a href='#'>Kitchen</a>
-                              <a href='#'>Living room</a>
-                              <a href='#'>Popular</a>
-                              <a href='#'>Premium</a>
-                              <a href='#'>Studio</a>
-                           </div>
-                        </aside>
-                        <aside class="widget null-instagram-feed">
-                           <h5 class="widget_title">Instagram</h5>
-                           <ul class="instagram-pics instagram-size-small">
-                              <li class="">
-                                 <a href="http://instagram.com/p/BB-XKPZlTX4" target="_blank" class=""><img src="images/320x320.jpg" alt="Instagram Image" title="Instagram Image" class="" /></a>
-                              </li>
-                              <li class="">
-                                 <a href="http://instagram.com/p/BB-XI-LlTX2" target="_blank" class=""><img src="images/320x320.jpg" alt="Instagram Image" title="Instagram Image" class="" /></a>
-                              </li>
-                              <li class="">
-                                 <a href="http://instagram.com/p/BB-XHHmlTXx" target="_blank" class=""><img src="images/320x320.jpg" alt="Instagram Image" title="Instagram Image" class="" /></a>
-                              </li>
-                              <li class="">
-                                 <a href="http://instagram.com/p/BB-XFf1lTXu" target="_blank" class=""><img src="images/320x320.jpg" alt="Instagram Image" title="Instagram Image" class="" /></a>
-                              </li>
-                              <li class="">
-                                 <a href="http://instagram.com/p/BB-XAdNFTXf" target="_blank" class=""><img src="images/320x320.jpg" alt="Instagram Image" title="Instagram Image" class="" /></a>
-                              </li>
-                              <li class="">
-                                 <a href="http://instagram.com/p/BB-W9ctFTXY" target="_blank" class=""><img src="images/320x320.jpg" alt="Instagram Image" title="Instagram Image" class="" /></a>
-                              </li>
-                           </ul>
                         </aside>
                      </div>
                   </div>
