@@ -407,7 +407,7 @@ if($buscar_imagen_4){
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width:auto!important;height: 390px!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width:auto!important;height: 400px!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
