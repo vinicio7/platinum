@@ -20,6 +20,12 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS, post, get');
+header("Access-Control-Max-Age", "3600");
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+header("Access-Control-Allow-Credentials", "true");
+
 Route::get('propiedades_post',            	'PropertyController@propiedades_post')->name('propiedades_post');
 Route::get('/', function () {
     $asociats = User::with('rol')->where('rol_id',2)->get();
