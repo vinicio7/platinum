@@ -5,7 +5,7 @@ use App\Models\Region;
 use App\Models\Images;
 
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
-$asociats    = User::all();
+$asociats    = User::where('status',1)->get();
 $regions     = Region::all();
 $propiedades = Property::orderBy('propiertiy_id','ASC')->get()->take(4);
 $todas       = Property::orderBy('propiertiy_id','DESC')->get()->take(6);
@@ -407,7 +407,7 @@ if($buscar_imagen_4){
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width:auto!important;height: auto!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width:auto!important;height: 390px!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>

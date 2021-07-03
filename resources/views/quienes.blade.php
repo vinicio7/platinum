@@ -2,7 +2,7 @@
 use App\Models\User;
 use App\Models\Property;
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
-$asociats    = User::all();
+$asociats    = User::where('status',1)->get();
 $nombre      = 'todos';
 $numero      = rand(1,2);
 if ($numero == 2){
@@ -121,7 +121,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: auto;height: auto!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: auto;height: 390px!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
