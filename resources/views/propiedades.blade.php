@@ -246,7 +246,7 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
                </div>
             </header>
             <div class="page_content_wrap">
-               <div class="content_wrap" style="margin-top: 50px">
+               <div class="content_wrap" style="margin-top: 100px">
                   <div class="content">
                      <div class="sc_property sc_property_style_property-1">
                         <div class="columns_wrap ">
