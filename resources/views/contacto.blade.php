@@ -57,8 +57,7 @@
                   </div>
                </div>
             </header>
-
-        <div class="page_content_wrap page_paddings_no" style="position: relative;">
+        <div class="page_content_wrap page_paddings_no contacto" style="position: relative; top: 140px;">
           <div class="sc_section">
             <div class="content_wrap">
               <div class="columns_wrap">

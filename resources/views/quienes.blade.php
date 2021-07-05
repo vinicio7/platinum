@@ -57,7 +57,7 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
                            <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
-                                <li class="menu-item"><a href="/">INIICO</a></li>
+                                <li class="menu-item"><a href="/">INICIO</a></li>
                                 <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
                                 <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
                                 <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
@@ -69,7 +69,7 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
                   </div>
                </div>
             </header>
-        <div class="page_content_wrap page_paddings_top" style="position: relative; top: 100px;">
+        <div class="page_content_wrap page_paddings_top" style="position: relative; top: 50px;">
                <div class="sc_section">
                   <div class="content_wrap" style="margin-top: 60px">
                      <div class="columns_wrap margin_bottom_xmedium">
@@ -120,7 +120,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: auto;height: 405px!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: 280px;height: 405px!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
@@ -143,7 +143,10 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                   </div>
                </div>
             </div>
-
+            <div class="contacts_emailer_wrap">
+          <div class="content_wrap">
+          </div>
+        </div>
         <div class="copyright_wrap copyright_style_menu scheme_original">
             <div class="copyright_wrap_inner">
                 <div class="content_wrap">
