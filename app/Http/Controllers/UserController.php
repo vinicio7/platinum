@@ -60,7 +60,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return datatables()->of( User::get())
+        return datatables()->of( User::where('status',1)->get())
             ->addColumn('acciones', function ($record) {
                 return
                     "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Editar</a>".
@@ -169,6 +169,7 @@ class UserController extends Controller
                 $user->save();
             }
             $user->rol_id          = $request->rol ?($request->rol):$user->rol_id;
+            $user->status          = $request->status;
             $user->name            = $request->name;
             $user->username        = $request->user;
             $user->password        = bcrypt($request->password);

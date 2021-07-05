@@ -230,6 +230,7 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
                             <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
                         <div class="top_panel_menu" style="margin-top: 50px;">
+                          <a href="#" class="menu_main_responsive_button icon-down">Menu</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
                                 <li class="menu-item"><a href="/">Inicio</a></li>

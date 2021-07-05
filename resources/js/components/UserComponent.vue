@@ -140,7 +140,7 @@
                 user_id:"",
                 name:"",
                 account:"",
-                status:"",
+                status:"1",
                 rol:[],
                 whatsapp:'',
                 instagram:'',
@@ -276,7 +276,7 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me =this;
-                let url = '/api/users/showid/';
+                let url = '/api/users/showid';
                 axios.post(url,{ 
                     'user_id': this.update,
                 }).then(function (response) {

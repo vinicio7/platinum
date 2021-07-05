@@ -252,7 +252,7 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me =this;
-                let url = '/api/rols/showid/';
+                let url = '/api/rols/showid';
                 axios.post(url,{ 
                     'rol_id': this.update,
                 }).then(function (response) {

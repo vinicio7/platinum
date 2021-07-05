@@ -139,7 +139,7 @@
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me =this;
-                let url = '/api/banks/showid/';
+                let url = '/api/banks/showid';
                 axios.post(url,{ 
                     'bank_id': this.update,
                 }).then(function (response) {
