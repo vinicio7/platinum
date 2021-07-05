@@ -54,14 +54,14 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
                            <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
                         <div class="top_panel_menu container_menu">
-                           <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
+                           <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
-                                <li class="menu-item"><a href="/">Inicio</a></li>
-                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                                <li class="menu-item"><a href="/">INIICO</a></li>
+                                <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
+                                <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
+                                <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
+                                <li class="menu-item"><a href="/login">INGRESAR</a></li>
                               </ul>
                            </nav>
                         </div>
@@ -69,12 +69,7 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
                   </div>
                </div>
             </header>
-
-<<<<<<< HEAD
         <div class="page_content_wrap page_paddings_top" style="position: relative; top: 100px;">
-=======
-        <div class="page_content_wrap page_paddings_top">
->>>>>>> 1ae734071c07ae99a7b830331bb42e0ea89236a0
                <div class="sc_section">
                   <div class="content_wrap" style="margin-top: 60px">
                      <div class="columns_wrap margin_bottom_xmedium">

@@ -42,14 +42,14 @@
                             <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
                         <div class="top_panel_menu container_menu">
-                           <a href="#" class="menu_main_responsive_button icon-down">Select menu item</a>
+                           <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
-                                <li class="menu-item"><a href="/">Inicio</a></li>
-                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                                <li class="menu-item"><a href="/">INICIO</a></li>
+                                <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
+                                <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
+                                <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
+                                <li class="menu-item"><a href="/login">INGRESAR</a></li>
                               </ul>
                            </nav>
                         </div>
