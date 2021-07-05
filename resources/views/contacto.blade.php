@@ -59,7 +59,7 @@
             </header>
         <div class="page_content_wrap page_paddings_no contacto" style="position: relative; top: 140px;">
           <div class="sc_section">
-            <div class="content_wrap">
+            <div class="content_wrap" style="margin-top: 200px">
               <div class="columns_wrap">
               <div class="column-1_2">
                 <div class="sc_section custom_box_form">
