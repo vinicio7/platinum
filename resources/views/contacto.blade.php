@@ -59,14 +59,14 @@
             </header>
         <div class="page_content_wrap page_paddings_no contacto" style="position: relative; top: 140px;">
           <div class="sc_section">
-            <div class="content_wrap" style="margin-top: 200px">
+            <div class="content_wrap" style="margin-top: 50px">
               <div class="columns_wrap">
               <div class="column-1_2">
                 <div class="sc_section custom_box_form">
                   <div class="sc_section_inner">
-                    <h4 class="sc_title margin_top_null margin_bottom_xmedium">Envianos tu mensaje</h4>
-                    <div class="sc_form_wrap">
-                      <div class="sc_form">
+                    <h4 class="sc_title margin_top_null margin_bottom_xmedium" style="font-size: 38px;font-weight: bold">Envianos tu mensaje</h4>
+                    <div class="sc_form_wrap" style="margin-top: 100px">
+                      <div class="sc_form" >
                         <form  data-formtype="form_custom" method="post" action="includes/sendmail.php">
                           <div class="sc_form_info">
                             <div class="sc_form_item sc_form_field"><input id="sc_form_username" type="text" name="username" placeholder="Nombre"></div>
@@ -104,11 +104,8 @@
         <div class="contacts_emailer_wrap">
           <div class="content_wrap">
             <div class="sc_emailer">
-              <div class="sc_emailer_title">Sign up for updates</div>
               <div class="sc_emailer_content">
                 <form class="sc_emailer_form">
-                  <input type="text" class="sc_emailer_input" name="email" value="" placeholder="Ingresa tu correo">
-                  <a href="#" class="sc_emailer_button sc_button sc_button_box sc_button_style_style3" title="Submit">Suscribirme</a>
                 </form>
               </div>
               <div class="cL"></div>
