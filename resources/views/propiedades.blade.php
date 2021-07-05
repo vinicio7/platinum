@@ -230,14 +230,14 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
                             <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
                         </div>
                         <div class="top_panel_menu" style="margin-top: 50px;">
-                          <a href="#" class="menu_main_responsive_button icon-down">Menu</a>
+                          <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
-                                <li class="menu-item"><a href="/">Inicio</a></li>
-                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                                <li class="menu-item"><a href="/">INICIO</a></li>
+                                <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
+                                <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
+                                <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
+                                <li class="menu-item"><a href="/login">INGRESAR</a></li>
                               </ul>
                            </nav>
                         </div>
@@ -246,7 +246,7 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
                </div>
             </header>
             <div class="page_content_wrap">
-               <div class="content_wrap" style="margin-top: 50px">
+               <div class="content_wrap" style="margin-top: 100px">
                   <div class="content">
                      <div class="sc_property sc_property_style_property-1">
                         <div class="columns_wrap ">

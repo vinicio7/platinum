@@ -1982,9 +1982,6 @@ Very common low res
 	.sidebar_show .content {width: 100%; float: none;}
 	.sidebar {width: 100%;float: none;margin-top: 6em;}
 	
-	.page_content_wrap {
-		margin-top: 12em;
-	}
 	.post_content.isotope_item_content .post_info:first-of-type + p {display: block;}
 	
 	.sidebar_inner.widget_area_inner aside {

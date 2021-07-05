@@ -218,17 +218,18 @@ img.hover-shadow {
                               <a href="./"><img src="/image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
-                        <div class="top_panel_menu">
-                           <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
+                         <div class="top_panel_menu container_logo_right">
+                            <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
-                        <div class="top_panel_menu" style="margin-top: 50px;">
-                           <nav class="menu_main_nav_area">
-                              <ul id="menu_main" class="menu_main_nav">
-                                <li class="menu-item"><a href="/">Inicio</a></li>
-                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                        <div class="top_panel_menu container_menu">
+                           <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
+                           <nav class="menu_main_nav_area" >
+                              <ul id="menu_main" class="menu_main_nav"style="margin-top: 50px">
+                                <li class="menu-item"><a href="/">INICIO</a></li>
+                                <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
+                                <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
+                                <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
+                                <li class="menu-item"><a href="/login">INGRESAR</a></li>
                               </ul>
                            </nav>
                         </div>
@@ -269,8 +270,8 @@ img.hover-shadow {
                 </div>
               </div>
               <div class="page_content_wrap">
-               <div class="content_wrap" style="margin-top: 50px">
-                  <div class="content">
+               <div class="content_wrap">
+                  <div class="content" style="margin-top: 100px">
                     <h3 class="post_title" style="text-transform: uppercase;">{{$test->title}}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
@@ -508,7 +509,7 @@ img.hover-shadow {
                            </div>
                      </section>
                   </div>
-                  <div class="sidebar widget_area scheme_original" style="margin-top: 120px">
+                  <div class="sidebar widget_area scheme_original" style="margin-top: 180px">
                      <div class="sidebar_inner widget_area_inner">
                         <aside class="widget widget_property_search scheme_dark" style="color:white;">
                            <form method="get" action="propiedades_post">

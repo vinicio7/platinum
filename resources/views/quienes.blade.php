@@ -41,27 +41,27 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
 <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
 <div class="body_wrap">
     <div class="page_wrap">
-        <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
+        <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed; top: 0;">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
-                        <div class="top_panel_logo">
+                     <div class="content_wrap clearfix container_header" >
+                        <div class="top_panel_logo" style="margin-right: 0px">
                            <div class="logo">
                               <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
-                        <div class="top_panel_menu">
-                           <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
+                        <div class="top_panel_menu container_logo_right">
+                           <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
-                        <div class="top_panel_menu" style="margin-top: 50px;">
-                           <a href="#" class="menu_main_responsive_button icon-down">Menu</a>
+                        <div class="top_panel_menu container_menu">
+                           <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
-                                <li class="menu-item"><a href="/">Inicio</a></li>
-                                <li class="menu-item"><a href="/quienes">Quienes somos</a></li>
-                                <li class="menu-item"><a href="/propiedades">Propiedades</a></li>
-                                <li class="menu-item"><a href="/contacto">Contactenos</a></li>
-                                <li class="menu-item"><a href="/login">Ingresar</a></li>
+                                <li class="menu-item"><a href="/">INICIO</a></li>
+                                <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
+                                <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
+                                <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
+                                <li class="menu-item"><a href="/login">INGRESAR</a></li>
                               </ul>
                            </nav>
                         </div>
@@ -69,8 +69,7 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
                   </div>
                </div>
             </header>
-
-        <div class="page_content_wrap page_paddings_top">
+        <div class="page_content_wrap page_paddings_top" style="position: relative; top: 100px;">
                <div class="sc_section">
                   <div class="content_wrap" style="margin-top: 60px">
                      <div class="columns_wrap margin_bottom_xmedium">
@@ -121,7 +120,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: auto;height: 405px!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: 280px;height: 405px!important">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
@@ -144,7 +143,10 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                   </div>
                </div>
             </div>
-
+            <div class="contacts_emailer_wrap">
+          <div class="content_wrap">
+          </div>
+        </div>
         <div class="copyright_wrap copyright_style_menu scheme_original">
             <div class="copyright_wrap_inner">
                 <div class="content_wrap">
