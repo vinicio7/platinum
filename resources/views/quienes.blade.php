@@ -69,7 +69,7 @@ $imagen_random      = 'images/'.$nombre.'.jpg';
                   </div>
                </div>
             </header>
-        <div class="page_content_wrap page_paddings_top" style="position: relative; top: 100px;">
+        <div class="page_content_wrap page_paddings_top" style="position: relative; top: 50px;">
                <div class="sc_section">
                   <div class="content_wrap" style="margin-top: 60px">
                      <div class="columns_wrap margin_bottom_xmedium">

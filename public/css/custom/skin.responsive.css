@@ -305,6 +305,12 @@ Samsung Galaxy
 Very common low res
 */
 @media (max-width: 479px) {
+	.page_content_wrap.contacto {
+		top: 140px !important;
+	}
+	.page_content_wrap {
+		top: 0px !important;
+	}
 	.content_wrap.container_header {
 		margin-left: 0;
 		margin-right: 0;
@@ -319,8 +325,9 @@ Very common low res
 	}
 
 	.container_logo_right {
-		display: inline-block;
-		width: 75px;
+		display: none;
+		/* display: inline-block;
+		width: 75px; */
 	}
 
 	.container_menu {
