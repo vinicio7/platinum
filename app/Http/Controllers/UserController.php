@@ -55,11 +55,11 @@ class UserController extends Controller
                         }
 
                          $configuracion = Configuraciones::create([
-                    'propiedad_principal' => $propiedad_principal,
-                    'capsula'             => $urlVideo,
-                    'texto'             => $request->input('texto'),
-                    'titulo'             => $request->input('titulo'),
-                ]);
+                            'propiedad_principal' => 0,
+                            'capsula'             => $urlVideo,
+                            'texto'               => $request->input('texto'),
+                            'titulo'              => $request->input('titulo'),
+                        ]);
 
                 return view('capsulas');
             } catch(\Exception $e){
