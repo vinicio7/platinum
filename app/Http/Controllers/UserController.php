@@ -44,7 +44,6 @@ class UserController extends Controller
         $respuesta = [];
         if ($archivo) {
             try {
-                $file->move($path, 'capsulas.'.$filename);
                 $urlVideo = '';
                    if ($request->hasFile('capsula')) {
                             $archivo = $request->file('capsula');
