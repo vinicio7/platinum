@@ -7,6 +7,7 @@ use App\Models\Configuraciones;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Rol;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Validator;
