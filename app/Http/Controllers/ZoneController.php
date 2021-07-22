@@ -29,6 +29,11 @@ class ZoneController extends Controller
         ]; 
         return view('zones', compact('dt_route', 'dt_columns','dt_order' ));
     }
+
+    public function capsulas()
+    {
+        return view('capsulas');
+    }
     
     public function get(Request $request)
     {

@@ -128,7 +128,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
                                              <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
                                              <div class="sc_socials_item"><a href="mailto:{{ $item->email }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                                             <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
                                              <button style="background-color: #11264e">Propiedades</button>
                                           </div>
@@ -165,7 +165,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-gp">
-          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedadesplatinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">

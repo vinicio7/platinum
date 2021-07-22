@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Configuraciones;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Rol;
 use Illuminate\Support\Facades\Storage;
@@ -37,6 +38,43 @@ class UserController extends Controller
         return view('users', compact('dt_route', 'dt_columns','dt_order' ));
     }
     
+    public function capsulas(Request $request){
+        $configuracion = Configuraciones::truncate();
+        $archivo = $request->capsula;
+        $respuesta = [];
+        if ($archivo) {
+            try {
+                if($request->input('propiedad_principal') > 0){
+                    $propiedad_principal = $request->propiedad_principal;
+                }else{
+                    $propiedad_principal = 0;
+                }
+                $file = \Request::file('capsula');
+                $filename = $file->getClientOriginalExtension();
+                $path = public_path().trim(' \videos\ ') ;
+                $configuracion = Configuraciones::create([
+                    'propiedad_principal' => $propiedad_principal,
+                    'capsula'             => 'http://127.0.0.1:8000/videos/capsulas.'.$filename,
+                    'texto'             => $request->input('texto'),
+                    'titulo'             => $request->input('titulo'),
+                ]);
+                $file->move($path, 'capsulas.'.$filename);
+                return view('capsulas');
+            } catch(\Exception $e){
+                return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
+            }
+            return response()->json(['result' => true, 'message' => "Archivo subido completamente.", 'records' => $records]);
+        } else {
+             $configuracion = Configuraciones::create([
+                    'propiedad_principal' => $request->input('propiedad_principal'),
+                    'capsula'             => '',
+                     'texto'              => $request->input('texto'),
+                    'titulo'              => $request->input('titulo'),
+                ]);
+            return view('capsulas');
+        }
+    }
+
     public function get(Request $request)
     {
         try {
@@ -126,11 +164,7 @@ class UserController extends Controller
                 $path = $archivo->store('assets/images');
                 $fileName = collect(explode('/', $path))->last();
                 $image = Image::make(Storage::get($path));
-                $image->resize(1280, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 30));
+                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension()));
                 $user->picture = $path;
                 $user->save();
             }
@@ -160,11 +194,7 @@ class UserController extends Controller
                 $path = $archivo->store('assets/images');
                 $fileName = collect(explode('/', $path))->last();
                 $image = Image::make(Storage::get($path));
-                $image->resize(1280, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 30));
+                Storage::disk('local')->put($path, (string) $image->encode($archivo->extension()));
                 $user->picture = $path;
                 $user->save();
             }
@@ -209,6 +239,12 @@ class UserController extends Controller
     public function asociate($id){
         $data = User::find($id);
         return view('asociate', compact('data'));
+    }
+
+    public function send_message(Request $request){
+        session()->flush();
+        session(['success' => 'Mensaje Enviado exitosamente']);
+        return redirect('/contacto');
     }
 
     public function showid(Request $request)

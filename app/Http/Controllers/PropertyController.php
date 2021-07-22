@@ -118,11 +118,7 @@ class PropertyController extends Controller
 				$path = $archivo->store('storage/uploads');
 				$fileName = collect(explode('/', $path))->last();
 				$image = Image::make(Storage::get($path));
-				$image->resize(2560, null, function ($constraint) {
-					$constraint->aspectRatio();
-					$constraint->upsize();
-				});
-				Storage::disk('local')->put($path, (string) $image->encode($archivo->extension(), 60));
+				Storage::disk('local')->put($path, (string) $image->encode($archivo->extension()));
 				$imagen = Images::create([
 					'path'          => env('RAIZ','https://platinum.mavis.com.gt/').$path,
 					'extension'    => $archivo->extension()
@@ -532,7 +528,7 @@ class PropertyController extends Controller
 	public function showid(Request $request)
 	{
 		try {
-			$properties = Property::find($request->propiertiy_id);
+			$properties = Property::find($request->propierty_id);
 			$this->message = "Consulta correcta";
 			$this->result = true;
 			$this->records = $properties;

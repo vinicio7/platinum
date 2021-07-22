@@ -4,6 +4,29 @@ use App\Models\Property;
 use App\Models\Region;
 use App\Models\Images;
 
+
+use App\Models\Configuraciones;
+$config = Configuraciones::first();
+if($config){
+    $propiedad_principal  =  $config->propiedad_principal;
+    if($propiedad_principal == 0){
+      $test = 1;
+    }else{
+      $test = 2;
+      $datos_propiedad = Property::where('propiertiy_id',$propiedad_principal)->first();
+    }
+    $capsula = $config->capsula;
+    $texto = $config->texto;
+    $titulo = $config->titulo;
+}else{
+    $test  = 0;
+    $propiedad_principal = '';
+    $capsula = '';
+    $texto = '';
+    $titulo = '';
+}
+
+
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
 $asociats    = User::where('status',1)->get();
 $regions     = Region::all();
@@ -239,6 +262,9 @@ if($buscar_imagen_4){
                               <div class="sc_ps_area">
                                   <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
                               </div>
+                              <div class="sc_ps_area">
+                                  <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
+                              </div>
                               <div class="sc_ps_submit" style="text-align: left;">
                                     <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE">
                               </div>
@@ -320,6 +346,78 @@ if($buscar_imagen_4){
                      </div>
                   </div>
                </div>
+               @if($test > 0)
+                  @if($test == 1)
+                  <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important">
+                     <h1 style="color:white;margin-left: 40px">{{$titulo}}</h1>
+                     <center>
+                        <h3 style="color:white;width: 900px">
+                           {{$texto}}
+                        </h3>
+                        <video height="400px" controls style="margin-bottom: 50px">
+                            <source src="{{$capsula}}" type="video/mp4">
+                        </video>
+                     </center>
+                  </div>
+                  @else
+                     <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important">
+                        <h1 style="color:white;margin-left: 40px">{{$titulo}}</h1>
+                        <center>
+                           <h3 style="color:white;width: 900px">
+                              {!!$texto!!}
+                           </h3>
+                      
+                        <div class="sc_columns columns_wrap" style="color:white">
+                           <div class="column-1_3 column_padding_bottom" style="color:white">
+                                 <div class="sc_property_item" style="color:white">
+                                    <div class="sc_property_image" style="color:white">
+                                       <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}">
+                                          <div class="property_price_box"><span class="property_price_box_price">${{$datos_propiedad->sale_usd}}</span></div>
+                                          <?php
+                                          $busqueda    = Images::where('propierty_id',$datos_propiedad->propiertiy_id)->first();
+                                          if($busqueda){
+                                             $imagen =  $busqueda->path;
+                                          }else{
+                                             $imagen = ''; 
+                                          }
+                                          ?>
+                                          <img alt="" style="width: 400px;height: 300px" src="{{$imagen}}">
+                                          
+                                       </a>
+                                    </div>
+                                    <div class="sc_property_info" style="color:white">
+                                       @if($datos_propiedad->sale_usd > 0)
+                                          <div class="sc_property_description">En Venta</div>
+                                       @else
+                                          <div class="sc_property_description">En Renta</div>
+                                       @endif
+                                       <div>
+                                          <div class="sc_property_icon" style="color:white">
+                                             <span class="icon-location"></span>
+                                          </div>
+                                          <div class="sc_property_title" style="color:white">
+                                             <div class="sc_property_title_address_1" style="height: 84px">
+                                                <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}" style="text-transform: uppercase;color: white">{!!$datos_propiedad->title!!}</a>
+                                             </div>
+                                             @if(strlen($datos_propiedad->adress) > 0)
+                                                <div class="sc_property_title_address_2" style="color:white"> {{$datos_propiedad->adress}}</div>
+                                             @else
+                                                <div class="sc_property_title_address_2" style="color:white">Sin direccion</div>
+                                             @endif
+                                          </div>
+                                          <div class="cL"></div>
+                                       </div>
+                                    </div>
+                                    <div class="sc_property_info_list" style="color:white">
+                                       <span style="display:inline-block" class="icon-building113">{{$datos_propiedad->build_mts}} mts</span><span style="display:inline-block" class="icon-bed">{{$datos_propiedad->rooms}}</span><span style="display:inline-block" class="icon-bath">{{$datos_propiedad->bathrooms}}</span><span style="display:inline-block" class="icon-warehouse">{{$datos_propiedad->parking}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+                           </center>
+                     </div>
+                  @endif
+               @endif
                <div class="sc_section overflow_hidden bg_color_1">
                   <div class="content_wrap margin_top_large margin_bottom_medium">
                      <h4 class="sc_title margin_top_null margin_bottom_medium"><b>Propiedades</b></h4>
@@ -357,7 +455,7 @@ if($buscar_imagen_4){
                                           </div>
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1" style="height: 84px">
-                                                <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{{$item->title}}</a>
+                                                <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{!!$item->title!!}</a>
                                              </div>
                                              @if(strlen($item->adress) > 0)
                                                 <div class="sc_property_title_address_2">{{$item->adress}}</div>
@@ -413,7 +511,7 @@ if($buscar_imagen_4){
                                           <div class="sc_team_item_position" style="text-transform: uppercase;">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
                                              <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
-                                             <div class="sc_socials_item"><a href="{{ $item->facebook }}" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
+                                             <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
                                              <form action="/propiedades">
                                                 <button style="background-color: #11264e" hre>Propiedades</button>  
@@ -446,8 +544,8 @@ if($buscar_imagen_4){
                         <div class="column-1_4" style="color: white!important">
                            <h5 style="color: white">Siguenos</h5>
                            <div class="sc_socials sc_socials_type_icons sc_socials_size_small" style="color: white!important">
-                              <div class="sc_socials_item"><a href="https://www.facebook.com/PropiedadesPlatinum/" target="_blank" class="social_icons"><span class="icon-facebook" style="color:white!important"></span></a></div>
-                              <div class="sc_socials_item"><a href="https://www.instagram.com/propiedades_platinum/" target="_blank" class="social_icons"><span class="icon-instagramm" style="color:white!important"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook" style="color:white!important"></span></a></div>
+                              <div class="sc_socials_item"><a href="https://www.instagram.com/propiedadesplatinum/" target="_blank" class="social_icons"><span class="icon-instagramm" style="color:white!important"></span></a></div>
                               <div class="sc_socials_item"><a href="https://www.linkedin.com/in/sarah-alzugaray-1315b81a6/" target="_blank" class="social_icons"><span class="icon-linkedin" style="color:white!important"></span></a></div>
                               <div class="sc_socials_item"><a href="https://www.youtube.com/channel/UCK7CdSf2FUQKGcEJ7L9yDcA/featured" target="_blank" class="social_icons"><span class="icon-youtube-play" style="color:white!important"></span></a></div>
                            </div>
@@ -476,7 +574,7 @@ if($buscar_imagen_4){
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-gp">
-          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedadesplatinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">

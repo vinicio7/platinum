@@ -25,6 +25,8 @@
     <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
     <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
+   <script type='text/javascript' src='js/vendor/jquery.js'></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
 <div class="body_wrap">
@@ -67,14 +69,21 @@
                     <h4 class="sc_title margin_top_null margin_bottom_xmedium" style="font-size: 38px;font-weight: bold">Envianos tu mensaje</h4>
                     <div class="sc_form_wrap" style="margin-top: 100px">
                       <div class="sc_form" >
-                        <form  data-formtype="form_custom" method="post" action="includes/sendmail.php">
+                         <script>
+                           toastr.success("test");
+                        </script>
+                        <form method="POST" action="{{ route('send_message') }}" class="">
+                            {{ csrf_field() }}
                           <div class="sc_form_info">
                             <div class="sc_form_item sc_form_field"><input id="sc_form_username" type="text" name="username" placeholder="Nombre"></div>
                             <div class="sc_form_item sc_form_field"><input id="sc_form_email" type="text" name="email" placeholder="Correo*"></div>
                             <div class="sc_form_item sc_form_field"><input id="sc_form_subj" type="text" name="subject" placeholder="Asunto"></div>
                           </div>
-                          <div class="sc_form_item sc_form_message"><textarea id="sc_form_message" name="message" placeholder="Mensaje"></textarea></div>
-                          <div class="sc_form_item sc_form_button"><button class="sc_button sc_button_box sc_button_style_style3">Enviar</button></div>
+                          <div class="sc_form_item sc_form_message">
+                            <textarea id="sc_form_message" name="message" placeholder="Mensaje"></textarea>
+                          </div>
+                          <div class="sc_form_item sc_form_button">
+                            <button class="sc_button sc_button_box sc_button_style_style3">Enviar</button></div>
                           <div class="result sc_infobox"></div>
                         </form>
                       </div>
@@ -131,7 +140,7 @@
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-gp">
-          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedadesplatinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">
@@ -144,9 +153,8 @@
         </div>
       </div>
 <a href="#" class="scroll_to_top icon-up"></a>
-<script type='text/javascript' src='js/vendor/jquery.js'></script>
+ 
 <script type='text/javascript' src='js/custom/plugins.js'></script>
-<script type='text/javascript' src='js/custom/messages.js'></script>
 <script type='text/javascript' src='js/vendor/jquery-migrate.min.js'></script>
 <script type='text/javascript' src='js/vendor/essgrid/lightbox.js'></script>
 <script type='text/javascript' src='js/vendor/essgrid/jquery.themepunch.tools.min.js'></script>
@@ -166,5 +174,6 @@
 <script type='text/javascript' src='http://maps.google.com/maps/api/js?&key=AIzaSyCk4V6YC1Lj_wl6DA7UqlAYU99VU5j2Gmo'></script>
 <script type='text/javascript' src='js/custom/_googlemap.js'></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v10.0" nonce="0ss8Crp2"></script>
+
 </body>
 </html>

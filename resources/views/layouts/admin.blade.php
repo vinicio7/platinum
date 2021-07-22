@@ -75,6 +75,14 @@
             </li>
 
             <li class="sidebar__nav-item">
+                @if(Request::route()->getName() == 'capsulas')
+                    <a href="{{ route('capsulas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-location"></i> Capsulas</a>
+                @else()
+                    <a href="{{ route('capsulas') }}" class="sidebar__nav-link"><i class="icon ion-ios-location"></i> Capsulas</a>
+                @endif
+            </li>
+
+            <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'propierties')
                     <a href="{{ route('propierties') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Propiedades</a>
                 @else
