@@ -44,21 +44,23 @@ class UserController extends Controller
         $respuesta = [];
         if ($archivo) {
             try {
-                if($request->input('propiedad_principal') > 0){
-                    $propiedad_principal = $request->propiedad_principal;
-                }else{
-                    $propiedad_principal = 0;
-                }
-                $file = \Request::file('capsula');
-                $filename = $file->getClientOriginalExtension();
-                $path = public_path().trim(' \videos\ ') ;
-                $configuracion = Configuraciones::create([
+                $file->move($path, 'capsulas.'.$filename);
+                $urlVideo = '';
+                   if ($request->hasFile('capsula')) {
+                            $archivo = $request->file('capsula');
+                            $nombre_archivo = time() . '-' . preg_replace('/\s+/', '', explode('.', $archivo->getClientOriginalName())[0])
+                                . '.' .  $archivo->getClientOriginalExtension();
+                            Storage::disk('landing')->put($nombre_archivo, File::get($archivo));
+                            $urlVideo = $nombre_archivo;
+                        }
+
+                         $configuracion = Configuraciones::create([
                     'propiedad_principal' => $propiedad_principal,
-                    'capsula'             => 'http://127.0.0.1:8000/videos/capsulas.'.$filename,
+                    'capsula'             => $urlVideo,
                     'texto'             => $request->input('texto'),
                     'titulo'             => $request->input('titulo'),
                 ]);
-                $file->move($path, 'capsulas.'.$filename);
+
                 return view('capsulas');
             } catch(\Exception $e){
                 return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
