@@ -11,7 +11,7 @@ $municipios    = Municipality::all();
 $zonas         = Zone::all();  
 $regiones      = Departament::all();  
 
-if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && isset($tipo_inmueble) && $precio_maximo > 0 ){
+if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmueble) && $precio_maximo > 0 ){
   if($tipo_inmueble == 'apartamento'){
     $inmueble = 1;
   }else if($tipo_inmueble == 'casa'){
@@ -27,15 +27,15 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
     $inmueble = 5;
   }
   if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('rent_usd',0)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }else{
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('sale_usd',0)->where('rent_usd','<',$precio_maximo)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }
-}else if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && isset($tipo_inmueble)){
+}else if(isset($tipo_venta) && isset($departamento) && $zona > 0 && isset($tipo_inmueble)){
   if($tipo_inmueble == 'apartamento'){
     $inmueble = 1;
   }else if($tipo_inmueble == 'casa'){
@@ -51,15 +51,15 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
     $inmueble = 5;
   }
   if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('rent_usd',0)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }else{
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('sale_usd',0)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }
-}else if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0){
+}else if(isset($tipo_venta) && isset($departamento)  && $zona > 0){
   if($tipo_inmueble == 'apartamento'){
     $inmueble = 1;
   }else if($tipo_inmueble == 'casa'){
@@ -75,15 +75,15 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
     $inmueble = 5;
   }
   if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('rent_usd',0)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }else{
-    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)->where('zone_id',$zona)
+    $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('sale_usd',0)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }
-}else if(isset($tipo_venta) && isset($departamento) && $municipio > 0){
+}else if(isset($tipo_venta) && isset($departamento) ){
   if($tipo_inmueble == 'apartamento'){
     $inmueble = 1;
   }else if($tipo_inmueble == 'casa'){
@@ -99,11 +99,11 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
     $inmueble = 5;
   }
   if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)
+    $propiedades   = Property::where('departament_id',$departamento)
     ->where('rent_usd',0)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }else{
-    $propiedades   = Property::where('departament_id',$departamento)->where('municipality_id',$municipio)
+    $propiedades   = Property::where('departament_id',$departamento)
     ->where('sale_usd',0)
     ->orderBy('propiertiy_id','ASC')->get()->take(16);
   }
@@ -160,6 +160,7 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
   $zona = 0;
   $tipo_inmueble = 'casa';
   $precio_maximo = '';
+  $precio_minimo = '';
   $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
 }
 
@@ -286,7 +287,7 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
                                        </div>
                                        <div class="sc_property_title">
                                           <div class="sc_property_title_address_1">
-                                             <a href="/propierty/view/{{$item->propiertiy_id}}">{{$item->title}}</a> 
+                                             <a href="/propierty/view/{{$item->propiertiy_id}}">{!!$item->title!!}</a> 
                                           </div>
                                           <div class="sc_property_title_address_2">{{$item->adress}}</div>
                                        </div>
@@ -341,16 +342,7 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
                                   @endif
                                 @endforeach
                               </select>
-                              <select name="municipio" value="{{$municipio}}" style="border-color: white">
-                                <option value="0">Seleccione un municipio</option>
-                                @foreach($municipios as $item)
-                                 @if($municipio == $item->municipality_id)
-                                    <option value="{{$item->municipality_id}}" selected>{{$item->name}}</option>
-                                  @else
-                                    <option value="{{$item->municipality_id}}">{{$item->name}}</option>
-                                  @endif
-                                @endforeach
-                              </select>
+                              
                               <select name="zona" value="{{$zona}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
@@ -393,6 +385,10 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
                                  Precio maximo:
                                   <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
                               </div>
+                               <div class="ps_area ps_range_slider" style="color: white!important">
+                                 Precio minimo:
+                                  <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
+                              </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>
                         </aside>
@@ -417,7 +413,7 @@ if(isset($tipo_venta) && isset($departamento) && $municipio > 0 && $zona > 0 && 
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-gp">
-          <a href="https://www.instagram.com/propiedades_platinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
+          <a href="https://www.instagram.com/propiedadesplatinum/" target="_blank" style="color:white!important">Síguenos en Instagram</a>
           <i class="fa fa-instagram" style="text-align: right!important;"></i>
         </div>
         <div class="fl-fl float-ig">

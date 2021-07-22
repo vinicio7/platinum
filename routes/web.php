@@ -58,10 +58,11 @@ Route::get('/galeria/{id}',				'PropertyController@galeria');
 Route::get('departaments',              'DepartamentController@index')->name('departaments');
 Route::get('municipalities',            'MunicipalityController@index')->name('municipalities');
 Route::get('zones',            			'ZoneController@index')->name('zones');
+Route::get('capsulas',            		'ZoneController@capsulas')->name('capsulas');
 Route::get('rols',            			'RoleController@index')->name('rols');
 Route::get('propierties',            	'PropertyController@index')->name('propierties');
 Route::get('pdf_list',            		'PropertyController@pdf_list')->name('pdf_list');
 Route::get('propiedades',            	'PropertyController@propiedades')->name('propiedades');
-
-
+Route::post('send_message',            	'UserController@send_message')->name('send_message');
+Route::post('capsulas',      			'UserController@capsulas')->name('capsulas');
 Route::get('/pdf/{id}',                	'PropertyController@pdf');

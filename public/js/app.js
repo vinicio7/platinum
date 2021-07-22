@@ -4443,76 +4443,76 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       subtitulo: '',
       fecha_final: '',
       fecha_inicial: '',
-      vendida_por: 0,
-      rentada_por: 0,
-      precio_renta_dolares: 0,
-      precio_renta_quetzales: 0,
-      honorarios_renta: 0,
-      precio_venta_dolares: 0,
-      precio_venta_quetzales: 0,
-      honorarios_venta: 0,
+      vendida_por: '',
+      rentada_por: '',
+      precio_renta_dolares: '',
+      precio_renta_quetzales: '',
+      honorarios_renta: '',
+      precio_venta_dolares: '',
+      precio_venta_quetzales: '',
+      honorarios_venta: '',
       imagenes: [],
-      propietario_id: 0,
-      lavavajillas: 0,
-      ambientes: 0,
-      terreno: 0,
-      consturccion: 0,
-      frente: 0,
-      fondo: 0,
-      ano_construccion: 0,
-      niveles: 0,
-      dormitorios: 0,
-      dormitorios_servicio: 0,
-      banos: 0,
-      banos_servicio: 0,
-      parqueos_techados: 0,
-      parqueos_notechados: 0,
-      oficinas: 0,
-      bodegas: 0,
-      locales: 0,
-      porton: 0,
-      alacena: 0,
-      closet_blancos: 0,
-      jardin_frontal: 0,
-      despensa: 0,
-      tina: 0,
-      jardin_trasero: 0,
-      desayunador: 0,
-      ducha: 0,
-      bano_visita: 0,
-      lavanderia: 0,
-      bidet: 0,
-      dormitorio_visita: 0,
-      patio: 0,
-      jetina: 0,
-      estudio: 0,
-      pergola: 0,
-      jacuzzi: 0,
-      sala: 0,
-      bodega: 0,
-      sauna: 0,
-      chimenea: 0,
-      bodega_jardin: 0,
-      balcon: 0,
-      sala_comedor: 0,
-      sala_familiar: 0,
-      terraza: 0,
-      comedor: 0,
-      walkin_closet: 0,
-      churrasquera: 0,
-      cocina_gabinetes: 0,
-      closet: 0,
+      propietario_id: '',
+      lavavajillas: '',
+      ambientes: '',
+      terreno: '',
+      consturccion: '',
+      frente: '',
+      fondo: '',
+      ano_construccion: '',
+      niveles: '',
+      dormitorios: '',
+      dormitorios_servicio: '',
+      banos: '',
+      banos_servicio: '',
+      parqueos_techados: '',
+      parqueos_notechados: '',
+      oficinas: '',
+      bodegas: '',
+      locales: '',
+      porton: '',
+      alacena: '',
+      closet_blancos: '',
+      jardin_frontal: '',
+      despensa: '',
+      tina: '',
+      jardin_trasero: '',
+      desayunador: '',
+      ducha: '',
+      bano_visita: '',
+      lavanderia: '',
+      bidet: '',
+      dormitorio_visita: '',
+      patio: '',
+      jetina: '',
+      estudio: '',
+      pergola: '',
+      jacuzzi: '',
+      sala: '',
+      bodega: '',
+      sauna: '',
+      chimenea: '',
+      bodega_jardin: '',
+      balcon: '',
+      sala_comedor: '',
+      sala_familiar: '',
+      terraza: '',
+      comedor: '',
+      walkin_closet: '',
+      churrasquera: '',
+      cocina_gabinetes: '',
+      closet: '',
       otros_detalles: '',
-      refrigeradora: 0,
-      lamparas: 0,
-      aire_acondicionado: 0,
-      estufa: 0,
-      cortinas: 0,
-      alarma: 0,
-      estufa_electrica: 0,
-      blackouts: 0,
-      camaras_seguridad: 0
-    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", ''), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "descripcion_propiedad", ''), _defineProperty(_ref, "valor_registro_dolares", 0), _defineProperty(_ref, "valor_registro_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_quetzales", 0), _defineProperty(_ref, "iusi_trimestral_dolares", 0), _defineProperty(_ref, "folio", 0), _defineProperty(_ref, "finca", 0), _defineProperty(_ref, "libro", 0), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", 0), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", 0), _defineProperty(_ref, "gravamen_dolares", 0), _defineProperty(_ref, "nombre_banco", 0), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", 0), _defineProperty(_ref, "avaluo_quetzales", 0), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "timbres", 0), _defineProperty(_ref, "iva", 0), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ""), _defineProperty(_ref, "propietario", 0), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 0), _defineProperty(_ref, "municipio", 0), _defineProperty(_ref, "zona", 0), _defineProperty(_ref, "region", 0), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 1), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", ''), _defineProperty(_ref, "contacto_visita", 1), _defineProperty(_ref, "cuota_mantenimiento", 1), _defineProperty(_ref, "servicios", 1), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 1), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", 0), _defineProperty(_ref, "enganche_nivelado", 0), _defineProperty(_ref, "enganche_cuota", 0), _defineProperty(_ref, "enganche_tasa", 0), _defineProperty(_ref, "enganche_quetzales", 0), _defineProperty(_ref, "enganche_dolares", 0), _defineProperty(_ref, "mantenimiento_dolares", 0), _defineProperty(_ref, "mantenimiento_quetzales", 0), _defineProperty(_ref, "compartida_porcentaje", 0), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "propierty_id", ""), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", 0), _defineProperty(_ref, "dropzoneOptions", {
+      refrigeradora: '',
+      lamparas: '',
+      aire_acondicionado: '',
+      estufa: '',
+      cortinas: '',
+      alarma: '',
+      estufa_electrica: '',
+      blackouts: '',
+      camaras_seguridad: ''
+    }, _defineProperty(_ref, "lavavajillas", ''), _defineProperty(_ref, "cortinas_bano", ''), _defineProperty(_ref, "paneles_solares", ''), _defineProperty(_ref, "camapana", ''), _defineProperty(_ref, "calentador_agua", ''), _defineProperty(_ref, "bomba_cisterna", ''), _defineProperty(_ref, "lavadora", ''), _defineProperty(_ref, "espejo_bano", ''), _defineProperty(_ref, "deposito_basura", ''), _defineProperty(_ref, "secadora", ''), _defineProperty(_ref, "otros_incluye", ''), _defineProperty(_ref, "garita", ''), _defineProperty(_ref, "gimnasio", ''), _defineProperty(_ref, "juegos_infantiles", ''), _defineProperty(_ref, "guardiania", ''), _defineProperty(_ref, "sauna", ''), _defineProperty(_ref, "piscina", ''), _defineProperty(_ref, "area_social", ''), _defineProperty(_ref, "spa", ''), _defineProperty(_ref, "acceso_silla", ''), _defineProperty(_ref, "area_mascotas", ''), _defineProperty(_ref, "salon_belleza", ''), _defineProperty(_ref, "planta_telefonica", ''), _defineProperty(_ref, "parqueo_visitas", ''), _defineProperty(_ref, "canchas_deportivas", ''), _defineProperty(_ref, "razor_ribbon", ''), _defineProperty(_ref, "bussines_center", ''), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "description", ''), _defineProperty(_ref, "valor_registro_dolares", ''), _defineProperty(_ref, "valor_registro_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_dolares", ''), _defineProperty(_ref, "folio", ''), _defineProperty(_ref, "finca", ''), _defineProperty(_ref, "libro", ''), _defineProperty(_ref, "inscrito_sociedad_anonima", ''), _defineProperty(_ref, "sociedad_anonima", ''), _defineProperty(_ref, "gravamen_hipotecario", ''), _defineProperty(_ref, "gravamen_quetzales", ''), _defineProperty(_ref, "gravamen_dolares", ''), _defineProperty(_ref, "nombre_banco", ''), _defineProperty(_ref, "avalui_reciente", ''), _defineProperty(_ref, "avaluo_dolares", ''), _defineProperty(_ref, "avaluo_quetzales", ''), _defineProperty(_ref, "tipo_avaluo", ''), _defineProperty(_ref, "timbres", ''), _defineProperty(_ref, "iva", ''), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", ''), _defineProperty(_ref, "titulo", ""), _defineProperty(_ref, "propietario", ''), _defineProperty(_ref, "pais", ''), _defineProperty(_ref, "departamento", ''), _defineProperty(_ref, "municipio", ''), _defineProperty(_ref, "zona", ''), _defineProperty(_ref, "region", ''), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 1), _defineProperty(_ref, "canje", ''), _defineProperty(_ref, "especifique_canje", ''), _defineProperty(_ref, "contacto_visita", 1), _defineProperty(_ref, "cuota_mantenimiento", 1), _defineProperty(_ref, "servicios", 1), _defineProperty(_ref, "publicacion_redes", ''), _defineProperty(_ref, "exclusividad", ''), _defineProperty(_ref, "compartida", 1), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", ''), _defineProperty(_ref, "enganche_nivelado", ''), _defineProperty(_ref, "enganche_cuota", ''), _defineProperty(_ref, "enganche_tasa", ''), _defineProperty(_ref, "enganche_quetzales", ''), _defineProperty(_ref, "enganche_dolares", ''), _defineProperty(_ref, "mantenimiento_dolares", ''), _defineProperty(_ref, "mantenimiento_quetzales", ''), _defineProperty(_ref, "compartida_porcentaje", ''), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", ''), _defineProperty(_ref, "luz", ''), _defineProperty(_ref, "seguridad", ''), _defineProperty(_ref, "extraccion", ''), _defineProperty(_ref, "limpieza_areas", ''), _defineProperty(_ref, "incluid_mensual", ''), _defineProperty(_ref, "propierty_id", ""), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", ''), _defineProperty(_ref, "dropzoneOptions", {
       url: '/api/propierty/image',
       method: 'post',
       paramName: 'archivo',
@@ -4781,7 +4781,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formData.append('ribbon', this.razor_ribbon);
       formData.append('bussines_center', this.bussines_center);
       formData.append('another_pleasantness', this.otras_amenidades);
-      formData.append('description', this.descripcion_propiedad);
+      formData.append('description', this.description);
       formData.append('registry_usd', this.valor_registro_dolares);
       formData.append('registry_gtq', this.valor_registro_quetzales);
       formData.append('iusi_gtq', this.iusi_trimestral_quetzales);
@@ -5001,7 +5001,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.post(url, {
         'propierty_id': this.update
       }).then(function (response) {
-        console.log(response.data.records.title);
+        console.log(response.data.records);
         me.titulo = response.data.records.title;
         me.tipo = response.data.records.type;
         me.propietario_id.user_id = response.data.records.owner_id;
@@ -5103,7 +5103,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         me.razor_ribbon = response.data.records.ribbon;
         me.bussines_center = response.data.records.bussines_center;
         me.otras_amenidades = response.data.records.another_pleasantness;
-        me.descripcion_propiedad = response.data.records.description;
+        me.description = response.data.records.description;
         me.valor_registro_dolares = response.data.records.registry_usd;
         me.valor_registro_quetzales = response.data.records.registry_gtq;
         me.iusi_trimestral_quetzales = response.data.records.iusi_gtq;
@@ -66631,7 +66631,7 @@ var render = function() {
                               },
                               [
                                 _c("div", { staticClass: "col-sm-12" }, [
-                                  _c("h2", [_vm._v("Descripcion")])
+                                  _c("h2", [_vm._v("description")])
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-3" }, [
@@ -71554,7 +71554,7 @@ var render = function() {
                                 { staticClass: "col-sm-6" },
                                 [
                                   _c("label", [
-                                    _vm._v("Descripcion de la propiedad")
+                                    _vm._v("description de la propiedad")
                                   ]),
                                   _vm._v(" "),
                                   _c("editor", {
@@ -71578,11 +71578,11 @@ var render = function() {
                                       type: "text"
                                     },
                                     model: {
-                                      value: _vm.descripcion_propiedad,
+                                      value: _vm.description,
                                       callback: function($$v) {
-                                        _vm.descripcion_propiedad = $$v
+                                        _vm.description = $$v
                                       },
-                                      expression: "descripcion_propiedad"
+                                      expression: "description"
                                     }
                                   })
                                 ],

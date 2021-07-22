@@ -12,6 +12,7 @@ $municipio    = 1;
 $zona         = 1;
 $tipo_inmueble = 1;
 $precio_maximo = 0;
+$precio_minimo = 0;
 $busqueda    = Images::where('propierty_id',$data->propiertiy_id)->first();
 $imagenes    = Images::where('propierty_id',$data->propiertiy_id)->get();
 $contador1    = 1;
@@ -282,12 +283,12 @@ img.hover-shadow {
                               <span class="ps_single_status">Renta</span>
                             @endif
                            
-                           <img alt="" src="{{$imagen}}"></a>
+                           <img alt="" src="{{$imagen}}" style="margin-bottom: 10px"></a>
                            <div class="row">
                             @foreach($imagenes as $item)
-                              @if($contador3 <= 4)
-                                <div class="column">
-                                  <img src="{{$item->path}}" onclick="openModal();currentSlide({{$contador3}})" class="hover-shadow">
+                              @if($contador3 <= 3)
+                                <div class="column" style="margin-bottom: 10px;width: 252px;margin-right: 5px;height: 150px">
+                                  <img src="{{$item->path}}" onclick="openModal();currentSlide({{$contador3}})" class="hover-shadow" >
                                 </div>
                                 @php
                                 $contador3 = $contador3 + 1;  
@@ -299,21 +300,26 @@ img.hover-shadow {
                         </div>
                      </section>
                      <section class="post_content">
-                       
-                        <div class="post_info">
-                           @if($item->sale_usd > 0)
-                              <span class="post_info_item"><a class="property_group_link" href="#">Para venta</a>, 
-                            @else
-                              <span class="post_info_item"><a class="property_group_link" href="#">Para renta</a>, 
-                            @endif
-                           
-                           <a class="property_group_link" href="/">Propiedades Platinum</a></span>
-                           <span class="post_info_item">Creada el <a href="single-post.html" class="post_info_date date updated">{{$item->created_at}}</a></span>
-                           </span>
-                           <span> Codigo de la propiedad: {{$test->propiertiy_id}}</span>
-                        </div>
                         <div class="sc_section">
+                          <div class="sc_property_item">
+                                    <div class="ps_single_info">
+                                       <div class="property_price_box">
+                                         @if($test->sale_usd > 0)
+                                          <span class="property_price_box_price" style="font-size: 40px;height: 30px;padding-top: 5px">$.{{number_format($test->sale_usd,2)}}</span>
+                                        @else
+                                          <span class="property_price_box_price" style="font-size: 40px;height: 30px;padding-top: 5px">$.{{number_format($test->rent_usd,2)}}</span>
+                                        @endif
+                                          
+                                       </div>
+                                      <div class="sc_property_info_list" style="align-content: rigth">
+                                          <span class="icon-area_2" style="display: inline-block;font-size: 20px">{{$test->build_mts}} mts</span>
+                                          <span class="icon-bed" style="display: inline-block;font-size: 20px">{{$test->rooms}}</span>
+                                          <span class="icon-bath" style="display: inline-block;font-size: 20px">{{$test->bathrooms}}</span>
+                                          <span class="icon-warehouse" style="display: inline-block;font-size: 20px">{{$test->parking}}</span>
+                                       </div>
+                                     </div></div>
                           <h4 class="sc_title" style="font-weight: bold">DESCRIPCION:</h4>
+                          <p>{!!$test->description!!}</p>
                           <table style="border:none" border="0">
                             <tbody>
                               <tr style="border:none">
@@ -347,35 +353,13 @@ img.hover-shadow {
                             </tbody>
                           </table>
                         <div class="sc_section">
-                           {!!$test->description!!}
-                           <div class="sc_property sc_property_style_property-2">
-                                 <div class="sc_property_item">
-                                    <div class="ps_single_info">
-                                       <div class="property_price_box">
-                                         @if($test->sale_usd > 0)
-                                          <span class="property_price_box_price">$.{{number_format($test->sale_usd,2)}}</span>
-                                        @else
-                                          <span class="property_price_box_price">$.{{number_format($test->rent_usd,2)}}</span>
-                                        @endif
-                                          
-                                       </div>
-                                       <div class="sc_property_info_list">
-                                          <span class="icon-area_2" style="display: inline-block;">{{$test->build_mts}} mts</span>
-                                          <span class="icon-bed" style="display: inline-block;">{{$test->rooms}}</span>
-                                          <span class="icon-bath" style="display: inline-block;">{{$test->bathrooms}}</span>
-                                          <span class="icon-warehouse" style="display: inline-block;">{{$test->parking}}</span>
-                                       </div>
-                                       <div class="cL"></div>
-                                    </div>
-                                 </div>
-                              </div>
                            <h4 class="sc_title" style="font-weight: bold">Caracteristicas &amp; Amenidades</h4>
                            <div class="columns_wrap ">
                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
                               @if($test->cabin == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Garita</p>
                               </li>
                               </div>
@@ -383,7 +367,7 @@ img.hover-shadow {
                               @if($test->gym == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Gimnasio</p>
                               </li>
                               </div>
@@ -391,7 +375,7 @@ img.hover-shadow {
                               @if($test->kids_area == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Area de niños</p>
                               </li>
                               </div>
@@ -399,7 +383,7 @@ img.hover-shadow {
                               @if($test->daycare == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Guadriania</p>
                               </li>
                               </div>
@@ -407,7 +391,7 @@ img.hover-shadow {
                               @if($test->sauna_shared == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Sauna</p>
                               </li>
                               </div>
@@ -415,7 +399,7 @@ img.hover-shadow {
                               @if($test->floor_shared == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Piscina</p>
                               </li>
                               </div>
@@ -423,7 +407,7 @@ img.hover-shadow {
                               @if($test->social_area == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Area social</p>
                               </li>
                               </div>
@@ -432,7 +416,7 @@ img.hover-shadow {
                               @if($test->spa == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>SPA</p>
                               </li>
                               </div>
@@ -441,7 +425,7 @@ img.hover-shadow {
                               @if($test->floor_shared == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Acceso para silla de ruedas</p>
                               </li>
                               </div>
@@ -449,7 +433,7 @@ img.hover-shadow {
                               @if($test->pet_area == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Area de mascotas</p>
                               </li>
                               </div>
@@ -457,7 +441,7 @@ img.hover-shadow {
                               @if($test->beauty_salon == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Salon de belleza</p>
                               </li>
                               </div>
@@ -465,7 +449,7 @@ img.hover-shadow {
                               @if($test->plant_phone == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Planta telefonica</p>
                               </li>
                               </div>
@@ -474,7 +458,7 @@ img.hover-shadow {
                               @if($test->parking_visit == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Parqueo de visitas</p>
                               </li>
                               </div>
@@ -482,7 +466,7 @@ img.hover-shadow {
                               @if($test->court == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Canchas deportivas</p>
                               </li>
                               </div>
@@ -490,7 +474,7 @@ img.hover-shadow {
                               @if($test->ribbon == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Razor Ribbon</p>
                               </li>
                               </div>
@@ -498,7 +482,7 @@ img.hover-shadow {
                               @if($test->bussines_center == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                 <span class="sc_list_icon icon-stop color_2"></span>
+                                 <span class="sc_list_icon icon-check color_2"></span>
                                  <p>Bussines Center</p>
                               </li>
                               </div>
@@ -509,7 +493,7 @@ img.hover-shadow {
                            </div>
                      </section>
                   </div>
-                  <div class="sidebar widget_area scheme_original" style="margin-top: 180px">
+                  <div class="sidebar widget_area scheme_original" style="margin-top: 220px">
                      <div class="sidebar_inner widget_area_inner">
                         <aside class="widget widget_property_search scheme_dark" style="color:white;">
                            <form method="get" action="propiedades_post">
@@ -539,16 +523,7 @@ img.hover-shadow {
                                   @endif
                                 @endforeach
                               </select>
-                              <select name="municipio" value="{{$municipio}}" style="border-color: white">
-                                <option value="0">Seleccione un municipio</option>
-                                @foreach($municipios as $item)
-                                 @if($municipio == $item->municipality_id)
-                                    <option value="{{$item->municipality_id}}" selected>{{$item->name}}</option>
-                                  @else
-                                    <option value="{{$item->municipality_id}}">{{$item->name}}</option>
-                                  @endif
-                                @endforeach
-                              </select>
+                             
                               <select name="zona" value="{{$zona}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
@@ -590,6 +565,10 @@ img.hover-shadow {
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio maximo:
                                   <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
+                              </div>
+                              <div class="ps_area ps_range_slider" style="color: white!important">
+                                 Precio minimo:
+                                  <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>
