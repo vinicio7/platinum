@@ -34,7 +34,11 @@ return [
             'driver' => 'local',
             'root' => public_path(),
         ],
-
+        'landing' => [
+            'driver' => 'local',
+            'root' => public_path('/assets/landing/img'),
+            'visibility' => 'public',
+        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
