@@ -65,7 +65,7 @@
         <!-- end sidebar user -->
 
         <!-- sidebar nav -->
-        <ul class="sidebar__nav">
+        <ul class="sidebar__nav" style="overflow-x: auto;">
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'dashboard')
                     <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-monitor"></i> Dashboard</a>
@@ -110,15 +110,6 @@
                     <a href="{{ route('municipalities') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-location"></i> Municipios</a>
                 @else()
                     <a href="{{ route('municipalities') }}" class="sidebar__nav-link"><i class="icon ion-ios-location"></i> Municipios</a>
-                @endif
-            </li>
-
-
-            <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'regions')
-                    <a href="{{ route('regions') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-information"></i> Regiones</a>
-                @else()
-                    <a href="{{ route('regions') }}" class="sidebar__nav-link"><i class="icon ion-ios-information"></i> Regiones</a>
                 @endif
             </li>
 
