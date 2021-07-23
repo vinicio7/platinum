@@ -1482,7 +1482,7 @@
             let urlocho = '/api/vendedores' 
             axios.get(urlocho,{}).then(function (response) {
                 
-                me.propietarios = response.data.records;
+                me.vendedores = response.data.records;
                 console.log("propietarios");
                 console.log(me.vendedores);
             })
