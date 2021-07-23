@@ -64333,16 +64333,16 @@ var render = function() {
                           "v-select",
                           {
                             attrs: {
-                              value: _vm.propietarios.user_id,
-                              options: _vm.propietarios,
-                              getOptionLabel: function(propietario) {
-                                return propietario.name
+                              value: _vm.vendedores.user_id,
+                              options: _vm.vendedores,
+                              getOptionLabel: function(vendedor) {
+                                return vendedor.name
                               }
                             },
                             on: {
                               "update:value": function($event) {
                                 return _vm.$set(
-                                  _vm.propietarios,
+                                  _vm.vendedores,
                                   "user_id",
                                   $event
                                 )
@@ -64447,8 +64447,8 @@ var render = function() {
                             attrs: {
                               value: _vm.vendedores.user_id,
                               options: _vm.vendedores,
-                              getOptionLabel: function(propietario) {
-                                return propietario.name
+                              getOptionLabel: function(vendedor) {
+                                return vendedor.name
                               }
                             },
                             on: {
