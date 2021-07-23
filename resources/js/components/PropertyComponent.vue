@@ -69,8 +69,8 @@
                     <div class="col-sm-12" >
                         <label>Vendida por</label>
                         <v-select v-model="vendida_por"
-                                :value.sync="propietarios.user_id"
-                                :options="propietarios" :getOptionLabel="propietario => propietario.name">
+                                :value.sync="vendedores.user_id"
+                                :options="vendedores" :getOptionLabel="propietario => propietario.name">
                                 <span slot="no-options"> No se encontro la busqueda</span>
                         </v-select>
                     </div>
@@ -1429,6 +1429,8 @@
                 propierty_id:"",
                 propietarios:[],
                 propietarios_test:[{}],
+                vendedores:[],
+                vendedores_test:[{}],
                 departamentos:[],
                 municipios:[],
                 zonas:[],
@@ -1472,6 +1474,17 @@
                 me.propietarios = response.data.records;
                 console.log("propietarios");
                 console.log(me.propietarios);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });  
+
+            let urlocho = '/api/vendedores' 
+            axios.get(urlocho,{}).then(function (response) {
+                
+                me.propietarios = response.data.records;
+                console.log("propietarios");
+                console.log(me.vendedores);
             })
             .catch(function (error) {
                 console.log(error);

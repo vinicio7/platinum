@@ -80,7 +80,28 @@ class UserController extends Controller
     public function get(Request $request)
     {
         try {
-            $rol = User::select('user_id','name')->where('rol_id',4)->get();
+            $rol = User::select('user_id','name')->where('rol_id',8)->get();
+            $this->message = "Consulta correcta";
+            $this->result = true;
+            $this->records = $rol;
+        } catch (\Exception $e) {
+            $statusCode     = 200;
+            $this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+        } finally {
+            $response =
+                [
+                    'message'   => $this->message,
+                    'result'    => $this->result,
+                    'records'   => $this->records,
+                ];
+            return response()->json($response, $this->statusCode);
+        }
+    }
+
+    public function vendedores(Request $request)
+    {
+        try {
+            $rol = User::select('user_id','name')->where('rol_id',10)->get();
             $this->message = "Consulta correcta";
             $this->result = true;
             $this->records = $rol;
