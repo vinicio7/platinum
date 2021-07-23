@@ -53,7 +53,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('roles',                        'RoleController@get')->name('roles');  
     Route::get('zones',                        'ZoneController@get')->name('zones');  
     Route::get('regions',                      'RegionController@get')->name('regions');    
-    Route::get('propietarios',                 'UserController@get')->name('propietarios');    
+    Route::get('propietarios',                 'UserController@get')->name('propietarios');   
+    Route::get('vendedores',                   'UserController@get')->name('vendedores');    
     Route::get('countries',                    'CountryController@get')->name('countries');
     Route::get('departaments',                 'DepartamentController@get')->name('departaments');
     Route::get('municipalities',               'MunicipalityController@get')->name('municipalities');
