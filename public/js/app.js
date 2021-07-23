@@ -4548,7 +4548,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
     var urlocho = '/api/vendedores';
     axios.get(urlocho, {}).then(function (response) {
-      me.propietarios = response.data.records;
+      me.vendedores = response.data.records;
       console.log("propietarios");
       console.log(me.vendedores);
     })["catch"](function (error) {
