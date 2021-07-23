@@ -1483,7 +1483,7 @@
             axios.get(urlocho,{}).then(function (response) {
                 
                 me.vendedores = response.data.records;
-                console.log("propietarios");
+                console.log("vendedores");
                 console.log(me.vendedores);
             })
             .catch(function (error) {
