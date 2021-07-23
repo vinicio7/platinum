@@ -40,8 +40,8 @@
                     <div class="col-sm-12" >
                         <label>Rentada por</label>
                         <v-select v-model="rentada_por"
-                                :value.sync="propietarios.user_id"
-                                :options="propietarios" :getOptionLabel="propietario => propietario.name">
+                                :value.sync="vendedores.user_id"
+                                :options="vendedores" :getOptionLabel="vendedor => vendedor.name">
                                 <span slot="no-options"> No se encontro la busqueda</span>
                         </v-select>
                     </div>
@@ -70,7 +70,7 @@
                         <label>Vendida por</label>
                         <v-select v-model="vendida_por"
                                 :value.sync="vendedores.user_id"
-                                :options="vendedores" :getOptionLabel="propietario => propietario.name">
+                                :options="vendedores" :getOptionLabel="vendedor => vendedor.name">
                                 <span slot="no-options"> No se encontro la busqueda</span>
                         </v-select>
                     </div>
