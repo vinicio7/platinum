@@ -173,6 +173,8 @@ if($buscar_imagen_4){
                         <div class="top_panel_menu container_logo_right">
                           <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
+                        <br>
+                        <br>
                         <div class="top_panel_menu container_menu">
                            <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
