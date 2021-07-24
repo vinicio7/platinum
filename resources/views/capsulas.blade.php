@@ -63,7 +63,7 @@ if($config){
                                 </div>
                                  <div class="row">
                                     <div class="col-md-10" style="margin-top: 0px;display: inline-block;margin-left: 20px">
-                                        <b>Texto:</b> <textarea name="texto" type="text" value="{{$texto}}" class="form-control" /></textarea> 
+                                        <b>Texto:</b> <textarea name="texto" type="text" class="form-control" />{{$texto}}</textarea> 
                                     </div>                              
                                 </div>
                             <div class="row" style="margin-top: 30px">

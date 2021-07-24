@@ -144,6 +144,18 @@ if($buscar_imagen_4){
               and (-webkit-min-device-pixel-ratio: 2)
               and (min-resolution: 192dpi) { 
             }
+
+            @font-face {
+              font-family: 'Gotham';
+              src: url('fonts/Gotham-Medium.eot'); /* IE9 Compat Modes */
+              src: url('fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                 url('fonts/Gotham-Medium.woff') format('woff'), /* Modern Browsers */
+                 url('fonts/Gotham-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+                 url('fonts/Gotham-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
+               font-weight: 400;
+               font-style: normal;
+            }
+
       </style>
    </head>
    <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
@@ -259,12 +271,12 @@ if($buscar_imagen_4){
                                     <option value="loft">Loft</option>
                                     <option value="cualquiera">Cualquiera</option>
                                  </select>
+                              </div><br> 
+                              <div class="sc_ps_area" style="margin-right: 0px">
+                                  <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
                               </div>
                               <div class="sc_ps_area">
                                   <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
-                              </div>
-                              <div class="sc_ps_area">
-                                  <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
                               </div>
                               <div class="sc_ps_submit" style="text-align: left;">
                                     <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE;margin-top:0px">
@@ -276,89 +288,26 @@ if($buscar_imagen_4){
                </div>
             </div>
             <div class="page_content_wrap page_paddings_no">
-               <div class="sc_section">
-                  <div class="content_wrap">
-                     <div class="columns_wrap margin_top_xlarge margin_bottom_xmedium">
-                        <div class="column-1_2">
-                           <div class="bgtext1">
-                           </div>
-                           <h2 class="sc_title sc_title_iconed ind2 margin_top_null margin_bottom_xmedium">
-                              <span class="sc_title_icon sc_title_icon_left sc_title_icon_small icon-map-pointer18 sc_left"></span>
-                              <span class="sc_title_box">
-                              <a href="/propierty/view/{{$id_4}}">{{$titulo_4}}</a>
-                              <span class="sc_title_subtitle">{{$direccion_4}}</span>
-                              </span>
-                           </h2>
-                           <div class="sc_section margin_bottom_xmedium section_style_1">
-                              <div class="sc_section_inner">
-                                 <p>{!!$descripcion_4!!}</p>
-                              </div>
-                           </div>
-                           <div class="columns_wrap sc_columns margin_bottom_medium">
-                              <div class="column-1_2 sc_column_item">
-                                 <ul class="sc_list sc_list_style_iconed color_1">
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Zona tranquila</p>
-                                    </li>
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Excelente comunidad</p>
-                                    </li>
-                                 </ul>
-                              </div>
-                              <div class="column-1_2 sc_column_item">
-                                 <ul class="sc_list sc_list_style_iconed color_1">
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Vistas Fabulosas</p>
-                                    </li>
-                                    <li class="sc_list_item">
-                                       <span class="sc_list_icon icon-stop color_2"></span>
-                                       <p>Reciente construccion</p>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="sc_property_wrap">
-                              <div class="sc_property sc_property_style_property-2">
-                                 <div class="sc_property_item">
-                                    <div class="ps_single_info">
-                                       <div class="property_price_box">
-                                          <span class="property_price_box_price">$.{{$precio_4}}</span>
-                                       </div>
-                                       <div class="sc_property_info_list">
-                                          <span class="icon-area_2" style="display: inline-block;">{{$metros_4}} mts</span>
-                                          <span class="icon-bed" style="display: inline-block;">{{$dormitorios_4}}</span>
-                                          <span class="icon-bath" style="display: inline-block;">{{$banos_4}}</span>
-                                          <span class="icon-warehouse" style="display: inline-block;">{{$parqueos_4}}</span>
-                                       </div>
-                                       <div class="cL"></div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="column-1_2">
-                           <figure class="sc_image ">
-                              <a href="/propierty/view/{{$id_4}}"><img src="{{$imagen_4}}" alt="" /></a>
-                           </figure>
-                        </div>
-                     </div>
-                  </div>
-               </div>
                @if($test > 0)
                   @if($test == 1)
                   <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important">
-                     <h1 style="color:white;margin-left: 40px">{{$titulo}}</h1>
-                     <center>
-                        <h3 style="color:white;width: 900px">
+                      <center>
+                        <div style="width: 80%">
+                          <h1 style="color:white;font-family: 'Gotham';font-size: 60px">{{$titulo}}</h1>
+                        </div>
+                      </center>
+                      <center>
+                        <div style="width: 50%">
+                        <h3 style="color:white;font-family: 'Gotham';font-weight: lighter;">
                            {{$texto}}
-                        </h3>
-                        <video height="400px" controls style="margin-bottom: 50px">
+                         </h3>
+                       </div>
+                      </center>
+                      <center>
+                        <video  controls>
                             <source src="{{$url}}" type="video/mp4">
                         </video>
-                     </center>
+                      </center>
                   </div>
                   @else
                      <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important">
@@ -382,7 +331,7 @@ if($buscar_imagen_4){
                                              $imagen = ''; 
                                           }
                                           ?>
-                                          <img alt="" style="width: 400px;height: 300px" src="{{$imagen}}">
+                                          <img alt="" style="width: 400px;height: 300px;object-fit:cover; " src="{{$imagen}}">
                                           
                                        </a>
                                     </div>
@@ -440,7 +389,7 @@ if($buscar_imagen_4){
                                              $imagen = ''; 
                                           }
                                           ?>
-                                          <img alt="" style="width: 400px;height: 300px" src="{{$imagen}}">
+                                          <img alt="" style="width: 400px;height: 300px;object-fit:cover;" src="{{$imagen}}">
                                           
                                        </a>
                                     </div>
@@ -456,12 +405,15 @@ if($buscar_imagen_4){
                                           </div>
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1" style="height:84px">
-                                                <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{!!$item->title!!}</a>
+                                              @php
+                                              $texto =  strip_tags($item->title)  
+                                              @endphp
+                                                <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{!!$texto!!}</a>
                                              </div>
                                              @if(strlen($item->adress) > 0)
-                                                <div class="sc_property_title_address_2" style="height:84px">{{$item->adress}}</div>
+                                                <div class="sc_property_title_address_2" style="height:40px">{{$item->adress}}</div>
                                              @else
-                                                <div class="sc_property_title_address_2" style="height:84px">Sin direccion</div>
+                                                <div class="sc_property_title_address_2" style="height:40px">Sin direccion</div>
                                              @endif
                                           </div>
                                           <div class="cL"></div>
