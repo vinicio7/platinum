@@ -272,10 +272,10 @@ if($buscar_imagen_4){
                                     <option value="cualquiera">Cualquiera</option>
                                  </select>
                               </div><br> 
-                              <div class="sc_ps_area" style="margin-right: 0px">
+                              <div class="sc_ps_type">
                                   <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
                               </div>
-                              <div class="sc_ps_area">
+                              <div class="sc_ps_type">
                                   <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
                               </div>
                               <div class="sc_ps_submit" style="text-align: left;">
@@ -292,19 +292,19 @@ if($buscar_imagen_4){
                   @if($test == 1)
                   <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important">
                       <center>
-                        <div style="width: 80%">
-                          <h1 style="color:white;font-family: 'Gotham';font-size: 3vw;font-size-adjust: ">{{$titulo}}</h1>
+                        <div style="width:100%;height: auto;margin-top: 10px">
+                          <h3 style="color:white;font-family: 'Gotham';font-size: 4vw; ">{{$titulo}}</h3>
                         </div>
                       </center>
                       <center>
-                        <div style="width: 80%">
-                        <h3 style="color:white;font-family: 'Gotham';font-weight: lighter;font-size: 2vw">
+                        <div style="width:100%">
+                        <h3 style="color:white;font-family: 'Gotham';font-weight: lighter;font-size: 3vw">
                            {{$texto}}
                          </h3>
                        </div>
                       </center>
                       <center>
-                        <video style="width: 80%;height: 600px"  controls autoplay>
+                        <video style="width: 80%;height: 600px"  controls autoplay="true">
                             <source src="{{$url}}" type="video/mp4">
                         </video>
                       </center>
