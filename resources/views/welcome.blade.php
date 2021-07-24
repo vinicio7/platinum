@@ -293,18 +293,18 @@ if($buscar_imagen_4){
                   <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important">
                       <center>
                         <div style="width: 80%">
-                          <h1 style="color:white;font-family: 'Gotham';font-size: 60px">{{$titulo}}</h1>
+                          <h1 style="color:white;font-family: 'Gotham';font-size: 3vw;font-size-adjust: ">{{$titulo}}</h1>
                         </div>
                       </center>
                       <center>
-                        <div style="width: 50%">
-                        <h3 style="color:white;font-family: 'Gotham';font-weight: lighter;">
+                        <div style="width: 80%">
+                        <h3 style="color:white;font-family: 'Gotham';font-weight: lighter;font-size: 2vw">
                            {{$texto}}
                          </h3>
                        </div>
                       </center>
                       <center>
-                        <video  controls>
+                        <video style="width: 80%;height: 600px"  controls autoplay>
                             <source src="{{$url}}" type="video/mp4">
                         </video>
                       </center>
