@@ -304,7 +304,7 @@ if($buscar_imagen_4){
                        </div>
                       </center>
                       <center>
-                        <video style="width: 80%;height: 600px"  controls autoplay="true">
+                        <video style="width: 80%;height: 600px"  controls autoplay="true" id="vid">
                             <source src="{{$url}}" type="video/mp4">
                         </video>
                       </center>
@@ -562,5 +562,8 @@ if($buscar_imagen_4){
       <script type='text/javascript' src='js/vendor/swiper/swiper.min.js'></script>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v10.0" nonce="0ss8Crp2"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+      <script>
+          document.getElementById('vid').play();
+      </script>
    </body>
 </html>
