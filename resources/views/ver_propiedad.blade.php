@@ -273,7 +273,10 @@ img.hover-shadow {
               <div class="page_content_wrap">
                <div class="content_wrap">
                   <div class="content" style="margin-top: 100px">
-                    <h3 class="post_title" style="text-transform: uppercase;">{{$test->title}}</h3>
+                      @php
+                        $texto =  strip_tags($test->title)  
+                      @endphp
+                    <h3 class="post_title" style="text-transform: uppercase;">{!!$texto!!}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
                            <a class="" title="{{$test->title}}">
@@ -287,8 +290,8 @@ img.hover-shadow {
                            <div class="row">
                             @foreach($imagenes as $item)
                               @if($contador3 <= 3)
-                                <div class="column" style="margin-bottom: 10px;width: 252px;margin-right: 5px;height: 150px">
-                                  <img src="{{$item->path}}" onclick="openModal();currentSlide({{$contador3}})" class="hover-shadow" >
+                                <div class="column" style="margin-bottom: 10px;width: 252px;margin-right: 5px;height: 150px;">
+                                  <img src="{{$item->path}}" onclick="openModal();currentSlide({{$contador3}})" style="height: 150px;width:252px;object-fit: cover" class="hover-shadow" >
                                 </div>
                                 @php
                                 $contador3 = $contador3 + 1;  
@@ -534,6 +537,26 @@ img.hover-shadow {
                                   @endif
                                 @endforeach
                               </select>
+                               <select name="zona" value="{{$zona}}" style="border-color: white">
+                                <option value="0">Seleccione una zona</option>
+                                @foreach($zonas as $item)
+                                  @if($zona == $item->zone_id)
+                                    <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endif
+                                @endforeach
+                              </select>
+                               <select name="zona" value="{{$zona}}" style="border-color: white">
+                                <option value="0">Seleccione una zona</option>
+                                @foreach($zonas as $item)
+                                  @if($zona == $item->zone_id)
+                                    <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endif
+                                @endforeach
+                              </select>
                               
                               <select name="tipo_inmueble" value="{{$tipo_inmueble}}" style="border-color: white">
                                 @if($tipo_inmueble == 'apartamento')
@@ -562,13 +585,14 @@ img.hover-shadow {
                                   <option value="cualquiera">Cualquiera</option>
                                 @endif
                               </select>
-                              <div class="ps_area ps_range_slider" style="color: white!important">
-                                 Precio maximo:
-                                  <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
-                              </div>
+                              
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio minimo:
                                   <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
+                              </div>
+                              <div class="ps_area ps_range_slider" style="color: white!important">
+                                 Precio maximo:
+                                  <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>

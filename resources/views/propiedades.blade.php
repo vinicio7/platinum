@@ -271,7 +271,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                           <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
                                         @endif
                                        </div>
-                                       <img alt="" style="width: 400px;height: 300px" src="{{$imagen}}">
+                                       <img alt="" style="width: 400px;height: 300px;object-fit: cover;" src="{{$imagen}}">
                                     </a>
                                  </div>
                                  <div class="sc_property_info">
@@ -286,10 +286,13 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                           <span class="icon-location"></span>
                                        </div>
                                        <div class="sc_property_title">
+                                          @php
+                                              $texto =  strip_tags($item->title)  
+                                          @endphp
                                           <div class="sc_property_title_address_1">
-                                             <a href="/propierty/view/{{$item->propiertiy_id}}">{!!$item->title!!}</a> 
+                                             <a href="/propierty/view/{{$item->propiertiy_id}}">{!!$texto!!}</a> 
                                           </div>
-                                          <div class="sc_property_title_address_2">{{$item->adress}}</div>
+                                          <div class="sc_property_title_address_2" style="height:40px">{{$item->adress}}</div>
                                        </div>
                                        <div class="cL"></div>
                                     </div>
@@ -353,6 +356,26 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                   @endif
                                 @endforeach
                               </select>
+                              <select name="zona" value="{{$zona}}" style="border-color: white">
+                                <option value="0">Seleccione una zona</option>
+                                @foreach($zonas as $item)
+                                  @if($zona == $item->zone_id)
+                                    <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endif
+                                @endforeach
+                              </select>
+                              <select name="zona" value="{{$zona}}" style="border-color: white">
+                                <option value="0">Seleccione una zona</option>
+                                @foreach($zonas as $item)
+                                  @if($zona == $item->zone_id)
+                                    <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
+                                  @else
+                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endif
+                                @endforeach
+                              </select>
                               
                               <select name="tipo_inmueble" value="{{$tipo_inmueble}}" style="border-color: white">
                                 @if($tipo_inmueble == 'apartamento')
@@ -381,13 +404,14 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                   <option value="cualquiera">Cualquiera</option>
                                 @endif
                               </select>
+                              
+                              <div class="ps_area ps_range_slider" style="color: white!important">
+                                 Precio minimo:
+                                  <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
+                              </div>
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio maximo:
                                   <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
-                              </div>
-                               <div class="ps_area ps_range_slider" style="color: white!important">
-                                 Precio minimo:
-                                  <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>

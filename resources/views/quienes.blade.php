@@ -89,7 +89,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                          
                         </div>
                         <div class="column-1_2">
-                           <figure class="sc_image"><img src="{{$imagen_random}}" style="border-radius: 20px" /></figure>
+                           <figure class="sc_image"><img src="{{$imagen_random}}" style="border-radius: 20px;object-fit: cover" /></figure>
                         </div>
                      </div>
                   </div>
@@ -120,7 +120,7 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width: 280px;height: 405px!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width: 280px;height: 405px!important;object-fit: cover">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>
@@ -130,10 +130,12 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                                              <div class="sc_socials_item"><a href="mailto:{{ $item->email }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
-                                             <button style="background-color: #11264e">Propiedades</button>
+                                             
                                           </div>
                                        </center>
                                     </div>
+                                    <center><button style="background-color: #11264e">Propiedades</button></center>
+                                    <br>
                                  </div>
                               </div>
                               @endforeach

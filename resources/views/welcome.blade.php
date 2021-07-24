@@ -306,7 +306,7 @@ if($buscar_imagen_4){
                       <center>
                         <video style="width: 80%;height: 600px"  muted controls autoplay="true" id="vid">
                             <source src="{{$url}}" type="video/mp4">
-                              Su navegador no soporta la etiqueta de vídeo.  
+                              Su navegador no soporta reproductor de video.
                         </video>
                       </center>
                   </div>
