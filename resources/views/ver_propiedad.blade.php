@@ -325,7 +325,7 @@ img.hover-shadow {
                           @php
                             $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->description)
                           @endphp
-                          <p>{!!nuevo_texto!!}</p>
+                          <p>{!!$nuevo_texto!!}</p>
                           <table style="border:none" border="0">
                             <tbody>
                               <tr style="border:none">
