@@ -16,6 +16,8 @@ if($config){
       $datos_propiedad = Property::where('propiertiy_id',$propiedad_principal)->first();
     }
     $capsula = $config->capsula;
+   $a = '/'.$capsula;
+    $url =  asset($a);
     $texto = $config->texto;
     $titulo = $config->titulo;
 }else{
@@ -25,7 +27,6 @@ if($config){
     $texto = '';
     $titulo = '';
 }
-
 
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
 $asociats    = User::where('status',1)->get();
@@ -266,7 +267,7 @@ if($buscar_imagen_4){
                                   <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
                               </div>
                               <div class="sc_ps_submit" style="text-align: left;">
-                                    <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE">
+                                    <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE;margin-top:0px">
                               </div>
                            </form>
                         </div>
@@ -355,7 +356,7 @@ if($buscar_imagen_4){
                            {{$texto}}
                         </h3>
                         <video height="400px" controls style="margin-bottom: 50px">
-                            <source src="{{$capsula}}" type="video/mp4">
+                            <source src="{{$url}}" type="video/mp4">
                         </video>
                      </center>
                   </div>
@@ -396,7 +397,7 @@ if($buscar_imagen_4){
                                              <span class="icon-location"></span>
                                           </div>
                                           <div class="sc_property_title" style="color:white">
-                                             <div class="sc_property_title_address_1" style="height: 84px">
+                                             <div class="sc_property_title_address_1" >
                                                 <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}" style="text-transform: uppercase;color: white">{!!$datos_propiedad->title!!}</a>
                                              </div>
                                              @if(strlen($datos_propiedad->adress) > 0)
@@ -454,13 +455,13 @@ if($buscar_imagen_4){
                                              <span class="icon-location"></span>
                                           </div>
                                           <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1" style="height: 84px">
+                                             <div class="sc_property_title_address_1" style="height:84px">
                                                 <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{!!$item->title!!}</a>
                                              </div>
                                              @if(strlen($item->adress) > 0)
-                                                <div class="sc_property_title_address_2">{{$item->adress}}</div>
+                                                <div class="sc_property_title_address_2" style="height:84px">{{$item->adress}}</div>
                                              @else
-                                                <div class="sc_property_title_address_2">Sin direccion</div>
+                                                <div class="sc_property_title_address_2" style="height:84px">Sin direccion</div>
                                              @endif
                                           </div>
                                           <div class="cL"></div>
@@ -504,7 +505,7 @@ if($buscar_imagen_4){
                               </h6></center>
                                  <div class="sc_team_item" style="background-color: white">
                                     <div class="sc_team_item_avatar">
-                                       <img alt="" src="{{asset($item->picture)}}" style="width:280px!important;height: 405px!important">
+                                       <img alt="" src="{{asset($item->picture)}}" style="width:280px!important;height: 405px!important;object-fit:cover;">
                                     </div>
                                     <div class="sc_team_item_info">
                                        <center>

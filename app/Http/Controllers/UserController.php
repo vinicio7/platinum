@@ -48,9 +48,8 @@ class UserController extends Controller
                 $urlVideo = '';
                    if ($request->hasFile('capsula')) {
                             $archivo = $request->file('capsula');
-                            $nombre_archivo = time() . '-' . preg_replace('/\s+/', '', explode('.', $archivo->getClientOriginalName())[0])
-                                . '.' .  $archivo->getClientOriginalExtension();
-                            Storage::disk('landing')->put($nombre_archivo, File::get($archivo));
+                            $nombre_archivo = 'capsula'. '.' .  $archivo->getClientOriginalExtension();
+                            Storage::disk('local')->put($nombre_archivo, File::get($archivo));
                             $urlVideo = $nombre_archivo;
                         }
 
