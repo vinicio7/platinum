@@ -491,7 +491,7 @@ img.hover-shadow {
                               </div>
                               @endif
                              </ul>
-                             @if($test->youtube !- '' && $test->youtube != null)
+                             @if($test->youtube != '' && $test->youtube != null)
                              <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
                              <iframe width="634" height="155" src="{{$test->youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                              @endif
