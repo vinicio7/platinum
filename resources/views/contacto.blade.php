@@ -104,7 +104,7 @@
             </div>
           </div>
           <div class="sc_section bg_color_1">
-            <div class="columns_wrap sc_columns">
+            <div class="columns_wrap sc_columns" style="background-color: white"> <br><br><br><br>
               <div class="column-1_2 sc_column_item">
                
               </div>

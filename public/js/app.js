@@ -4454,7 +4454,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       lavavajillas: '',
       ambientes: '',
       terreno: '',
-      consturccion: '',
+      construccion: '',
       frente: '',
       fondo: '',
       ano_construccion: '',
@@ -67003,7 +67003,7 @@ var render = function() {
                               },
                               [
                                 _c("div", { staticClass: "col-sm-12" }, [
-                                  _c("h2", [_vm._v("description")])
+                                  _c("h2", [_vm._v("Descripcion")])
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-3" }, [
@@ -67040,19 +67040,19 @@ var render = function() {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.consturccion,
-                                        expression: "consturccion"
+                                        value: _vm.construccion,
+                                        expression: "construccion"
                                       }
                                     ],
                                     staticClass: "form-control",
                                     attrs: { type: "text" },
-                                    domProps: { value: _vm.consturccion },
+                                    domProps: { value: _vm.construccion },
                                     on: {
                                       input: function($event) {
                                         if ($event.target.composing) {
                                           return
                                         }
-                                        _vm.consturccion = $event.target.value
+                                        _vm.construccion = $event.target.value
                                       }
                                     }
                                   })

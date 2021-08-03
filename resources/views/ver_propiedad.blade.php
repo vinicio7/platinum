@@ -272,11 +272,11 @@ img.hover-shadow {
               </div>
               <div class="page_content_wrap">
                <div class="content_wrap">
-                  <div class="content" style="margin-top: 100px">
+                  <div class="content" style="margin-top: 20px">
                       @php
                         $texto =  strip_tags($test->title)  
                       @endphp
-                    <h3 class="post_title" style="text-transform: uppercase;">{!!$texto!!}</h3>
+                    <h3 class="post_title" style="text-transform: uppercase;height: 2em">{!!$texto!!}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
                            <a class="" title="{{$test->title}}">
@@ -286,7 +286,7 @@ img.hover-shadow {
                               <span class="ps_single_status">Renta</span>
                             @endif
                            
-                           <img alt="" src="{{$imagen}}" style="margin-bottom: 10px"></a>
+                           <img alt="" src="{{$imagen}}" style="margin-bottom: 20px"></a>
                            <div class="row">
                             @foreach($imagenes as $item)
                               @if($contador3 <= 3)
@@ -315,7 +315,7 @@ img.hover-shadow {
                                           
                                        </div>
                                       <div class="sc_property_info_list" style="align-content: rigth">
-                                          <span class="icon-area_2" style="display: inline-block;font-size: 20px">{{$test->build_mts}} mts</span>
+                                          <span class="icon-area_2" style="display: inline-block;font-size: 20px">{{$test->land_vrs}} mts</span>
                                           <span class="icon-bed" style="display: inline-block;font-size: 20px">{{$test->rooms}}</span>
                                           <span class="icon-bath" style="display: inline-block;font-size: 20px">{{$test->bathrooms}}</span>
                                           <span class="icon-warehouse" style="display: inline-block;font-size: 20px">{{$test->parking}}</span>
@@ -329,37 +329,59 @@ img.hover-shadow {
                           <table style="border:none" border="0">
                             <tbody>
                               <tr style="border:none">
-                                <td style="font-weight: bold;text-transform: uppercase;border: none">Construccion</td>
-                                <td style="border: none">{{$test->build_mts}} mts2</td>
-                                <td style="font-weight: bold;text-transform: uppercase;border: none">Frente</td>
-                                 <td style="border: none">{{$test->front_mts}} mts2</td>
+                                @if($test->build_mts > 0)
+                                  <td style="font-weight: bold;text-transform: uppercase;border: none">Construccion</td>
+                                  <td style="border: none">{{$test->build_mts}} mts2</td>
+                                @endif
+                                @if($test->front_mts)
+                                  <td style="font-weight: bold;text-transform: uppercase;border: none">Frente</td>
+                                  <td style="border: none">{{$test->front_mts}} mts2</td>
+                                @endif
                               </tr>
                               <tr>
+                                @if($test->bottom_mts > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Fondo</td>
-                                 <td style="border: none">{{$test->bottom_mts}} mts2</td>
+                                <td style="border: none">{{$test->bottom_mts}} mts2</td>
+                                @endif
+                                @if($test->build_year > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Año de construccion</td>
-                                 <td style="border: none">{{$test->build_year}} mts2</td>
+                                <td style="border: none">{{$test->build_year}}</td>
+                                @endif
                               </tr>
                               <tr>
+                                @if($test->levels > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Niveles</td>
-                                 <td style="border: none">{{$test->levels}} </td>
+                                <td style="border: none">{{$test->levels}} </td>
+                                @endif
+                                @if($test->rooms > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios</td>
-                                 <td style="border: none">{{$test->rooms}}</td>
+                                <td style="border: none">{{$test->rooms}}</td>
+                                @endif
                               </tr>
                               <tr>
+                                @if($test->bathrooms > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Baños</td>
-                                 <td style="border: none">{{$test->bathrooms}} </td>
+                                <td style="border: none">{{$test->bathrooms}} </td>
+                                @endif
+                                @if($test->rooms_service > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios de servicio</td>
-                                 <td style="border: none">{{$test->rooms_service}}</td>
+                                <td style="border: none">{{$test->rooms_service}}</td>
+                                @endif
                               </tr>
                               <tr>
+                                @if($test->bathrooms_service > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Baños de servicio</td>
-                                 <td style="border: none">{{$test->bathrooms_service}}</td>
+                                <td style="border: none">{{$test->bathrooms_service}}</td>
+                                @endif
                               </tr>
                             </tbody>
                           </table>
                         <div class="sc_section">
+                          @if($test->cabin == 1 || $test->gym == 1 || $test->kids_area == 1 || $test->daycare == 1 || $test->sauna_shared == 1 || $test->floor_shared == 1 || $test->social_area == 1 
+                          || $test->spa == 1 || $test->floor_shared == 1 || $test->pet_area == 1 || $test->beauty_salon == 1 || $test->plant_phone == 1 || $test->plant_phone == 1 
+                          || $test->parking_visit == 1 || $test->court == 1 || $test->ribbon == 1 )
                            <h4 class="sc_title" style="font-weight: bold">Caracteristicas &amp; Amenidades</h4>
+                          @endif
                            <div class="columns_wrap ">
                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
                               @if($test->cabin == 1)
@@ -501,7 +523,7 @@ img.hover-shadow {
                            </div>
                      </section>
                   </div>
-                  <div class="sidebar widget_area scheme_original" style="margin-top: 220px">
+                  <div class="sidebar widget_area scheme_original" style="margin-top: 8.3em">
                      <div class="sidebar_inner widget_area_inner">
                         <aside class="widget widget_property_search scheme_dark" style="color:white;">
                            <form method="get" action="propiedades_post">

@@ -4,7 +4,7 @@ use App\Models\Property;
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
 $asociats    = User::where('status',1)->get();
 $nombre      = 'todos';
-$numero      = rand(1,2);
+$numero      = rand(3,3);
 if ($numero == 2){
 $nombre = $nombre."2";
 }

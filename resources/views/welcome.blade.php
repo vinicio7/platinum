@@ -94,7 +94,7 @@ if($propiedades[3]->sale_usd > 0){
 }
 $direccion_4   = $propiedades[3]->adress;
 $descripcion_4 = $propiedades[3]->description;
-$metros_4      = $propiedades[3]->build_mts;
+$metros_4      = $propiedades[3]->land_vrs;
 $dormitorios_4 = $propiedades[3]->rooms;
 $parqueos_4    = $propiedades[3]->parking;
 $banos_4       = $propiedades[3]->bathrooms;
@@ -102,6 +102,62 @@ $buscar_imagen_4    = Images::where('propierty_id',$propiedades[3]->propiertiy_i
 if($buscar_imagen_4){
    $imagen_4 = $buscar_imagen_4->path;
 }
+
+
+header('Access-Control-Allow-Origin: *');
+$tablet_browser = 0;
+$mobile_browser = 0;
+$body_class = 'desktop';
+ 
+if (preg_match('/(tablet|ipad|playbook)|(android(?!.*(mobi|opera mini)))/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
+    $tablet_browser++;
+    $body_class = "tablet";
+}
+ 
+if (preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android|iemobile)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
+    $mobile_browser++;
+    $body_class = "mobile";
+}
+ 
+if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']),'application/vnd.wap.xhtml+xml') > 0) or ((isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
+    $mobile_browser++;
+    $body_class = "mobile";
+}
+ 
+$mobile_ua = strtolower(substr($_SERVER['HTTP_USER_AGENT'], 0, 4));
+$mobile_agents = array(
+    'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
+    'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
+    'ipaq','java','jigs','kddi','keji','leno','lg-c','lg-d','lg-g','lge-',
+    'maui','maxo','midp','mits','mmef','mobi','mot-','moto','mwbp','nec-',
+    'newt','noki','palm','pana','pant','phil','play','port','prox',
+    'qwap','sage','sams','sany','sch-','sec-','send','seri','sgh-','shar',
+    'sie-','siem','smal','smar','sony','sph-','symb','t-mo','teli','tim-',
+    'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
+    'wapr','webc','winw','winw','xda ','xda-');
+ 
+if (in_array($mobile_ua,$mobile_agents)) {
+    $mobile_browser++;
+}
+ 
+if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'opera mini') > 0) {
+    $mobile_browser++;
+    //Check for tablets on opera mini alternative headers
+    $stock_ua = strtolower(isset($_SERVER['HTTP_X_OPERAMINI_PHONE_UA'])?$_SERVER['HTTP_X_OPERAMINI_PHONE_UA']:(isset($_SERVER['HTTP_DEVICE_STOCK_UA'])?$_SERVER['HTTP_DEVICE_STOCK_UA']:''));
+    if (preg_match('/(tablet|ipad|playbook)|(android(?!.*mobile))/i', $stock_ua)) {
+      $tablet_browser++;
+    }
+}
+if ($tablet_browser > 0) {
+   $browser = 1;
+}
+else if ($mobile_browser > 0) {
+   $browser = 2;
+}
+else {
+   $browser = 3;
+}  
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
@@ -292,21 +348,27 @@ if($buscar_imagen_4){
             <div class="page_content_wrap page_paddings_no">
                @if($test > 0)
                   @if($test == 1)
-                  <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important">
+                  <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important;">
                       <center>
-                        <div style="width:100%;height: auto;margin-top: 10px">
-                          <h3 style="color:white;font-family: 'Gotham';font-size: 4vw; ">{{$titulo}}</h3>
-                        </div>
+                        @if($browser == 1 || $browser == 2)
+                          <div style="width:75%;height: auto;margin-top: 10px">
+                            <h3 style="color:white;font-family: 'Gotham';font-size: 3.8vw; ">{{$titulo}}</h3>
+                          </div>
+                        @else
+                         <div style="width:75%;height: auto;margin-top: 10px">
+                            <h3 style="color:white;font-family: 'Gotham';font-size: 3.0vw; ">{{$titulo}}</h3>
+                          </div>
+                        @endif
                       </center>
                       <center>
-                        <div style="width:100%">
-                        <h3 style="color:white;font-family: 'Gotham';font-weight: lighter;font-size: 3vw">
-                           {{$texto}}
-                         </h3>
-                       </div>
+                        @if($browser == 1 || $browser == 2)
+                        <div style="width:75%"><h3 style="color:white;font-family: 'Gotham';font-weight: lighter;font-size: 3vw"><center>{{$texto}}</center></h3></div>
+                        @else
+                         <div style="width:75%"><h3 style="color:white;font-family: 'Gotham';font-weight: lighter;font-size: 1.8vw"><center>{{$texto}}</center></h3></div>
+                        @endif
                       </center>
                       <center>
-                        <video style="width: 80%;height: 600px"  muted controls autoplay="true" id="vid">
+                        <video style="width: 40em%;height: 40em;margin-bottom: 3em"  muted controls autoplay="true" id="vid">
                             <source src="{{$url}}" type="video/mp4">
                               Su navegador no soporta reproductor de video.
                         </video>
@@ -362,7 +424,7 @@ if($buscar_imagen_4){
                                        </div>
                                     </div>
                                     <div class="sc_property_info_list" style="color:white">
-                                       <span style="display:inline-block" class="icon-building113">{{$datos_propiedad->build_mts}} mts</span><span style="display:inline-block" class="icon-bed">{{$datos_propiedad->rooms}}</span><span style="display:inline-block" class="icon-bath">{{$datos_propiedad->bathrooms}}</span><span style="display:inline-block" class="icon-warehouse">{{$datos_propiedad->parking}}</span>
+                                       <span style="display:inline-block" class="icon-building113">{{$datos_propiedad->land_vrs}} mts</span><span style="display:inline-block" class="icon-bed">{{$datos_propiedad->rooms}}</span><span style="display:inline-block" class="icon-bath">{{$datos_propiedad->bathrooms}}</span><span style="display:inline-block" class="icon-warehouse">{{$datos_propiedad->parking}}</span>
                                     </div>
                                  </div>
                               </div>
@@ -392,7 +454,7 @@ if($buscar_imagen_4){
                                              $imagen = ''; 
                                           }
                                           ?>
-                                          <img alt="" style="width: 400px;height: 300px;object-fit:cover;" src="{{$imagen}}">
+                                          <img alt="" style="width: 30em;height: 20em;object-fit:cover;" src="{{$imagen}}">
                                           
                                        </a>
                                     </div>
@@ -407,23 +469,23 @@ if($buscar_imagen_4){
                                              <span class="icon-location"></span>
                                           </div>
                                           <div class="sc_property_title">
-                                             <div class="sc_property_title_address_1" style="height:84px">
+                                             <div class="sc_property_title_address_1" style="height:auto">
                                               @php
                                               $texto =  strip_tags($item->title)  
                                               @endphp
                                                 <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{!!$texto!!}</a>
                                              </div>
                                              @if(strlen($item->adress) > 0)
-                                                <div class="sc_property_title_address_2" style="height:40px">{{$item->adress}}</div>
+                                                <div class="sc_property_title_address_2" style="height:auto">{{$item->adress}}</div>
                                              @else
-                                                <div class="sc_property_title_address_2" style="height:40px">Sin direccion</div>
+                                                <div class="sc_property_title_address_2" style="height:auto">Sin direccion</div>
                                              @endif
                                           </div>
                                           <div class="cL"></div>
                                        </div>
                                     </div>
                                     <div class="sc_property_info_list">
-                                       <span style="display:inline-block" class="icon-building113">{{$item->build_mts}} mts</span><span style="display:inline-block" class="icon-bed">{{$item->rooms}}</span><span style="display:inline-block" class="icon-bath">{{$item->bathrooms}}</span><span style="display:inline-block" class="icon-warehouse">{{$item->parking}}</span>
+                                       <span style="display:inline-block" class="icon-building113">{{$item->land_vrs}} mts</span><span style="display:inline-block" class="icon-bed">{{$item->rooms}}</span><span style="display:inline-block" class="icon-bath">{{$item->bathrooms}}</span><span style="display:inline-block" class="icon-warehouse">{{$item->parking}}</span>
                                     </div>
                                  </div>
                               </div>

@@ -4,19 +4,21 @@
 
 @section('content')
 <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
-<header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000">
+ <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed; top: 0;z-index: 99999;width: 100%">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
-                        <div class="top_panel_logo">
+                     <div class="content_wrap clearfix container_header" >
+                        <div class="top_panel_logo" style="margin-right: 0px">
                            <div class="logo">
                               <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
-                        <div class="top_panel_menu">
-                           <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
+                        <div class="top_panel_menu container_logo_right">
+                           <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
-                        <div class="top_panel_menu" style="margin-top: 50px;">
+                          <br>
+                        <br>
+                        <div class="top_panel_menu container_menu">
                            <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
@@ -108,13 +110,13 @@ span.psw {
   <section class="slider_wrap" style="margin-top:60px">
     <div class="page_wrap">
         <div class="container">
-                <div class="rev_slider_wrapper" style="margin-top:60px;margin-bottom: 180px">
+                <div class="rev_slider_wrapper" style="margin-top:80px;margin-bottom: 180px">
                   <b><h2 style="color:#11264e !important;font-size: 1.2rem; text-transform: uppercase;letter-spacing: 0.15rem;">SITIO ADMINISTRATIVO</h2>
                     </b>       
                      <a href="{{ route('home') }}" class="sign__logo">
-                                <img src="image/simple.png" alt="" style="width: 15%">
+                                <img src="image/simple.png" alt="" style="width: 10em">
                             </a> 
-                    <div class="" style="width: 25%;border-color: white">
+                    <div class="" style=";border-color: white">
                         <script>
 
                           @if(Session::has('success'))
@@ -136,21 +138,21 @@ span.psw {
                                 toastr.error("{{ Session::get('error') }}");
                           @endif
                         </script>
-                        <form method="POST" action="{{ route('login') }}" class="" autocomplete="new-password">
+                        <form method="POST" action="{{ route('login') }}" class="left" autocomplete="new-password">
                             {{ csrf_field() }}
 
                             <span> {{ Session::has('error') }}</span>
-                            <div class="">
-                                <input type="text" class="sign__input" placeholder="Usuario" id="user" name="user" autocomplete="new-password">
+                            <div class="" style="width: 20em">
+                                <input type="text" class="sign__input" placeholder="Usuario" id="user" name="user" autocomplete="new-password" >
                             </div>
 
                             <div class="">
-                                <input type="password" class="sign__input" placeholder="Contraseña" id="password" name="password" autocomplete="new-password">
+                                <input type="password" class="sign__input" placeholder="Contraseña" id="password" name="password" autocomplete="new-password" style="width: 20em">
                             </div>
 
                             
-                            <button class="sign__btn" type="submit" style="background-color: #11264e">Iniciar sesión</button>
-                            <span class="sign__text"><a href="forgot.html">Olvido su contraseña?</a></span>
+                            <button class="sign__btn" type="submit" style="background-color: #11264e;width: 20em">Iniciar sesión</button>
+                            <span class="sign__text"><a href="forgot.html" style="width: 20em">Olvido su contraseña?</a></span>
                         </form>
                     </div>
                 </div>

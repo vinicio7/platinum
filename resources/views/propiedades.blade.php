@@ -218,20 +218,22 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
       <div class="body_wrap">
          <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000;width: 100%;">
+            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed; top: 0;z-index: 99999;width: 100%">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
-                        <div class="top_panel_logo">
+                     <div class="content_wrap clearfix container_header" >
+                        <div class="top_panel_logo" style="margin-right: 0px">
                            <div class="logo">
                               <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
-                        <div class="top_panel_menu">
-                            <a href="/"><img src="/images/plecka.png"  style="width:100px;margin-left: 0px;margin-right: 20px;margin-top: 15px"></a>
+                        <div class="top_panel_menu container_logo_right">
+                           <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
-                        <div class="top_panel_menu" style="margin-top: 50px;">
-                          <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
+                          <br>
+                        <br>
+                        <div class="top_panel_menu container_menu">
+                           <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
                            <nav class="menu_main_nav_area">
                               <ul id="menu_main" class="menu_main_nav">
                                 <li class="menu-item"><a href="/">INICIO</a></li>
@@ -246,7 +248,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                   </div>
                </div>
             </header>
-            <div class="page_content_wrap">
+            <div class="page_content_wrap page_paddings_top" style="position: relative; top: 50px;">
                <div class="content_wrap" style="margin-top: 100px">
                   <div class="content">
                      <div class="sc_property sc_property_style_property-1">
@@ -271,7 +273,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                           <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
                                         @endif
                                        </div>
-                                       <img alt="" style="width: 400px;height: 300px;object-fit: cover;" src="{{$imagen}}">
+                                       <img alt="" style="width: 30em;height: 20em;object-fit: cover;" src="{{$imagen}}">
                                     </a>
                                  </div>
                                  <div class="sc_property_info">
@@ -292,13 +294,13 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                           <div class="sc_property_title_address_1">
                                              <a href="/propierty/view/{{$item->propiertiy_id}}">{!!$texto!!}</a> 
                                           </div>
-                                          <div class="sc_property_title_address_2" style="height:40px">{{$item->adress}}</div>
+                                          <div class="sc_property_title_address_2" style="height:auto">{{$item->adress}}</div>
                                        </div>
                                        <div class="cL"></div>
                                     </div>
                                  </div>
                                  <div class="sc_property_info_list">
-                                    <span class="icon-building113" style="display: inline-block;">{{$item->build_mts}} mts</span>
+                                    <span class="icon-building113" style="display: inline-block;">{{$item->land_vrs}} mts</span>
                                     <span class="icon-bed" style="display: inline-block;">{{$item->rooms}}</span>
                                     <span class="icon-bath" style="display: inline-block;">{{$item->bathrooms}}</span>
                                     <span class="icon-warehouse" style="display: inline-block;">{{$item->parking}}</span>

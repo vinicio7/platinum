@@ -420,14 +420,14 @@
                             </tab-content>
                             <tab-content :key="1" :title="titulo_2" :icon="getIcon('geoposicion')">
                               <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
-                                <div class="col-sm-12"><h2>description</h2></div>
+                                <div class="col-sm-12"><h2>Descripcion</h2></div>
                                 <div class="col-sm-3" >
                                         <label>Terreno</label>
                                         <input type="text" class="form-control" v-model="terreno" />
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Construccion</label>
-                                        <input type="text" class="form-control" v-model="consturccion" />
+                                        <input type="text" class="form-control" v-model="construccion" />
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Frente</label>
@@ -1281,7 +1281,7 @@
                 lavavajillas:'',
                 ambientes:'',
                 terreno:'',
-                consturccion:'',
+                construccion:'',
                 frente:'',
                 fondo:'',
                 ano_construccion:'',
