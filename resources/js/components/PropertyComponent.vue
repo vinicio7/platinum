@@ -133,7 +133,7 @@
                                     <div class="col-sm-3" >
                                         <label>Tipo</label>
                                             <select v-model="tipo" class="form-control">
-                                              <option disabled value="0">Seleccione una opcion</option>
+                                              <option disabled value="0">Seleccione una opción</option>
                                               <option value="1">Casas</option>
                                               <option value="2">Apartamentos</option>
                                               <option value="3">Oficinas</option>
@@ -155,10 +155,12 @@
                                                 <span slot="no-options"> No se encontro la busqueda</span>
                                         </v-select>
                                     </div>
+                                  </div>
+                                  <div class="row">
                                      <div class="col-sm-3" >
                                         <label>Pais</label>
                                         <select v-model="pais" class="form-control">
-                                              <option disabled value="0">Seleccione una opcion</option>
+                                              <option disabled value="0">Seleccione una opción</option>
                                               <option value="1">Guatemala</option>
                                               <option value="2">El Salvador</option>
                                               <option value="3">Honduras</option>
@@ -192,18 +194,14 @@
                                                 <span slot="no-options"> No se encontro la busqueda</span>
                                         </v-select>
                                     </div>
+                                  </div>
+                                  <div class="row">
                                     <div class="col-sm-3" >
-                                        <label>Region</label>
-                                        <v-select v-model="region"
-                                                :value.sync="region.region_id"
-                                                :options="regiones" :getOptionLabel="region => region.name">
-                                                <span slot="no-options"> No se encontro la busqueda</span>
-                                        </v-select>
-                                    </div>
-                                    <div class="col-sm-3" >
-                                        <label>Direccion</label>
+                                        <label>Dirección</label>
                                         <input type="text" class="form-control" v-model="direccion" />
                                     </div>
+                                  </div>
+                                  <div class="row">
                                     <div class="col-sm-3" >
                                         <label>Precio de venta (Q.)</label>
                                         <input type="number" class="form-control" v-model="precio_venta_quetzales" v-on:keyup="cambio_venta_gtq"/>
@@ -216,6 +214,8 @@
                                         <label>Honorarios venta (%)</label>
                                         <input type="number" class="form-control" v-model="honorarios_venta" />
                                     </div>
+                                  </div>
+                                  <div class="row">
                                     <div class="col-sm-3" >
                                         <label>Precio de renta (Q.)</label>
                                         <input type="number" class="form-control" v-model="precio_renta_quetzales" v-on:keyup="cambio_renta_gtq" />
@@ -228,10 +228,12 @@
                                         <label>Honorarios renta (%)</label>
                                         <input type="number" class="form-control" v-model="honorarios_renta" />
                                     </div>
+                                  </div>
+                                  <div class="row">
                                     <div class="col-sm-3" >
                                         <label>Financiamiento</label>
                                         <select v-model="financiamiento" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -239,7 +241,7 @@
                                     <div class="col-sm-3" >
                                         <label>Canje</label>
                                         <select v-model="canje" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -251,7 +253,7 @@
                                     <div class="col-sm-3" >
                                         <label>Datos de contacto para visita</label>
                                         <select v-model="contacto_visita" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -259,7 +261,7 @@
                                     <div class="col-sm-3" >
                                         <label>Cuota de mantenimiento</label>
                                         <select v-model="cuota_mantenimiento" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -267,15 +269,17 @@
                                     <div class="col-sm-3" >
                                         <label>Servicios</label>
                                         <select v-model="servicios" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
+                                  </div>
+                                  <div class="row">
                                     <div class="col-sm-3" >
-                                        <label>Publicacion en redes</label>
+                                        <label>Publicación en redes</label>
                                         <select v-model="publicacion_redes" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -283,7 +287,7 @@
                                     <div class="col-sm-3" >
                                         <label>Exclusividad</label>
                                         <select v-model="exclusividad" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -291,10 +295,22 @@
                                     <div class="col-sm-3" >
                                         <label>Compartida</label>
                                         <select v-model="compartida" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
+                                    </div>
+                                    <div class="col-sm-3" >
+                                        <label>Asesor externo</label>
+                                        <input type="text" class="form-control" v-model="asesor_externo" />
+                                    </div>
+                                    <div class="col-sm-3" >
+                                        <label>Empresa</label>
+                                        <input type="text" class="form-control" v-model="empresa_externa" />
+                                    </div>
+                                    <div class="col-sm-3" >
+                                        <label>Porcentaje</label>
+                                        <input type="text" class="form-control" v-model="porcentaje_externa" />
                                     </div>
                                 </div>
                                 <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;"  v-if="contacto_visita == 1">
@@ -308,7 +324,7 @@
                                         <input type="number" class="form-control" v-model="celular_visita" />
                                     </div>
                                     <div class="col-sm-3">
-                                        <label>Telefono</label>
+                                        <label>Teléfono</label>
                                         <input type="number" class="form-control" v-model="telefono_visita" />
                                     </div>
                                     <div class="col-sm-3">
@@ -356,7 +372,7 @@
                                     <div class="col-sm-3">
                                         <label>Incluido en cuota mensual</label>
                                         <select v-model="incluid_mensual" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -364,7 +380,7 @@
                                     <div class="col-sm-3">
                                         <label>Agua</label>
                                         <select v-model="agua" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -372,7 +388,7 @@
                                     <div class="col-sm-3">
                                         <label>Seguridad</label>
                                         <select v-model="seguridad" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -380,7 +396,7 @@
                                     <div class="col-sm-3">
                                         <label>Limpieza areas comunes</label>
                                         <select v-model="limpieza_areas" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -388,15 +404,15 @@
                                     <div class="col-sm-3">
                                         <label>Luz</label>
                                         <select v-model="luz" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-3">
-                                        <label>Extraccion de basura</label>
+                                        <label>Extracción de basura</label>
                                         <select v-model="extraccion" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -420,13 +436,13 @@
                             </tab-content>
                             <tab-content :key="1" :title="titulo_2" :icon="getIcon('geoposicion')">
                               <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
-                                <div class="col-sm-12"><h2>Descripcion</h2></div>
+                                <div class="col-sm-12"><h2>Descripción</h2></div>
                                 <div class="col-sm-3" >
                                         <label>Terreno</label>
                                         <input type="text" class="form-control" v-model="terreno" />
                                     </div>
                                     <div class="col-sm-3" >
-                                        <label>Construccion</label>
+                                        <label>Construcción</label>
                                         <input type="text" class="form-control" v-model="construccion" />
                                     </div>
                                     <div class="col-sm-3" >
@@ -438,7 +454,7 @@
                                         <input type="text" class="form-control" v-model="fondo" />
                                     </div>
                                     <div class="col-sm-3" >
-                                        <label>Año de construccion</label>
+                                        <label>Año de construcción</label>
                                         <input type="text" class="form-control" v-model="ano_construccion" />
                                     </div>
                                     <div class="col-sm-3" >
@@ -487,258 +503,258 @@
                               </div>
                               <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
                                 <div class="col-sm-12"><h2>Detalle</h2></div>
-                                <div class="col-sm-3">
-                                      <label>Porton</label>
+                                <div class="col-sm-4">
+                                      <label>Portón</label>
                                       <select v-model="porton" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Alacena</label>
                                       <select v-model="alacena" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Closet de Blancos</label>
                                       <select v-model="closet_blancos" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Jardin Frontal</label>
                                       <select v-model="jardin_frontal" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Despensa</label>
                                       <select v-model="despensa" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Tina</label>
                                       <select v-model="tina" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
-                                      <label>Jardin trasero</label>
+                                  <div class="col-sm-4">
+                                      <label>Jardín trasero</label>
                                       <select v-model="jardin_trasero" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Desayunador</label>
                                       <select v-model="desayunador" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Ducha</label>
                                       <select v-model="ducha" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
+                                  <div class="col-sm-4">
                                       <label>Baño de visita</label>
                                       <select v-model="bano_visita" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                       </select>
                                   </div>
-                                  <div class="col-sm-3">
-                                      <label>Lavanderia</label>
+                                  <div class="col-sm-4">
+                                      <label>Lavandería</label>
                                       <select v-model="lavanderia" class="form-control">
-                                            <option disabled value="">Seleccione una opcion</option>
+                                            <option disabled value="">Seleccione una opción</option>
                                             <option value="1">Si</option>
                                             <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Bidet</label>
                                     <select v-model="bidet" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Dormitorio de visitas</label>
                                     <select v-model="dormitorio_visita" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Patio</label>
                                     <select v-model="patio" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Jetina</label>
                                     <select v-model="jetina" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Estudio</label>
                                     <select v-model="estudio" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
-                                    <label>Pergola</label>
+                                <div class="col-sm-4">
+                                    <label>Pérgola</label>
                                     <select v-model="pergola" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Jacuzzi</label>
                                     <select v-model="jacuzzi" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Sala</label>
                                     <select v-model="sala" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Bodega</label>
                                     <select v-model="bodega" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Sauna</label>
                                     <select v-model="sauna" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Chimenea</label>
                                     <select v-model="chimenea" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
-                                    <label>Bodega de Jardin</label>
+                                <div class="col-sm-4">
+                                    <label>Bodega de Jardín</label>
                                     <select v-model="bodega_jardin" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
-                                    <label>Balcon</label>
+                                <div class="col-sm-4">
+                                    <label>Balcón</label>
                                     <select v-model="balcon" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Sala/Comedor</label>
                                     <select v-model="sala_comedor" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Sala Familiar</label>
                                     <select v-model="sala_familiar" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Terraza</label>
                                     <select v-model="terraza" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Comedor</label>
                                     <select v-model="comedor" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Walkin Closet</label>
                                     <select v-model="walkin_closet" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Churrasquera</label>
                                     <select v-model="churrasquera" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Cocina con gabinetes</label>
                                     <select v-model="cocina_gabinetes" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <label>Closet</label>
                                     <select v-model="closet" class="form-control">
-                                          <option disabled value="">Seleccione una opcion</option>
+                                          <option disabled value="">Seleccione una opción</option>
                                           <option value="1">Si</option>
                                           <option value="0">No</option>
                                     </select>
@@ -767,15 +783,15 @@
                                   <div class="col-sm-4">
                                         <label>Refrigeradora</label>
                                         <select v-model="refrigeradora" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-4">
-                                        <label>Lamparas</label>
+                                        <label>Lámparas</label>
                                         <select v-model="lamparas" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -783,7 +799,7 @@
                                     <div class="col-sm-4">
                                         <label>Aire acondicionado</label>
                                         <select v-model="aire_acondicionado" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -791,7 +807,7 @@
                                     <div class="col-sm-4">
                                         <label>Estufa</label>
                                         <select v-model="estufa" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -799,7 +815,7 @@
                                     <div class="col-sm-4">
                                         <label>Cortinas</label>
                                         <select v-model="cortinas" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -807,15 +823,15 @@
                                     <div class="col-sm-4">
                                         <label>Alarma</label>
                                         <select v-model="alarma" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-4">
-                                        <label>Estufa electrica</label>
+                                        <label>Estufa eléctrica</label>
                                         <select v-model="estufa_electrica" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -823,15 +839,15 @@
                                     <div class="col-sm-4">
                                         <label>Blackouts</label>
                                         <select v-model="blackouts" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-4">
-                                        <label>Camaras de seguridad</label>
+                                        <label>Cámaras de seguridad</label>
                                         <select v-model="camaras_seguridad" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -839,7 +855,7 @@
                                     <div class="col-sm-4">
                                         <label>Lavavajillas</label>
                                         <select v-model="lavavajillas" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -847,7 +863,7 @@
                                     <div class="col-sm-4">
                                         <label>Cortinas de baño</label>
                                         <select v-model="cortinas_bano" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -855,7 +871,7 @@
                                     <div class="col-sm-4">
                                         <label>Paneles solares</label>
                                         <select v-model="paneles_solares" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -863,7 +879,7 @@
                                     <div class="col-sm-4">
                                         <label>Campana</label>
                                         <select v-model="camapana" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -871,7 +887,7 @@
                                     <div class="col-sm-4">
                                         <label>Calentador de agua</label>
                                         <select v-model="calentador_agua" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -879,7 +895,7 @@
                                     <div class="col-sm-4">
                                         <label>Bomba y cisterna</label>
                                         <select v-model="bomba_cisterna" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -887,7 +903,7 @@
                                     <div class="col-sm-4">
                                         <label>Lavadora</label>
                                         <select v-model="lavadora" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -895,7 +911,7 @@
                                     <div class="col-sm-4">
                                         <label>Espejos de baño</label>
                                         <select v-model="espejo_bano" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -903,7 +919,7 @@
                                     <div class="col-sm-4">
                                         <label>Depositos de basura</label>
                                         <select v-model="deposito_basura" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -911,7 +927,7 @@
                                     <div class="col-sm-4">
                                         <label>Secadora</label>
                                         <select v-model="secadora" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -938,130 +954,130 @@
                             </tab-content>
                             <tab-content :key="2" :title="titulo_3" :icon="getIcon('tabla')">
                                <div class="row">
-                                 <div class="col-sm-3">
+                                 <div class="col-sm-4">
                                         <label>Garita</label>
                                         <select v-model="garita" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Gimnasio</label>
                                         <select v-model="gimnasio" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Juegos infantiles</label>
                                         <select v-model="juegos_infantiles" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Guardiania</label>
                                         <select v-model="guardiania" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Sauna</label>
                                         <select v-model="sauna" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Psicina</label>
                                         <select v-model="piscina" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <label>Area Social</label>
+                                    <div class="col-sm-4">
+                                        <label>Área Social</label>
                                         <select v-model="area_social" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>SPA</label>
                                         <select v-model="spa" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Acceso silla de ruedas</label>
                                         <select v-model="acceso_silla" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <label>Area para mascotas</label>
+                                    <div class="col-sm-4">
+                                        <label>Área para mascotas</label>
                                         <select v-model="area_mascotas" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <label>Salon de belleza</label>
+                                    <div class="col-sm-4">
+                                        <label>Salón de belleza</label>
                                         <select v-model="salon_belleza" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <label>Planta telefonica</label>
+                                    <div class="col-sm-4">
+                                        <label>Planta telefónica</label>
                                         <select v-model="planta_telefonica" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Parqueo visitas</label>
                                         <select v-model="parqueo_visitas" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Canchas deportivas</label>
                                         <select v-model="canchas_deportivas" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Razor ribbon</label>
                                         <select v-model="razor_ribbon" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <label>Bussines center</label>
                                         <select v-model="bussines_center" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -1086,7 +1102,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                  <label>Imagenes de propiedad</label>
+                                  <label>Imágenes de propiedad</label>
                                 </div>
                                 <div class="row">
                                    <vue-dropzone
@@ -1127,22 +1143,26 @@
                                     <label>Libro</label>
                                     <input type="number" class="form-control" v-model="libro" />
                                  </div>
+                               </div>
+                               <div class="row">
                                  <div class="col-sm-3">
-                                    <label>Inscrito en sociedad anonima</label>
+                                    <label>Inscrito en sociedad anónima</label>
                                     <select v-model="inscrito_sociedad_anonima" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                  </div>
                                  <div class="col-sm-3">
-                                    <label>Sociedad anonima</label>
+                                    <label>Sociedad anónima</label>
                                     <input type="text" class="form-control" v-model="sociedad_anonima" />
                                  </div>
+                               </div>
+                               <div class="row">
                                  <div class="col-sm-3">
                                     <label>Gravamen Hipotecario</label>
                                     <select v-model="gravamen_hipotecario" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
@@ -1159,30 +1179,34 @@
                                     <label>Nombre del banco</label>
                                     <input type="text" class="form-control" v-model="nombre_banco" />
                                  </div>
+                               </div>
+                               <div class="row">
                                  <div class="col-sm-3">
-                                    <label>Avaluo reciente</label>
+                                    <label>Avalúo reciente</label>
                                     <select v-model="avalui_reciente" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Si</option>
                                               <option value="0">No</option>
                                         </select>
                                  </div>
                                  <div class="col-sm-3">
-                                    <label>Valor del avaluo ($.)</label>
+                                    <label>Valor del avalúo ($.)</label>
                                     <input type="number" class="form-control" v-model="avaluo_dolares" />
                                  </div>
                                  <div class="col-sm-3">
-                                    <label>Valor del avaluo (Q.)</label>
+                                    <label>Valor del avalúo (Q.)</label>
                                     <input type="number" class="form-control" v-model="avaluo_quetzales" />
                                  </div>
                                   <div class="col-sm-3">
-                                    <label>Tipo de avaluo</label>
+                                    <label>Tipo de avalúo</label>
                                     <select v-model="tipo_avaluo" class="form-control">
-                                              <option disabled value="">Seleccione una opcion</option>
+                                              <option disabled value="">Seleccione una opción</option>
                                               <option value="1">Comercial</option>
                                               <option value="0">Bancario</option>
                                         </select>
                                  </div>
+                               </div>
+                               <div class="row">
                                  <div class="col-sm-3">
                                     <label>Timbres</label>
                                     <input type="number" class="form-control" v-model="timbres" />
@@ -1194,7 +1218,7 @@
                                </div>
                                <div class="row">
                                     <div class="col-sm-6">
-                                        <label>description de la propiedad</label>
+                                        <label>Descripción de la propiedad</label>
                                         <editor :init="{branding:false, plugins: [
                                                        'advlist autolink lists link image charmap print preview anchor',
                                                        'searchreplace visualblocks code fullscreen',
@@ -1295,75 +1319,75 @@
                 oficinas:'',
                 bodegas:'',
                 locales:'',
-                porton:'',
-                alacena:'',
-                closet_blancos:'',
-                jardin_frontal:'',
-                despensa:'',
-                tina:'',
-                jardin_trasero:'',
-                desayunador:'',
-                ducha:'',
-                bano_visita:'',
-                lavanderia:'',
-                bidet:'',
-                dormitorio_visita:'',
-                patio:'',
-                jetina:'',
-                estudio:'',
-                pergola:'',
-                jacuzzi:'',
-                sala:'',
-                bodega:'',
-                sauna:'',
-                chimenea:'',
-                bodega_jardin:'',
-                balcon:'',
-                sala_comedor:'',
-                sala_familiar:'',
-                terraza:'',
-                comedor:'',
-                walkin_closet:'',
-                churrasquera:'',
-                cocina_gabinetes:'',
-                closet:'',
-                otros_detalles:'',
-                refrigeradora:'',
-                lamparas:'',
-                aire_acondicionado:'',
-                estufa:'',
-                cortinas:'',
-                alarma:'',
-                estufa_electrica:'',
-                blackouts:'',
-                camaras_seguridad:'',
-                lavavajillas:'',
-                cortinas_bano:'',
-                paneles_solares:'',
-                camapana:'',
-                calentador_agua:'',
-                bomba_cisterna:'',
-                lavadora:'',
-                espejo_bano:'',
-                deposito_basura:'',
-                secadora:'',
-                otros_incluye:'',
-                garita:'',
-                gimnasio:'',
-                juegos_infantiles:'',
-                guardiania:'',
-                sauna:'',
-                piscina:'',
-                area_social:'',
-                spa:'',
-                acceso_silla:'',
-                area_mascotas:'',
-                salon_belleza:'',
-                planta_telefonica:'',
-                parqueo_visitas:'',
-                canchas_deportivas:'',
-                razor_ribbon:'',
-                bussines_center:'',
+                porton:0,
+                alacena:0,
+                closet_blancos:0,
+                jardin_frontal:0,
+                despensa:0,
+                tina:0,
+                jardin_trasero:0,
+                desayunador:0,
+                ducha:0,
+                bano_visita:0,
+                lavanderia:0,
+                bidet:0,
+                dormitorio_visita:0,
+                patio:0,
+                jetina:0,
+                estudio:0,
+                pergola:0,
+                jacuzzi:0,
+                sala:0,
+                bodega:0,
+                sauna:0,
+                chimenea:0,
+                bodega_jardin:0,
+                balcon:0,
+                sala_comedor:0,
+                sala_familiar:0,
+                terraza:0,
+                comedor:0,
+                walkin_closet:0,
+                churrasquera:0,
+                cocina_gabinetes:0,
+                closet:0,
+                otros_detalles:0,
+                refrigeradora:0,
+                lamparas:0,
+                aire_acondicionado:0,
+                estufa:0,
+                cortinas:0,
+                alarma:0,
+                estufa_electrica:0,
+                blackouts:0,
+                camaras_seguridad:0,
+                lavavajillas:0,
+                cortinas_bano:0,
+                paneles_solares:0,
+                camapana:0,
+                calentador_agua:0,
+                bomba_cisterna:0,
+                lavadora:0,
+                espejo_bano:0,
+                deposito_basura:0,
+                secadora:0,
+                otros_incluye:0,
+                garita:0,
+                gimnasio:0,
+                juegos_infantiles:0,
+                guardiania:0,
+                sauna:0,
+                piscina:0,
+                area_social:0,
+                spa:0,
+                acceso_silla:0,
+                area_mascotas:0,
+                salon_belleza:0,
+                planta_telefonica:0,
+                parqueo_visitas:0,
+                canchas_deportivas:0,
+                razor_ribbon:0,
+                bussines_center:0,
                 otras_amenidades:'',
                 description:'',
                 valor_registro_dolares:'',
@@ -1373,16 +1397,16 @@
                 folio:'',
                 finca:'',
                 libro:'',
-                inscrito_sociedad_anonima:'',
+                inscrito_sociedad_anonima:0,
                 sociedad_anonima:'',
-                gravamen_hipotecario:'',
+                gravamen_hipotecario:0,
                 gravamen_quetzales:'',
                 gravamen_dolares:'',
                 nombre_banco:'',
-                avalui_reciente:'',
+                avalui_reciente:0,
                 avaluo_dolares:'',
                 avaluo_quetzales:'',
-                tipo_avaluo:'',
+                tipo_avaluo:0,
                 timbres:'',
                 iva:'',
                 link_tour:'',
@@ -1394,17 +1418,17 @@
                 departamento:'',
                 municipio:'',
                 zona:'',
-                region:'',
+                region:1,
                 direccion:'',
-                financiamiento:1,
-                canje:'',
+                financiamiento:0,
+                canje:0,
                 especifique_canje:'',
-                contacto_visita:1,
-                cuota_mantenimiento:1,
-                servicios:1,
-                publicacion_redes:'',
-                exclusividad:'',
-                compartida:1,
+                contacto_visita:0,
+                cuota_mantenimiento:0,
+                servicios:0,
+                publicacion_redes:0,
+                exclusividad:0,
+                compartida:0,
                 nombre_visita:'',
                 telefono_visita:'',
                 celular_visita:'',
@@ -1420,12 +1444,12 @@
                 compartida_porcentaje:'',
                 compartida_empresa:'',
                 compartida_asesor:'',
-                agua:'',
-                luz:'',
-                seguridad:'',
-                extraccion:'',
-                limpieza_areas:'',
-                incluid_mensual:'',
+                agua:0,
+                luz:0,
+                seguridad:0,
+                extraccion:0,
+                limpieza_areas:0,
+                incluid_mensual:0,
                 propierty_id:"",
                 propietarios:[],
                 propietarios_test:[{}],
@@ -1442,6 +1466,9 @@
                 files:null,
                 arrayData:[],
                 update:'',
+                porcentaje_externa:'',
+                empresa_externa:'',
+                asesor_externo:'',
                 dropzoneOptions: {
                     url: '/api/propierty/image',
                     method:'post',
@@ -1929,7 +1956,6 @@
                   me.departamento.departament_id = response.data.records.departament_id;
                   me.municipio.municipality_id = response.data.records.municipality_id;
                   me.zona.zone_id =  response.data.records.zone_id;
-                  me.region.region_id =  response.data.records.region_id;
                   me.precio_venta_dolares = response.data.records.sale_usd;
                   me.precio_venta_quetzales =  response.data.records.sale_gtq;
                   me.precio_renta_dolares =  response.data.records.rent_usd;

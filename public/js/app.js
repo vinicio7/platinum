@@ -4416,6 +4416,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4468,49 +4492,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       oficinas: '',
       bodegas: '',
       locales: '',
-      porton: '',
-      alacena: '',
-      closet_blancos: '',
-      jardin_frontal: '',
-      despensa: '',
-      tina: '',
-      jardin_trasero: '',
-      desayunador: '',
-      ducha: '',
-      bano_visita: '',
-      lavanderia: '',
-      bidet: '',
-      dormitorio_visita: '',
-      patio: '',
-      jetina: '',
-      estudio: '',
-      pergola: '',
-      jacuzzi: '',
-      sala: '',
-      bodega: '',
-      sauna: '',
-      chimenea: '',
-      bodega_jardin: '',
-      balcon: '',
-      sala_comedor: '',
-      sala_familiar: '',
-      terraza: '',
-      comedor: '',
-      walkin_closet: '',
-      churrasquera: '',
-      cocina_gabinetes: '',
-      closet: '',
-      otros_detalles: '',
-      refrigeradora: '',
-      lamparas: '',
-      aire_acondicionado: '',
-      estufa: '',
-      cortinas: '',
-      alarma: '',
-      estufa_electrica: '',
-      blackouts: '',
-      camaras_seguridad: ''
-    }, _defineProperty(_ref, "lavavajillas", ''), _defineProperty(_ref, "cortinas_bano", ''), _defineProperty(_ref, "paneles_solares", ''), _defineProperty(_ref, "camapana", ''), _defineProperty(_ref, "calentador_agua", ''), _defineProperty(_ref, "bomba_cisterna", ''), _defineProperty(_ref, "lavadora", ''), _defineProperty(_ref, "espejo_bano", ''), _defineProperty(_ref, "deposito_basura", ''), _defineProperty(_ref, "secadora", ''), _defineProperty(_ref, "otros_incluye", ''), _defineProperty(_ref, "garita", ''), _defineProperty(_ref, "gimnasio", ''), _defineProperty(_ref, "juegos_infantiles", ''), _defineProperty(_ref, "guardiania", ''), _defineProperty(_ref, "sauna", ''), _defineProperty(_ref, "piscina", ''), _defineProperty(_ref, "area_social", ''), _defineProperty(_ref, "spa", ''), _defineProperty(_ref, "acceso_silla", ''), _defineProperty(_ref, "area_mascotas", ''), _defineProperty(_ref, "salon_belleza", ''), _defineProperty(_ref, "planta_telefonica", ''), _defineProperty(_ref, "parqueo_visitas", ''), _defineProperty(_ref, "canchas_deportivas", ''), _defineProperty(_ref, "razor_ribbon", ''), _defineProperty(_ref, "bussines_center", ''), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "description", ''), _defineProperty(_ref, "valor_registro_dolares", ''), _defineProperty(_ref, "valor_registro_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_dolares", ''), _defineProperty(_ref, "folio", ''), _defineProperty(_ref, "finca", ''), _defineProperty(_ref, "libro", ''), _defineProperty(_ref, "inscrito_sociedad_anonima", ''), _defineProperty(_ref, "sociedad_anonima", ''), _defineProperty(_ref, "gravamen_hipotecario", ''), _defineProperty(_ref, "gravamen_quetzales", ''), _defineProperty(_ref, "gravamen_dolares", ''), _defineProperty(_ref, "nombre_banco", ''), _defineProperty(_ref, "avalui_reciente", ''), _defineProperty(_ref, "avaluo_dolares", ''), _defineProperty(_ref, "avaluo_quetzales", ''), _defineProperty(_ref, "tipo_avaluo", ''), _defineProperty(_ref, "timbres", ''), _defineProperty(_ref, "iva", ''), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", ''), _defineProperty(_ref, "titulo", ""), _defineProperty(_ref, "propietario", ''), _defineProperty(_ref, "pais", ''), _defineProperty(_ref, "departamento", ''), _defineProperty(_ref, "municipio", ''), _defineProperty(_ref, "zona", ''), _defineProperty(_ref, "region", ''), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 1), _defineProperty(_ref, "canje", ''), _defineProperty(_ref, "especifique_canje", ''), _defineProperty(_ref, "contacto_visita", 1), _defineProperty(_ref, "cuota_mantenimiento", 1), _defineProperty(_ref, "servicios", 1), _defineProperty(_ref, "publicacion_redes", ''), _defineProperty(_ref, "exclusividad", ''), _defineProperty(_ref, "compartida", 1), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", ''), _defineProperty(_ref, "enganche_nivelado", ''), _defineProperty(_ref, "enganche_cuota", ''), _defineProperty(_ref, "enganche_tasa", ''), _defineProperty(_ref, "enganche_quetzales", ''), _defineProperty(_ref, "enganche_dolares", ''), _defineProperty(_ref, "mantenimiento_dolares", ''), _defineProperty(_ref, "mantenimiento_quetzales", ''), _defineProperty(_ref, "compartida_porcentaje", ''), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", ''), _defineProperty(_ref, "luz", ''), _defineProperty(_ref, "seguridad", ''), _defineProperty(_ref, "extraccion", ''), _defineProperty(_ref, "limpieza_areas", ''), _defineProperty(_ref, "incluid_mensual", ''), _defineProperty(_ref, "propierty_id", ""), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "vendedores", []), _defineProperty(_ref, "vendedores_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", ''), _defineProperty(_ref, "dropzoneOptions", {
+      porton: 0,
+      alacena: 0,
+      closet_blancos: 0,
+      jardin_frontal: 0,
+      despensa: 0,
+      tina: 0,
+      jardin_trasero: 0,
+      desayunador: 0,
+      ducha: 0,
+      bano_visita: 0,
+      lavanderia: 0,
+      bidet: 0,
+      dormitorio_visita: 0,
+      patio: 0,
+      jetina: 0,
+      estudio: 0,
+      pergola: 0,
+      jacuzzi: 0,
+      sala: 0,
+      bodega: 0,
+      sauna: 0,
+      chimenea: 0,
+      bodega_jardin: 0,
+      balcon: 0,
+      sala_comedor: 0,
+      sala_familiar: 0,
+      terraza: 0,
+      comedor: 0,
+      walkin_closet: 0,
+      churrasquera: 0,
+      cocina_gabinetes: 0,
+      closet: 0,
+      otros_detalles: 0,
+      refrigeradora: 0,
+      lamparas: 0,
+      aire_acondicionado: 0,
+      estufa: 0,
+      cortinas: 0,
+      alarma: 0,
+      estufa_electrica: 0,
+      blackouts: 0,
+      camaras_seguridad: 0
+    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", 0), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "description", ''), _defineProperty(_ref, "valor_registro_dolares", ''), _defineProperty(_ref, "valor_registro_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_dolares", ''), _defineProperty(_ref, "folio", ''), _defineProperty(_ref, "finca", ''), _defineProperty(_ref, "libro", ''), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", ''), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", ''), _defineProperty(_ref, "gravamen_dolares", ''), _defineProperty(_ref, "nombre_banco", ''), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", ''), _defineProperty(_ref, "avaluo_quetzales", ''), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "timbres", ''), _defineProperty(_ref, "iva", ''), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", ''), _defineProperty(_ref, "titulo", ""), _defineProperty(_ref, "propietario", ''), _defineProperty(_ref, "pais", ''), _defineProperty(_ref, "departamento", ''), _defineProperty(_ref, "municipio", ''), _defineProperty(_ref, "zona", ''), _defineProperty(_ref, "region", 1), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 0), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", ''), _defineProperty(_ref, "contacto_visita", 0), _defineProperty(_ref, "cuota_mantenimiento", 0), _defineProperty(_ref, "servicios", 0), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 0), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", ''), _defineProperty(_ref, "enganche_nivelado", ''), _defineProperty(_ref, "enganche_cuota", ''), _defineProperty(_ref, "enganche_tasa", ''), _defineProperty(_ref, "enganche_quetzales", ''), _defineProperty(_ref, "enganche_dolares", ''), _defineProperty(_ref, "mantenimiento_dolares", ''), _defineProperty(_ref, "mantenimiento_quetzales", ''), _defineProperty(_ref, "compartida_porcentaje", ''), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "propierty_id", ""), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "vendedores", []), _defineProperty(_ref, "vendedores_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", ''), _defineProperty(_ref, "porcentaje_externa", ''), _defineProperty(_ref, "empresa_externa", ''), _defineProperty(_ref, "asesor_externo", ''), _defineProperty(_ref, "dropzoneOptions", {
       url: '/api/propierty/image',
       method: 'post',
       paramName: 'archivo',
@@ -5015,7 +5039,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         me.departamento.departament_id = response.data.records.departament_id;
         me.municipio.municipality_id = response.data.records.municipality_id;
         me.zona.zone_id = response.data.records.zone_id;
-        me.region.region_id = response.data.records.region_id;
         me.precio_venta_dolares = response.data.records.sale_usd;
         me.precio_venta_quetzales = response.data.records.sale_gtq;
         me.precio_renta_dolares = response.data.records.rent_usd;
@@ -65080,7 +65103,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "0" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -65176,8 +65199,10 @@ var render = function() {
                                   )
                                 ],
                                 1
-                              ),
-                              _vm._v(" "),
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
                                 _c("label", [_vm._v("Pais")]),
                                 _vm._v(" "),
@@ -65216,7 +65241,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "0" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -65392,58 +65417,12 @@ var render = function() {
                                   )
                                 ],
                                 1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "col-sm-3" },
-                                [
-                                  _c("label", [_vm._v("Region")]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-select",
-                                    {
-                                      attrs: {
-                                        value: _vm.region.region_id,
-                                        options: _vm.regiones,
-                                        getOptionLabel: function(region) {
-                                          return region.name
-                                        }
-                                      },
-                                      on: {
-                                        "update:value": function($event) {
-                                          return _vm.$set(
-                                            _vm.region,
-                                            "region_id",
-                                            $event
-                                          )
-                                        }
-                                      },
-                                      model: {
-                                        value: _vm.region,
-                                        callback: function($$v) {
-                                          _vm.region = $$v
-                                        },
-                                        expression: "region"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "span",
-                                        {
-                                          attrs: { slot: "no-options" },
-                                          slot: "no-options"
-                                        },
-                                        [_vm._v(" No se encontro la busqueda")]
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Direccion")]),
+                                _c("label", [_vm._v("Dirección")]),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -65466,8 +65445,10 @@ var render = function() {
                                     }
                                   }
                                 })
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
                                 _c("label", [_vm._v("Precio de venta (Q.)")]),
                                 _vm._v(" "),
@@ -65550,8 +65531,10 @@ var render = function() {
                                     }
                                   }
                                 })
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
                                 _c("label", [_vm._v("Precio de renta (Q.)")]),
                                 _vm._v(" "),
@@ -65634,8 +65617,10 @@ var render = function() {
                                     }
                                   }
                                 })
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
                                 _c("label", [_vm._v("Financiamiento")]),
                                 _vm._v(" "),
@@ -65675,7 +65660,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -65727,7 +65712,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -65813,7 +65798,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -65866,7 +65851,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -65918,7 +65903,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -65930,10 +65915,12 @@ var render = function() {
                                     ])
                                   ]
                                 )
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Publicacion en redes")]),
+                                _c("label", [_vm._v("Publicación en redes")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",
@@ -65971,7 +65958,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -66024,7 +66011,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -66076,7 +66063,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -66088,6 +66075,85 @@ var render = function() {
                                     ])
                                   ]
                                 )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-3" }, [
+                                _c("label", [_vm._v("Asesor externo")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.asesor_externo,
+                                      expression: "asesor_externo"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: { type: "text" },
+                                  domProps: { value: _vm.asesor_externo },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.asesor_externo = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-3" }, [
+                                _c("label", [_vm._v("Empresa")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.empresa_externa,
+                                      expression: "empresa_externa"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: { type: "text" },
+                                  domProps: { value: _vm.empresa_externa },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.empresa_externa = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-3" }, [
+                                _c("label", [_vm._v("Porcentaje")]),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.porcentaje_externa,
+                                      expression: "porcentaje_externa"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: { type: "text" },
+                                  domProps: { value: _vm.porcentaje_externa },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.porcentaje_externa =
+                                        $event.target.value
+                                    }
+                                  }
+                                })
                               ])
                             ]),
                             _vm._v(" "),
@@ -66164,7 +66230,7 @@ var render = function() {
                                     ]),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-sm-3" }, [
-                                      _c("label", [_vm._v("Telefono")]),
+                                      _c("label", [_vm._v("Teléfono")]),
                                       _vm._v(" "),
                                       _c("input", {
                                         directives: [
@@ -66538,7 +66604,7 @@ var render = function() {
                                             {
                                               attrs: { disabled: "", value: "" }
                                             },
-                                            [_vm._v("Seleccione una opcion")]
+                                            [_vm._v("Seleccione una opción")]
                                           ),
                                           _vm._v(" "),
                                           _c(
@@ -66599,7 +66665,7 @@ var render = function() {
                                             {
                                               attrs: { disabled: "", value: "" }
                                             },
-                                            [_vm._v("Seleccione una opcion")]
+                                            [_vm._v("Seleccione una opción")]
                                           ),
                                           _vm._v(" "),
                                           _c(
@@ -66661,7 +66727,7 @@ var render = function() {
                                             {
                                               attrs: { disabled: "", value: "" }
                                             },
-                                            [_vm._v("Seleccione una opcion")]
+                                            [_vm._v("Seleccione una opción")]
                                           ),
                                           _vm._v(" "),
                                           _c(
@@ -66725,7 +66791,7 @@ var render = function() {
                                             {
                                               attrs: { disabled: "", value: "" }
                                             },
-                                            [_vm._v("Seleccione una opcion")]
+                                            [_vm._v("Seleccione una opción")]
                                           ),
                                           _vm._v(" "),
                                           _c(
@@ -66786,7 +66852,7 @@ var render = function() {
                                             {
                                               attrs: { disabled: "", value: "" }
                                             },
-                                            [_vm._v("Seleccione una opcion")]
+                                            [_vm._v("Seleccione una opción")]
                                           ),
                                           _vm._v(" "),
                                           _c(
@@ -66806,7 +66872,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("div", { staticClass: "col-sm-3" }, [
                                       _c("label", [
-                                        _vm._v("Extraccion de basura")
+                                        _vm._v("Extracción de basura")
                                       ]),
                                       _vm._v(" "),
                                       _c(
@@ -66850,7 +66916,7 @@ var render = function() {
                                             {
                                               attrs: { disabled: "", value: "" }
                                             },
-                                            [_vm._v("Seleccione una opcion")]
+                                            [_vm._v("Seleccione una opción")]
                                           ),
                                           _vm._v(" "),
                                           _c(
@@ -67003,7 +67069,7 @@ var render = function() {
                               },
                               [
                                 _c("div", { staticClass: "col-sm-12" }, [
-                                  _c("h2", [_vm._v("Descripcion")])
+                                  _c("h2", [_vm._v("Descripción")])
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-3" }, [
@@ -67033,7 +67099,7 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Construccion")]),
+                                  _c("label", [_vm._v("Construcción")]),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -67111,7 +67177,7 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Año de construccion")]),
+                                  _c("label", [_vm._v("Año de construcción")]),
                                   _vm._v(" "),
                                   _c("input", {
                                     directives: [
@@ -67440,8 +67506,8 @@ var render = function() {
                                   _c("h2", [_vm._v("Detalle")])
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Porton")]),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("label", [_vm._v("Portón")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -67481,7 +67547,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67495,7 +67561,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Alacena")]),
                                   _vm._v(" "),
                                   _c(
@@ -67536,7 +67602,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67550,7 +67616,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Closet de Blancos")]),
                                   _vm._v(" "),
                                   _c(
@@ -67592,7 +67658,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67606,7 +67672,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Jardin Frontal")]),
                                   _vm._v(" "),
                                   _c(
@@ -67648,7 +67714,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67662,7 +67728,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Despensa")]),
                                   _vm._v(" "),
                                   _c(
@@ -67703,7 +67769,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67717,7 +67783,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Tina")]),
                                   _vm._v(" "),
                                   _c(
@@ -67758,7 +67824,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67772,8 +67838,8 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Jardin trasero")]),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("label", [_vm._v("Jardín trasero")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -67814,7 +67880,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67828,7 +67894,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Desayunador")]),
                                   _vm._v(" "),
                                   _c(
@@ -67870,7 +67936,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67884,7 +67950,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Ducha")]),
                                   _vm._v(" "),
                                   _c(
@@ -67925,7 +67991,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67939,7 +68005,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Baño de visita")]),
                                   _vm._v(" "),
                                   _c(
@@ -67981,7 +68047,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -67995,8 +68061,8 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Lavanderia")]),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("label", [_vm._v("Lavandería")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -68037,7 +68103,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68051,7 +68117,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Bidet")]),
                                   _vm._v(" "),
                                   _c(
@@ -68092,7 +68158,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68106,7 +68172,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [
                                     _vm._v("Dormitorio de visitas")
                                   ]),
@@ -68150,7 +68216,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68164,7 +68230,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Patio")]),
                                   _vm._v(" "),
                                   _c(
@@ -68205,7 +68271,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68219,7 +68285,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Jetina")]),
                                   _vm._v(" "),
                                   _c(
@@ -68260,7 +68326,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68274,7 +68340,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Estudio")]),
                                   _vm._v(" "),
                                   _c(
@@ -68315,7 +68381,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68329,8 +68395,8 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Pergola")]),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("label", [_vm._v("Pérgola")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -68370,7 +68436,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68384,7 +68450,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Jacuzzi")]),
                                   _vm._v(" "),
                                   _c(
@@ -68425,7 +68491,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68439,7 +68505,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Sala")]),
                                   _vm._v(" "),
                                   _c(
@@ -68480,7 +68546,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68494,7 +68560,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Bodega")]),
                                   _vm._v(" "),
                                   _c(
@@ -68535,7 +68601,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68549,7 +68615,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Sauna")]),
                                   _vm._v(" "),
                                   _c(
@@ -68590,7 +68656,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68604,7 +68670,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Chimenea")]),
                                   _vm._v(" "),
                                   _c(
@@ -68645,7 +68711,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68659,8 +68725,8 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Bodega de Jardin")]),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("label", [_vm._v("Bodega de Jardín")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -68701,7 +68767,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68715,8 +68781,8 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
-                                  _c("label", [_vm._v("Balcon")]),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c("label", [_vm._v("Balcón")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -68756,7 +68822,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68770,7 +68836,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Sala/Comedor")]),
                                   _vm._v(" "),
                                   _c(
@@ -68812,7 +68878,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68826,7 +68892,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Sala Familiar")]),
                                   _vm._v(" "),
                                   _c(
@@ -68868,7 +68934,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68882,7 +68948,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Terraza")]),
                                   _vm._v(" "),
                                   _c(
@@ -68923,7 +68989,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68937,7 +69003,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Comedor")]),
                                   _vm._v(" "),
                                   _c(
@@ -68978,7 +69044,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -68992,7 +69058,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Walkin Closet")]),
                                   _vm._v(" "),
                                   _c(
@@ -69034,7 +69100,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69048,7 +69114,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Churrasquera")]),
                                   _vm._v(" "),
                                   _c(
@@ -69090,7 +69156,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69104,7 +69170,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Cocina con gabinetes")]),
                                   _vm._v(" "),
                                   _c(
@@ -69146,7 +69212,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69160,7 +69226,7 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-3" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c("label", [_vm._v("Closet")]),
                                   _vm._v(" "),
                                   _c(
@@ -69201,7 +69267,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69314,7 +69380,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69329,7 +69395,7 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-4" }, [
-                                  _c("label", [_vm._v("Lamparas")]),
+                                  _c("label", [_vm._v("Lámparas")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -69369,7 +69435,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69425,7 +69491,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69480,7 +69546,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69535,7 +69601,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69590,7 +69656,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69605,7 +69671,7 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-4" }, [
-                                  _c("label", [_vm._v("Estufa electrica")]),
+                                  _c("label", [_vm._v("Estufa eléctrica")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -69646,7 +69712,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69701,7 +69767,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69716,7 +69782,7 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-sm-4" }, [
-                                  _c("label", [_vm._v("Camaras de seguridad")]),
+                                  _c("label", [_vm._v("Cámaras de seguridad")]),
                                   _vm._v(" "),
                                   _c(
                                     "select",
@@ -69757,7 +69823,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69813,7 +69879,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69869,7 +69935,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69925,7 +69991,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -69980,7 +70046,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -70036,7 +70102,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -70092,7 +70158,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -70147,7 +70213,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -70203,7 +70269,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -70259,7 +70325,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -70314,7 +70380,7 @@ var render = function() {
                                       _c(
                                         "option",
                                         { attrs: { disabled: "", value: "" } },
-                                        [_vm._v("Seleccione una opcion")]
+                                        [_vm._v("Seleccione una opción")]
                                       ),
                                       _vm._v(" "),
                                       _c("option", { attrs: { value: "1" } }, [
@@ -70383,7 +70449,7 @@ var render = function() {
                           },
                           [
                             _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Garita")]),
                                 _vm._v(" "),
                                 _c(
@@ -70421,7 +70487,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70435,7 +70501,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Gimnasio")]),
                                 _vm._v(" "),
                                 _c(
@@ -70473,7 +70539,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70487,7 +70553,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Juegos infantiles")]),
                                 _vm._v(" "),
                                 _c(
@@ -70526,7 +70592,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70540,7 +70606,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Guardiania")]),
                                 _vm._v(" "),
                                 _c(
@@ -70578,7 +70644,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70592,7 +70658,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Sauna")]),
                                 _vm._v(" "),
                                 _c(
@@ -70630,7 +70696,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70644,7 +70710,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Psicina")]),
                                 _vm._v(" "),
                                 _c(
@@ -70682,7 +70748,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70696,8 +70762,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Area Social")]),
+                              _c("div", { staticClass: "col-sm-4" }, [
+                                _c("label", [_vm._v("Área Social")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",
@@ -70734,7 +70800,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70748,7 +70814,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("SPA")]),
                                 _vm._v(" "),
                                 _c(
@@ -70786,7 +70852,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70800,7 +70866,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Acceso silla de ruedas")]),
                                 _vm._v(" "),
                                 _c(
@@ -70839,7 +70905,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70853,8 +70919,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Area para mascotas")]),
+                              _c("div", { staticClass: "col-sm-4" }, [
+                                _c("label", [_vm._v("Área para mascotas")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",
@@ -70892,7 +70958,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70906,8 +70972,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Salon de belleza")]),
+                              _c("div", { staticClass: "col-sm-4" }, [
+                                _c("label", [_vm._v("Salón de belleza")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",
@@ -70945,7 +71011,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -70959,8 +71025,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Planta telefonica")]),
+                              _c("div", { staticClass: "col-sm-4" }, [
+                                _c("label", [_vm._v("Planta telefónica")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",
@@ -70998,7 +71064,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71012,7 +71078,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Parqueo visitas")]),
                                 _vm._v(" "),
                                 _c(
@@ -71051,7 +71117,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71065,7 +71131,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Canchas deportivas")]),
                                 _vm._v(" "),
                                 _c(
@@ -71104,7 +71170,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71118,7 +71184,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Razor ribbon")]),
                                 _vm._v(" "),
                                 _c(
@@ -71157,7 +71223,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71171,7 +71237,7 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "col-sm-3" }, [
+                              _c("div", { staticClass: "col-sm-4" }, [
                                 _c("label", [_vm._v("Bussines center")]),
                                 _vm._v(" "),
                                 _c(
@@ -71210,7 +71276,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71266,7 +71332,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
-                              _c("label", [_vm._v("Imagenes de propiedad")])
+                              _c("label", [_vm._v("Imágenes de propiedad")])
                             ]),
                             _vm._v(" "),
                             _c(
@@ -71495,11 +71561,13 @@ var render = function() {
                                     }
                                   }
                                 })
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
                                 _c("label", [
-                                  _vm._v("Inscrito en sociedad anonima")
+                                  _vm._v("Inscrito en sociedad anónima")
                                 ]),
                                 _vm._v(" "),
                                 _c(
@@ -71538,7 +71606,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71553,7 +71621,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Sociedad anonima")]),
+                                _c("label", [_vm._v("Sociedad anónima")]),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -71576,8 +71644,10 @@ var render = function() {
                                     }
                                   }
                                 })
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
                                 _c("label", [_vm._v("Gravamen Hipotecario")]),
                                 _vm._v(" "),
@@ -71617,7 +71687,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71708,10 +71778,12 @@ var render = function() {
                                     }
                                   }
                                 })
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Avaluo reciente")]),
+                                _c("label", [_vm._v("Avalúo reciente")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",
@@ -71749,7 +71821,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71764,7 +71836,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Valor del avaluo ($.)")]),
+                                _c("label", [_vm._v("Valor del avalúo ($.)")]),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -71790,7 +71862,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Valor del avaluo (Q.)")]),
+                                _c("label", [_vm._v("Valor del avalúo (Q.)")]),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -71816,7 +71888,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Tipo de avaluo")]),
+                                _c("label", [_vm._v("Tipo de avalúo")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",
@@ -71853,7 +71925,7 @@ var render = function() {
                                     _c(
                                       "option",
                                       { attrs: { disabled: "", value: "" } },
-                                      [_vm._v("Seleccione una opcion")]
+                                      [_vm._v("Seleccione una opción")]
                                     ),
                                     _vm._v(" "),
                                     _c("option", { attrs: { value: "1" } }, [
@@ -71865,8 +71937,10 @@ var render = function() {
                                     ])
                                   ]
                                 )
-                              ]),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-sm-3" }, [
                                 _c("label", [_vm._v("Timbres")]),
                                 _vm._v(" "),
@@ -71926,7 +72000,7 @@ var render = function() {
                                 { staticClass: "col-sm-6" },
                                 [
                                   _c("label", [
-                                    _vm._v("description de la propiedad")
+                                    _vm._v("Descripción de la propiedad")
                                   ]),
                                   _vm._v(" "),
                                   _c("editor", {

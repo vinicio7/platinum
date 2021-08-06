@@ -8,7 +8,7 @@ $numero      = rand(3,3);
 if ($numero == 2){
 $nombre = $nombre."2";
 }
-$imagen_random      = 'images/'.$nombre.'.jpg';
+$imagen_random      = 'images/todos3.jpg';
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">

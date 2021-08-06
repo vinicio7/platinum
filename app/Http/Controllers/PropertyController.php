@@ -405,6 +405,12 @@ class PropertyController extends Controller
 					return "Sin propietario";
 				}
 			})
+			->addColumn('title', function ($record) {
+				return strip_tags($record->title);
+			})
+			->addColumn('subtitle', function ($record) {
+				return strip_tags($record->subtitle);
+			})
 			->addColumn('estado', function ($record){
 				if ($record->status == 0) {
 					$class       = 'badge-secondary';

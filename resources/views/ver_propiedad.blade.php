@@ -60,7 +60,20 @@ $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()-
     <link rel='stylesheet' href='/js/vendor/swiper/swiper.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/css/custom/_messages.css' type='text/css' media='all' />
     <link rel="stylesheet" href="/css/social_bar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"/>
+  
     <style type="text/css">
+      owl-carousel .item {
+    height: 10rem;
+    background: #4DC7A0;
+    padding: 1rem;
+  }
+  .owl-carousel .item h4 {
+    color: #FFF;
+    font-weight: 400;
+    margin-top: 0rem;
+   }
       .input-icono {
         background-image: url('/images/search.png');
         background-repeat: no-repeat;
@@ -242,15 +255,29 @@ img.hover-shadow {
                 <span class="close cursor" onclick="closeModal()">&times;</span>
                 <div class="modal-content">
 
+                  <div class="owl-carousel owl-theme mt-5">
                   @foreach($imagenes as $item)
-                    <div class="mySlides">
-                      <div class="numbertext">{{$contador1}} / {{$total_imagenes}}</div>
-                      <img src="{{$item->path}}" style="width:100%">
-                    </div>  
+
+                    <div class="item">  <img src="{{$item->path}}" style="width:100%"></div>
                     @php
                     $contador1 = $contador1 + 1;  
                     @endphp
                   @endforeach
+                  </div>
+
+                  <div class="owl-carousel owl-theme mt-5">
+        <div class="item"><h4>1</h4></div>
+        <div class="item"><h4>2</h4></div>
+        <div class="item"><h4>3</h4></div>
+        <div class="item"><h4>4</h4></div>
+        <div class="item"><h4>5</h4></div>
+        <div class="item"><h4>6</h4></div>
+        <div class="item"><h4>7</h4></div>
+        <div class="item"><h4>8</h4></div>
+        <div class="item"><h4>9</h4></div>
+        <div class="item"><h4>10</h4></div>
+        <div class="item"><h4>11</h4></div>
+    </div>  
 
                   <!-- Next/previous controls -->
                   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -260,14 +287,15 @@ img.hover-shadow {
                   <div class="caption-container">
                     <p id="caption"></p>
                   </div>
-                   @foreach($imagenes as $item)
-                    <div class="column">
-                      <img class="demo" src="{{$item->path}}" onclick="currentSlide({{$contador2}})" style="display: inline-block;">
-                    </div>
+                  <div class="owl-carousel owl-theme mt-5">
+                  @foreach($imagenes as $item)
+
+                    <div class="item">  <img src="{{$item->path}}" style="width:100%"></div>
                     @php
-                    $contador2 = $contador2 + 1;  
+                    $contador1 = $contador1 + 1;  
                     @endphp
                   @endforeach
+                  </div>
                 </div>
               </div>
               <div class="page_content_wrap">
@@ -288,16 +316,15 @@ img.hover-shadow {
                            
                            <img alt="" src="{{$imagen}}" style="margin-bottom: 20px"></a>
                            <div class="row">
-                            @foreach($imagenes as $item)
-                              @if($contador3 <= 3)
-                                <div class="column" style="margin-bottom: 10px;width: 252px;margin-right: 5px;height: 150px;">
-                                  <img src="{{$item->path}}" onclick="openModal();currentSlide({{$contador3}})" style="height: 150px;width:252px;object-fit: cover" class="hover-shadow" >
-                                </div>
-                                @php
-                                $contador3 = $contador3 + 1;  
-                                @endphp
-                              @endif
-                            @endforeach
+                            <div class="owl-carousel owl-theme mt-5">
+                  @foreach($imagenes as $item)
+
+                    <div class="item">  <img src="{{$item->path}}" style="width:100%"></div>
+                    @php
+                    $contador1 = $contador1 + 1;  
+                    @endphp
+                  @endforeach
+                  </div>
                           </div>
 
                         </div>
@@ -671,47 +698,27 @@ img.hover-shadow {
       <script type='text/javascript' src='/js/custom/_init.js'></script>
       <script type='text/javascript' src='/js/custom/_shortcodes.js'></script>
       <script type='text/javascript' src='/js/vendor/magnific-popup/jquery.magnific-popup.min.js'></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  
       <script type="text/javascript">
-// Open the Modal
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-}
-
-// Close the Modal
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
+         jQuery(document).ready(function($){
+          $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+              0:{
+                items:1
+              },
+              600:{
+                items:3
+              },
+              1000:{
+                items:5
+              }
+            }
+          })
+        })
       </script>
    </body>
 </html>
