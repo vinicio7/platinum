@@ -23,7 +23,7 @@
                     <div class="col-md-12">
                     </div>
                     </div>--}}
-                    <div class="row " style="width: 800px;overflow-x: auto">
+                    <div class="row " style="width: 340vh;overflow-x: auto">
                             <div class="col-md-12 mb-4">
                                 <div class="card text-left">
                                     <div class="card-header bg-transparent">
