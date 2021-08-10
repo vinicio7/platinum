@@ -32,7 +32,7 @@
                                         <h4 class="card-title mb-3">Registros</h4>
                                         <p>Se muestran todos los registros almacenados en la base de datos</p>
                                         <div class="table-responsive">
-                                            <table id="records-table" class="display table table-striped table-bordered" style="width:100%">
+                                            <table id="records-table" class="display table table-striped table-bordered">
                                                 <thead>
                                                 <tr>
                                                     @foreach($dt_columns as $col)
