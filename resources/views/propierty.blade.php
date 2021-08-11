@@ -28,10 +28,10 @@
                                 <div class="card text-left">
                                     <div class="card-header bg-transparent">
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body" style="width: 250vh!important;overflow-x: scroll!important;overflow-y: scroll!important;">
                                         <h4 class="card-title mb-3">Registros</h4>
                                         <p>Se muestran todos los registros almacenados en la base de datos</p>
-                                        <div class="table-responsive"  style="width: 250vh!important;overflow-x: scroll!important;overflow-y: scroll!important;">
+                                        <div class="table-responsive"  >
                                             <table id="records-table" class="display table table-striped table-bordered" >
                                                 <thead>
                                                 <tr>
