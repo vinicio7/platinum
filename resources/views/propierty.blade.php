@@ -23,7 +23,7 @@
                     <div class="col-md-12">
                     </div>asdas
                     </div>--}}
-                    <div class="row" style="width: 250vh;overflow-x: scroll;overflow-y: scroll;">
+                    <div class="row" >
                             <div class="col-md-12 mb-4">
                                 <div class="card text-left">
                                     <div class="card-header bg-transparent">
