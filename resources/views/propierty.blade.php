@@ -31,7 +31,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title mb-3">Registros</h4>
                                         <p>Se muestran todos los registros almacenados en la base de datos</p>
-                                        <div class="table-responsive"  >
+                                        <div class="table-responsive"  style="width: 250vh;overflow-x: scroll;overflow-y: scroll;">
                                             <table id="records-table" class="display table table-striped table-bordered" >
                                                 <thead>
                                                 <tr>
