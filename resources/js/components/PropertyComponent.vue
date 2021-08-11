@@ -1288,23 +1288,23 @@
         },
         data() {
             return {
-                usuario_id:39,
+                usuario_id:2,
                 subtitulo:'',
                 fecha_final:'',
                 fecha_inicial:'',
-                vendida_por:'',
-                rentada_por:'',
+                vendida_por:0,
+                rentada_por:0,
                 precio_renta_dolares:'',
                 precio_renta_quetzales:'',
                 honorarios_renta:'',
                 precio_venta_dolares:'',
                 precio_venta_quetzales:'',
-                honorarios_venta:'',
+                honorarios_venta:0,
                 imagenes:[],
-                propietario_id:'',
-                lavavajillas:'',
-                ambientes:'',
-                terreno:'',
+                propietario_id:0,
+                lavavajillas:0,
+                ambientes:0,
+                terreno:0,
                 construccion:'',
                 frente:'',
                 fondo:'',
@@ -1411,18 +1411,18 @@
                 iva:'',
                 link_tour:'',
                 notas_internas:'',
-                tipo:'',
-                titulo:"",
-                propietario:'',
-                pais:'',
-                departamento:'',
-                municipio:'',
-                zona:'',
+                tipo:0,
+                titulo:'',
+                propietario:1,
+                pais:0,
+                departamento:1,
+                municipio:1,
+                zona:1,
                 region:1,
                 direccion:'',
                 financiamiento:0,
                 canje:0,
-                especifique_canje:'',
+                especifique_canje:0,
                 contacto_visita:0,
                 cuota_mantenimiento:0,
                 servicios:0,
@@ -1450,7 +1450,7 @@
                 extraccion:0,
                 limpieza_areas:0,
                 incluid_mensual:0,
-                propierty_id:"",
+                propierty_id:0,
                 propietarios:[],
                 propietarios_test:[{}],
                 vendedores:[],
@@ -1951,11 +1951,11 @@
                   console.log(response.data.records);
                   me.titulo = response.data.records.title;
                   me.tipo =  response.data.records.type;
-                  me.propietario_id.user_id =  response.data.records.owner_id;
+                  me.propietario_id =  parseInt(response.data.records.owner_id);
                   me.pais = response.data.records.country_id;
-                  me.departamento.departament_id = response.data.records.departament_id;
-                  me.municipio.municipality_id = response.data.records.municipality_id;
-                  me.zona.zone_id =  response.data.records.zone_id;
+                  me.departamento = response.data.records.departament_id;
+                  me.municipio = response.data.records.municipality_id;
+                  me.zona =  response.data.records.zone_id;
                   me.precio_venta_dolares = response.data.records.sale_usd;
                   me.precio_venta_quetzales =  response.data.records.sale_gtq;
                   me.precio_renta_dolares =  response.data.records.rent_usd;
