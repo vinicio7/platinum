@@ -23,7 +23,7 @@
                     <div class="col-md-12">
                     </div>asdas
                     </div>--}}
-                    <div class="row " style="width: 300vh;overflow-x: scroll;overflow-y: scroll;">
+                    <div class="row ">
                             <div class="col-md-12 mb-4">
                                 <div class="card text-left">
                                     <div class="card-header bg-transparent">
@@ -32,7 +32,7 @@
                                         <h4 class="card-title mb-3">Registros</h4>
                                         <p>Se muestran todos los registros almacenados en la base de datos</p>
                                         <div class="table-responsive">
-                                            <table id="records-table" class="display table table-striped table-bordered">
+                                            <table id="records-table" class="display table table-striped table-bordered"  style="width: 300vh;overflow-x: scroll;overflow-y: scroll;">
                                                 <thead>
                                                 <tr>
                                                     @foreach($dt_columns as $col)
