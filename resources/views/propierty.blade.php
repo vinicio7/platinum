@@ -14,7 +14,7 @@
                 </div>
             </div>
             
-            <div id="app">
+            <div id="app" style="width: 250vh!important;overflow-x: scroll!important;overflow-y: scroll!important;">
                 <property-component></property-component>
                 @section('content_admin')
                     {{--  <div class="separator-breadcrumb border-top"></div>
@@ -28,7 +28,7 @@
                                 <div class="card text-left">
                                     <div class="card-header bg-transparent">
                                     </div>
-                                    <div class="card-body" style="width: 250vh!important;overflow-x: scroll!important;overflow-y: scroll!important;">
+                                    <div class="card-body">
                                         <h4 class="card-title mb-3">Registros</h4>
                                         <p>Se muestran todos los registros almacenados en la base de datos</p>
                                         <div class="table-responsive"  >
