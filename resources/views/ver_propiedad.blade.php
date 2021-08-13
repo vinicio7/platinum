@@ -31,7 +31,7 @@ $regiones      = Departament::all();
 $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
 $test          = Property::where('propiertiy_id',$data->propiertiy_id)->first();
 $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()->toArray();
-dd($test->youtube);
+
 ?>
 
 <!DOCTYPE html>
@@ -544,12 +544,13 @@ img.hover-shadow {
                               </div>
                               @endif
                              </ul>
-                             @if($test->youtube != '' && $test->youtube != null && $test->youtube != 0)
+                             @if($test->youtube)
                              <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
                                @php
                                 $link_youtube = substr($test->youtube, 17, 20);  
+                                $nuevo_link = "https://www.youtube.com/embed/".%link_youtube."controls=0"
                                @endphp
-                               <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $link_youtube; ?>?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                               <iframe width="100%" height="100%" src="{{$nuevo_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                              @endif
                            </div>
                      </section>
