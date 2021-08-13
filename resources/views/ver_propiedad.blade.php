@@ -31,6 +31,7 @@ $regiones      = Departament::all();
 $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
 $test          = Property::where('propiertiy_id',$data->propiertiy_id)->first();
 $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()->toArray();
+dd($test->youtube);
 ?>
 
 <!DOCTYPE html>
