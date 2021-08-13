@@ -548,7 +548,7 @@ img.hover-shadow {
                              <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
                                @php
                                 $link_youtube = substr($test->youtube, 17, 20);  
-                                $nuevo_link = "https://www.youtube.com/embed/".%link_youtube."controls=0"
+                                $nuevo_link = "https://www.youtube.com/embed/".%link_youtube."controls=0";
                                @endphp
                                <iframe width="100%" height="100%" src="{{$nuevo_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                              @endif
