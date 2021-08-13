@@ -547,6 +547,7 @@ img.hover-shadow {
                              @if($test->youtube)
                              <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
                                @php
+                               //test
                                 $link_youtube = substr($test->youtube, 17, 20);  
                                 $nuevo_link = "https://www.youtube.com/embed/".%link_youtube."controls=0";
                                @endphp
