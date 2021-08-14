@@ -149,11 +149,10 @@
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Propietario</label>
-                                        <v-select v-model="propietario_id"
-                                                :value.sync="propietarios.user_id"
-                                                :options="propietarios" :getOptionLabel="propietario => propietario.name">
-                                                <span slot="no-options"> No se encontro la busqueda</span>
-                                        </v-select>
+                                        <select class="form-control" v-model="propietario_id">
+                                            <option value="0" disabled>Seleccione una opcion</option>
+                                            <option v-for="propietario in propietarios" :value="propietario.user_id" >{{ propietario.name }}</option>
+                                        </select>
                                     </div>
                                   </div>
                                   <div class="row">
@@ -172,27 +171,24 @@
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Departamento</label>
-                                        <v-select v-model="departamento"
-                                                :value.sync="departamentos.departament_id"
-                                                :options="departamentos" :getOptionLabel="departamento => departamento.name">
-                                                <span slot="no-options"> No se encontro la busqueda</span>
-                                        </v-select>
+                                        <select class="form-control" v-model="departamento">
+                                            <option value="0" disabled>Seleccione una opcion</option>
+                                            <option v-for="departamento in departamentos" :value="departamento.departament_id" >{{ departamento.name }}</option>
+                                        </select>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Municipio</label>
-                                        <v-select v-model="municipio"
-                                                :value.sync="municipios.municipality_id"
-                                                :options="municipios" :getOptionLabel="municipio => municipio.name">
-                                                <span slot="no-options"> No se encontro la busqueda</span>
-                                        </v-select>
+                                        <select class="form-control" v-model="municipio">
+                                            <option value="0" disabled>Seleccione una opcion</option>
+                                            <option v-for="municipio in municipios" :value="municipio.municipality_id" >{{ municipio.name }}</option>
+                                        </select>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Zona</label>
-                                        <v-select v-model="zona"
-                                                :value.sync="zona.zone_id"
-                                                :options="zonas" :getOptionLabel="zona => zona.name">
-                                                <span slot="no-options"> No se encontro la busqueda</span>
-                                        </v-select>
+                                        <select class="form-control" v-model="zona">
+                                            <option value="0" disabled>Seleccione una opcion</option>
+                                            <option v-for="zona in zonas" :value="zona.zone_id" >{{ zona.name }}</option>
+                                        </select>
                                     </div>
                                   </div>
                                   <div class="row">
@@ -1635,12 +1631,20 @@
               this.precio_renta_dolares = (this.precio_renta_quetzales / 7.8).toFixed(2);
             },
             saveData(){
-                let me =this;
-                let url = '/api/propierty/create' 
+                var url = '';
+                console.log(this.update)
+                if(this.update > 0){
+                   url = '/api/propierty/edit' 
+                }else{
+                   url = '/api/propierty/create' 
+                }
+                console.log(url)
                 const formData  = new FormData()
                 if(this.files){
                     formData.append('file', this.files, this.files.name)
                 }
+                console.log(this.imagenes)
+                formData.append('propiedad_id',this.update)
                 formData.append('imagenes',this.imagenes) 
                 formData.append('title',this.title)
                 formData.append('type',this.tipo)
@@ -1805,7 +1809,8 @@
                     if (response.data.result == false) {
                         location.reload();
                     }else{
-                        me.clearFields();
+                        //let me = this
+                        //me.clearFields();
                         $('#exampleModal').modal('hide');
                         location.reload();
                     }
@@ -1951,7 +1956,9 @@
                   console.log(response.data.records);
                   me.titulo = response.data.records.title;
                   me.tipo =  response.data.records.type;
-                  me.propietario_id =  parseInt(response.data.records.owner_id);
+                  me.propietario_id =  response.data.records.owner_id;
+                  console.log(me.propietario_id)
+                  
                   me.pais = response.data.records.country_id;
                   me.departamento = response.data.records.departament_id;
                   me.municipio = response.data.records.municipality_id;
@@ -2073,7 +2080,7 @@
                   me.notas_internas =  response.data.records.internal_note;
                   me.titulo =  response.data.records.title;
                   me.subtitulo = response.data.records.subtitle;
-                  me.propietario = response.data.records.propietario;
+                  me.propietario = response.data.records.owner_id;
                   me.direccion = response.data.records.adress;
                   me.financiamiento =  response.data.records.finance;
                   me.enganche_plazo =  response.data.records.term;

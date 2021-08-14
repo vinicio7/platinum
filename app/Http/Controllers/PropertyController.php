@@ -555,9 +555,9 @@ class PropertyController extends Controller
 	public function edit(Request $request)
 	{
 		try { 
-			$properties = Property::find($request->propiety_id);
+			$properties = Property::find($request->propiedad_id);
 			$properties->title                     = $request->input('title');
-			$properties->subtitle                     = $request->input('subtitle');
+			$properties->subtitle                    = $request->input('subtitle');
 			$properties->type                      = $request->input('type') ;
 			$properties->user_id                   = $request->input('user_id');
 			$properties->owner_id                  = $request->input('owner_id');
@@ -719,8 +719,19 @@ class PropertyController extends Controller
 			$properties->code                      = $request->input('code');
 			$properties->internal_note             = $request->input('internal_note');
 			$properties->status                    = $request->input('status');
-			$properties->update();
-
+			if($request->input('imagenes')){
+				$imagenes = explode(',',$request->input('imagenes'));
+				if(count($imagenes)>0){
+					foreach ($imagenes as $imagen) {
+						$buscar = Images::find($imagen);
+						if($buscar){
+							$buscar->propierty_id = $properties->propiertiy_id;
+							$buscar->save();
+						}
+					}
+				}
+			}
+			
 			$this->message = "Consulta correcta";
 			$this->result = true;
 			$this->records = $properties;
