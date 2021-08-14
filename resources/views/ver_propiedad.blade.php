@@ -222,7 +222,7 @@ img.hover-shadow {
 
 .container {
     width: 100%;
-    height: 0;
+    height: 20vh;
     padding-bottom: 56.25%;
 }
 .video {
