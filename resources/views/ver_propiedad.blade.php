@@ -420,10 +420,10 @@ img.hover-shadow {
                           @if($test->cabin == 1 || $test->gym == 1 || $test->kids_area == 1 || $test->daycare == 1 || $test->sauna_shared == 1 || $test->floor_shared == 1 || $test->social_area == 1 
                           || $test->spa == 1 || $test->floor_shared == 1 || $test->pet_area == 1 || $test->beauty_salon == 1 || $test->plant_phone == 1 || $test->plant_phone == 1 
                           || $test->parking_visit == 1 || $test->court == 1 || $test->ribbon == 1 )
-                           <h4 class="sc_title" style="font-weight: bold">Caracteristicas &amp; Amenidades</h4>
+                           <h4 class="sc_title" style="font-weight: bold">Amenidades</h4>
                           @endif
-                           <div class="columns_wrap ">
-                             <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
+                          <div class="columns_wrap ">
+                            <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
                               @if($test->cabin == 1)
                               <div>
                               <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
@@ -555,20 +555,205 @@ img.hover-shadow {
                               </li>
                               </div>
                               @endif
-                             </ul>
+                            </ul>
                              @if($test->youtube)
-                             <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
-                               @php
-                               //test
-                                $link_youtube = substr($test->youtube, 17, 20);  
-                                $nuevo_link = "https://www.youtube.com/embed/".$link_youtube."?controls=0";
-                               @endphp
-                               <div class="container">
-                                <iframe src="{{$nuevo_link}}" 
-                                frameborder="0" allowfullscreen class="video"></iframe>
-                                </div>
-                             @endif
-                           </div>
+                            <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
+                            @php
+                            //test
+                            $link_youtube = substr($test->youtube, 17, 20);  
+                            $nuevo_link = "https://www.youtube.com/embed/".$link_youtube."?controls=0";
+                            @endphp
+                              <div class="container">
+                                  <iframe src="{{$nuevo_link}}" 
+                                  frameborder="0" allowfullscreen class="video"></iframe>
+                              </div>
+                            @endif
+                          </div>
+
+                          <div class="sc_section">
+                            @if($test->walkin_closet == 1 ||  $test->closet == 1 || $test->gardeen_front == 1 || $test->gardeen_bottom == 1 || $test->dining_room == 1 ||
+                              $test->chimeny == 1   ||  $test->kitchen_room == 1 || $test->laundry == 1 || $test->balcony == 1 || $test->roof_room == 1 ||
+                              $test->pantry == 1   ||  $test->cupboard == 1 || $test->bathroom_visit)
+                             <h4 class="sc_title" style="font-weight: bold">Detalles</h4>
+                            @endif
+                            <div class="columns_wrap ">
+                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
+                                @if($test->walkin_closet == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Walkin Closet</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->closet == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Closet</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->gardeen_front == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Jardin Frontal</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->gardeen_bottom == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Jardin Trasero</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->dining_room == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Sala/Comedor</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->chimeny == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Chimenea</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->kitchen_room == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Cocina con gabinetes</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->laundry == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Lavanderia</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->balcony == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Balcon</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->roof_room == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Terraza</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->pantry == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Despensa</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->cupboard == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Alacena</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->bathroom_visit == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Baño de visita</p>
+                                    </li>
+                                  </div>
+                                @endif
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div class="sc_section">
+                            @if($test->fridge == 1 || $test->kitchen == 1 || $test->dishwater == 1 || $test->bell == 1 || $test->water_heater == 1 || $test->cistern == 1 ||
+                              $test->bathroom_mirros == 1)
+                             <h4 class="sc_title" style="font-weight: bold">Incluye</h4>
+                            @endif
+                            <div class="columns_wrap ">
+                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
+                                @if($test->fridge == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Refrigeradora</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->kitchen == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Estufa</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->dishwater == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Lavavajillas</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->bell == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Campana</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->water_heater == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Calentador de agua</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->cistern == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Cisterna</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->bathroom_mirros == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Espejo de baño</p>
+                                    </li>
+                                  </div>
+                                @endif
+                              </ul>
+                            </div>
+                          </div>
+
+
                      </section>
                   </div>
                   <div class="sidebar widget_area scheme_original" style="margin-top: 8.3em">
