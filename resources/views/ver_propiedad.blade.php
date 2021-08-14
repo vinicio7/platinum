@@ -556,18 +556,6 @@ img.hover-shadow {
                               </div>
                               @endif
                             </ul>
-                             @if($test->youtube)
-                            <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
-                            @php
-                            //test
-                            $link_youtube = substr($test->youtube, 17, 20);  
-                            $nuevo_link = "https://www.youtube.com/embed/".$link_youtube."?controls=0";
-                            @endphp
-                              <div class="container">
-                                  <iframe src="{{$nuevo_link}}" 
-                                  frameborder="0" allowfullscreen class="video"></iframe>
-                              </div>
-                            @endif
                           </div>
 
                           <div class="sc_section">
@@ -752,6 +740,23 @@ img.hover-shadow {
                               </ul>
                             </div>
                           </div>
+
+                          <div class="columns_wrap">
+                             @if($test->youtube)
+                            <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
+                            @php
+                            //test
+                            $link_youtube = substr($test->youtube, 17, 20);  
+                            $nuevo_link = "https://www.youtube.com/embed/".$link_youtube."?controls=0";
+                            @endphp
+                              <div class="container">
+                                  <iframe src="{{$nuevo_link}}" 
+                                  frameborder="0" allowfullscreen class="video"></iframe>
+                              </div>
+                            @endif
+                          </div>
+
+
 
 
                      </section>
