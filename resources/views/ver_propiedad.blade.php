@@ -551,8 +551,20 @@ img.hover-shadow {
                                 $link_youtube = substr($test->youtube, 17, 20);  
                                 $nuevo_link = "https://www.youtube.com/embed/".$link_youtube."?controls=0";
                                @endphp
-                               <div style="width: 120vh!important;height: 50vh!important;">
-                                <iframe  src="{{$nuevo_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                               <div class="col-12">
+                                
+                                 <iframe width="100%" height="100%"
+
+                                    src="{{$nuevo_link}}"
+
+                                    frameborder="0"
+
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+
+                  allowfullscreen>
+
+                </iframe>
+
                                </div>
                              @endif
                            </div>
