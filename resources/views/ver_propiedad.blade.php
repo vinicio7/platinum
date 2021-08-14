@@ -230,8 +230,8 @@ img.hover-shadow {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 110vh;
+    height: 30vh;
 }
     </style>
 </head>
