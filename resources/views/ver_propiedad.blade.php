@@ -219,6 +219,20 @@ img.hover-shadow {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
@@ -551,21 +565,10 @@ img.hover-shadow {
                                 $link_youtube = substr($test->youtube, 17, 20);  
                                 $nuevo_link = "https://www.youtube.com/embed/".$link_youtube."?controls=0";
                                @endphp
-                               <div class="col-12">
-                                
-                                 <iframe width="100%" height="100%"
-
-                                    src="{{$nuevo_link}}"
-
-                                    frameborder="0"
-
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-
-                  allowfullscreen>
-
-                </iframe>
-
-                               </div>
+                               <div class="container">
+                                <iframe src="{{$nuevo_link}}" 
+                                frameborder="0" allowfullscreen class="video"></iframe>
+                                </div>
                              @endif
                            </div>
                      </section>
