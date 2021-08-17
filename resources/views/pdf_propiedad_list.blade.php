@@ -226,6 +226,7 @@ use App\Models\Property;
     @php    
         $propiedad  = Property::where('propiertiy_id',$item->codigo_propiedad)->first();
         $imagenes   = Images::where('propierty_id',$propiedad->propiertiy_id)->get();
+        $imagenes2  = Images::where('propierty_id',$propiedad->propiertiy_id)->latest()->take(6)->get();
     @endphp
         <center>
             <section class="sheet-one" style="display: inline-block;">
@@ -241,45 +242,110 @@ use App\Models\Property;
                 <table style="margin-top: 20px">
                     <tr>
                         <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[0]->path}}"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[1]->path}}"></td>
                     </tr>
                     <tr>
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[0]->path}}"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[2]->path}}"></td>
                     </tr>
                 </table>
                 <table style="margin:0px;height: 250px">
                     <tr>
                         <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 500px;vertical-align: top">
-                            <p>DESCRIPCION<br>
-                                {!!$propiedad->description!!}
+                            <h1>DESCRIPCION</h1><br>
+                            <p style="font-size: 16px">    {!!$propiedad->description!!}
                             </p>
                         </td>
                     </tr>
+                    @php
+                        $valor = $data->fee_maintenance_usd / 7.7;
+                    @endphp
                     <tr>
                         <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 300px">
-                            <p>CUOTA DE MANTENIMIENTO<br><br>
-                            $99.61/mex</br>
-                            Q.767.99 aprox</br>
-                            Incluye(Agua,Extraccion,Seguridad,Mantenimiento de areas comunes)
+                            <h1>CUOTA DE MANTENIMIENTO</h1>
+                            <p>{{number_format($data->fee_maintenance_gtq,2)}} aprox. {{number_format($valor,2)}}</p>
+                            <p style="font-size: 16px">Inlcuye: 
+                                @if($data->water_service == 1)
+                                    Agua,
+                                @endif
+                                
+                                @if($data->security_service == 1)
+                                    Seguridad,
+                                @endif
+                                
+                                @if($data->electricy_service == 1)
+                                    Luz,
+                                @endif
+                                
+                                @if($data->trash_service == 1)
+                                    Extraccion de basura,
+                                @endif
+                                
+                                @if($data->clean_service == 1)
+                                    Limpieza
+                                @endif
                             </p>
+
                         </td>
                     </tr>
                     <tr>
                         <td style="border-style: none;border:0;color:#11264e;background-color: white">
-                            <p>INCLUYE<br><br>
-                            Refrigueradora, Lampara, Estufa</br>
-                            Calentador de agua, Lavadora Espejos</br>
-                            Deposito de basura
-                            </p>
-                        </td>
+                        <h1>INCLUYE</h1>
+                        <p style="font-size: 16px">
+                            @if($data->fridge == 1)
+                                   Refrigeradora,
+                            @endif
+                            @if($data->kitchen == 1)
+                           
+                                   Estufa,
+                            @endif
+                            @if($data->dishwater == 1)
+                           
+                                   Lavavajillas,
+                            @endif
+                            @if($data->bell == 1)
+                           
+                                   Campana,
+                            @endif
+                            @if($data->water_heater == 1)
+                           
+                                   Calentador de agua,
+                            @endif
+                            @if($data->cistern == 1)
+                           
+                                   Cisterna,
+                            @endif
+                            @if($data->bathroom_mirros == 1)
+                           
+                                   Espejo de baño,
+                            @endif    
+
+                        </p>
+
+                    </td>
                     </tr>
                 </table>
             </section>
-            <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px">
-                    <h1 style="color: white;font-size: 40px;font-style: bold;display: inline-block;margin-left: 120px">${{$propiedad->sale_usd}}</h1>
-                    <h1 style="color: white;font-size: 20px;font-style: bold;display: inline-block;margin-left: 100px">Info/Cel 502 3276-9893</h1>
-                    <h1 style="color: white;font-size: 20px;font-style: bold;margin-left: 80px">Email: vjlopezdeleon@gmail.com</h1>
-            </footer>
+           <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px;vertical-align: right">
+                <table  style="margin: 0!important;border-style: none!important;border:0!important;background-color: #11264e;color:white">
+                    <tr>
+                        <td>
+                            @if($propiedad->sale_usd > 0)
+                                <h1 style="color: white;font-size: 40px;font-style: bold;">${{number_format($propiedad->sale_usd,2)}}</h1>
+                            @endif
+                            @if($propiedad->rent_usd > 0)
+                                <h1 style="color: white;font-size: 40px;font-style: bold;">${{number_format($propiedad->rent_usd,2)}}</h1>
+                            @endif
+                        </td>
+                        <td>
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">Cel.: +(502) 5368-9090</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><h1 style="color: white;font-size: 20px;font-style: bold;">Email: info@propiedadesplatinum.com</h1></td>
+                    </tr>
+                </table>    
+        </footer>
         </center>
         <center>
             <section class="sheet-last" style="display: inline-block;">
@@ -287,14 +353,14 @@ use App\Models\Property;
                 <table style="margin: 0!important;border-style: none!important;border:0!important;background-color: white;margin-bottom: 40px">
                     <tr style="border-style: none!important;border:0!important;">
                         <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$propiedad->propiertiy_id}}</h2></td>
-                        <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 30px;">{{strtoupper($propiedad->title)}}</h1></center></td>
+                        <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 31px;">{{strtoupper($propiedad->title)}}</h1></center></td>
                         <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
                     </tr>
                 </table>
                 @php
                     $contador = 0;
                 @endphp
-                @foreach($imagenes as $imagen)
+                @foreach($imagenes2 as $imagen)
                 @if($contador < 6)
                     <img src="{{$imagen->path}}" style="width: 350px;height: 180px;margin: 5px">
                     @if($contador == 1 || $contador == 3 || $contador == 5)
@@ -306,11 +372,27 @@ use App\Models\Property;
                 @endif
                 @endforeach
             </section>
-            <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px">
-                    <h1 style="color: white;font-size: 40px;font-style: bold;display: inline-block;margin-left: 120px">${{$propiedad->sale_usd}}</h1>
-                    <h1 style="color: white;font-size: 20px;font-style: bold;display: inline-block;margin-left: 100px">Info/Cel 502 3276-9893</h1>
-                    <h1 style="color: white;font-size: 20px;font-style: bold;margin-left: 80px">Email: vjlopezdeleon@gmail.com</h1>
-            </footer>
+             <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px;vertical-align: right">
+                <table  style="margin: 0!important;border-style: none!important;border:0!important;background-color: #11264e;color:white">
+                    <tr>
+                        <td>
+                            @if($propiedad->sale_usd > 0)
+                                <h1 style="color: white;font-size: 40px;font-style: bold;">${{number_format($propiedad->sale_usd,2)}}</h1>
+                            @endif
+                            @if($propiedad->rent_usd > 0)
+                                <h1 style="color: white;font-size: 40px;font-style: bold;">${{number_format($propiedad->rent_usd,2)}}</h1>
+                            @endif
+                        </td>
+                        <td>
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">Cel.: +(502) 5368-9090</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><h1 style="color: white;font-size: 20px;font-style: bold;">Email: info@propiedadesplatinum.com</h1></td>
+                    </tr>
+                </table>    
+        </footer>
         </center>
 @endforeach
 </body>
