@@ -693,7 +693,7 @@ img.hover-shadow {
                                     </li>
                                   </div>
                                 @endif
-                                @if($test->another_include != '' && $test->another_include != null)
+                                @if($test->another_include != '' && $test->another_include != null && $test->another_include != 0)
                                   <div>
                                     <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                        <span class="sc_list_icon icon-check color_2"></span>
