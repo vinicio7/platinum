@@ -261,9 +261,12 @@ use App\Models\Property;
                     @endphp
                     <tr>
                         <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 300px">
+                            @if($data->fee_maintenance_gtq > 0 || $data->fee_maintenance_usd > 0)
                             <h1>CUOTA DE MANTENIMIENTO</h1>
-                            <p>{{number_format($data->fee_maintenance_gtq,2)}} aprox. {{number_format($valor,2)}}</p>
-                            <p style="font-size: 16px">Inlcuye: 
+                            <p>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}</p>
+                            @endif
+                            <h1>SERVICIOS:</h1>
+                            <p style="font-size: 16px">
                                 @if($data->water_service == 1)
                                     Agua,
                                 @endif
@@ -271,15 +274,15 @@ use App\Models\Property;
                                 @if($data->security_service == 1)
                                     Seguridad,
                                 @endif
-                                
+
                                 @if($data->electricy_service == 1)
                                     Luz,
                                 @endif
-                                
+
                                 @if($data->trash_service == 1)
                                     Extraccion de basura,
                                 @endif
-                                
+
                                 @if($data->clean_service == 1)
                                     Limpieza
                                 @endif

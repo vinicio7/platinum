@@ -72,7 +72,7 @@ class PropertyController extends Controller
 		$dt_route   = route('propierty.show');
 		$dt_order   = [[0, 'desc']];
 		$dt_columns = [
-			['data' => 'propiertiy_id','title'=>'ID'],
+			['data' => 'id','title'=>'ID'],
 			['data' => 'imagen', 'title'=>'IMAGEN'],
 			['data' => 'title', 'title'=>'TITULO'],
 			['data' => 'subtitle', 'title'=>'SUB TITULO'],
@@ -346,6 +346,10 @@ class PropertyController extends Controller
 				return
 					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
 			})
+			->addColumn('id', function ($record) {
+				return
+					"<a href='/propierty/view/".$record->propiertiy_id."' target='_blank'>".$record->propiertiy_id."</a>";  
+			})
 			->addColumn('generar', function ($record) {
 				return
 					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-genera' id='".$record->propiertiy_id."'>PDF</a>";  
@@ -426,7 +430,7 @@ class PropertyController extends Controller
 					$descripcion = 'Vendida';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar'])
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id'])
 			->toJson();
 	}
 

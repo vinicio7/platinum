@@ -61,8 +61,8 @@ $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()-
     <link rel='stylesheet' href='/js/vendor/swiper/swiper.css' type='text/css' media='all' />
     <link rel='stylesheet' href='/css/custom/_messages.css' type='text/css' media='all' />
     <link rel="stylesheet" href="/css/social_bar.css" type="text/css" media="all">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/lightslider.css" />
+    <link type="text/css" rel="stylesheet" href="/css/lightgallery.css" />
   
     <style type="text/css">
       owl-carousel .item {
@@ -264,53 +264,6 @@ img.hover-shadow {
                   </div>
                </div>
             </header>
-              <div id="myModal" class="modal" style="z-index: 9999999">
-                <span class="close cursor" onclick="closeModal()">&times;</span>
-                <div class="modal-content">
-
-                  <div class="owl-carousel owl-theme mt-5">
-                  @foreach($imagenes as $item)
-
-                    <div class="item">  <img src="{{$item->path}}" style="width:100%"></div>
-                    @php
-                    $contador1 = $contador1 + 1;  
-                    @endphp
-                  @endforeach
-                  </div>
-
-                  <div class="owl-carousel owl-theme mt-5">
-        <div class="item"><h4>1</h4></div>
-        <div class="item"><h4>2</h4></div>
-        <div class="item"><h4>3</h4></div>
-        <div class="item"><h4>4</h4></div>
-        <div class="item"><h4>5</h4></div>
-        <div class="item"><h4>6</h4></div>
-        <div class="item"><h4>7</h4></div>
-        <div class="item"><h4>8</h4></div>
-        <div class="item"><h4>9</h4></div>
-        <div class="item"><h4>10</h4></div>
-        <div class="item"><h4>11</h4></div>
-    </div>  
-
-                  <!-- Next/previous controls -->
-                  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                  <!-- Caption text -->
-                  <div class="caption-container">
-                    <p id="caption"></p>
-                  </div>
-                  <div class="owl-carousel owl-theme mt-5">
-                  @foreach($imagenes as $item)
-
-                    <div class="item">  <img src="{{$item->path}}" style="width:100%"></div>
-                    @php
-                    $contador1 = $contador1 + 1;  
-                    @endphp
-                  @endforeach
-                  </div>
-                </div>
-              </div>
               <div class="page_content_wrap">
                <div class="content_wrap">
                   <div class="content" style="margin-top: 20px">
@@ -326,19 +279,18 @@ img.hover-shadow {
                             @else
                               <span class="ps_single_status">Renta</span>
                             @endif
-                           
-                           <img alt="" src="{{$imagen}}" style="margin-bottom: 20px"></a>
+                           </a>
                            <div class="row">
-                            <div class="owl-carousel owl-theme mt-5">
-                  @foreach($imagenes as $item)
-
-                    <div class="item">  <img src="{{$item->path}}" style="width:100%"></div>
-                    @php
-                    $contador1 = $contador1 + 1;  
-                    @endphp
-                  @endforeach
-                  </div>
-                          </div>
+                            <div class="col">
+                              <ul class="images-properties">
+                                @foreach($imagenes as $item)
+                                <li data-thumb="{{$item->path}}"  data-src="{{$item->path}}">
+                                  <img   src="{{$item->path}}" class="w-100"/>
+                                </li>
+                                @endforeach
+                              </ul>
+                            </div>
+                           </div>
 
                         </div>
                      </section>
@@ -358,7 +310,7 @@ img.hover-shadow {
                                           <span class="icon-area_2" style="display: inline-block;font-size: 20px">{{$test->land_vrs}} mts</span>
                                           <span class="icon-bed" style="display: inline-block;font-size: 20px">{{$test->rooms}}</span>
                                           <span class="icon-bath" style="display: inline-block;font-size: 20px">{{$test->bathrooms}}</span>
-                                          <span class="icon-warehouse" style="display: inline-block;font-size: 20px">{{$test->parking}}</span>
+                                          <span class="icon-warehouse" style="display: inline-block;font-size: 20px">{{$test->parking + $test->parking_roof + $test->pargkin_visit}}</span>
                                        </div>
                                      </div></div>
                           <h4 class="sc_title" style="font-weight: bold">DESCRIPCION:</h4>
@@ -369,33 +321,43 @@ img.hover-shadow {
                           <table style="border:none" border="0">
                             <tbody>
                               <tr style="border:none">
-                                @if($test->build_mts > 0)
+                                @if($test->land_vrs > 0)
+                                  <td style="font-weight: bold;text-transform: uppercase;border: none">Terreno</td>
+                                  <td style="border: none">{{$test->land_vrs}} vrs2</td>
+                                @endif
+                                 @if($test->build_mts > 0)
                                   <td style="font-weight: bold;text-transform: uppercase;border: none">Construccion</td>
                                   <td style="border: none">{{$test->build_mts}} mts2</td>
                                 @endif
+                              </tr>
+                              <tr style="border:none">
                                 @if($test->front_mts)
                                   <td style="font-weight: bold;text-transform: uppercase;border: none">Frente</td>
                                   <td style="border: none">{{$test->front_mts}} mts2</td>
                                 @endif
-                              </tr>
-                              <tr>
                                 @if($test->bottom_mts > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Fondo</td>
                                 <td style="border: none">{{$test->bottom_mts}} mts2</td>
                                 @endif
+                              </tr>
+                              <tr>
                                 @if($test->build_year > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Año de construccion</td>
                                 <td style="border: none">{{$test->build_year}}</td>
                                 @endif
-                              </tr>
-                              <tr>
-                                @if($test->levels > 0)
+                                 @if($test->levels > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Niveles</td>
                                 <td style="border: none">{{$test->levels}} </td>
                                 @endif
+                              </tr>
+                              <tr>
                                 @if($test->rooms > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios</td>
                                 <td style="border: none">{{$test->rooms}}</td>
+                                @endif
+                                  @if($test->rooms_service > 0)
+                                <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios de servicio</td>
+                                <td style="border: none">{{$test->service_rooms}}</td>
                                 @endif
                               </tr>
                               <tr>
@@ -403,13 +365,7 @@ img.hover-shadow {
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Baños</td>
                                 <td style="border: none">{{$test->bathrooms}} </td>
                                 @endif
-                                @if($test->rooms_service > 0)
-                                <td style="font-weight: bold;text-transform: uppercase;border: none">Dormitorios de servicio</td>
-                                <td style="border: none">{{$test->rooms_service}}</td>
-                                @endif
-                              </tr>
-                              <tr>
-                                @if($test->bathrooms_service > 0)
+                              @if($test->bathrooms_service > 0)
                                 <td style="font-weight: bold;text-transform: uppercase;border: none">Baños de servicio</td>
                                 <td style="border: none">{{$test->bathrooms_service}}</td>
                                 @endif
@@ -733,7 +689,15 @@ img.hover-shadow {
                                   <div>
                                     <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                        <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Espejo de baño</p>
+                                       <p>Espejos de baño</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->another_include != '' && $test->another_include != null)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p><b>Otros: </b> {{$test->another_include}}</p>
                                     </li>
                                   </div>
                                 @endif
@@ -931,5 +895,98 @@ img.hover-shadow {
           })
         })
       </script>
+      <script src="/js/lightslider.js"></script>
+      <script src="/js/lightgallery.js"></script>
+      <script>
+
+    $(document).ready(function() {
+
+      // MAP 
+
+      (function(exports) {
+
+        "use strict";
+
+
+
+        function initMap() {
+
+          exports.map = new google.maps.Map(document.getElementById("map"), {
+
+            center: {
+
+              lat: -34.397,
+
+              lng: 150.644
+
+            },
+
+            zoom: 8
+
+          });
+
+        }
+
+        exports.initMap = initMap;
+
+      })((this.window = this.window || {}));
+
+
+
+      // $('#imageGallery').magnificPopup({
+
+      //  type: 'image',
+
+      //  delegate: 'a',
+
+      //  gallery: {
+
+      //    enabled: true
+
+      //  }
+
+      // });
+
+
+
+      // SLIDER
+
+      $('.images-properties').lightSlider({
+
+        adaptiveHeight: true,
+
+        gallery: true,
+
+        item: 1,
+
+        loop: true,
+
+        thumbItem: 8,
+
+        slideMargin: 0,
+
+        enableDrag: false,
+
+        currentPagerPosition: 'left',
+
+        verticalHeight: 300,
+
+        onSliderLoad: function(el) {
+
+          el.lightGallery({
+
+            selector: '.images-properties .lslide'
+
+          });
+
+        }
+
+      });
+
+
+
+    });
+
+  </script>
    </body>
 </html>
