@@ -837,6 +837,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	margin-right: auto;
 	max-width: 100%;
 	max-height: 100%;
+	margin-top: 100px;
 }
 .lg-outer .lg-inner {
 	width: 100%;
