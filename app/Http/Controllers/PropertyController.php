@@ -299,6 +299,8 @@ class PropertyController extends Controller
 				'youtube'                   => $request->input('youtube'),
 				'code'                      => $request->input('code'),
 				'internal_note'             => $request->input('internal_note'),
+				'jardin_trasero'            => $request->input('jardin_trasero'),
+				'desayunador'             	=> $request->input('desayunador'),
 				'status'                    => 1
 			]);
 			if($properties){
@@ -722,6 +724,8 @@ class PropertyController extends Controller
 			$properties->youtube                   = $request->input('youtube');
 			$properties->code                      = $request->input('code');
 			$properties->internal_note             = $request->input('internal_note');
+			$properties->jardin_trasero            = $request->input('jardin_trasero');
+			$properties->desayunador               = $request->input('desayunador');
 			$properties->status                    = $request->input('status');
 			if($request->input('imagenes')){
 				$imagenes = explode(',',$request->input('imagenes'));

@@ -546,7 +546,7 @@ img.hover-shadow {
                                     </li>
                                   </div>
                                 @endif
-                                @if($test->gardeen_bottom == 1)
+                                @if($test->jardin_trasero == 1)
                                   <div>
                                     <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                        <span class="sc_list_icon icon-check color_2"></span>
@@ -607,6 +607,14 @@ img.hover-shadow {
                                     <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                        <span class="sc_list_icon icon-check color_2"></span>
                                        <p>Despensa</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                 @if($test->desayunador == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Desayunador</p>
                                     </li>
                                   </div>
                                 @endif

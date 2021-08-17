@@ -174,6 +174,8 @@ class Property extends Model
         'youtube',
         'code',
         'internal_note',
-        'status'
+        'status',
+        'jadrin_trasero',
+        'desayunador'
     ];
 }
