@@ -247,16 +247,14 @@ use App\Models\Images;
             </table>
             <table style="margin:0px;height: 250px">
                 <tr>
+                    @php
+                        $valor = $data->fee_maintenance_usd / 7.7;
+                    @endphp
                     <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 400px;vertical-align: top">
                         <h1>DESCRIPCION<h1><br>
                         <p style="font-size: 16px">   {!!$data->description!!}
                         </p>
                     </td>
-                </tr>
-                @php
-                    $valor = $data->fee_maintenance_usd / 7.7;
-                @endphp
-                <tr>
                     <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 300px">
                         @if($data->fee_maintenance_gtq > 0 || $data->fee_maintenance_usd > 0)
                         <h1>CUOTA DE MANTENIMIENTO</h1>
@@ -313,7 +311,6 @@ use App\Models\Images;
                            
                                    Espejo de baño,
                             @endif    
-
                         </p>
                     </td>
                 </tr>
