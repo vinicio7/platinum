@@ -251,14 +251,14 @@ use App\Models\Images;
                         $valor = $data->fee_maintenance_usd / 7.7;
                     @endphp
                     <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 400px;vertical-align: top">
-                        <h1>DESCRIPCION<h1><br>
-                        <p style="font-size: 16px">   {!!$data->description!!}
+                        <p style="font-size: 16px"> <h1>DESCRIPCION<h1>
+                          {!!$data->description!!}
                         </p>
                     </td>
                     <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 300px">
                         @if($data->fee_maintenance_gtq > 0 || $data->fee_maintenance_usd > 0)
-                        <h1>CUOTA DE MANTENIMIENTO</h1>
-                        <p>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}</p>
+                        <p><h1>CUOTA DE MANTENIMIENTO</h1>
+                        GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}</p>
                         @endif
                         <p style="font-size: 16px"><h1>SERVICIOS:</h1>
                             @if($data->water_service == 1)
