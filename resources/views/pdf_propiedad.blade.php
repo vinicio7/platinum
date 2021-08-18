@@ -258,12 +258,13 @@ use App\Models\Images;
                     </td>
                     <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 400px;vertical-align: top">
                         <br>
-                        <p style="font-size: 16px">
+                        <p style="font-size: 18px">
                         @if($data->fee_maintenance_gtq > 0 || $data->fee_maintenance_usd > 0)
-                        <h1>CUOTA DE MANTENIMIENTO:</h1>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}
+                        <b  style="font-size:20px">CUOTA DE MANTENIMIENTO:</b>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}
                         @endif
                         </p>
-                         <p style="font-size: 16px"><h1>SERVICIOS:</h1>
+                        <br>
+                         <p style="font-size: 18px"><b  style="font-size:20px">SERVICIOS:</b>
                             @if($data->water_service == 1)
                                 Agua,
                             @endif
@@ -284,7 +285,8 @@ use App\Models\Images;
                                 Limpieza
                             @endif
                         </p>
-                        <p style="font-size: 16px"><h1>INCLUYE:</h1>
+                        <br>
+                        <p style="font-size: 18px"><b  style="font-size:20px">INCLUYE:</b>
                        
                             @if($data->fridge == 1)
                                    Refrigeradora,
