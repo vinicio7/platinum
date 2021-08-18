@@ -284,12 +284,7 @@ use App\Models\Images;
                                 Limpieza
                             @endif
                         </p>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-style: none;border:0;color:#11264e;background-color: white">
-                        <h1>INCLUYE</h1>
+                        <h1>INCLUYE:</h1>
                         <p style="font-size: 16px">
                             @if($data->fridge == 1)
                                    Refrigeradora,
@@ -320,7 +315,6 @@ use App\Models\Images;
                             @endif    
 
                         </p>
-
                     </td>
                 </tr>
             </table>
