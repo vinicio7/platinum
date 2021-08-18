@@ -263,7 +263,7 @@ use App\Models\Images;
                         <b  style="font-size:14px">CUOTA DE MANTENIMIENTO:</b><br>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}
                         @endif
                         </p>
-                         <p style="font-size: 14px"><b  style="font-size:14px">SERVICIOS:</b><br>
+                         <p style="font-size: 14px;margin-right: 10px;"><b  style="font-size:14px">SERVICIOS:</b><br>
                             @if($data->water_service == 1)
                                 Agua,
                             @endif
@@ -284,7 +284,7 @@ use App\Models\Images;
                                 Limpieza
                             @endif
                         </p>
-                        <p style="font-size: 14px"><b  style="font-size:14px">INCLUYE:</b><br>
+                        <p style="font-size: 14px;margin-right: 10px;"><b  style="font-size:14px">INCLUYE:</b><br>
                        
                             @if($data->fridge == 1)
                                    Refrigeradora,
