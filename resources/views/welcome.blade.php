@@ -32,7 +32,7 @@ if($config){
 $asociats    = User::where('status',1)->get();
 $regions     = Region::all();
 $propiedades = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(9);
-$todas       = Property::where('status',1)->orderBy('propiertiy_id','DES')->get()->take(9);
+$todas       = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(9);
 $i1 = asset('pslider1.jpg');
 $i2 = asset('pslider2.jpg');;
 $i3 = asset('pslider3.jpg');
