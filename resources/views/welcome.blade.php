@@ -393,7 +393,7 @@ else {
                                           if($busqueda){
                                              $imagen =  $busqueda->path;
                                           }else{
-                                             $imagen = ''; 
+                                             $imagen = '/'.$datos_propiedad->propiertiy_id.'/1.jpg'; 
                                           }
                                           ?>
                                           <img alt="" style="width: 400px;height: 300px;object-fit:cover; " src="{{$imagen}}">
