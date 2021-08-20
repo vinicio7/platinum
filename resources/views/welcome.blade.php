@@ -31,8 +31,8 @@ if($config){
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
 $asociats    = User::where('status',1)->get();
 $regions     = Region::all();
-$propiedades = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(9);
-$todas       = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(9);
+$propiedades = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(12);
+$todas       = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(12);
 $i1 = asset('pslider1.jpg');
 $i2 = asset('pslider2.jpg');;
 $i3 = asset('pslider3.jpg');

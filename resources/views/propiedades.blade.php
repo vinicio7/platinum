@@ -28,12 +28,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   }
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('rent_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }else{
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)->where('rent_usd','<',$precio_maximo)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('sale_usd',0)->where('rent_usd','<',$precio_maximo)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento) && $zona > 0 && isset($tipo_inmueble)){
   if($tipo_inmueble == 'apartamento'){
@@ -52,12 +52,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   }
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('rent_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }else{
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('sale_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento)  && $zona > 0){
   if($tipo_inmueble == 'apartamento'){
@@ -76,12 +76,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   }
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('rent_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }else{
     $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('sale_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento) ){
   if($tipo_inmueble == 'apartamento'){
@@ -100,12 +100,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   }
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('departament_id',$departamento)
-    ->where('rent_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('rent_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }else{
     $propiedades   = Property::where('departament_id',$departamento)
-    ->where('sale_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('sale_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento)){
   if($tipo_inmueble == 'apartamento'){
@@ -124,12 +124,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   }
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('departament_id',$departamento)
-    ->where('rent_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('rent_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }else{
     $propiedades   = Property::where('departament_id',$departamento)
-    ->where('sale_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    ->where('sale_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else if(isset($tipo_venta)){
   if($tipo_inmueble == 'apartamento'){
@@ -147,11 +147,11 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
     $inmueble = 5;
   }
   if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('rent_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    $propiedades   = Property::where('rent_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }else{
-    $propiedades   = Property::where('sale_usd',0)
-    ->orderBy('propiertiy_id','ASC')->get()->take(16);
+    $propiedades   = Property::where('sale_usd',0)->where('status',1)
+    ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else{
   $tipo_venta = 'venta';
@@ -161,7 +161,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   $tipo_inmueble = 'casa';
   $precio_maximo = '';
   $precio_minimo = '';
-  $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
+  $propiedades   = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(16);
 }
 
 
@@ -294,7 +294,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                           <div class="sc_property_title_address_1">
                                              <a href="/propierty/view/{{$item->propiertiy_id}}">{!!$texto!!}</a> 
                                           </div>
-                                          <div class="sc_property_title_address_2" style="height:auto">{{$item->adress}}</div>
+                                         
                                        </div>
                                        <div class="cL"></div>
                                     </div>
