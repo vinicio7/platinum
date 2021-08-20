@@ -361,7 +361,8 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					return "Sin imagenes cargadas";
+					$imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
 			->addColumn('tipo', function ($record) {
