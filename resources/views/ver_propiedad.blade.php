@@ -283,11 +283,47 @@ img.hover-shadow {
                            <div class="row">
                             <div class="col">
                               <ul class="images-properties">
-                                @foreach($imagenes as $item)
-                                <li data-thumb="{{$item->path}}"  data-src="{{$item->path}}">
-                                  <img   src="{{$item->path}}" class="w-100"/>
-                                </li>
-                                @endforeach
+                                @if(count($imagenes) > 0)
+                                  @foreach($imagenes as $item)
+                                  <li data-thumb="{{$item->path}}"  data-src="{{$item->path}}">
+                                    <img   src="{{$item->path}}" class="w-100"/>
+                                  </li>
+                                  @endforeach
+                                @else
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/1.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/1.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/1.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/2.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/2.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/2.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/3.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/3.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/3.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/4.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/4.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/4.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/5.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/5.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/5.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/6.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/6.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/6.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/7.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/7.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/7.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/8.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/8.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/8.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/9.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/9.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/9.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/10.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/10.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/10.jpg'" class="w-100"/>
+                                  </li>
+                                  <li data-thumb="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/11.jpg'"  data-src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/11.jpg'">
+                                    <img   src="https://platinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/11.jpg'" class="w-100"/>
+                                  </li>
+                                @endif
                               </ul>
                             </div>
                            </div>
