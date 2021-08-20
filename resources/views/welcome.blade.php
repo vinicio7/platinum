@@ -31,8 +31,8 @@ if($config){
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
 $asociats    = User::where('status',1)->get();
 $regions     = Region::all();
-$propiedades = Property::orderBy('propiertiy_id','ASC')->get()->take(4);
-$todas       = Property::orderBy('propiertiy_id','DESC')->get()->take(6);
+$propiedades = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(9);
+$todas       = Property::where('status',1)->orderBy('propiertiy_id','DES')->get()->take(9);
 $i1 = asset('pslider1.jpg');
 $i2 = asset('pslider2.jpg');;
 $i3 = asset('pslider3.jpg');
@@ -414,11 +414,7 @@ else {
                                              <div class="sc_property_title_address_1" >
                                                 <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}" style="text-transform: uppercase;color: white">{!!$datos_propiedad->title!!}</a>
                                              </div>
-                                             @if(strlen($datos_propiedad->adress) > 0)
-                                                <div class="sc_property_title_address_2" style="color:white"> {{$datos_propiedad->adress}}</div>
-                                             @else
-                                                <div class="sc_property_title_address_2" style="color:white">Sin direccion</div>
-                                             @endif
+                                             
                                           </div>
                                           <div class="cL"></div>
                                        </div>
@@ -475,11 +471,7 @@ else {
                                               @endphp
                                                 <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;">{!!$texto!!}</a>
                                              </div>
-                                             @if(strlen($item->adress) > 0)
-                                                <div class="sc_property_title_address_2" style="height:auto">{{$item->adress}}</div>
-                                             @else
-                                                <div class="sc_property_title_address_2" style="height:auto">Sin direccion</div>
-                                             @endif
+                                            
                                           </div>
                                           <div class="cL"></div>
                                        </div>
