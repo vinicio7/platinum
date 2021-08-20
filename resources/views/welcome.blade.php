@@ -451,7 +451,7 @@ else {
                                           if($busqueda){
                                              $imagen =  $busqueda->path;
                                           }else{
-                                             $imagen = ''; 
+                                             $imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$datos_propiedad->propiertiy_id.'/1.jpg'; 
                                           }
                                           ?>
                                           <img alt="" style="width: 30em;height: 20em;object-fit:cover;" src="{{$imagen}}">
