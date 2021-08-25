@@ -16,7 +16,7 @@
             </div>
             
             <div id="app">
-                <propertypdf-component></propertypdf-component>
+                <propertypdf-component datos_usuario="{{$usuario_id}}"></propertypdf-component>
                 @section('content_admin')
                     {{--  <div class="separator-breadcrumb border-top"></div>
                     <div class="separator-breadcrumb border-top"></div>--}}

@@ -3,6 +3,9 @@
             <button type="button" class="btn btn-danger" @click="pdf_total()">
               -> Generar PDF
             </button> 
+            <button type="button" class="btn btn-danger" @click="tour_total()">
+              -> Generar TOUR
+            </button> 
             <button type="button" class="btn btn-warning" @click="limpiar_pdf()">
               -> Limpiar
             </button>
@@ -1235,6 +1238,7 @@
     import $ from 'jquery';
     //const token = document.head.querySelector('meta[name="csrf-token"]').content
     export default {
+      props: ['datos_usuario'],
         components:{
             'editor': Editor,
             vueDropzone: vue2Dropzone,
@@ -1245,7 +1249,7 @@
         },
         data() {
             return {
-                usuario_id:39,
+                usuario_id:0,
                 subtitulo:'',
                 fecha_final:'',
                 fecha_inicial:'',
@@ -1446,6 +1450,8 @@
             }
         },
         mounted: function() {
+            this.usuario_id = this.datos_usuario
+            console.log(this.usuario_id)
             let me = this;
             let url = '/api/propietarios' 
             axios.get(url,{}).then(function (response) {
@@ -1519,6 +1525,9 @@
                }
                if ($(evt.target)[0].innerText == 'PDF') {
                  this.downloadPdf($(evt.target)[0].id); 
+               }
+               if ($(evt.target)[0].innerText == 'TOUR') {
+                 this.downloadTour($(evt.target)[0].id); 
                }
                if($(evt.target)[0].innerText == 'Eliminar'){
                     let Data_id = event.target.id
@@ -1828,6 +1837,23 @@
                    fileLink.click();
               });
               },
+              tour_total(){
+                let me  = this;
+                let url = '/api/propierty/tour_total/'+this.usuario_id 
+                axios({
+                  url: url,
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'propiedades.pdf');
+                   document.body.appendChild(fileLink);
+
+                   fileLink.click();
+              });
+              },
             guardarVenta(){
                 let me  = this;
                 let url = '/api/propierty/sale' 
@@ -1878,6 +1904,23 @@
                    var fileLink = document.createElement('a');
                    fileLink.href = fileURL;
                    fileLink.setAttribute('download', 'propiedad'+id+'.pdf');
+                   document.body.appendChild(fileLink);
+                   fileLink.click();
+              });
+            },   
+            downloadTour(id){ 
+              console.log("entro");
+                let me  = this;
+                let url = '/tour/'+id 
+                axios({
+                  url: url,
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'tour propiedad'+id+'.pdf');
                    document.body.appendChild(fileLink);
                    fileLink.click();
               });

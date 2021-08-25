@@ -5,7 +5,8 @@ use App\Models\Zone;
 use App\Models\Region;
 use App\Models\Property;
 use App\Models\Images;
-
+use App\Models\User;
+use App\Models\Rol;
 $tipo_venta   = 1;
 $departamento = 1;
 $municipio    = 1;
@@ -270,14 +271,14 @@ img.hover-shadow {
                       @php
                         $texto =  strip_tags($test->title)  
                       @endphp
-                    <h3 class="post_title" style="text-transform: uppercase;height: 2em">{!!$texto!!}</h3>
+                    <h3 class="post_title">{!!nl2br($test->title)!!}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
                            <a class="" title="{{$test->title}}">
                             @if($test->sale_usd > 0)
-                              <span class="ps_single_status">Venta</span>
+                              <span class="ps_single_status" style="z-index: 999999">Venta</span>
                             @else
-                              <span class="ps_single_status">Renta</span>
+                              <span class="ps_single_status" style="z-index: 999999">Renta</span>
                             @endif
                            </a>
                            <div class="row">
@@ -771,7 +772,51 @@ img.hover-shadow {
                   </div>
                   <div class="sidebar widget_area scheme_original" style="margin-top: 8.3em">
                      <div class="sidebar_inner widget_area_inner">
-                        <aside class="widget widget_property_search scheme_dark" style="color:white;">
+                      @php
+                        $agente = User::where('user_id',$test->user_id)->first();  
+                        $rol    = Rol::where('rol_id',$agente->rol_id)->first();  
+                      @endphp
+
+                             <div class="column_padding_bottom" style="text-align: center;height:600px;margin-top: -35px">
+                                 <center><h6 class="agent d-block text-center m-0 p-2 py-3;" style="padding:12px;margin:0px;font-size: 1rem;color: #11264e;font-weight: 600;display: block;background-color: white;-webkit-box-shadow: none;box-shadow: none;text-transform: uppercase;letter-spacing: 0.15rem;pb-3, .py-3 {
+    padding-bottom: 2rem !important;
+}
+
+.pt-3, .py-3 {
+    padding-top: 2rem !important;
+}.p-2 {
+    padding: 2.5rem !important;
+}
+
+.m-0 {
+    margin: 0 !important;
+}">
+                              </h6></center>
+                                 <div class="sc_team_item" style="background-color: white;height: 625px">
+                                    <div class="sc_team_item_avatar">
+                                       <img alt="" src="{{asset($agente->picture)}}" style="width:280px!important;height: 405px!important;object-fit:cover;">
+                                    </div>
+                                    <div class="sc_team_item_info">
+                                       <center>
+                                          <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
+                                          <form action="/propiedades" style="text-align: left;margin-left: 50px;color: #11264e">
+                                            <br>
+                                             <center> <b style="font-size: 24px;margin-left: -50px">{{strtoupper($agente->name)}}</b></center>
+                                             <center> <b style="font-size: 24px;margin-left: -50px">{{$rol->name}}</b></center>
+                                          </form>
+                                            <div class="sc_socials_item" style="width: auto;height: auto;width: auto"><a href="tel:{{ $agente->phone }}" class="social_icons" style="width: 50px;height: 120px"><span class="icon-phone" style="font-size: 3em;margin-top: 10px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="icon-facebook" style="font-size: 3em;margin-top: 10px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="mailto:{{ $agente->email }}" class="social_icons" style="width: 50px;height: 120px"><span class="icon-mail" style="font-size: 3em;margin-top: 10px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="https://wa.me/502{{ $agente->whatsapp }}" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="fa fa-whatsapp" style="padding-top:3px;width: auto;font-size: 3em;margin-top: 10px"></span></a></div> 
+                                          </div>
+                                       </center>
+                                    </div>
+                                 </div>
+                              </div>
+
+                     
+                              <br><br>
+                        <aside class="widget widget_property_search scheme_dark" style="color:white;margin-top: 40px">
                            <form method="get" action="propiedades_post">
                              <div class="input-icono">
                                 <input type="text" name="input" value="" >
@@ -870,6 +915,7 @@ img.hover-shadow {
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>
                         </aside>
+                    
                      </div>
                   </div>
                </div>

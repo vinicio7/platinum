@@ -1274,6 +1274,7 @@
     import $ from 'jquery';
     //const token = document.head.querySelector('meta[name="csrf-token"]').content
     export default {
+      props: ['datos_usuario'],
         components:{
             'editor': Editor,
             vueDropzone: vue2Dropzone,
@@ -1284,7 +1285,7 @@
         },
         data() {
             return {
-                usuario_id:2,
+                usuario_id:0,
                 subtitulo:'',
                 fecha_final:'',
                 fecha_inicial:'',
@@ -1490,6 +1491,7 @@
             }
         },
         mounted: function() {
+            this.usuario_id = this.datos_usuario
             let me = this;
             let url = '/api/propietarios' 
             axios.get(url,{}).then(function (response) {
@@ -1574,6 +1576,9 @@
                }
                if ($(evt.target)[0].innerText == 'PDF') {
                  this.downloadPdf($(evt.target)[0].id); 
+               }
+               if ($(evt.target)[0].innerText == 'TOUR') {
+                 this.downloadTour($(evt.target)[0].id); 
                }
                if($(evt.target)[0].innerText == 'Eliminar'){
                     let url = '/api/propierty/delete' 
@@ -1941,6 +1946,22 @@
                    var fileLink = document.createElement('a');
                    fileLink.href = fileURL;
                    fileLink.setAttribute('download', 'Información para cliente código '+id+'.pdf');
+                   document.body.appendChild(fileLink);
+                   fileLink.click();
+              });
+            },
+            downloadTour(id){ 
+                let me  = this;
+                let url = '/tour/'+id 
+                axios({
+                  url: url,
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'Información para tour código '+id+'.pdf');
                    document.body.appendChild(fileLink);
                    fileLink.click();
               });

@@ -66,3 +66,4 @@ Route::get('propiedades',            	'PropertyController@propiedades')->name('p
 Route::post('send_message',            	'UserController@send_message')->name('send_message');
 Route::post('capsulas',      			'UserController@capsulas')->name('capsulas');
 Route::get('/pdf/{id}',                	'PropertyController@pdf');
+Route::get('/tour/{id}',                'PropertyController@tour');

@@ -15,7 +15,7 @@
             </div>
             
             <div id="app" style="width: 250vh!important;overflow-x: scroll!important;overflow-y: scroll!important;">
-                <property-component></property-component>
+                <property-component datos_usuario="{{$usuario_id}}"></property-component>
                 @section('content_admin')
                     {{--  <div class="separator-breadcrumb border-top"></div>
                     <div class="separator-breadcrumb border-top"></div>--}}

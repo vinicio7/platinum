@@ -289,10 +289,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                        </div>
                                        <div class="sc_property_title">
                                           @php
-                                              $texto =  strip_tags($item->title)  
+                                              $texto =  nl2br($item->title)  
                                           @endphp
                                           <div class="sc_property_title_address_1">
-                                             <a href="/propierty/view/{{$item->propiertiy_id}}">{!!$texto!!}</a> 
+                                            <a href="/propierty/view/{{$item->propiertiy_id}}">
+                                             <span style="font-size: 13px">{!!$texto!!}</span>
+                                            </a> 
                                           </div>
                                          
                                        </div>

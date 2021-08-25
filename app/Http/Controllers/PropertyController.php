@@ -39,10 +39,39 @@ class PropertyController extends Controller
 		}
 	}
 
+	public function tour($id){
+		try{
+			$data       = Property::where('propiertiy_id',$id)->first(); 
+			//dd($data);
+			$pdf        = PDF::loadView('pdf_tour',compact('data'));
+			//return view('pdf_propiedad',compact('data'));
+			//dd($pdf);
+			$nombre     = 'Informacion para tour '.$id.".pdf";
+			return $pdf->setPaper('letter','landscape')->stream($nombre);
+		}catch(\Exception $e){
+			return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
+		}
+	}
+
 	public function pdf_total($usuario_id){
 		try{
-			$data       = ListaPdf::where('usuario_id',$usuario_id)->get(); 
+			$name = \Session::get('user');
+			$usuario = User::where('name',$name)->first();
+			$data       = ListaPdf::where('usuario_id',$usuario->user_id)->get(); 
 			$pdf        = PDF::loadView('pdf_propiedad_list',compact('data'));
+			$nombre     = 'Propiedades.pdf';
+			return $pdf->setPaper('letter')->download($nombre);
+		}catch(\Exception $e){
+			return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
+		}
+	}
+
+	public function tour_total($usuario_id){
+		try{
+			$name = \Session::get('user');
+			$usuario = User::where('name',$name)->first();
+			$data       = ListaPdf::where('usuario_id',$usuario->user_id)->get(); 
+			$pdf        = PDF::loadView('tour_propiedad_list',compact('data'));
 			$nombre     = 'Propiedades.pdf';
 			return $pdf->setPaper('letter')->download($nombre);
 		}catch(\Exception $e){
@@ -68,6 +97,9 @@ class PropertyController extends Controller
 
 	public function index()
 	{
+		$name = \Session::get('user');
+		$usuario = User::where('name',$name)->first();
+		$usuario_id = $usuario->user_id;
 		$titulo     = 'propierty';
 		$dt_route   = route('propierty.show');
 		$dt_order   = [[0, 'desc']];
@@ -86,13 +118,17 @@ class PropertyController extends Controller
 			['data' => 'estado', 'title'=>'ESTADO'],
 			['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
 			['data' => 'pdf',"title"=>"PDF", 'orderable'=> false, 'searchable' => false],
+			//['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
 			['data' => 'generar',"title"=>"Generar", 'orderable'=> false, 'searchable' => false]
 		]; 
-		return view('propierty', compact('dt_route', 'dt_columns','dt_order' ));
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id' ));
 	}
 
 	public function pdf_list()
 	{
+		$name = \Session::get('user');
+		$usuario = User::where('name',$name)->first();
+		$usuario_id = $usuario->user_id;
 		$titulo     = 'propierty';
 		$dt_route   = route('propierty.show_list');
 		$dt_order   = [[0, 'desc']];
@@ -105,9 +141,10 @@ class PropertyController extends Controller
 			['data' => 'propietario', 'title'=>'PROPIETARIO'],
 			['data' => 'adress', 'title'=>'DIRECCION'],
 			['data' => 'eliminar',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
-			['data' => 'generar',"title"=>"GENERAR", 'orderable'=> false, 'searchable' => false]
+			['data' => 'generar',"title"=>"GENERAR", 'orderable'=> false, 'searchable' => false],
+			['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false]
 		]; 
-		return view('property_list', compact('dt_route', 'dt_columns','dt_order' ));
+		return view('property_list', compact('dt_route', 'dt_columns','dt_order','usuario_id' ));
 	}
 
 	public function image(Request $request){
@@ -356,6 +393,10 @@ class PropertyController extends Controller
 				return
 					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-genera' id='".$record->propiertiy_id."'>PDF</a>";  
 			})
+			->addColumn('tour', function ($record) {
+				return
+					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-tour' id='".$record->propiertiy_id."'>TOUR</a>";  
+			})
 			->addColumn('imagen', function ($record) {
 				$buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
 				if($buscar){
@@ -433,7 +474,7 @@ class PropertyController extends Controller
 					$descripcion = 'Vendida';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id'])
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour'])
 			->toJson();
 	}
 
@@ -449,12 +490,17 @@ class PropertyController extends Controller
 				return
 					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-genera' id='".$record->codigo_propiedad."'>PDF</a>";  
 			})
+			->addColumn('tour', function ($record) {
+				return
+					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-tour' id='".$record->codigo_propiedad."'>TOUR</a>";  
+			})
 			->addColumn('imagen', function ($record) {
-				$buscar = Images::where('propierty_id',$record->codigo_propiedad)->first();
+				$buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					return "Sin imagenes cargadas";
+					$imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
 			->addColumn('tipo', function ($record) {
@@ -534,7 +580,7 @@ class PropertyController extends Controller
 					$descripcion = 'Vendida';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-			})->rawColumns(['estado','eliminar','propietario','tipo','imagen','pdf','generar'])
+			})->rawColumns(['estado','eliminar','propietario','tipo','imagen','pdf','generar','tour'])
 			->toJson();
 	}
 
@@ -828,9 +874,11 @@ class PropertyController extends Controller
 	public function add_pdf(Request $request)
 	{
 		try {
+			$name = \Session::get('user');
+			$usuario = User::where('name',$name)->first();
 			$lista = ListaPdf::create([
-				'codigo_propiedad'  => $request->input('propierty_id'), 
-				'usuario_id'        =>  $request->input('usuario_id')
+				'codigo_propiedad'  =>  $request->input('propierty_id'), 
+				'usuario_id'        =>  $usuario->user_id
 			]);
 			$this->message = "Registro creado correctamente";
 			$this->result = true;
@@ -852,7 +900,9 @@ class PropertyController extends Controller
 	public function limpiar($usuario_id)
 	{
 		try {
-			$lista = ListaPdf::where('usuario_id',$usuario_id)->get();
+			$name = \Session::get('user');
+			$usuario = User::where('name',$name)->first();
+			$lista = ListaPdf::where('usuario_id',$usuario->user_id)->get();
 			foreach ($lista as $item) {
 				ListaPdf::destroy($item->id);
 			}
@@ -876,7 +926,9 @@ class PropertyController extends Controller
 	public function remove_pdf(Request $request)
 	{
 		try {
-			$lista = ListaPdf::where('usuario_id',$request->input('usuario_id'))->where('codigo_propiedad',$request->input('propierty_id'))->get();
+			$name = \Session::get('user');
+			$usuario = User::where('name',$name)->first();
+			$lista = ListaPdf::where('usuario_id',$user->usuario_id)->where('codigo_propiedad',$request->input('propierty_id'))->get();
 			foreach ($lista as $item) {
 				ListaPdf::destroy($item->id);
 			}

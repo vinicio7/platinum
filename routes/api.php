@@ -23,6 +23,7 @@ use App\Http\Controllers\ZoneController;
 |
 */
 Route::get('propierty/pdf_total/{usuario_id}',          'PropertyController@pdf_total');
+Route::get('propierty/tour_total/{usuario_id}',          'PropertyController@tour_total');
 Route::get('propierty/limpiar/{usuario_id}',            'PropertyController@limpiar');
 Route::post('remove/pdf',                               'PropertyController@remove_pdf');
 Route::middleware('auth:api')->get('/user', function (Request $request) {

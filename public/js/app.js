@@ -4445,6 +4445,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  //const token = document.head.querySelector('meta[name="csrf-token"]').content
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['datos_usuario'],
   components: {
     'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     vueDropzone: (vue2_dropzone__WEBPACK_IMPORTED_MODULE_3___default()),
@@ -4457,7 +4458,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _ref;
 
     return _ref = {
-      usuario_id: 2,
+      usuario_id: 0,
       subtitulo: '',
       fecha_final: '',
       fecha_inicial: '',
@@ -4555,6 +4556,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this = this;
 
+    this.usuario_id = this.datos_usuario;
     var me = this;
     var url = '/api/propietarios';
     axios.get(url, {}).then(function (response) {
@@ -4630,6 +4632,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
         _this.downloadPdf(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+      }
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'TOUR') {
+        _this.downloadTour(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       }
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
@@ -5026,6 +5032,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var fileLink = document.createElement('a');
         fileLink.href = fileURL;
         fileLink.setAttribute('download', 'Información para cliente código ' + id + '.pdf');
+        document.body.appendChild(fileLink);
+        fileLink.click();
+      });
+    },
+    downloadTour: function downloadTour(id) {
+      var me = this;
+      var url = '/tour/' + id;
+      axios({
+        url: url,
+        method: 'GET',
+        responseType: 'blob'
+      }).then(function (response) {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'Información para tour código ' + id + '.pdf');
         document.body.appendChild(fileLink);
         fileLink.click();
       });
@@ -6496,6 +6518,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -6505,6 +6530,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  //const token = document.head.querySelector('meta[name="csrf-token"]').content
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['datos_usuario'],
   components: {
     'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     vueDropzone: (vue2_dropzone__WEBPACK_IMPORTED_MODULE_3___default()),
@@ -6517,7 +6543,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _ref;
 
     return _ref = {
-      usuario_id: 39,
+      usuario_id: 0,
       subtitulo: '',
       fecha_final: '',
       fecha_inicial: '',
@@ -6615,6 +6641,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this = this;
 
+    this.usuario_id = this.datos_usuario;
+    console.log(this.usuario_id);
     var me = this;
     var url = '/api/propietarios';
     axios.get(url, {}).then(function (response) {
@@ -6682,6 +6710,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
         _this.downloadPdf(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+      }
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'TOUR') {
+        _this.downloadTour(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       }
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
@@ -6998,6 +7030,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         fileLink.click();
       });
     },
+    tour_total: function tour_total() {
+      var me = this;
+      var url = '/api/propierty/tour_total/' + this.usuario_id;
+      axios({
+        url: url,
+        method: 'GET',
+        responseType: 'blob'
+      }).then(function (response) {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'propiedades.pdf');
+        document.body.appendChild(fileLink);
+        fileLink.click();
+      });
+    },
     guardarVenta: function guardarVenta() {
       var me = this;
       var url = '/api/propierty/sale';
@@ -7068,6 +7116,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var fileLink = document.createElement('a');
         fileLink.href = fileURL;
         fileLink.setAttribute('download', 'propiedad' + id + '.pdf');
+        document.body.appendChild(fileLink);
+        fileLink.click();
+      });
+    },
+    downloadTour: function downloadTour(id) {
+      console.log("entro");
+      var me = this;
+      var url = '/tour/' + id;
+      axios({
+        url: url,
+        method: 'GET',
+        responseType: 'blob'
+      }).then(function (response) {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'tour propiedad' + id + '.pdf');
         document.body.appendChild(fileLink);
         fileLink.click();
       });
@@ -72289,6 +72354,20 @@ var render = function() {
           }
         },
         [_vm._v("\n          -> Generar PDF\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              return _vm.tour_total()
+            }
+          }
+        },
+        [_vm._v("\n          -> Generar TOUR\n        ")]
       ),
       _vm._v(" "),
       _c(
