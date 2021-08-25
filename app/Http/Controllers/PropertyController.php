@@ -495,7 +495,7 @@ class PropertyController extends Controller
 					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-tour' id='".$record->codigo_propiedad."'>TOUR</a>";  
 			})
 			->addColumn('imagen', function ($record) {
-				$buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
+				$buscar = Images::where('propierty_id',$record->codigo_propiedad)->first();
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
