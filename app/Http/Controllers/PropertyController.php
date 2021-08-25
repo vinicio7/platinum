@@ -118,7 +118,7 @@ class PropertyController extends Controller
 			['data' => 'estado', 'title'=>'ESTADO'],
 			['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
 			['data' => 'pdf',"title"=>"PDF", 'orderable'=> false, 'searchable' => false],
-			//['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+			['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
 			['data' => 'generar',"title"=>"Generar", 'orderable'=> false, 'searchable' => false]
 		]; 
 		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id' ));
