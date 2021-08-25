@@ -84,6 +84,10 @@ class PropertyController extends Controller
 		return view('propiedades');
 	}
 
+	public function propiedades_agente($agente){
+		return view('propiedades_agente',compact('agente'));
+	}
+
 	public function propiedades_post(Request $request){
 		$tipo_venta = $request->input('tipo_venta');
 		$tipo_inmueble = $request->input('tipo_inmueble');
@@ -386,8 +390,7 @@ class PropertyController extends Controller
 					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
 			})
 			->addColumn('id', function ($record) {
-				return
-					"<a href='/propierty/view/".$record->propiertiy_id."' target='_blank'>".$record->propiertiy_id."</a>";  
+				return $record->propiertiy_id;
 			})
 			->addColumn('generar', function ($record) {
 				return

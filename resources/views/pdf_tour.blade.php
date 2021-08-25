@@ -38,9 +38,9 @@ use App\Models\User;
             top: 0cm;
             left: 0cm;
             right: 0cm;
-            height:2cm ;
-            padding:20;
-            background-color:  #11264e;
+            height:1cm ;
+            padding:10;
+            background-color:  white;
 
         }
         .image-header {
@@ -219,10 +219,8 @@ use App\Models\User;
 </head>
 <body>
     <header style="margin-bottom:0px">
-        <center><img src="https://platinum.mavis.com.gt//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
+        <img src="https://propiedadesplatinum.com/assets/images/logos/logo_azul_2.png" style="width: 250px;height:80px;padding: 0px" />
     </header>
-    <br>
-    <br>
     <br>
     <center><h1 style="font-size: 20px;color:#11264e">Reporte de Propiedades - Información para Tours</h1></center>
     <table>

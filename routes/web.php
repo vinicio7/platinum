@@ -63,6 +63,8 @@ Route::get('rols',            			'RoleController@index')->name('rols');
 Route::get('propierties',            	'PropertyController@index')->name('propierties');
 Route::get('pdf_list',            		'PropertyController@pdf_list')->name('pdf_list');
 Route::get('propiedades',            	'PropertyController@propiedades')->name('propiedades');
+Route::get('propiedades_test',          'PropertyController@propiedades_test')->name('propiedades_test');
+Route::get('propiedades_agente/{agente}','PropertyController@propiedades_agente')->name('propiedades_agente');
 Route::post('send_message',            	'UserController@send_message')->name('send_message');
 Route::post('capsulas',      			'UserController@capsulas')->name('capsulas');
 Route::get('/pdf/{id}',                	'PropertyController@pdf');

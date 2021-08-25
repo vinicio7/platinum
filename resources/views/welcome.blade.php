@@ -4,7 +4,6 @@ use App\Models\Property;
 use App\Models\Region;
 use App\Models\Images;
 
-
 use App\Models\Configuraciones;
 $config = Configuraciones::first();
 if($config){
@@ -387,7 +386,11 @@ else {
                                  <div class="sc_property_item" style="color:white">
                                     <div class="sc_property_image" style="color:white">
                                        <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}">
+                                          @if($datos_propiedad->sale_usd > 0)
                                           <div class="property_price_box"><span class="property_price_box_price">${{$datos_propiedad->sale_usd}}</span></div>
+                                          @else
+                                           <div class="property_price_box"><span class="property_price_box_price">${{$datos_propiedad->rent_usd}}</span></div>
+                                           @endif
                                           <?php
                                           $busqueda    = Images::where('propierty_id',$datos_propiedad->propiertiy_id)->first();
                                           if($busqueda){
@@ -402,9 +405,9 @@ else {
                                     </div>
                                     <div class="sc_property_info" style="color:white">
                                        @if($datos_propiedad->sale_usd > 0)
-                                          <div class="sc_property_description">En Venta</div>
+                                          <div class="sc_property_description">En Venta - Cod. {{$datos_propiedad->propiertiy_id}}</div>
                                        @else
-                                          <div class="sc_property_description">En Renta</div>
+                                          <div class="sc_property_description">En Renta - Cod. {{$datos_propiedad->propiertiy_id}}</div>
                                        @endif
                                        <div>
                                           <div class="sc_property_icon" style="color:white">
@@ -441,7 +444,11 @@ else {
                                  <div class="sc_property_item">
                                     <div class="sc_property_image">
                                        <a href="/propierty/view/{{$item->propiertiy_id}}">
+                                          @if($item->sale_usd > 0)
                                           <div class="property_price_box"><span class="property_price_box_price">${{$item->sale_usd}}</span></div>
+                                          @else
+                                          <div class="property_price_box"><span class="property_price_box_price">${{$item->rent_usd}}</span></div>
+                                          @endif
                                           <?php
                                           $busqueda    = Images::where('propierty_id',$item->propiertiy_id)->first();
                                           if($busqueda){
@@ -456,9 +463,9 @@ else {
                                     </div>
                                     <div class="sc_property_info">
                                        @if($item->sale_usd > 0)
-                                          <div class="sc_property_description">En Venta</div>
+                                          <div class="sc_property_description">En Venta - Cod. {{$item->propiertiy_id}}</div>
                                        @else
-                                          <div class="sc_property_description">En Renta</div>
+                                          <div class="sc_property_description">En Renta - Cod. {{$item->propiertiy_id}}</div>
                                        @endif
                                        <div>
                                           <div class="sc_property_icon">
@@ -523,7 +530,7 @@ else {
                                              <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
-                                             <form action="/propiedades">
+                                             <form action="/propiedades_agente/{{$item->user_id}}">
                                                 <button style="background-color: #11264e" hre>Propiedades</button>  
                                              </form>
                                           </div>

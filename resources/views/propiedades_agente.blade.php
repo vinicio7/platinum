@@ -5,7 +5,6 @@ use App\Models\Zone;
 use App\Models\Region;
 use App\Models\Property;
 use App\Models\Images;
-$agente = Session::get('agente');
 $departamentos = Departament::all();  
 $municipios    = Municipality::all();  
 $zonas         = Zone::all();  
@@ -154,7 +153,6 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
     ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else{
-  dd($agente);
   $tipo_venta = 'venta';
   $departamento = 0;
   $municipio = 0;
@@ -177,24 +175,24 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <title>Propiedades &#8211; Platinum</title>
-    <link rel="stylesheet" href="css/fuente1.css" type="text/css" media="all">
-    <link rel='stylesheet' href='js/vendor/booked/font-awesome.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='js/vendor/essgrid/tooltipster.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='js/vendor/essgrid/tooltipster-light.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='js/vendor/booked/styles.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='js/vendor/revslider/settings.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/fontello/css/fontello.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/_animation.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/shortcodes.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/skin.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/custom-style.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/colors.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/responsive.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/skin.responsive.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
-    <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/fuente1.css" type="text/css" media="all">
+    <link rel='stylesheet' href='../js/vendor/booked/font-awesome.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../js/vendor/essgrid/tooltipster.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../js/vendor/essgrid/tooltipster-light.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../js/vendor/booked/styles.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../js/vendor/revslider/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/fontello/css/fontello.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/_animation.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/shortcodes.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/skin.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/custom-style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/colors.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/skin.responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../js/vendor/swiper/swiper.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='../css/custom/_messages.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="../css/social_bar.css" type="text/css" media="all">
     <style type="text/css">
       .input-icono {
         background-image: url('/images/search.png');
@@ -225,7 +223,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                      <div class="content_wrap clearfix container_header" >
                         <div class="top_panel_logo" style="margin-right: 0px">
                            <div class="logo">
-                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
+                              <a href="./"><img src="../image/logo_lg_blanco.svg" class="logo_main"></a>
                            </div>
                         </div>
                         <div class="top_panel_menu container_logo_right">
@@ -456,16 +454,16 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
       </div>
 
       <a href="#" class="scroll_to_top icon-up"></a>
-      <script type='text/javascript' src='js/vendor/jquery.js'></script>
-      <script type='text/javascript' src='js/custom/plugins.js'></script>
-      <script type='text/javascript' src='js/custom/messages.js'></script>
-      <script type='text/javascript' src='js/vendor/jquery-migrate.min.js'></script>
-      <script type='text/javascript' src='js/vendor/modernizr.min.js'></script>
-      <script type='text/javascript' src='js/vendor/ui/jquery-ui.min.js'></script>
-      <script type='text/javascript' src='js/vendor/superfish.js'></script>
-      <script type='text/javascript' src='js/custom/_utils.js'></script>
-      <script type='text/javascript' src='js/custom/_init.js'></script>
-      <script type='text/javascript' src='js/custom/_shortcodes.js'></script>
-      <script type='text/javascript' src='js/vendor/magnific-popup/jquery.magnific-popup.min.js'></script>
+      <script type='text/javascript' src='../js/vendor/jquery.js'></script>
+      <script type='text/javascript' src='../js/custom/plugins.js'></script>
+      <script type='text/javascript' src='../js/custom/messages.js'></script>
+      <script type='text/javascript' src='../js/vendor/jquery-migrate.min.js'></script>
+      <script type='text/javascript' src='../js/vendor/modernizr.min.js'></script>
+      <script type='text/javascript' src='../js/vendor/ui/jquery-ui.min.js'></script>
+      <script type='text/javascript' src='../js/vendor/superfish.js'></script>
+      <script type='text/javascript' src='../js/custom/_utils.js'></script>
+      <script type='text/javascript' src='../js/custom/_init.js'></script>
+      <script type='text/javascript' src='../js/custom/_shortcodes.js'></script>
+      <script type='text/javascript' src='../js/vendor/magnific-popup/jquery.magnific-popup.min.js'></script>
    </body>
 </html>
