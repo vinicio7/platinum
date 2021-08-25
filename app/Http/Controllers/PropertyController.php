@@ -499,7 +499,7 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					$imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					$imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$record->codigo_propiedad.'/1.jpg'; 
 					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
