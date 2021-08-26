@@ -26,6 +26,11 @@ class PropertyController extends Controller
 		return view('ver_propiedad', compact('data'));
 	}
 
+	public function ver_admin($id){
+		$data = Property::find($id);
+		return view('ver_admin', compact('data'));
+	}
+
 	public function pdf($id){
 		try{
 			$data       = Property::where('propiertiy_id',$id)->first(); 
@@ -390,7 +395,7 @@ class PropertyController extends Controller
 					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
 			})
 			->addColumn('id', function ($record) {
-				return $record->propiertiy_id;
+				return "<a href='/propierty/admin/".$record->propiertiy_id."' target='_blank'>".$record->propiertiy_id."</a>";  
 			})
 			->addColumn('generar', function ($record) {
 				return

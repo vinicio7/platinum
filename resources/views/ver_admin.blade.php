@@ -749,7 +749,56 @@ img.hover-shadow {
                               </ul>
                             </div>
                           </div>
+                          <div class="sc_section"> 
+                            @if( strlen($test->adress) > 1)
+                              <h4 class="sc_title" style="font-weight: bold">DIRECCION:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->adress)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
 
+                            @if(strlen( $test->another_details) > 1)
+                              <h4 class="sc_title" style="font-weight: bold">OTROS DETALLES:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_details)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
+
+                            @if($test->another_finished)
+                              <h4 class="sc_title" style="font-weight: bold">OTROS ACABADOS:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_finished)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
+
+                            @if($test->another_include)
+                              <h4 class="sc_title" style="font-weight: bold">OTROS INCLUYE:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_include)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
+
+                            @if($test->another_pleasantness)
+                              <h4 class="sc_title" style="font-weight: bold">OTRAS AMENIDADES:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_pleasantness)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
+
+                             @if($test->internal_note)
+                              <h4 class="sc_title" style="font-weight: bold">NOTAS INTERNAS:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->internal_note)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
+
+                          </div>
                           <div class="columns_wrap">
                              @if($test->youtube)
                             <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
@@ -774,7 +823,11 @@ img.hover-shadow {
                      <div class="sidebar_inner widget_area_inner">
                       @php
                         $agente = User::where('user_id',$test->user_id)->first();  
+                        if(!$agente){
+                          $agente = User::where('user_id',2)->first();  
+                        }
                         $rol    = Rol::where('rol_id',$agente->rol_id)->first();  
+
                       @endphp
 
                              <div class="column_padding_bottom" style="text-align: center;height:600px;margin-top: -35px">

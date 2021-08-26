@@ -154,7 +154,6 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
     ->orderBy('propiertiy_id','DESC')->get()->take(16);
   }
 }else{
-  dd($agente);
   $tipo_venta = 'venta';
   $departamento = 0;
   $municipio = 0;
@@ -162,7 +161,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   $tipo_inmueble = 'casa';
   $precio_maximo = '';
   $precio_minimo = '';
-  $propiedades   = Property::where('status',1)->where('user_id',$agente)->orderBy('propiertiy_id','DESC')->get()->take(16);
+  if(isset($agente)){
+    $propiedades   = Property::where('status',1)->where('user_id',$agente)->orderBy('propiertiy_id','DESC')->get()->take(16);
+  }
+  else{
+    $propiedades   = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(16);
+  }
 }
 
 

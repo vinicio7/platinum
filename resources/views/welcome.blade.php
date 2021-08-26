@@ -387,9 +387,9 @@ else {
                                     <div class="sc_property_image" style="color:white">
                                        <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}">
                                           @if($datos_propiedad->sale_usd > 0)
-                                          <div class="property_price_box"><span class="property_price_box_price">${{$datos_propiedad->sale_usd}}</span></div>
+                                          <div class="property_price_box"><span class="property_price_box_price">${{number_format($datos_propiedad->sale_usd,2)}}</span></div>
                                           @else
-                                           <div class="property_price_box"><span class="property_price_box_price">${{$datos_propiedad->rent_usd}}</span></div>
+                                           <div class="property_price_box"><span class="property_price_box_price">${{number_format($datos_propiedad->rent_usd,2)}}</span></div>
                                            @endif
                                           <?php
                                           $busqueda    = Images::where('propierty_id',$datos_propiedad->propiertiy_id)->first();
@@ -445,9 +445,9 @@ else {
                                     <div class="sc_property_image">
                                        <a href="/propierty/view/{{$item->propiertiy_id}}">
                                           @if($item->sale_usd > 0)
-                                          <div class="property_price_box"><span class="property_price_box_price">${{$item->sale_usd}}</span></div>
+                                          <div class="property_price_box"><span class="property_price_box_price">${{number_format($item->sale_usd,2)}}</span></div>
                                           @else
-                                          <div class="property_price_box"><span class="property_price_box_price">${{$item->rent_usd}}</span></div>
+                                          <div class="property_price_box"><span class="property_price_box_price">${{number_format($item->rent_usd,2)}}</span></div>
                                           @endif
                                           <?php
                                           $busqueda    = Images::where('propierty_id',$item->propiertiy_id)->first();
@@ -529,7 +529,7 @@ else {
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
                                              <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                             <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
+                                             <div class="sc_socials_item"><a href="https://wa.me/{{ $item->phone }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
                                              <form action="/propiedades_agente/{{$item->user_id}}">
                                                 <button style="background-color: #11264e" hre>Propiedades</button>  
                                              </form>

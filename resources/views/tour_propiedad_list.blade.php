@@ -220,7 +220,7 @@ use App\Models\Property;
 </head>
 <body>
     <header style="margin-bottom:0px">
-        <img src="https://propiedadesplatinum.com/assets/images/logos/logo_azul_2.png" style="width: 250px;height:80px;padding: 0px" />
+        <img src="https://propiedadesplatinum.com/assets/images/logos/logo_azul_2.png" style="width: 250px;height:80px;padding: 0px;margin-left: 22px" />
     </header>
     <br>
     <br>
