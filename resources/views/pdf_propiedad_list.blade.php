@@ -240,12 +240,21 @@ use App\Models\Property;
                 </table>
                 
                 <table style="margin-top: 20px">
-                    <tr>
-                        <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[1]->path}}"></td>
+                     <tr>
+                        @if(count($imagenes) > 0)
+                            <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[1]->path}}"></td>
+                        @else
+                            <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg"></td>
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg"></td>
+                        @endif
                     </tr>
                     <tr>
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[2]->path}}"></td>
+                        @if(count($imagenes) > 0)
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[2]->path}}"></td>
+                        @else
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg"></td>
+                        @endif
                     </tr>
                 </table>
                 <table style="margin:0px;height: 250px">
@@ -363,17 +372,29 @@ use App\Models\Property;
                 @php
                     $contador = 0;
                 @endphp
-                @foreach($imagenes2 as $imagen)
-                @if($contador < 6)
-                    <img src="{{$imagen->path}}" style="width: 350px;height: 180px;margin: 5px">
-                    @if($contador == 1 || $contador == 3 || $contador == 5)
-                    <br>
+                @if(count($imagenes2) > 0)
+                    @foreach($imagenes2 as $imagen)
+                    @if($contador < 6)
+                        <img src="{{$imagen->path}}" style="width: 350px;height: 180px;margin: 5px">
+                        @if($contador == 1 || $contador == 3 || $contador == 5)
+                        <br>
+                        @endif
+                        @php
+                            $contador = $contador+1;
+                        @endphp
                     @endif
-                    @php
-                        $contador = $contador+1;
-                    @endphp
+                    @endforeach
+                @else
+                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <br>
+                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <br>
+                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <br>
                 @endif
-                @endforeach
             </section>
              <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px;vertical-align: right">
                 <table  style="margin: 0!important;border-style: none!important;border:0!important;background-color: #11264e;color:white">
