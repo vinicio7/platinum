@@ -492,7 +492,7 @@ class PropertyController extends Controller
 		$usuario = User::where('name',$name)->first();
 		return datatables()->of( ListaPdf::where('usuario_id',$usuario->user_id)->get())
 			->addColumn('eliminar', function ($record) {
-				return  "<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->codigo_propiedad."'>Eliminar</a>";  
+				return  "<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->id."'>Eliminar</a>";  
 			})
 			->addColumn('generar', function ($record) {
 				return
@@ -934,12 +934,7 @@ class PropertyController extends Controller
 	public function remove_pdf(Request $request)
 	{
 		try {
-			$name = \Session::get('user');
-			$usuario = User::where('name',$name)->first();
-			$lista = ListaPdf::where('usuario_id',$user->usuario_id)->where('codigo_propiedad',$request->input('propierty_id'))->get();
-			foreach ($lista as $item) {
-				ListaPdf::destroy($item->id);
-			}
+			ListaPdf::destroy($request->input('id'));
 			$this->message = "Eliminado correctamente";
 			$this->result = true;
 			$this->records = $lista;

@@ -1535,8 +1535,7 @@
                     console.log(Data_id);
                     if (confirm('¿Seguro que deseas eliminar este registro?')) {
                         axios.post(url,{ 
-                        'propierty_id': Data_id,
-                        'usuario_id': this.usuario_id,
+                        'id': Data_id,
                         }).then(function (response) {
                             console.log(response);
                             location.reload();

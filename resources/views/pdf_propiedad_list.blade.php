@@ -266,33 +266,33 @@ use App\Models\Property;
                         </td>
                     </tr>
                     @php
-                        $valor = $data->fee_maintenance_usd / 7.7;
+                        $valor = $propiedad->fee_maintenance_usd / 7.7;
                     @endphp
                     <tr>
                         <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 300px">
-                            @if($data->fee_maintenance_gtq > 0 || $data->fee_maintenance_usd > 0)
+                            @if($propiedad->fee_maintenance_gtq > 0 || $propiedad->fee_maintenance_usd > 0)
                             <h1>CUOTA DE MANTENIMIENTO</h1>
-                            <p>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}</p>
+                            <p>GTQ.{{number_format($propiedad->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}</p>
                             @endif
                             <h1>SERVICIOS:</h1>
                             <p style="font-size: 16px">
-                                @if($data->water_service == 1)
+                                @if($propiedad->water_service == 1)
                                     Agua,
                                 @endif
                                 
-                                @if($data->security_service == 1)
+                                @if($propiedad->security_service == 1)
                                     Seguridad,
                                 @endif
 
-                                @if($data->electricy_service == 1)
+                                @if($propiedad->electricy_service == 1)
                                     Luz,
                                 @endif
 
-                                @if($data->trash_service == 1)
+                                @if($propiedad->trash_service == 1)
                                     Extraccion de basura,
                                 @endif
 
-                                @if($data->clean_service == 1)
+                                @if($propiedad->clean_service == 1)
                                     Limpieza
                                 @endif
                             </p>
@@ -303,30 +303,30 @@ use App\Models\Property;
                         <td style="border-style: none;border:0;color:#11264e;background-color: white">
                         <h1>INCLUYE</h1>
                         <p style="font-size: 16px">
-                            @if($data->fridge == 1)
+                            @if($propiedad->fridge == 1)
                                    Refrigeradora,
                             @endif
-                            @if($data->kitchen == 1)
+                            @if($propiedad->kitchen == 1)
                            
                                    Estufa,
                             @endif
-                            @if($data->dishwater == 1)
+                            @if($propiedad->dishwater == 1)
                            
                                    Lavavajillas,
                             @endif
-                            @if($data->bell == 1)
+                            @if($propiedad->bell == 1)
                            
                                    Campana,
                             @endif
-                            @if($data->water_heater == 1)
+                            @if($propiedad->water_heater == 1)
                            
                                    Calentador de agua,
                             @endif
-                            @if($data->cistern == 1)
+                            @if($propiedad->cistern == 1)
                            
                                    Cisterna,
                             @endif
-                            @if($data->bathroom_mirros == 1)
+                            @if($propiedad->bathroom_mirros == 1)
                            
                                    Espejo de baño,
                             @endif    

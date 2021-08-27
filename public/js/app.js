@@ -6723,8 +6723,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         if (confirm('¿Seguro que deseas eliminar este registro?')) {
           axios.post(_url2, {
-            'propierty_id': _Data_id,
-            'usuario_id': _this.usuario_id
+            'id': _Data_id
           }).then(function (response) {
             console.log(response);
             location.reload();
