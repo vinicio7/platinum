@@ -234,7 +234,7 @@ use App\Models\Property;
                 <table style="margin: 0!important;border-style: none!important;border:0!important;background-color: white">
                     <tr style="border-style: none!important;border:0!important;">
                         <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$propiedad->propiertiy_id}}</h2></td>
-                        <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 30px;">{{strtoupper($propiedad->title)}}</h1></center></td>
+                        <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 23px;">{!!nl2br($propiedad->title)!!}</h1></center></td>
                         <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
                     </tr>
                 </table>
@@ -365,7 +365,7 @@ use App\Models\Property;
                 <table style="margin: 0!important;border-style: none!important;border:0!important;background-color: white;margin-bottom: 40px">
                     <tr style="border-style: none!important;border:0!important;">
                         <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$propiedad->propiertiy_id}}</h2></td>
-                        <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 31px;">{{strtoupper($propiedad->title)}}</h1></center></td>
+                        <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 23px;">{!!nl2br($propiedad->title)!!}</h1></center></td>
                         <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
                     </tr>
                 </table>
