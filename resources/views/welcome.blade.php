@@ -28,7 +28,7 @@ if($config){
 }
 
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
-$asociats    = User::where('rol_id',[10,5])->where('status',1)->get();
+$asociats    = User::whereIn ('rol_id',[10,5])->where('status',1)->get();
 $regions     = Region::all();
 $propiedades = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(12);
 $todas       = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(12);
