@@ -2,7 +2,7 @@
 use App\Models\User;
 use App\Models\Property;
 //$asociats    = User::where('rol_id',2)->with('rol')->get();
-$asociats    = User::where('status',1)->get();
+$asociats    = User::where('rol_id',[10,5])->where('status',1)->get();
 $nombre      = 'todos';
 $numero      = rand(3,3);
 if ($numero == 2){
