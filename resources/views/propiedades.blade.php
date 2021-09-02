@@ -218,6 +218,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
       .input-icono input:focus {
         outline: none;
       }
+      
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">

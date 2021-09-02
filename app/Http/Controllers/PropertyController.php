@@ -38,7 +38,7 @@ class PropertyController extends Controller
 			//return view('pdf_propiedad',compact('data'));
 			//dd($pdf);
 			$nombre     = 'Propiedad '.$id.".pdf";
-			return $pdf->setPaper('letter')->download($nombre);
+			return $pdf->setPaper('letter')->stream($nombre);
 		}catch(\Exception $e){
 			return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
 		}
@@ -78,7 +78,7 @@ class PropertyController extends Controller
 			$data       = ListaPdf::where('usuario_id',$usuario->user_id)->get(); 
 			$pdf        = PDF::loadView('tour_propiedad_list',compact('data'));
 			$nombre     = 'Propiedades.pdf';
-			return $pdf->setPaper('letter')->download($nombre);
+			return $pdf->setPaper('letter','landscape')->download($nombre);
 		}catch(\Exception $e){
 			return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
 		}

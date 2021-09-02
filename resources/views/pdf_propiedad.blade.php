@@ -262,7 +262,25 @@ use App\Models\Images;
                     <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 400px;vertical-align: top">
                         <br>
                         <p style="font-size: 16px!important"> <h1>DESCRIPCION:</h1>
-                          {!!$data->description!!}
+                          <p style="font-size: 12px">{!!$data->description!!}</p>
+                          {{number_format($data->land_vrs,2)}} vrs2 de terreno, {{number_format($data->front_mts,2)}} x {{number_format($data->bottom_mts,2)}} de fonddo(aprox)<br>
+                          {{$data->levels}} Niveles<br>
+                          {{$data->service_rooms}} Dormitorio de servicio<br>
+                          @if($data->laundry)
+                          Área de lavandería y patio <br>
+                          @endif
+                          {{$data->rooms}} Dormitorios amplios con baño completo <br>
+                          @if($data->walkin_closet)
+                          Walk-inCloset <br>
+                          @endif
+                          {{$data->parking_roof}} Parqueos techados <br>
+                          {{$data->gardeen_front}} Jarines <br>
+                          @if($data->pergola)
+                          Pergola amplia <br>
+                          @endif
+                          @if($data->laundry)
+                          Lavanderia <br>
+                          @endif
                         </p>
                     </td>
                     <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 390px;vertical-align: top">
@@ -272,6 +290,9 @@ use App\Models\Images;
                         <b  style="font-size:14px">CUOTA DE MANTENIMIENTO:</b><br>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}
                         @endif
                         </p>
+                        @if($data->water_service == 0 && $data->security_service == 0 && $data->electricy_service == 0 && $data->trash_service == 0 && $data->clean_service == 0)
+                        <br>
+                        @else
                          <p style="font-size: 14px;margin-right: 10px;"><b  style="font-size:14px">SERVICIOS:</b><br>
                             @if($data->water_service == 1)
                                 Agua,
@@ -293,11 +314,22 @@ use App\Models\Images;
                                 Limpieza
                             @endif
                         </p>
+                        @endif
                         <p style="font-size: 14px;margin-right: 10px;"><b  style="font-size:14px">INCLUYE:</b><br>
                        
                             @if($data->fridge == 1)
                                    Refrigeradora,
                             @endif
+
+                            @if($data->lamps == 1)
+                                   Lampara,
+                            @endif
+
+                            @if($data->alarm == 1)
+                                   Alarmas,
+                            @endif
+
+
                             @if($data->kitchen == 1)
                            
                                    Estufa,
@@ -316,7 +348,7 @@ use App\Models\Images;
                             @endif
                             @if($data->cistern == 1)
                            
-                                   Cisterna,
+                                   Bomba y cisterna,
                             @endif
                             @if($data->bathroom_mirros == 1)
                            
