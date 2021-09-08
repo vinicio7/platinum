@@ -1,2 +1,19 @@
 /* CSS-file with custom styles - don't delete this file and this rule!!! */
 .custom_rule { color: inherit; }
+
+.pagination {
+    list-style: none;
+    margin: 1em 0 4em 0;
+    padding: 0;
+    text-align: center;
+}
+
+.pagination li.active {
+    background-color: #11264e;
+    color: white;
+}
+.pagination li {
+    display: inline-block ;
+    background-color: white;
+    padding: 6px 14px;
+}

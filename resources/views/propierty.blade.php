@@ -3,6 +3,7 @@
 
 @section('page-css')
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/datatables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/styles/vendor/smart.wizard/smart_wizard.min.css')}}">
 @endsection
 @extends('layouts.admin')
 <main class="main">
@@ -14,16 +15,16 @@
                 </div>
             </div>
             
-            <div id="app" style="width: 250vh!important;overflow-x: scroll!important;overflow-y: scroll!important;">
-                <property-component datos_usuario="{{$usuario_id}}"></property-component>
+            <div id="app">
+                <property-component></property-component>
                 @section('content_admin')
                     {{--  <div class="separator-breadcrumb border-top"></div>
                     <div class="separator-breadcrumb border-top"></div>--}}
                     {{-- <div class="row mb-4">
                     <div class="col-md-12">
-                    </div>asdas
+                    </div>
                     </div>--}}
-                    <div class="row" >
+                    <div class="row ">
                             <div class="col-md-12 mb-4">
                                 <div class="card text-left">
                                     <div class="card-header bg-transparent">
@@ -31,8 +32,8 @@
                                     <div class="card-body">
                                         <h4 class="card-title mb-3">Registros</h4>
                                         <p>Se muestran todos los registros almacenados en la base de datos</p>
-                                        <div class="table-responsive"  >
-                                            <table id="records-table" class="display table table-striped table-bordered" >
+                                        <div class="table-responsive" style="max-width: 1000px">
+                                            <table id="records-table" class="display table-striped table-bordered">
                                                 <thead>
                                                 <tr>
                                                     @foreach($dt_columns as $col)
@@ -55,6 +56,7 @@
 @section('page-js')
     <script src="{{asset('assets/js/vendor/datatables.min.js')}}"></script>
     <script src="{{asset('assets/js/datatables.script.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/jquery.smartWizard.min.js')}}"></script>
     <script>
         $(function() {
             $('#records-table').DataTable({

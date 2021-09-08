@@ -6,10 +6,10 @@ use App\Models\Region;
 use App\Models\Property;
 use App\Models\Images;
 $agente = Session::get('agente');
-$departamentos = Departament::all();  
-$municipios    = Municipality::all();  
-$zonas         = Zone::all();  
-$regiones      = Departament::all();  
+$departamentos = Departament::all();
+$municipios    = Municipality::all();
+$zonas         = Zone::all();
+$regiones      = Departament::all();
 
 if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmueble) && $precio_maximo > 0 ){
   if($tipo_inmueble == 'apartamento'){
@@ -29,11 +29,11 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }else{
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('sale_usd',0)->where('rent_usd','<',$precio_maximo)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento) && $zona > 0 && isset($tipo_inmueble)){
   if($tipo_inmueble == 'apartamento'){
@@ -53,11 +53,11 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }else{
     $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento)  && $zona > 0){
   if($tipo_inmueble == 'apartamento'){
@@ -77,11 +77,11 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }else{
     $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
     ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento) ){
   if($tipo_inmueble == 'apartamento'){
@@ -101,11 +101,11 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('departament_id',$departamento)
     ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }else{
     $propiedades   = Property::where('departament_id',$departamento)
     ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
 }else if(isset($tipo_venta) && isset($departamento)){
   if($tipo_inmueble == 'apartamento'){
@@ -125,11 +125,11 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('departament_id',$departamento)
     ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10);  //->get()->take(16);
   }else{
     $propiedades   = Property::where('departament_id',$departamento)
     ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
 }else if(isset($tipo_venta)){
   if($tipo_inmueble == 'apartamento'){
@@ -148,10 +148,10 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   }
   if($tipo_venta == 'venta'){
     $propiedades   = Property::where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }else{
     $propiedades   = Property::where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
 }else{
   $tipo_venta = 'venta';
@@ -162,14 +162,12 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   $precio_maximo = '';
   $precio_minimo = '';
   if(isset($agente)){
-    $propiedades   = Property::where('status',1)->where('user_id',$agente)->orderBy('propiertiy_id','DESC')->get()->take(16);
+    $propiedades   = Property::where('status',1)->where('user_id',$agente)->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
   else{
-    $propiedades   = Property::where('status',1)->orderBy('propiertiy_id','DESC')->get()->take(16);
+    $propiedades   = Property::where('status',1)->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
 }
-
-
 
 ?>
 <!DOCTYPE html>
@@ -199,6 +197,8 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
     <link rel='stylesheet' href='js/vendor/swiper/swiper.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/custom/_messages.css' type='text/css' media='all' />
     <link rel="stylesheet" href="css/social_bar.css" type="text/css" media="all">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> --}}
+
     <style type="text/css">
       .input-icono {
         background-image: url('/images/search.png');
@@ -218,7 +218,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
       .input-icono input:focus {
         outline: none;
       }
-      
+
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
@@ -259,13 +259,13 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                   <div class="content">
                      <div class="sc_property sc_property_style_property-1">
                         <div class="columns_wrap ">
-                          @foreach($propiedades as $item)   
+                          @foreach($propiedades as $item)
                             <?php
                               $busqueda    = Images::where('propierty_id',$item->propiertiy_id)->first();
                               if($busqueda){
                                  $imagen =  $busqueda->path;
                               }else{
-                                 $imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$item->propiertiy_id.'/1.jpg';  
+                                 $imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$item->propiertiy_id.'/1.jpg';
                               }
                             ?>
                             <div class="column-1_2 column_padding_bottom">
@@ -288,21 +288,21 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                     @else
                                       <div class="sc_property_description">En renta - Cod. {{$item->propiertiy_id}}</div>
                                     @endif
-                                    
+
                                     <div>
                                        <div class="sc_property_icon">
                                           <span class="icon-location"></span>
                                        </div>
                                        <div class="sc_property_title">
                                           @php
-                                              $texto =  nl2br($item->title)  
+                                              $texto =  nl2br($item->title)
                                           @endphp
                                           <div class="sc_property_title_address_1">
                                             <a href="/propierty/view/{{$item->propiertiy_id}}">
                                              <span style="font-size: 13px">{!!$texto!!}</span>
-                                            </a> 
+                                            </a>
                                           </div>
-                                         
+
                                        </div>
                                        <div class="cL"></div>
                                     </div>
@@ -318,12 +318,8 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                            @endforeach
                         </div>
                      </div>
-                     <nav id="pagination" class="pagination_wrap pagination_pages">
-                        <span class="pager_current active">1</span>
-                        <a href="#" class="">2</a>
-                        <a href="#" class="pager_next"></a>
-                        <a href="#" class="pager_last"></a>
-                     </nav>
+                     {{-- {{ $propiedades->links("vendor.pagination.default") }} --}}
+                     {!! $propiedades->links("vendor.pagination.bootstrap-4") !!}
                   </div>
                   <div class="sidebar widget_area scheme_original">
                      <div class="sidebar_inner widget_area_inner">
@@ -344,7 +340,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                   <option value="renta">En renta</option>
                                  @endif
                               </select>
-                              
+
                               <select name="departamento" value="{{$departamento}}" style="border-color: white">
                                 <option value="0">Seleccione un departamento</option>
                                 @foreach($departamentos as $item)
@@ -355,7 +351,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                   @endif
                                 @endforeach
                               </select>
-                              
+
                               <select name="zona" value="{{$zona}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
@@ -386,7 +382,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                   @endif
                                 @endforeach
                               </select>
-                              
+
                               <select name="tipo_inmueble" value="{{$tipo_inmueble}}" style="border-color: white">
                                 @if($tipo_inmueble == 'apartamento')
                                   <option value="apartamento" selected>Apartamentos</option>
@@ -414,7 +410,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                   <option value="cualquiera">Cualquiera</option>
                                 @endif
                               </select>
-                              
+
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio minimo:
                                   <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
@@ -442,7 +438,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
          </div>
       </div>
 <div class="float-sm">
-        <div class="fl-fl float-fb">          
+        <div class="fl-fl float-fb">
           <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
           <i class="fa fa-facebook" style="text-align: right!important;"></i>
         </div>
@@ -472,5 +468,6 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
       <script type='text/javascript' src='js/custom/_init.js'></script>
       <script type='text/javascript' src='js/custom/_shortcodes.js'></script>
       <script type='text/javascript' src='js/vendor/magnific-popup/jquery.magnific-popup.min.js'></script>
+      {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> --}}
    </body>
 </html>
