@@ -38,6 +38,22 @@ class UserController extends Controller
         ]; 
         return view('users', compact('dt_route', 'dt_columns','dt_order' ));
     }
+
+    public function clientes()
+    {
+        $titulo     = 'clientes';
+        $dt_route   = route('clientes_show');
+        $dt_order   = [[0, 'desc']];
+        $dt_columns = [
+            ['data' => 'user_id','title'=>'ID'],
+            ['data' => 'name', 'title'=>'NOMBRE'],
+            ['data' => 'email', 'title'=>'EMAIL'],
+            ['data' => 'telefono', 'title'=>'TELEFONO'],
+            ['data' => 'estado', 'title'=>'ESTADO'],
+            ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
+        ]; 
+        return view('clientes', compact('dt_route', 'dt_columns','dt_order' ));
+    }
     
     public function capsulas(Request $request){
         $configuracion = Configuraciones::truncate();
@@ -120,7 +136,42 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return datatables()->of( User::get())
+        return datatables()->of( User::where('rol_id',10)->get())
+            ->addColumn('acciones', function ($record) {
+                return
+                    "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Editar</a>".
+                    "<a class='btn btn-danger btn-danger rounded m-1 text-white btn-delete' id='".$record->user_id."'>Eliminar</a>";  
+            })
+             ->addColumn('rol_label', function ($record) {
+                    $rol = Rol::find($record->rol_id);
+                    if ($rol) {
+                        $class       = 'badge-info';  
+                        return "<span class='badge text-white {$class}'>{$rol->name}</span>";
+                    } else {
+                       $class       = 'badge-warning';  
+                       $name        = 'Sin rol asignado';
+                        return "<span class='badge text-white {$class}'>{$name}</span>";
+                    }        
+            })
+            ->addColumn('imagen', function ($record) {
+                    return "<img src='".$record->picture."' style='width:80px;height:100px;'>";
+            })
+            ->addColumn('estado', function ($record){
+                if ($record->status == 0) {
+                    $class       = 'badge-secondary';
+                    $descripcion = 'Inactivo';
+                } else {
+                    $class       = 'badge-success';
+                    $descripcion = 'Activo';
+                }
+                return "<span class='badge text-white {$class}'>{$descripcion}</span>";
+            })->rawColumns(['estado','acciones','rol_label','imagen'])
+            ->toJson();
+    }
+
+    public function clientes_show(User $user)
+    {
+        return datatables()->of( User::where('rol_id',11)->get())
             ->addColumn('acciones', function ($record) {
                 return
                     "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Editar</a>".

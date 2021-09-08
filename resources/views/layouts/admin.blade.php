@@ -1,3 +1,8 @@
+<?php
+use App\Models\User;
+$name = Session::get('user');
+$user = User::where('name',$name)->first();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,13 +79,17 @@
                 @endif
             </li>
 
-            <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'capsulas')
-                    <a href="{{ route('capsulas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-location"></i> Capsulas</a>
-                @else()
-                    <a href="{{ route('capsulas') }}" class="sidebar__nav-link"><i class="icon ion-ios-location"></i> Capsulas</a>
-                @endif
-            </li>
+
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                    @if(Request::route()->getName() == 'capsulas')
+                        <a href="{{ route('capsulas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-location"></i> Capsulas</a>
+                    @else
+                        <a href="{{ route('capsulas') }}" class="sidebar__nav-link"><i class="icon ion-ios-location"></i> Capsulas</a>
+                    @endif
+                </li>
+            @endif
 
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'propierties')
@@ -97,61 +106,89 @@
                 @endif
             </li>
             
-            <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'departaments')
-                    <a href="{{ route('departaments') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-world"></i> Departamentos</a>
-                @else()
-                    <a href="{{ route('departaments') }}" class="sidebar__nav-link"><i class="icon ion-ios-world"></i> Departamentos</a>
-                @endif
-            </li>
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                    @if(Request::route()->getName() == 'departaments')
+                        <a href="{{ route('departaments') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-world"></i> Departamentos</a>
+                    @else
+                        <a href="{{ route('departaments') }}" class="sidebar__nav-link"><i class="icon ion-ios-world"></i> Departamentos</a>
+                    @endif
+                </li>
+            @endif
 
-            <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'municipalities')
-                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-location"></i> Municipios</a>
-                @else()
-                    <a href="{{ route('municipalities') }}" class="sidebar__nav-link"><i class="icon ion-ios-location"></i> Municipios</a>
-                @endif
-            </li>
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                    @if(Request::route()->getName() == 'municipalities')
+                        <a href="{{ route('municipalities') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-location"></i> Municipios</a>
+                    @else
+                        <a href="{{ route('municipalities') }}" class="sidebar__nav-link"><i class="icon ion-ios-location"></i> Municipios</a>
+                    @endif
+                </li>
+            @endif
 
-            <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'zones')
-                    <a href="{{ route('zones') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-list"></i> Zonas</a>
-                @else
-                    <a href="{{ route('zones') }}" class="sidebar__nav-link"><i class="icon ion-ios-list"></i> Zonas</a>
-                @endif
-            </li>
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                    @if(Request::route()->getName() == 'zones')
+                        <a href="{{ route('zones') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-list"></i> Zonas</a>
+                    @else
+                        <a href="{{ route('zones') }}" class="sidebar__nav-link"><i class="icon ion-ios-list"></i> Zonas</a>
+                    @endif
+                </li>
+            @endif
 
-           <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'banks')
-                    <a href="{{ route('banks') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-home"></i> Bancos</a>
-                @else
-                    <a href="{{ route('banks') }}" class="sidebar__nav-link"><i class="icon ion-home"></i> Bancos</a>
-                @endif
-            </li>
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                    @if(Request::route()->getName() == 'banks')
+                        <a href="{{ route('banks') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-home"></i> Bancos</a>
+                    @else
+                        <a href="{{ route('banks') }}" class="sidebar__nav-link"><i class="icon ion-home"></i> Bancos</a>
+                    @endif
+                </li>
+            @endif
 
-            <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'history')
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-search"></i> Historial</a>
-                @else
-                    <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-search"></i> Historial</a>
-                @endif
-            </li>
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                    @if(Request::route()->getName() == 'history')
+                        <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-search"></i> Historial</a>
+                    @else
+                        <a href="{{ route('dashboard') }}" class="sidebar__nav-link"><i class="icon ion-search"></i> Historial</a>
+                    @endif
+                </li>
+            @endif
 
-            <li class="sidebar__nav-item">
-                 @if(Request::route()->getName() == 'roles')
-                    <a href="{{ route('rols') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-eye"></i> Roles</a>
-                 @else
-                    <a href="{{ route('rols') }}" class="sidebar__nav-link"><i class="icon ion-eye"></i> Roles</a>
-                 @endif
-            </li>
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                     @if(Request::route()->getName() == 'roles')
+                        <a href="{{ route('rols') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-eye"></i> Roles</a>
+                     @else
+                        <a href="{{ route('rols') }}" class="sidebar__nav-link"><i class="icon ion-eye"></i> Roles</a>
+                     @endif
+                </li>
+            @endif
 
+            @if($user->rol_id == 10)
+            @else
+                <li class="sidebar__nav-item">
+                     @if(Request::route()->getName() == 'users')
+                        <a href="{{ route('users') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-person"></i> Usuarios</a>
+                     @else
+                        <a href="{{ route('users') }}" class="sidebar__nav-link"><i class="icon ion-person"></i> Usuarios</a>
+                     @endif
+                </li>
+            @endif
             <li class="sidebar__nav-item">
-                 @if(Request::route()->getName() == 'users')
-                    <a href="{{ route('users') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-person"></i> Usuarios</a>
-                 @else
-                    <a href="{{ route('users') }}" class="sidebar__nav-link"><i class="icon ion-person"></i> Usuarios</a>
-                 @endif
-            </li>
+                     @if(Request::route()->getName() == 'clientes')
+                        <a href="{{ route('clientes') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-person"></i> clientes</a>
+                     @else
+                        <a href="{{ route('clientes') }}" class="sidebar__nav-link"><i class="icon ion-person"></i> Clientes</a>
+                     @endif
+                </li>
             <li class="sidebar__nav-item">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <a href="{{ route('logout') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-log-out"></i> Cerrar sesion</a>

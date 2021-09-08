@@ -89,7 +89,7 @@ $regiones = Region::orderBy('regions_id')->get()->take(3);
                             </div>
                         </div>
                         <div class="dashbox__table-wrap">
-                            <table class="main__table main__table--dash">
+                            <table class="">
                                 <thead>
                                     <tr style="color:#13274c!important;">
                                         <th>ID</th>
@@ -98,7 +98,7 @@ $regiones = Region::orderBy('regions_id')->get()->take(3);
                                         <th>EMAIL</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="overflow-x: auto">
                                     @foreach($usuarios as $item)
                                         <tr>
                                         <td>
@@ -135,7 +135,7 @@ $regiones = Region::orderBy('regions_id')->get()->take(3);
                         </div>
 
                         <div class="dashbox__table-wrap">
-                            <table class="main__table main__table--dash">
+                            <table class="">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -184,7 +184,7 @@ $regiones = Region::orderBy('regions_id')->get()->take(3);
                         </div>
 
                         <div class="dashbox__table-wrap">
-                            <table class="main__table main__table--dash">
+                            <table class="">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -233,7 +233,7 @@ $regiones = Region::orderBy('regions_id')->get()->take(3);
                             </div>
                         </div>
                         <div class="dashbox__table-wrap">
-                            <table class="main__table main__table--dash">
+                            <table class="">
                                 <thead>
                                     <tr>
                                         <th>ID</th>

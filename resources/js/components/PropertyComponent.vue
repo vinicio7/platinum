@@ -1,10 +1,10 @@
 <template>
     <div class="container container-Data" style="margin-left:0px;padding-left:0px;margin-bottom:10px">
-            <div class="row">
-              <div class="col-sm-3">
+            <div class="row" >
+              <div class="col-sm-3" v-if="agente.rol_id != 10">
                  <span>Fecha inicial<input type="date" name="" v-model="fecha_inicial" class="form-control"></span>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-3" v-if="agente.rol_id != 10">
                  <span>Fecha inicial<input type="date" name="" v-model="fecha_final" class="form-control"></span>
               </div>
                <div class="col-sm-3">
@@ -13,10 +13,10 @@
               </div>
             </div>
             <br>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
+            <button type="button" v-if="agente.rol_id != 10" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
               + Crear propiedad
             </button> 
-             <button type="button" class="btn btn-success" @click="generarExcel()">
+             <button type="button" v-if="agente.rol_id != 10" class="btn btn-success" @click="generarExcel()">
               -> Generar excel
                  </button>
             <button type="button" class="btn btn-danger" @click="pdf_total()">
@@ -1274,7 +1274,7 @@
     import $ from 'jquery';
     //const token = document.head.querySelector('meta[name="csrf-token"]').content
     export default {
-      props: ['datos_usuario'],
+      props: ['datos_usuario','datos_agente'],
         components:{
             'editor': Editor,
             vueDropzone: vue2Dropzone,
@@ -1423,6 +1423,7 @@
                 contacto_visita:0,
                 cuota_mantenimiento:0,
                 servicios:0,
+                agente:[],
                 publicacion_redes:0,
                 exclusividad:0,
                 compartida:0,
@@ -1492,6 +1493,8 @@
         },
         mounted: function() {
             this.usuario_id = this.datos_usuario
+            this.agente = JSON.parse(this.datos_agente)
+            console.log(this.agente.rol_id);
             let me = this;
             let url = '/api/propietarios' 
             axios.get(url,{}).then(function (response) {

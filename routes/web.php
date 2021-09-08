@@ -49,6 +49,8 @@ Route::post('login', 	 		 		'AdminController@login_post')->name('login');
 Route::get('dashboard', 	 	 		'AdminController@dashboard')->name('dashboard');
 Route::get('home', 	 			 		'AdminController@home')->name('home');
 Route::get('users',                     'UserController@index')->name('users');
+Route::get('clientes',        'UserController@clientes')->name('clientes');
+Route::get('clientes_show',        'UserController@clientes_show')->name('clientes_show');
 Route::get('regions',                   'RegionController@index')->name('regions');
 Route::get('banks',                     'BankController@index')->name('banks');
 

@@ -112,25 +112,48 @@ class PropertyController extends Controller
 		$titulo     = 'propierty';
 		$dt_route   = route('propierty.show');
 		$dt_order   = [[0, 'desc']];
-		$dt_columns = [
-			['data' => 'id','title'=>'ID'],
-			['data' => 'imagen', 'title'=>'IMAGEN'],
-			['data' => 'title', 'title'=>'TITULO'],
-			['data' => 'subtitle', 'title'=>'SUB TITULO'],
-			['data' => 'tipo', 'type'=>'TIPO'],
-			['data' => 'propietario', 'title'=>'PROPIETARIO'],
-			['data' => 'adress', 'title'=>'DIRECCION'],
-			['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
-			['data' => 'rent_usd', 'title'=>'RENTA $.'],
-			['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
-			['data' => 'sale_usd', 'title'=>'VENTA $.'],
-			['data' => 'estado', 'title'=>'ESTADO'],
-			['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
-			['data' => 'pdf',"title"=>"PDF", 'orderable'=> false, 'searchable' => false],
-			['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
-			['data' => 'generar',"title"=>"Generar", 'orderable'=> false, 'searchable' => false]
-		]; 
-		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id' ));
+		$name = \Session::get('user');
+		$user = User::where('name',$name)->first();
+		$agente = User::where('name',$name)->first();
+		if($user->rol_id == 10){
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}else{
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'propietario', 'title'=>'PROPIETARIO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente' ));
 	}
 
 	public function pdf_list()
@@ -153,7 +176,7 @@ class PropertyController extends Controller
 			['data' => 'generar',"title"=>"GENERAR", 'orderable'=> false, 'searchable' => false],
 			['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false]
 		]; 
-		return view('property_list', compact('dt_route', 'dt_columns','dt_order','usuario_id' ));
+		return view('property_list', compact('dt_route', 'dt_columns','dt_order','usuario_id', ));
 	}
 
 	public function image(Request $request){
@@ -384,11 +407,17 @@ class PropertyController extends Controller
 	{
 		return datatables()->of( Property::get())
 			->addColumn('acciones', function ($record) {
-				return
+				$name = \Session::get('user');
+				$user = User::where('name',$name)->first();
+				if($user->rol_id == 10){
+					return "";
+				}else{
+					return
 					"<div style='display:inline-block'><ul style='list-style:none'><li style='display:inline'><a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a></li>".
 					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a></ul></div>".
 					"<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
-					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>";  
+					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>"; 
+				}
 			})
 			->addColumn('pdf', function ($record) {
 				return

@@ -798,6 +798,21 @@ img.hover-shadow {
                               <p>{!!$nuevo_texto!!}</p>
                             @endif
 
+                            @php
+                            $propietario = User::where('user_id',$test->owner_id)->first();
+                            if($propietario){
+                              $propietario_nombre = $propietario->name;
+                            }else{
+                              $propietario_nombre = 'No asignado';
+                            }  
+                            $name = Session::get('user');
+                            $user = User::where('name',$name)->first();
+                            @endphp
+                            @if($user->rol_id == 10)
+                            @else
+                              <h4 class="sc_title" style="font-weight: bold">PROPIETARIO:</h4>
+                               <p>{{$propietario_nombre}}</p>
+                            @endif
                           </div>
                           <div class="columns_wrap">
                              @if($test->youtube)

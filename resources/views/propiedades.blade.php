@@ -11,6 +11,17 @@ $municipios    = Municipality::all();
 $zonas         = Zone::all();
 $regiones      = Departament::all();
 
+if(isset($precio_minimo)){
+  $precio_minimo = $request->input('precio_minimo');
+}else{
+  $precio_minimo = '';
+}
+if(isset($precio_maximo)){
+  $precio_maximo = $request->input('precio_maximo');
+}else{
+  $precio_maximo = '';
+}
+
 if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmueble) && $precio_maximo > 0 ){
   if($tipo_inmueble == 'apartamento'){
     $inmueble = 1;
@@ -159,8 +170,6 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
   $municipio = 0;
   $zona = 0;
   $tipo_inmueble = 'casa';
-  $precio_maximo = '';
-  $precio_minimo = '';
   if(isset($agente)){
     $propiedades   = Property::where('status',1)->where('user_id',$agente)->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
   }
