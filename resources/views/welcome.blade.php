@@ -322,11 +322,17 @@ else {
                               </div>
                               <div class="sc_ps_type">
                                  <select name="tipo_inmueble">
+                                    <option value="casa">Casas</option>
                                     <option value="apartamento">Apartamentos</option>
-                                    <option value="casa">Casa</option>
-                                    <option value="condominio">Condominio</option>
-                                    <option value="loft">Loft</option>
-                                    <option value="cualquiera">Cualquiera</option>
+                                    <option value="oficina">Oficinas</option>
+                                    <option value="bodega">Bodegas</option>
+                                    <option value="terreno">Terrenos</option>
+                                    <option value="finca">Fincas</option>
+                                    <option value="clinica">Clinicas</option>
+                                    <option value="playa">Casa de playa</option>
+                                    <option value="granja">Granjas</option>
+                                    <option value="edificio">Edificios</option>
+                                    <option value="local">Locales</option>
                                  </select>
                               </div><br> 
                               <div class="sc_ps_type">
