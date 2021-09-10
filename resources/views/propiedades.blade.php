@@ -12,244 +12,152 @@ $zonas         = Zone::all();
 $regiones      = Departament::all();
 
 if(isset($precio_minimo)){
-  $precio_minimo = $request->input('precio_minimo');
+  $precio_minimo = $precio_minimo;
 }else{
   $precio_minimo = '';
 }
 if(isset($precio_maximo)){
-  $precio_maximo = $request->input('precio_maximo');
+  $precio_maximo = $precio_maximo;
 }else{
   $precio_maximo = '';
 }
 
-if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmueble) && $precio_maximo > 0 ){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 2;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 1;
-  }
-  else if($tipo_inmueble == 'oficina'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'bodega'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'terreno'){
-    $inmueble = 5;
-  }else if($tipo_inmueble == 'finca'){
-    $inmueble = 6;
-  }else if($tipo_inmueble == 'clinica'){
-    $inmueble = 7;
-  }else if($tipo_inmueble == 'playa'){
-    $inmueble = 8;
-  }else if($tipo_inmueble == 'granja'){
-    $inmueble = 9;
-  }else if($tipo_inmueble == 'edificio'){
-    $inmueble = 10;
-  }else if($tipo_inmueble == 'local'){
-    $inmueble = 11;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }else{
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)->where('rent_usd','<',$precio_maximo)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento) && $zona > 0 && isset($tipo_inmueble)){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 2;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 1;
-  }
-  else if($tipo_inmueble == 'oficina'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'bodega'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'terreno'){
-    $inmueble = 5;
-  }else if($tipo_inmueble == 'finca'){
-    $inmueble = 6;
-  }else if($tipo_inmueble == 'clinica'){
-    $inmueble = 7;
-  }else if($tipo_inmueble == 'playa'){
-    $inmueble = 8;
-  }else if($tipo_inmueble == 'granja'){
-    $inmueble = 9;
-  }else if($tipo_inmueble == 'edificio'){
-    $inmueble = 10;
-  }else if($tipo_inmueble == 'local'){
-    $inmueble = 11;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }else{
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento)  && $zona > 0){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 2;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 1;
-  }
-  else if($tipo_inmueble == 'oficina'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'bodega'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'terreno'){
-    $inmueble = 5;
-  }else if($tipo_inmueble == 'finca'){
-    $inmueble = 6;
-  }else if($tipo_inmueble == 'clinica'){
-    $inmueble = 7;
-  }else if($tipo_inmueble == 'playa'){
-    $inmueble = 8;
-  }else if($tipo_inmueble == 'granja'){
-    $inmueble = 9;
-  }else if($tipo_inmueble == 'edificio'){
-    $inmueble = 10;
-  }else if($tipo_inmueble == 'local'){
-    $inmueble = 11;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }else{
-    $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento) ){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 2;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 1;
-  }
-  else if($tipo_inmueble == 'oficina'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'bodega'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'terreno'){
-    $inmueble = 5;
-  }else if($tipo_inmueble == 'finca'){
-    $inmueble = 6;
-  }else if($tipo_inmueble == 'clinica'){
-    $inmueble = 7;
-  }else if($tipo_inmueble == 'playa'){
-    $inmueble = 8;
-  }else if($tipo_inmueble == 'granja'){
-    $inmueble = 9;
-  }else if($tipo_inmueble == 'edificio'){
-    $inmueble = 10;
-  }else if($tipo_inmueble == 'local'){
-    $inmueble = 11;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }else{
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento)){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 2;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 1;
-  }
-  else if($tipo_inmueble == 'oficina'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'bodega'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'terreno'){
-    $inmueble = 5;
-  }else if($tipo_inmueble == 'finca'){
-    $inmueble = 6;
-  }else if($tipo_inmueble == 'clinica'){
-    $inmueble = 7;
-  }else if($tipo_inmueble == 'playa'){
-    $inmueble = 8;
-  }else if($tipo_inmueble == 'granja'){
-    $inmueble = 9;
-  }else if($tipo_inmueble == 'edificio'){
-    $inmueble = 10;
-  }else if($tipo_inmueble == 'local'){
-    $inmueble = 11;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10);  //->get()->take(16);
-  }else{
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }
-}else if(isset($tipo_venta)){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 2;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 1;
-  }
-  else if($tipo_inmueble == 'oficina'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'bodega'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'terreno'){
-    $inmueble = 5;
-  }else if($tipo_inmueble == 'finca'){
-    $inmueble = 6;
-  }else if($tipo_inmueble == 'clinica'){
-    $inmueble = 7;
-  }else if($tipo_inmueble == 'playa'){
-    $inmueble = 8;
-  }else if($tipo_inmueble == 'granja'){
-    $inmueble = 9;
-  }else if($tipo_inmueble == 'edificio'){
-    $inmueble = 10;
-  }else if($tipo_inmueble == 'local'){
-    $inmueble = 11;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }else{
-    $propiedades   = Property::where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }
+if(isset($tipo_inmueble)){
+  $tipo_inmueble = $tipo_inmueble;
 }else{
-  $tipo_venta = 'venta';
-  $departamento = 0;
-  $municipio = 0;
-  $zona = 0;
-  $tipo_inmueble = 'casa';
-  if(isset($agente)){
-    $propiedades   = Property::where('status',1)->where('user_id',$agente)->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
-  }
-  else{
-    $propiedades   = Property::where('status',1)->orderBy('propiertiy_id','DESC')->paginate(10); //->get()->take(16);
+  $tipo_inmueble = '';
+}
+
+if(isset($zona)){
+  $zona = $zona;
+}else{
+  $zona = '';
+}
+
+if(isset($zona2)){
+  $zona2 = $zona2;
+}else{
+  $zona2 = '';
+}
+
+if(isset($zona3)){
+  $zona3 = $zona3;
+}else{
+  $zona3 = '';
+}
+
+if(isset($departamento)){
+  $departamento = $departamento;
+}else{
+  $departamento = '';
+}
+
+if(isset($municipio)){
+  $municipio = $municipio;
+}else{
+  $municipio = '';
+}
+
+if(isset($input)){
+  $input = $input;
+}else{
+  $input = '';
+}
+
+if(isset($tipo_venta)){
+  $tipo_venta = $tipo_venta;
+}else{
+  $tipo_venta = '';
+}
+
+
+if($tipo_inmueble == 'apartamento'){
+  $inmueble = 2;
+}else if($tipo_inmueble == 'casa'){
+  $inmueble = 1;
+}
+else if($tipo_inmueble == 'oficina'){
+  $inmueble = 3;
+}
+else if($tipo_inmueble == 'bodega'){
+  $inmueble = 4;
+}
+else if($tipo_inmueble == 'terreno'){
+  $inmueble = 5;
+}else if($tipo_inmueble == 'finca'){
+  $inmueble = 6;
+}else if($tipo_inmueble == 'clinica'){
+  $inmueble = 7;
+}else if($tipo_inmueble == 'playa'){
+  $inmueble = 8;
+}else if($tipo_inmueble == 'granja'){
+  $inmueble = 9;
+}else if($tipo_inmueble == 'edificio'){
+  $inmueble = 10;
+}else if($tipo_inmueble == 'local'){
+  $inmueble = 11;
+}
+
+$propiedades   = Property::where('status',1);
+
+if ($zona > 0){
+  $propiedades->where('zone_id',$zona);
+}
+if ($zona2 > 0){
+  $propiedades->orWhere('zone_id',$zona2);
+}
+if ($zona3 > 0){
+  $propiedades->orWhere('zone_id',$zona3);
+}
+
+if ($departamento > 0){
+  $propiedades->where('departament_id',$departamento);
+}
+if ($municipio > 0){
+  $propiedades->where('municipality_id',$municipio);
+}
+
+if (isset($inmueble)){
+  $propiedades->where('type',$inmueble);
+}
+if (strlen($input) > 0){
+  $propiedades->Where('title', 'like', '%' .$input. '%');
+}
+
+if (strlen($input) > 0){
+  $propiedades->orWhere('adress', 'like', '%' .$input. '%');
+}
+
+if (isset($tipo_venta)){
+  if($tipo_venta == 'venta'){
+    if($precio_minimo > 0){
+      
+      $propiedades->where('sale_usd','>',$precio_minimo);
+    }else{
+      $propiedades->where('sale_usd','>',0);
+    }
+
+    if($precio_maximo > 0){
+      $propiedades->where('sale_usd','<',$precio_maximo);
+    }else{
+      $propiedades->where('sale_usd','<',999999999999);
+    }
+  }else{
+    if($precio_minimo> 0){
+      $propiedades->where('rent_usd','>',$precio_minimo);
+    }else{
+      $propiedades->where('rent_usd','>',0);
+    }
+
+    if($precio_maximo> 0){
+      $propiedades->where('rent_usd','<',$precio_maximo);
+    }else{
+      $propiedades->where('rent_usd','<',999999999999);
+    }
   }
 }
 
+$propiedades = $propiedades->paginate(10);
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
@@ -443,20 +351,20 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                                   @endif
                                 @endforeach
                               </select>
-                              <select name="zona" value="{{$zona}}" style="border-color: white">
+                              <select name="zona2" value="{{$zona2}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
-                                  @if($zona == $item->zone_id)
+                                  @if($zona2 == $item->zone_id)
                                     <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
                                   @else
                                     <option value="{{$item->zone_id}}">{{$item->name}}</option>
                                   @endif
                                 @endforeach
                               </select>
-                              <select name="zona" value="{{$zona}}" style="border-color: white">
+                              <select name="zona3" value="{{$zona3}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
-                                  @if($zona == $item->zone_id)
+                                  @if($zona3 == $item->zone_id)
                                     <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
                                   @else
                                     <option value="{{$item->zone_id}}">{{$item->name}}</option>
