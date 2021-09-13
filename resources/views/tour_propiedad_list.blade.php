@@ -231,7 +231,7 @@ use App\Models\Property;
         $item = Property::where('propiertiy_id',$item->codigo_propiedad)->first();
         $user = User::where('user_id',$item->user_id)->first();  
     @endphp
-    <table>
+    <table style="margin-top: 50px">
         <thead>
             <tr>
                 <td>Cod</td>

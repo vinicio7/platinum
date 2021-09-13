@@ -21,17 +21,17 @@ use App\Models\Images;
             page-break-before:  always;
         }
         .celda1{
-            font-weight: normal;font-size: 14px;text-align: left;background-color:#11264e;color:white;vertical-align: top;padding: 5px;border-color: white
+            font-weight: normal;font-size: 12px;text-align: left;background-color:#11264e;color:white;vertical-align: top;padding: 5px;border-color: white
         }
         .celda12{
-            font-weight: normal;font-size: 14px;text-align: left;background-color:#11264e;color:white;vertical-align: top;padding: 5px;border-color: white;
+            font-weight: normal;font-size: 12px;text-align: left;background-color:#11264e;color:white;vertical-align: top;padding: 5px;border-color: white;
         }
         .celda13{
             padding-left: 10px;
             padding-right: 10px;
         }
         .celda-person{
-            font-weight: normal;font-size: 14px;text-align: left;background-color:#11264e;color:white;vertical-align: center;padding: 5px;
+            font-weight: normal;font-size: 12px;text-align: left;background-color:#11264e;color:white;vertical-align: center;padding: 5px;
         }
         header {
             position: fixed;
@@ -90,13 +90,13 @@ use App\Models\Images;
             font-weight: bold;font-size: 22px;text-align: center;background-color:#11264e;color:white;
         }
         .celda {
-            font-weight: light;font-size: 14px;text-align: left;background-color:white;color:black;
+            font-weight: light;font-size: 12px;text-align: left;background-color:white;color:black;
             vertical-align: top;
             padding:5px;
             border-color: #11264e;
         }
         .celdafin {
-            font-weight: light;font-size: 14px;text-align: left;background-color:white;color:black;
+            font-weight: light;font-size: 12px;text-align: left;background-color:white;color:black;
             vertical-align: top;
             padding:0px;
             border-color: #11264e;
@@ -137,7 +137,7 @@ use App\Models\Images;
         }
         .pharagrap {
             text-align: justify;
-            font-size: 14px;
+            font-size: 12px;
             margin-bottom: 20px;
             background-color: rgba(0,0,0,0.02);
             padding:5px;
@@ -204,10 +204,10 @@ use App\Models\Images;
             margin-top:20px;
         }
         .td1{
-            font-weight: bold;font-size: 14px;text-align: left;background-color:#11264e;color:white;border-color: white
+            font-weight: bold;font-size: 12px;text-align: left;background-color:#11264e;color:white;border-color: white
         }
         .td2{
-            font-weight: light;font-size: 14px;text-align: left;background-color:white;color:black;
+            font-weight: light;font-size: 12px;text-align: left;background-color:white;color:black;
         }
 
         .galeria-predeterminada-body {
@@ -219,7 +219,7 @@ use App\Models\Images;
 </head>
 <body>
 <header style="margin-bottom:0px">
-    <center><img src="https://platinum.mavis.com.gt//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
+    <center><img src="https://propiedadesplatinum.com//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
 </header>
 @php    
     $imagenes   = Images::where('propierty_id',$data->propiertiy_id)->get();
@@ -232,7 +232,7 @@ use App\Models\Images;
                 <tr style="border-style: none!important;border:0!important;">
                     <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$data->propiertiy_id}}</h2></td>
                     <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 23px;">{!!nl2br($data->title)!!}</h1></center></td>
-                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
+                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://propiedadesplatinum.com//assets/simple.png"></td>
                 </tr>
             </table>
             
@@ -242,20 +242,20 @@ use App\Models\Images;
                         <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
                         <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[1]->path}}"></td>
                     @else
-                        <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/1.jpg"></td>
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/2.jpg"></td>
+                        <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/1.jpg"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/2.jpg"></td>
                     @endif
                 </tr>
                 <tr>
                     @if(count($imagenes) > 0)
                         <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[2]->path}}"></td>
                     @else
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/3.jpg"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/3.jpg"></td>
                     @endif
                 </tr>
             </table>
-            <table style="margin:0px;height: 250px">
-                <tr>
+            <table style="margin:0px;height: 100px;background-color: white;margin-top: -90px">
+                <tr style="background-color: white">
                     @php
                         $valor = $data->fee_maintenance_gtq / 7.7;
                     @endphp
@@ -283,9 +283,12 @@ use App\Models\Images;
                           @endif
                         </p>
                     </td>
-                    <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 390px;vertical-align: top">
-                        
-                        <p style="font-size: 14px">
+                    <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 390px;vertical-align: top;">
+                        @if(strlen($data->youtube)>0)
+                            <b  style="font-size:14px">Tour virtual:</b><br>
+                            <a href="{{$data->youtube}}" target="_blank">Click aqui para ver.</a><br>
+                        @endif
+                        <p style="font-size: 12px">
                         @if($data->fee_maintenance_gtq > 0 || $data->fee_maintenance_usd > 0)
                         <b  style="font-size:14px">CUOTA DE MANTENIMIENTO:</b><br>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}
                         @endif
@@ -293,7 +296,9 @@ use App\Models\Images;
                         @if($data->water_service == 0 && $data->security_service == 0 && $data->electricy_service == 0 && $data->trash_service == 0 && $data->clean_service == 0)
                         <br>
                         @else
-                         <p style="font-size: 14px;margin-right: 10px;"><b  style="font-size:14px">SERVICIOS:</b><br>
+                         <p style="font-size: 12px;margin-right: 10px;">
+
+                            <b  style="font-size:14px">SERVICIOS:</b><br>
                             @if($data->water_service == 1)
                                 Agua,
                             @endif
@@ -315,7 +320,7 @@ use App\Models\Images;
                             @endif
                         </p>
                         @endif
-                        <p style="font-size: 14px;margin-right: 10px;"><b  style="font-size:14px">INCLUYE:</b><br>
+                        <p style="font-size: 12px;margin-right: 10px;"><b  style="font-size:14px">INCLUYE:</b><br>
                        
                             @if($data->fridge == 1)
                                    Refrigeradora,
@@ -382,13 +387,12 @@ use App\Models\Images;
         </footer>
     </center>
     <center>
-        <section class="sheet-last" style="display: inline-block;">
-            <br><br><br><br>
+        <section class="sheet-last" style="display: inline-block;margin-top: 35px">
             <table style="margin: 0!important;border-style: none!important;border:0!important;background-color: white;margin-bottom: 40px">
                 <tr style="border-style: none!important;border:0!important;">
                     <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$data->propiertiy_id}}</h2></td>
                     <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size:23px;">{!!nl2br($data->title)!!}</h1></center></td>
-                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
+                    <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://propiedadesplatinum.com//assets/simple.png"></td>
                 </tr>
             </table>
             @php
@@ -408,14 +412,14 @@ use App\Models\Images;
                 @endif
                 @endforeach
             @else
-                <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
-                <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
                 <br>
-                <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
-                <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
                 <br>
-                <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
-                <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://propiedadesplatinum.com/includes/propiedades/{{$data->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
                 <br>
             @endif
 

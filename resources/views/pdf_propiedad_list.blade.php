@@ -220,7 +220,7 @@ use App\Models\Property;
 </head>
 <body>
 <header style="margin-bottom:0px">
-    <center><img src="https://platinum.mavis.com.gt//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
+    <center><img src="https://propiedadesplatinum.com//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
 </header>
 @foreach($data as $item)
     @php    
@@ -235,7 +235,7 @@ use App\Models\Property;
                     <tr style="border-style: none!important;border:0!important;">
                         <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$propiedad->propiertiy_id}}</h2></td>
                         <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 23px;">{!!nl2br($propiedad->title)!!}</h1></center></td>
-                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
+                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://propiedadesplatinum.com//assets/simple.png"></td>
                     </tr>
                 </table>
                 
@@ -245,67 +245,99 @@ use App\Models\Property;
                             <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
                             <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[1]->path}}"></td>
                         @else
-                            <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg"></td>
-                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg"></td>
+                            <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg"></td>
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg"></td>
                         @endif
                     </tr>
                     <tr>
                         @if(count($imagenes) > 0)
                             <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[2]->path}}"></td>
                         @else
-                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg"></td>
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg"></td>
                         @endif
                     </tr>
                 </table>
-                <table style="margin:0px;height: 250px">
-                    <tr>
-                        <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 500px;vertical-align: top">
-                            <h1>DESCRIPCION</h1><br>
-                            <p style="font-size: 16px">    {!!$propiedad->description!!}
-                            </p>
-                        </td>
-                    </tr>
+                <table style="margin:0px;height: 250px;background-color: white;margin-top: -90px">
+                <tr style="background-color: white">
                     @php
-                        $valor = $propiedad->fee_maintenance_usd / 7.7;
+                        $valor = $propiedad->fee_maintenance_gtq / 7.7;
                     @endphp
-                    <tr>
-                        <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 300px">
-                            @if($propiedad->fee_maintenance_gtq > 0 || $propiedad->fee_maintenance_usd > 0)
-                            <h1>CUOTA DE MANTENIMIENTO</h1>
-                            <p>GTQ.{{number_format($propiedad->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}</p>
+                    <td rowspan="3"colspan="1" style="border-style: none;border:0;color:#11264e;background-color: white;width: 400px;vertical-align: top">
+                        <br>
+                        <p style="font-size: 16px!important"> <h1>DESCRIPCION:</h1>
+                          <p style="font-size: 12px">{!!$propiedad->description!!}</p>
+                          {{number_format($propiedad->land_vrs,2)}} vrs2 de terreno, {{number_format($propiedad->front_mts,2)}} x {{number_format($propiedad->bottom_mts,2)}} de fonddo(aprox)<br>
+                          {{$propiedad->levels}} Niveles<br>
+                          {{$propiedad->service_rooms}} Dormitorio de servicio<br>
+                          @if($propiedad->laundry)
+                          Área de lavandería y patio <br>
+                          @endif
+                          {{$propiedad->rooms}} Dormitorios amplios con baño completo <br>
+                          @if($propiedad->walkin_closet)
+                          Walk-inCloset <br>
+                          @endif
+                          {{$propiedad->parking_roof}} Parqueos techados <br>
+                          {{$propiedad->gardeen_front}} Jarines <br>
+                          @if($propiedad->pergola)
+                          Pergola amplia <br>
+                          @endif
+                          @if($propiedad->laundry)
+                          Lavanderia <br>
+                          @endif
+                        </p>
+                    </td>
+                    <td style="border-style: none;border:0;color:#11264e;background-color: white;width: 390px;vertical-align: top">
+                        
+                        <p style="font-size: 14px">
+                        @if($propiedad->fee_maintenance_gtq > 0 || $propiedad->fee_maintenance_usd > 0)
+                        <b  style="font-size:14px">CUOTA DE MANTENIMIENTO:</b><br>GTQ.{{number_format($propiedad->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}
+                        @endif
+                        </p>
+                        @if($propiedad->water_service == 0 && $propiedad->security_service == 0 && $propiedad->electricy_service == 0 && $propiedad->trash_service == 0 && $propiedad->clean_service == 0)
+                        <br>
+                        @else
+                         <p style="font-size: 14px;margin-right: 10px;">
+                            @if(strlen($propiedad->youtube)>0)
+                            <b  style="font-size:14px">Tour virtual:</b><br>
+                            <a href="{{$propiedad->youtube}}" target="_blank">Click aqui para ver.</a><br>
                             @endif
-                            <h1>SERVICIOS:</h1>
-                            <p style="font-size: 16px">
-                                @if($propiedad->water_service == 1)
-                                    Agua,
-                                @endif
-                                
-                                @if($propiedad->security_service == 1)
-                                    Seguridad,
-                                @endif
+                            <b  style="font-size:14px">SERVICIOS:</b><br>
+                            @if($propiedad->water_service == 1)
+                                Agua,
+                            @endif
+                            
+                            @if($propiedad->security_service == 1)
+                                Seguridad,
+                            @endif
 
-                                @if($propiedad->electricy_service == 1)
-                                    Luz,
-                                @endif
+                            @if($propiedad->electricy_service == 1)
+                                Luz,
+                            @endif
 
-                                @if($propiedad->trash_service == 1)
-                                    Extraccion de basura,
-                                @endif
+                            @if($propiedad->trash_service == 1)
+                                Extraccion de basura,
+                            @endif
 
-                                @if($propiedad->clean_service == 1)
-                                    Limpieza
-                                @endif
-                            </p>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="border-style: none;border:0;color:#11264e;background-color: white">
-                        <h1>INCLUYE</h1>
-                        <p style="font-size: 16px">
+                            @if($propiedad->clean_service == 1)
+                                Limpieza
+                            @endif
+                        </p>
+                        @endif
+                        <p style="font-size: 14px;margin-right: 10px;"><b  style="font-size:14px">INCLUYE:</b><br>
+                       
                             @if($propiedad->fridge == 1)
                                    Refrigeradora,
                             @endif
+
+                            @if($propiedad->lamps == 1)
+                                   Lampara,
+                            @endif
+
+                            @if($propiedad->alarm == 1)
+                                   Alarmas,
+                            @endif
+
+
                             @if($propiedad->kitchen == 1)
                            
                                    Estufa,
@@ -324,18 +356,16 @@ use App\Models\Property;
                             @endif
                             @if($propiedad->cistern == 1)
                            
-                                   Cisterna,
+                                   Bomba y cisterna,
                             @endif
                             @if($propiedad->bathroom_mirros == 1)
                            
                                    Espejo de baño,
                             @endif    
-
                         </p>
-
                     </td>
-                    </tr>
-                </table>
+                </tr>
+            </table>
             </section>
            <footer style="background-color: #11264e;width:900px;padding: 20px;height: 100px;vertical-align: right">
                 <table  style="margin: 0!important;border-style: none!important;border:0!important;background-color: #11264e;color:white">
@@ -360,13 +390,12 @@ use App\Models\Property;
         </footer>
         </center>
         <center>
-            <section class="sheet-last" style="display: inline-block;">
-                <br><br><br><br>
+            <section class="sheet-last" style="display: inline-block;margin-top: 35px">
                 <table style="margin: 0!important;border-style: none!important;border:0!important;background-color: white;margin-bottom: 40px">
                     <tr style="border-style: none!important;border:0!important;">
                         <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$propiedad->propiertiy_id}}</h2></td>
                         <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 23px;">{!!nl2br($propiedad->title)!!}</h1></center></td>
-                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://platinum.mavis.com.gt//assets/simple.png"></td>
+                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://propiedadesplatinum.com//assets/simple.png"></td>
                     </tr>
                 </table>
                 @php
@@ -385,14 +414,14 @@ use App\Models\Property;
                     @endif
                     @endforeach
                 @else
-                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
-                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
                     <br>
-                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
-                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
                     <br>
-                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
-                    <img src="https://platinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
                     <br>
                 @endif
             </section>

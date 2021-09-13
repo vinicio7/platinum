@@ -38,7 +38,7 @@ class PropertyController extends Controller
 			//return view('pdf_propiedad',compact('data'));
 			//dd($pdf);
 			$nombre     = 'Propiedad '.$id.".pdf";
-			return $pdf->setPaper('letter')->stream($nombre);
+			return $pdf->setPaper('letter')->download($nombre);
 		}catch(\Exception $e){
 			return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
 		}
@@ -52,7 +52,7 @@ class PropertyController extends Controller
 			//return view('pdf_propiedad',compact('data'));
 			//dd($pdf);
 			$nombre     = 'Informacion para tour '.$id.".pdf";
-			return $pdf->setPaper('letter','landscape')->stream($nombre);
+			return $pdf->setPaper('letter','landscape')->download($nombre);
 		}catch(\Exception $e){
 			return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
 		}
