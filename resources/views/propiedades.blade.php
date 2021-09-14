@@ -5,7 +5,7 @@ use App\Models\Zone;
 use App\Models\Region;
 use App\Models\Property;
 use App\Models\Images;
-$agente = Session::get('agente');
+$agente        = Session::get('agente');
 $departamentos = Departament::all();
 $municipios    = Municipality::all();
 $zonas         = Zone::all();
@@ -130,34 +130,63 @@ if (strlen($input) > 0){
 
 if (isset($tipo_venta)){
   if($tipo_venta == 'venta'){
-    if($precio_minimo > 0){
-      
-      $propiedades->where('sale_usd','>',$precio_minimo);
+    if($precio_minimo > 1){
+      $precio_minimo = $precio_minimo;
     }else{
-      $propiedades->where('sale_usd','>',0);
+      $precio_minimo = 1;
     }
-
-    if($precio_maximo > 0){
-      $propiedades->where('sale_usd','<',$precio_maximo);
+    if($precio_maximo > 1){
+      $precio_maximo = $precio_maximo;
     }else{
-      $propiedades->where('sale_usd','<',999999999999);
+      $precio_maximo = 999999999999;
     }
+    $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
+  }else if($tipo_venta == 'renta'){
+    if($precio_minimo > 1){
+      $precio_minimo = $precio_minimo;
+    }else{
+      $precio_minimo = 1;
+    }
+    if($precio_maximo > 1){
+      $precio_maximo = $precio_maximo;
+    }else{
+      $precio_maximo = 999999999999;
+    }
+    $propiedades->whereBetween('rent_usd',[$precio_minimo,$precio_maximo]);
   }else{
-    if($precio_minimo> 0){
-      $propiedades->where('rent_usd','>',$precio_minimo);
+      if($precio_minimo > 1){
+      $precio_minimo = $precio_minimo;
     }else{
-      $propiedades->where('rent_usd','>',0);
+      $precio_minimo = 1;
     }
-
-    if($precio_maximo> 0){
-      $propiedades->where('rent_usd','<',$precio_maximo);
+    if($precio_maximo > 1){
+      $precio_maximo = $precio_maximo;
     }else{
-      $propiedades->where('rent_usd','<',999999999999);
+      $precio_maximo = 999999999999;
     }
+    $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
   }
+}else{
+  if($precio_minimo > 1){
+    $precio_minimo = $precio_minimo;
+  }else{
+    $precio_minimo = 1;
+  }
+  if($precio_maximo > 1){
+    $precio_maximo = $precio_maximo;
+  }else{
+    $precio_maximo = 999999999999;
+  }
+  $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
 }
 
-$propiedades = $propiedades->paginate(10);
+$propiedades   = $propiedades->orderBy('propiertiy_id','DESC')->paginate(10);
+$ruta_completa = Request::fullUrl();
+$parametro     = env("RAIZ","http://127.0.0.1:8000/");
+
+//dd($parametro);
+$cortar        = explode($parametro, $ruta_completa);
+$propiedades->withPath($cortar[1]);
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
