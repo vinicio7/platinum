@@ -192,7 +192,7 @@ class PropertyController extends Controller
 				$image = Image::make(Storage::get($path));
 				Storage::disk('local')->put($path, (string) $image->encode($archivo->extension()));
 				$imagen = Images::create([
-					'path'          => env('RAIZ','https://platinum.mavis.com.gt/').$path,
+					'path'          => env('RAIZ','https://propiedadesplatinum.com/').$path,
 					'extension'    => $archivo->extension()
 				]);
 				$records = $imagen;
@@ -442,7 +442,7 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					$imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
 					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
@@ -539,7 +539,7 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					$imagen = 'https://platinum.mavis.com.gt/includes/propiedades/'.$record->codigo_propiedad.'/1.jpg'; 
+					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->codigo_propiedad.'/1.jpg'; 
 					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
