@@ -232,6 +232,26 @@ img.hover-shadow {
     width: 80vh;
     height: 32vh;
 }
+
+.zoom-in-zoom-out {
+  margin: 24px;
+  width: 50px;
+  height: 50px;
+  animation: zoom-in-zoom-out 2s ease-out infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
@@ -804,10 +824,10 @@ img.hover-shadow {
                                              <center> <b style="font-size: 24px;margin-left: -50px">{{strtoupper($agente->name)}}</b></center>
                                              <center> <b style="font-size: 24px;margin-left: -50px">{{$rol->name}}</b></center>
                                           </form>
-                                            <div class="sc_socials_item" style="width: auto;height: auto;width: auto"><a href="tel:{{ $agente->phone }}" class="social_icons" style="width: 50px;height: 120px"><span class="icon-phone" style="font-size: 3em;margin-top: 10px"></span></a></div>
-                                            <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="icon-facebook" style="font-size: 3em;margin-top: 10px"></span></a></div>
-                                            <div class="sc_socials_item"><a href="mailto:{{ $agente->email }}?subject=Informacion de propiedad Cod.{{$test->propiertiy_id}}&body=Hola quisiera tener mas información%0DSobre la propiedad con codigo {{$test->propiertiy_id}}%0D" class="social_icons" style="width: 50px;height: 120px"><span class="icon-mail" style="font-size: 3em;margin-top: 10px"></span></a></div>
-                                            <div class="sc_socials_item"><a href="https://wa.me/{{ $agente->phone }}?text=Hola%20quisiera%20obtener%20mas%20información%20de%20la%20propiedad%20con%20código%20{{$test->propiertiy_id}}" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="fa fa-whatsapp" style="padding-top:3px;width: auto;font-size: 3em;margin-top: 10px"></span></a></div> 
+                                            <div class="sc_socials_item" style="width: auto;height: auto;width: auto"><a href="tel:{{ $agente->phone }}" class="social_icons" style="width: 50px;height: 120px"><span class="icon-phone zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="icon-facebook zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="mailto:{{ $agente->email }}?subject=Informacion de propiedad Cod.{{$test->propiertiy_id}}&body=Hola quisiera tener mas información%0DSobre la propiedad con codigo {{$test->propiertiy_id}}%0D" class="social_icons" style="width: 50px;height: 120px"><span class="icon-mail zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="https://wa.me/{{ $agente->phone }}?text=Hola%20quisiera%20obtener%20mas%20información%20de%20la%20propiedad%20con%20código%20{{$test->propiertiy_id}}" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="fa fa-whatsapp zoom-in-zoom-out" style="padding-top:3px;width: auto;font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div> 
                                           </div>
                                        </center>
                                     </div>

@@ -230,7 +230,7 @@ $propiedades->withPath($cortar[1]);
       .input-icono input:focus {
         outline: none;
       }
-
+      
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
