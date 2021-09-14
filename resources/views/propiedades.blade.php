@@ -344,7 +344,7 @@ $propiedades->withPath($cortar[1]);
                         <aside class="widget widget_property_search scheme_dark" style="color:white">
                            <form method="get" action="propiedades_post">
                              <div class="input-icono">
-                                <input type="text" name="input" value="" >
+                                <input type="text" name="input" value="{{$input}}" >
                               </div>
                               <select name="tipo_venta" value="{{$tipo_venta}}" style="border-color: white">
                                  @if($tipo_venta == 'venta')
