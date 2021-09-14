@@ -186,7 +186,10 @@ $parametro     = env("RAIZ","http://127.0.0.1:8000/");
 
 //dd($parametro);
 $cortar        = explode($parametro, $ruta_completa);
-$propiedades->withPath($cortar[1]);
+if(count($cortar) > 1){
+  $propiedades->withPath($cortar[1]);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US" class="scheme_original">
