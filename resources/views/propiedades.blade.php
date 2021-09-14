@@ -99,16 +99,7 @@ else if($tipo_inmueble == 'terreno'){
 }
 
 $propiedades   = Property::where('status',1);
-
-if ($zona > 0){
-  $propiedades->where('zone_id',$zona);
-}
-if ($zona2 > 0){
-  $propiedades->orWhere('zone_id',$zona2);
-}
-if ($zona3 > 0){
-  $propiedades->orWhere('zone_id',$zona3);
-}
+$propiedades->where('zone_id',[$zona,$zona2,$zona3]);
 
 if ($departamento > 0){
   $propiedades->where('departament_id',$departamento);
@@ -129,6 +120,7 @@ if (strlen($input) > 0){
 }
 
 if (isset($tipo_venta)){
+
   if($tipo_venta == 'venta'){
     if($precio_minimo > 1){
       $precio_minimo = $precio_minimo;
@@ -154,7 +146,7 @@ if (isset($tipo_venta)){
     }
     $propiedades->whereBetween('rent_usd',[$precio_minimo,$precio_maximo]);
   }else{
-      if($precio_minimo > 1){
+    if($precio_minimo > 1){
       $precio_minimo = $precio_minimo;
     }else{
       $precio_minimo = 1;
@@ -362,7 +354,7 @@ $propiedades->withPath($cortar[1]);
                               </select>
 
                               <select name="departamento" value="{{$departamento}}" style="border-color: white">
-                                <option value="0">Seleccione un departamento</option>
+                                <option value="0">Seleccione una ubicacion</option>
                                 @foreach($departamentos as $item)
                                   @if($departamento == $item->departament_id)
                                     <option value="{{$item->departament_id}}" selected>{{$item->name}}</option>

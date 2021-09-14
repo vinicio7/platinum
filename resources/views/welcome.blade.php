@@ -351,7 +351,7 @@ else {
                </div>
             </div>
             <div class="page_content_wrap page_paddings_no">
-               @if($test > 0)
+               @if(false)
                   @if($test == 1)
                   <div class="sc_section overflow_hidden bg_color_2" style="background-color: #11264e!important;">
                       <center>
