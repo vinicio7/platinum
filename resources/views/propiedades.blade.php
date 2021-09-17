@@ -277,7 +277,7 @@ $propiedades->withPath($cortar[1]);
                               if($busqueda){
                                  $imagen =  $busqueda->path;
                               }else{
-                                 $imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$item->propiertiy_id.'/1.jpg';
+                                 $imagen = 'https://pruebaplatinum.mavis.com.gt/includes/propiedades/'.$item->propiertiy_id.'/1.jpg';
                               }
                             ?>
                             <div class="column-1_2 column_padding_bottom">

@@ -219,7 +219,7 @@ use App\Models\User;
 </head>
 <body>
     <header style="margin-bottom:0px">
-        <img src="https://propiedadesplatinum.com/assets/images/logos/logo_azul_2.png" style="width: 250px;height:80px;padding: 0px;margin-left: 22px" />
+        <img src="https://pruebaplatinum.mavis.com.gt/assets/images/logos/logo_azul_2.png" style="width: 250px;height:80px;padding: 0px;margin-left: 22px" />
     </header>
     <br>
     <center><h1 style="font-size: 20px;color:#11264e">Reporte de Propiedades - Información para Tours</h1></center>

@@ -291,38 +291,38 @@ img.hover-shadow {
                                   </li>
                                   @endforeach
                                 @else
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/1.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/1.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/1.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/1.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/1.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/1.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/2.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/2.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/2.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/2.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/2.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/2.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/3.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/3.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/3.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/3.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/3.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/3.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/4.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/4.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/4.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/4.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/4.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/4.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/5.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/5.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/5.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/5.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/5.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/5.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/6.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/6.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/6.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/6.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/6.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/6.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/7.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/7.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/7.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/7.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/7.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/7.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/8.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/8.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/8.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/8.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/8.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/8.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/9.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/9.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/9.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/9.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/9.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/9.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/10.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/10.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/10.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/10.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/10.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/10.jpg" class="w-100"/>
                                   </li>
-                                  <li data-thumb="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/11.jpg"  data-src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/11.jpg">
-                                    <img   src="https://propiedadesplatinum.com/includes/propiedades/{{$test->propiertiy_id}}/11.jpg" class="w-100"/>
+                                  <li data-thumb="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/11.jpg"  data-src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/11.jpg">
+                                    <img   src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$test->propiertiy_id}}/11.jpg" class="w-100"/>
                                   </li>
                                 @endif
                               </ul>

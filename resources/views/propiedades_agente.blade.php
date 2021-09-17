@@ -258,7 +258,7 @@ if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmue
                               if($busqueda){
                                  $imagen =  $busqueda->path;
                               }else{
-                                 $imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$item->propiertiy_id.'/1.jpg';  
+                                 $imagen = 'https://pruebaplatinum.mavis.com.gt/includes/propiedades/'.$item->propiertiy_id.'/1.jpg';  
                               }
                             ?>
                             <div class="column-1_2 column_padding_bottom">

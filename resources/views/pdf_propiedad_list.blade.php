@@ -220,7 +220,7 @@ use App\Models\Property;
 </head>
 <body>
 <header style="margin-bottom:0px">
-    <center><img src="https://propiedadesplatinum.com//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
+    <center><img src="https://pruebaplatinum.mavis.com.gt//image/logo_lg_blanco.svg" style="width: 400px;padding: 0px" /></center>
 </header>
 @foreach($data as $item)
     @php    
@@ -235,7 +235,7 @@ use App\Models\Property;
                     <tr style="border-style: none!important;border:0!important;">
                         <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$propiedad->propiertiy_id}}</h2></td>
                         <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 23px;">{!!nl2br($propiedad->title)!!}</h1></center></td>
-                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://propiedadesplatinum.com//assets/simple.png"></td>
+                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://pruebaplatinum.mavis.com.gt//assets/simple.png"></td>
                     </tr>
                 </table>
                 
@@ -245,15 +245,15 @@ use App\Models\Property;
                             <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
                             <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[1]->path}}"></td>
                         @else
-                            <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg"></td>
-                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg"></td>
+                            <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg"></td>
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg"></td>
                         @endif
                     </tr>
                     <tr>
                         @if(count($imagenes) > 0)
                             <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[2]->path}}"></td>
                         @else
-                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg"></td>
+                            <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg"></td>
                         @endif
                     </tr>
                 </table>
@@ -384,7 +384,7 @@ use App\Models\Property;
                     </tr>
                     <tr>
                         <td></td>
-                        <td><h1 style="color: white;font-size: 20px;font-style: bold;">Email: info@propiedadesplatinum.com</h1></td>
+                        <td><h1 style="color: white;font-size: 20px;font-style: bold;">Email: info@pruebaplatinum.mavis.com.gt</h1></td>
                     </tr>
                 </table>    
         </footer>
@@ -395,7 +395,7 @@ use App\Models\Property;
                     <tr style="border-style: none!important;border:0!important;">
                         <td width="10%" style="border-style: none!important;border:0!important;"><h2 style="color: #11264e;">COD. {{$propiedad->propiertiy_id}}</h2></td>
                         <td width="80%" style="border-style: none!important;border:0!important;"><center><h1 style="color: #11264e;font-size: 23px;">{!!nl2br($propiedad->title)!!}</h1></center></td>
-                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://propiedadesplatinum.com//assets/simple.png"></td>
+                        <td width="10%" style="border-style: none!important;border:0!important;"><img style="width: 100px;margin-top: 10px" src="https://pruebaplatinum.mavis.com.gt//assets/simple.png"></td>
                     </tr>
                 </table>
                 @php
@@ -414,14 +414,14 @@ use App\Models\Property;
                     @endif
                     @endforeach
                 @else
-                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
-                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
                     <br>
-                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
-                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
                     <br>
-                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
-                    <img src="https://propiedadesplatinum.com/includes/propiedades/{{$propiedad->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$propiedad->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
                     <br>
                 @endif
             </section>
