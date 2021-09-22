@@ -546,7 +546,7 @@ else {
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/{{ $item->phone }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
                                              <form method="get" action="propiedades_post">
-                                                <input type="text" name="agente_nuevo" placeholder="US$ Precio minimo" value="{{$item->user_id}}" >
+                                                <input type="text" name="agente_nuevo" placeholder="US$ Precio minimo" value="{{$item->user_id}}" style="display: none" >
                                                 <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Propiedades" style="background: #11264e;color:WHITE;margin-top:0px">
                                                 <br>
                                              </form>
