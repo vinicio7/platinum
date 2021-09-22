@@ -94,6 +94,7 @@ class PropertyController extends Controller
 	}
 
 	public function propiedades_post(Request $request){
+		$agente_nuevo 	   = $request->input('agente_nuevo');
 		$tipo_venta    = $request->input('tipo_venta');
 		$tipo_inmueble = $request->input('tipo_inmueble');
 		$precio_maximo = $request->input('precio_maximo');
@@ -104,7 +105,7 @@ class PropertyController extends Controller
 		$zona2 		   = $request->input('zona2');
 		$zona3 		   = $request->input('zona3');
 		$input 		   = $request->input('input');
-		return view('propiedades',compact('tipo_venta','tipo_inmueble','precio_maximo','departamento','municipio','zona','precio_minimo','zona2','zona3','input'));
+		return view('propiedades',compact('tipo_venta','tipo_inmueble','precio_maximo','departamento','municipio','zona','precio_minimo','zona2','zona3','input','agente_nuevo'));
 	}
 
 	public function index()

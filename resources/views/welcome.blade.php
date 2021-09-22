@@ -3,9 +3,10 @@ use App\Models\User;
 use App\Models\Property;
 use App\Models\Region;
 use App\Models\Images;
-
+use App\Models\Zone;
 use App\Models\Configuraciones;
 $config = Configuraciones::first();
+$zonas         = Zone::all();  
 if($config){
     $propiedad_principal  =  $config->propiedad_principal;
     if($propiedad_principal == 0){
@@ -219,20 +220,16 @@ else {
             <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
                <div class="header-bg">
                   <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix container_header">
-                        <div class="top_panel_logo" style="margin-right: 0px">
-                           <div class="logo">
-                              <a href="./"><img src="image/logo_lg_blanco.svg" class="logo_main"></a>
-                           </div>
+                     <div class="content_wrap clearfix container_header" style="height: 7em">
+                        <div class="top_panel_logo" style="margin-right: 0px;width: 50%;display: inline-block;">
+                            <img src="image/logo_lg_blanco.svg"  style="width: 50em;display: inline-block;">
                         </div>
-                        <div class="top_panel_menu container_logo_right">
+                         <div class="top_panel_menu container_logo_right" style="margin-right: 50px">
                           <a href="/"><img src="/images/plecka.png" ></a>
                         </div>
-                        <br>
-                        <br>
-                        <div class="top_panel_menu container_menu">
+                        <div class="top_panel_menu container_menu" style="width: 40%;display: inline-block;">
                            <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
-                           <nav class="menu_main_nav_area">
+                           <nav class="menu_main_nav_area" style="margin-top: 40px" >
                               <ul id="menu_main" class="menu_main_nav">
                                 <li class="menu-item"><a href="/">INICIO</a></li>
                                 <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
@@ -248,6 +245,7 @@ else {
             </header>
             <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_revsliderHome1">
                <!-- REVOLUTION SLIDER -->
+
                <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
                   <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
                      <ul>
@@ -304,8 +302,10 @@ else {
                      </ul>
                      <div class="tp-bannertimer tp-bottom"></div>
                   </div>
+                  <img src="image/SarahAlzugaray2.png" style="width: 20em;float: left;position: fixed;z-index: 9999;margin-left: 80px;margin-top: -388px">
                </div>
                <!-- END REVOLUTION SLIDER -->
+
             </section>
             <div class="ps_header" style="background-color: white ">
                <div class="content_wrap">
@@ -334,7 +334,16 @@ else {
                                     <option value="edificio">Edificios</option>
                                     <option value="local">Locales</option>
                                  </select>
-                              </div><br> 
+                              </div>
+                              <div class="sc_ps_type">
+                                <select name="zona" style="border-color: white">
+                                <option value="0">Seleccione una zona</option>
+                                @foreach($zonas as $item)
+                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                @endforeach
+                                </select>
+                              </div>
+                              <br> 
                               <div class="sc_ps_type">
                                   <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
                               </div>
@@ -536,8 +545,10 @@ else {
                                              <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/{{ $item->phone }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
-                                             <form action="/propiedades_agente/{{$item->user_id}}">
-                                                <button style="background-color: #11264e" hre>Propiedades</button>  
+                                             <form method="get" action="propiedades_post">
+                                                <input type="text" name="agente_nuevo" placeholder="US$ Precio minimo" value="{{$item->user_id}}" >
+                                                <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Propiedades" style="background: #11264e;color:WHITE;margin-top:0px">
+                                                <br>
                                              </form>
                                           </div>
                                        </center>

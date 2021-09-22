@@ -827,6 +827,9 @@ img.hover-shadow {
                                   frameborder="0" allowfullscreen class="video"></iframe>
                               </div>
                             @endif
+                            <br>
+                            <button class="btn btn-danger" onclick="location.href='/pdf/{{$test->propiertiy_id}}'" type="submit" style="background-color: #e40a0a">Generar PDF</button>
+                            <button class="btn btn-primary" onclick=" storage.setItem('editar',$test->propiertiy_id ); location.href='/propierties'" style="float: right;background-color: #11264e">Editar Propiedad</button>
                           </div>
 
 

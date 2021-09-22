@@ -16,6 +16,13 @@ if(isset($precio_minimo)){
 }else{
   $precio_minimo = '';
 }
+
+if(isset($agente_nuevo)){
+  $agente_nuevo = $agente_nuevo;
+}else{
+  $agente_nuevo = 0;
+}
+
 if(isset($precio_maximo)){
   $precio_maximo = $precio_maximo;
 }else{
@@ -100,6 +107,11 @@ else if($tipo_inmueble == 'terreno'){
 
 $propiedades   = Property::where('status',1);
 $propiedades->where('zone_id',[$zona,$zona2,$zona3]);
+
+
+if($agente_nuevo > 0){
+  $propiedades->where('user_id',$agente_nuevo);
+}
 
 if ($departamento > 0){
   $propiedades->where('departament_id',$departamento);
@@ -462,11 +474,19 @@ $propiedades->withPath($cortar[1]);
 
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio minimo:
+                                 @if($precio_minimo == 1)
+                                  <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" style="border-color: white">
+                                 @else
                                   <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
+                                 @endif
                               </div>
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio maximo:
+                                 @if($precio_maximo == 999999999999 )
+                                  <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="" style="border-color: white">
+                                 @else
                                   <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
+                                 @endif
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>
