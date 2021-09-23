@@ -245,7 +245,7 @@ else {
                       
                        
             </header>
-            <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_revsliderHome1" style="height: 50%!important">
+            <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_revsliderHome1" style="height: 38em!important">
                <!-- REVOLUTION SLIDER -->
 
                <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" >
@@ -307,7 +307,7 @@ else {
                   
                </div>
                <!-- END REVOLUTION SLIDER -->
-               <img src="image/SarahAlzugaray2.png" style="width: 20em;float: left;position: absolute;z-index: 9999;margin-left: 10em;margin-top: -27.6em">
+               <img src="image/SarahAlzugaray2.png" style="width: 20em;float: left;position: absolute;z-index: 9999;margin-left: 10em;margin-top: -41.7em">
             </section>
             <div class="ps_header" style="background-color: white ">
                <div class="content_wrap">
