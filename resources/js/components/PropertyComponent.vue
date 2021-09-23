@@ -19,7 +19,7 @@
              <button type="button" v-if="agente.rol_id != 10" class="btn btn-success" @click="generarExcel()">
               -> Generar excel
                  </button>
-            <button type="button" class="btn btn-danger" @click="pdf_total()">
+            <button type="button" class="btn btn-danger" @click="abrir_pdf_total()">
               -> Generar PDF
             </button> 
             <button type="button" class="btn btn-warning" @click="limpiar_pdf()">
@@ -43,7 +43,6 @@
                           <option>Rentar</option>
                           <option>Vender</option>
                           <option>Eliminar</option>
-                          <option>Editar</option>
                         </select>
                     </div>
                     <div class="col-sm-12" >
@@ -67,13 +66,16 @@
           <div class="modal-dialog modal-center modal-md" role="document" align="center">
             <div class="modal-content">
                <div class="modal-header">
-                  <h5 class="modal-title" id="modalventa">Datos propietario</h5>
+                  <h5>Datos adicionales</h5>
                   <br>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
+                   <center>
+                    <h5 id="modalventa">Datos propietario</h5>
+                  </center>
                   <div class="row">
                     <div class="col-sm-6" >
                         <label><b>Nombre:</b></label>  
@@ -106,8 +108,91 @@
                        {{whatsapp_propietario}} 
                     </div>
                   </div>
+                  <center>
+                    <h5 class="modal-title" id="modalventa">Contacto de visita</h5>
+                  </center>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label><b>Nombre:</b></label>
+                    </div>
+                    <div class="col-sm-6">
+                        {{nombre_contacto}}
+                    </div>
+                    <div class="col-sm-6">
+                      <label><b>Telefono:</b></label>
+                    </div>
+                    <div class="col-sm-6">
+                        {{telefono_contacto}}
+                    </div>
+                    <div class="col-sm-6">
+                      <label><b>Celular:</b></label>
+                    </div>
+                    <div class="col-sm-6">
+                        {{celular_contacto}}
+                    </div>
+                    <div class="col-sm-6">
+                      <label><b>Email:</b></label>
+                    </div>
+                    <div class="col-sm-6">
+                        {{email_contacto}}
+                    </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
+                  <button  @click="clearFields()" class="btn">Atrás</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="pdf_total" tabindex="-1" role="dialog" aria-labelledby="pdf_total" aria-hidden="true" >
+          <div class="modal-dialog modal-center modal-md" role="document" align="center">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5>Generar PDF</h5>
+                  <br>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-6" >
+                        <label><b>Ingrese Link:</b></label>  
+                    </div>
+                    <div  class="col-sm-6">
+                       <input type="text" name="" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button  @click="pdf_total()" class="btn btn-success">Generar PDF</button>
+                  <button  @click="clearFields()" class="btn">Atrás</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="downloadPdf" tabindex="-1" role="dialog" aria-labelledby="pdf_total" aria-hidden="true" >
+          <div class="modal-dialog modal-center modal-md" role="document" align="center">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5>Generar PDF</h5>
+                  <br>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-6" >
+                        <label><b>Ingrese Link:</b></label>  
+                    </div>
+                    <div  class="col-sm-6">
+                       <input type="text" name="" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button  @click="downloadPdf()" class="btn btn-success">Generar PDF</button>
                   <button  @click="clearFields()" class="btn">Atrás</button>
                 </div>
             </div>
@@ -1330,6 +1415,10 @@
                 imagenes:[],
                 propietario_id:0,
                 lavavajillas:0,
+                nombre_contacto:'',
+                telefono_contacto:'',
+                celular_contacto:'',
+                email_contacto:'',
                 ambientes:0,
                 terreno:0,
                 construccion:'',
@@ -1361,6 +1450,7 @@
                 desayunador:0,
                 ducha:0,
                 bano_visita:0,
+                propietario_unico:0,
                 lavanderia:0,
                 bidet:0,
                 dormitorio_visita:0,
@@ -1586,6 +1676,7 @@
             $('.table-responsive').on('click', (evt) => {
                 evt.stopImmediatePropagation();
                if ($(evt.target)[0].innerText == 'Editar') {
+                console.log($(evt.target)[0].id)
                  this.loadFieldsUpdate($(evt.target)[0].id); 
                }
                else if ($(evt.target)[0].innerText == 'Acciones') {
@@ -1609,7 +1700,7 @@
                     }
                }
                else if ($(evt.target)[0].innerText == 'PDF') {
-                 this.downloadPdf($(evt.target)[0].id); 
+                 this.abrir_downloadPdf($(evt.target)[0].id); 
                }
                else if ($(evt.target)[0].innerText == 'TOUR') {
                  this.downloadTour($(evt.target)[0].id); 
@@ -1631,7 +1722,23 @@
                     }
                }
                else{
-                this.loadVenta($(evt.target)[0].id); 
+                  var texto = $(evt.target)[0].innerText;
+                  console.log(texto.length)
+                  if(texto.length > 10){
+                    me.propietario_unico      =  0;
+                    me.nombre_contacto        =  '';
+                    me.telefono_contacto      =  '';
+                    me.celular_contacto       =  '';
+                    me.email_contacto         =  '';
+                    me.nombre_propietario     =  '';
+                    me.telefono_propietario   =  '';
+                    me.direccion_propietario  =  '';
+                    me.email_propietario      =  '';
+                    me.whatsapp_propietario   =  '';
+                    console.log($(evt.target)[0].id);
+                    this.loadVenta($(evt.target)[0].id); 
+                  }
+                
                }
             });
         },
@@ -1916,6 +2023,9 @@
                     }
                 });
               },
+              abrir_pdf_total(){
+                $('#pdf_total').modal('show');
+              },
               pdf_total(){
                 let me  = this;
                 let url = '/api/propierty/pdf_total/'+this.usuario_id 
@@ -1929,8 +2039,9 @@
                    fileLink.href = fileURL;
                    fileLink.setAttribute('download', 'propiedades.pdf');
                    document.body.appendChild(fileLink);
-
                    fileLink.click();
+                   //limpiar caja de texto
+                   $('#pdf_total').modal('hide');
               });
               },
             guardarVenta(){
@@ -1967,28 +2078,42 @@
               this.update = id
               $('#modalrenta').modal('show');
             }, 
-            loadVenta(id){ 
+            loadVenta(id,propiedad){
+              console.log(propiedad) 
               console.log(id)
                 this.update = id
                 let me  = this;
-                let url = '/api/users/showid';
+                let url = '/api/propierty/showid';
                 axios.post(url,{ 
-                    'user_id': this.update,
+                    'propierty_id': this.update,
                 }).then(function (response) {
                   console.log(response.data.records);
-                  me.nombre_propietario     =  response.data.records.name;
-                  me.telefono_propietario   =  response.data.records.phone;
-                  me.direccion_propietario  =  response.data.records.adress;
-                  me.email_propietario      =  response.data.records.email;
-                  me.whatsapp_propietario   =  response.data.records.whatsapp;
+                  me.propietario_unico      = response.data.records.owner_id;
+                  me.nombre_contacto        =  response.data.records.name_contact;
+                  me.telefono_contacto      =  response.data.records.telefono_contacto;
+                  me.celular_contacto       =  response.data.records.phone_contact;
+                  me.email_contacto         =  response.data.records.email_contact;
                   
+                  me.nombre_propietario     =  response.data.records.nombre_propietario;
+                  me.telefono_propietario   =  response.data.records.telefono_propietario;
+                  me.direccion_propietario  =  response.data.records.direccion_propietario;
+                  me.email_propietario      =  response.data.records.email_propietario;
+                  me.whatsapp_propietario   =  response.data.records.whatsapp_propietario;
+                  $('#modalventa').modal('show');
                 })
                 .catch(function (error) {
                     console.log(error);
                 }); 
-                $('#modalventa').modal('show');
+                
+                 
+                
+                
             },    
+            abrir_downloadPdf(){
+              $('#downloadPdf').modal('show');
+            },
             downloadPdf(id){ 
+
                 let me  = this;
                 let url = '/pdf/'+id 
                 axios({
@@ -2002,6 +2127,7 @@
                    fileLink.setAttribute('download', 'Información para cliente código '+id+'.pdf');
                    document.body.appendChild(fileLink);
                    fileLink.click();
+                   $('#downloadPdf').modal('hide');
               });
             },
             downloadTour(id){ 

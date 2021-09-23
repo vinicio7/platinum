@@ -133,7 +133,9 @@ class PropertyController extends Controller
 				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
 				['data' => 'sale_usd', 'title'=>'VENTA $.'],
 				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
@@ -153,6 +155,7 @@ class PropertyController extends Controller
 				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
 				['data' => 'sale_usd', 'title'=>'VENTA $.'],
 				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
 				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
@@ -187,6 +190,7 @@ class PropertyController extends Controller
 				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
 				['data' => 'sale_usd', 'title'=>'VENTA $.'],
 				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
 				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
@@ -207,6 +211,7 @@ class PropertyController extends Controller
 				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
 				['data' => 'sale_usd', 'title'=>'VENTA $.'],
 				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
 				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
@@ -241,6 +246,7 @@ class PropertyController extends Controller
 				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
 				['data' => 'sale_usd', 'title'=>'VENTA $.'],
 				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
 				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
@@ -261,6 +267,7 @@ class PropertyController extends Controller
 				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
 				['data' => 'sale_usd', 'title'=>'VENTA $.'],
 				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
 				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
 				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
@@ -530,12 +537,22 @@ class PropertyController extends Controller
 					"<a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Acciones</a>";
 				}
 			})
+			->addColumn('editar', function ($record) {
+				$name = \Session::get('user');
+				$user = User::where('name',$name)->first();
+				if($user->rol_id == 10){
+					return "";
+				}else{
+					return
+					"<a class='btn2 btn-primary btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Editar</a>";
+				}
+			})
 			->addColumn('pdf', function ($record) {
 				return
 					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
 			})
 			->addColumn('id', function ($record) {
-				return "<a href='/propierty/admin/".$record->propiertiy_id."' target='_blank'>".$record->propiertiy_id."</a>";  
+				return "<a href='/propierty/admin/".$record->propiertiy_id."' >".$record->propiertiy_id."</a>";  
 			})
 			->addColumn('codigo', function ($record) {
 				return "C".$record->propiertiy_id."C";  
@@ -600,7 +617,7 @@ class PropertyController extends Controller
 				$buscar = User::find($record->owner_id);
 				if($buscar){
 					return 
-					"<a href='#' class='propietario' id='".$buscar->user_id."'>".$buscar->name."</a>";
+					"<a href='#' class='propietario' id='".$record->propiertiy_id."'>".$buscar->name."</a>";
 				}else{
 					return "Sin propietario";
 				}
@@ -626,7 +643,7 @@ class PropertyController extends Controller
 					$descripcion = 'Vendida';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo'])
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo','editar'])
 			->toJson();
 	}
 
@@ -643,6 +660,16 @@ class PropertyController extends Controller
 					"<a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Acciones</a>";
 				}
 			})
+			->addColumn('editar', function ($record) {
+				$name = \Session::get('user');
+				$user = User::where('name',$name)->first();
+				if($user->rol_id == 10){
+					return "";
+				}else{
+					return
+					"<a class='btn2 btn-primary btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Editar</a>";
+				}
+			})
 			->addColumn('pdf', function ($record) {
 				return
 					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
@@ -739,7 +766,7 @@ class PropertyController extends Controller
 					$descripcion = 'Vendida';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo'])
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo','editar'])
 			->toJson();
 	}
 
@@ -756,6 +783,16 @@ class PropertyController extends Controller
 					"<a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Acciones</a>";
 				}
 			})
+			->addColumn('editar', function ($record) {
+				$name = \Session::get('user');
+				$user = User::where('name',$name)->first();
+				if($user->rol_id == 10){
+					return "";
+				}else{
+					return
+					"<a class='btn2 btn-primary btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Editar</a>";
+				}
+			})
 			->addColumn('pdf', function ($record) {
 				return
 					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
@@ -852,7 +889,7 @@ class PropertyController extends Controller
 					$descripcion = 'Vendida';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo'])
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo','editar'])
 			->toJson();
 	}
 
@@ -966,6 +1003,21 @@ class PropertyController extends Controller
 	{
 		try {
 			$properties = Property::find($request->propierty_id);
+			$user 		= User::find($properties->owner_id);
+			if($user){
+				$properties->nombre_propietario 	= $user->name;
+				$properties->telefono_propietario 	= $user->phone;
+				$properties->direccion_propietario 	= $user->adress;
+				$properties->email_propietario 		= $user->email;
+				$properties->whatsapp_propietario 	= $user->whatsapp;
+			}else{
+				$properties->nombre_propietario 	= '';
+				$properties->telefono_propietario 	= '';
+				$properties->direccion_propietario 	= '';
+				$properties->email_propietario 		= '';
+				$properties->whatsapp_propietario 	= '';
+			}
+			
 			$this->message = "Consulta correcta";
 			$this->result = true;
 			$this->records = $properties;

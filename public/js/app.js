@@ -4798,6 +4798,91 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4835,6 +4920,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       imagenes: [],
       propietario_id: 0,
       lavavajillas: 0,
+      nombre_contacto: '',
+      telefono_contacto: '',
+      celular_contacto: '',
+      email_contacto: '',
       ambientes: 0,
       terreno: 0,
       construccion: '',
@@ -4866,6 +4955,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       desayunador: 0,
       ducha: 0,
       bano_visita: 0,
+      propietario_unico: 0,
       lavanderia: 0,
       bidet: 0,
       dormitorio_visita: 0,
@@ -4971,6 +5061,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       evt.stopImmediatePropagation();
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Editar') {
+        console.log(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+
         _this.loadFieldsUpdate(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Acciones') {
         _this.loadRenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
@@ -4990,7 +5082,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
         }
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
-        _this.downloadPdf(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+        _this.abrir_downloadPdf(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'TOUR') {
         _this.downloadTour(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
@@ -5009,7 +5101,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
         }
       } else {
-        _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+        var texto = jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText;
+        console.log(texto.length);
+
+        if (texto.length > 10) {
+          me.propietario_unico = 0;
+          me.nombre_contacto = '';
+          me.telefono_contacto = '';
+          me.celular_contacto = '';
+          me.email_contacto = '';
+          me.nombre_propietario = '';
+          me.telefono_propietario = '';
+          me.direccion_propietario = '';
+          me.email_propietario = '';
+          me.whatsapp_propietario = '';
+          console.log(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+
+          _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+        }
       }
     });
   },
@@ -5303,6 +5412,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
+    abrir_pdf_total: function abrir_pdf_total() {
+      jquery__WEBPACK_IMPORTED_MODULE_7___default()('#pdf_total').modal('show');
+    },
     pdf_total: function pdf_total() {
       var me = this;
       var url = '/api/propierty/pdf_total/' + this.usuario_id;
@@ -5316,7 +5428,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         fileLink.href = fileURL;
         fileLink.setAttribute('download', 'propiedades.pdf');
         document.body.appendChild(fileLink);
-        fileLink.click();
+        fileLink.click(); //limpiar caja de texto
+
+        jquery__WEBPACK_IMPORTED_MODULE_7___default()('#pdf_total').modal('hide');
       });
     },
     guardarVenta: function guardarVenta() {
@@ -5373,24 +5487,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.update = id;
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalrenta').modal('show');
     },
-    loadVenta: function loadVenta(id) {
+    loadVenta: function loadVenta(id, propiedad) {
+      console.log(propiedad);
       console.log(id);
       this.update = id;
       var me = this;
-      var url = '/api/users/showid';
+      var url = '/api/propierty/showid';
       axios.post(url, {
-        'user_id': this.update
+        'propierty_id': this.update
       }).then(function (response) {
         console.log(response.data.records);
-        me.nombre_propietario = response.data.records.name;
-        me.telefono_propietario = response.data.records.phone;
-        me.direccion_propietario = response.data.records.adress;
-        me.email_propietario = response.data.records.email;
-        me.whatsapp_propietario = response.data.records.whatsapp;
+        me.propietario_unico = response.data.records.owner_id;
+        me.nombre_contacto = response.data.records.name_contact;
+        me.telefono_contacto = response.data.records.telefono_contacto;
+        me.celular_contacto = response.data.records.phone_contact;
+        me.email_contacto = response.data.records.email_contact;
+        me.nombre_propietario = response.data.records.nombre_propietario;
+        me.telefono_propietario = response.data.records.telefono_propietario;
+        me.direccion_propietario = response.data.records.direccion_propietario;
+        me.email_propietario = response.data.records.email_propietario;
+        me.whatsapp_propietario = response.data.records.whatsapp_propietario;
+        jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalventa').modal('show');
       })["catch"](function (error) {
         console.log(error);
       });
-      jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalventa').modal('show');
+    },
+    abrir_downloadPdf: function abrir_downloadPdf() {
+      jquery__WEBPACK_IMPORTED_MODULE_7___default()('#downloadPdf').modal('show');
     },
     downloadPdf: function downloadPdf(id) {
       var me = this;
@@ -5406,6 +5529,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         fileLink.setAttribute('download', 'Información para cliente código ' + id + '.pdf');
         document.body.appendChild(fileLink);
         fileLink.click();
+        jquery__WEBPACK_IMPORTED_MODULE_7___default()('#downloadPdf').modal('hide');
       });
     },
     downloadTour: function downloadTour(id) {
@@ -65791,7 +65915,7 @@ var render = function() {
           attrs: { type: "button" },
           on: {
             click: function($event) {
-              return _vm.pdf_total()
+              return _vm.abrir_pdf_total()
             }
           }
         },
@@ -65949,61 +66073,241 @@ var render = function() {
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(3),
                 _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _vm._m(4),
+                _c(
+                  "div",
+                  { staticClass: "modal-body" },
+                  [
+                    _c("center", [
+                      _c("h5", { attrs: { id: "modalventa" } }, [
+                        _vm._v("Datos propietario")
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-6" }, [
-                      _vm._v(
-                        "\n                   " +
-                          _vm._s(_vm.nombre_propietario) +
-                          " \n                "
+                    _c("div", { staticClass: "row" }, [
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(_vm.nombre_propietario) +
+                            " \n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(_vm.email_propietario) +
+                            " \n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(_vm.direccion_propietario) +
+                            " \n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(_vm.telefono_propietario) +
+                            " \n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(_vm.whatsapp_propietario) +
+                            " \n                "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("center", [
+                      _c(
+                        "h5",
+                        {
+                          staticClass: "modal-title",
+                          attrs: { id: "modalventa" }
+                        },
+                        [_vm._v("Contacto de visita")]
                       )
                     ]),
                     _vm._v(" "),
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-6" }, [
-                      _vm._v(
-                        "\n                   " +
-                          _vm._s(_vm.email_propietario) +
-                          " \n                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-6" }, [
-                      _vm._v(
-                        "\n                   " +
-                          _vm._s(_vm.direccion_propietario) +
-                          " \n                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(7),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-6" }, [
-                      _vm._v(
-                        "\n                   " +
-                          _vm._s(_vm.telefono_propietario) +
-                          " \n                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(8),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-6" }, [
-                      _vm._v(
-                        "\n                   " +
-                          _vm._s(_vm.whatsapp_propietario) +
-                          " \n                "
-                      )
+                    _c("div", { staticClass: "row" }, [
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.nombre_contacto) +
+                            "\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(10),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.telefono_contacto) +
+                            "\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(11),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.celular_contacto) +
+                            "\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(12),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-6" }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.email_contacto) +
+                            "\n                "
+                        )
+                      ])
                     ])
-                  ])
-                ]),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn",
+                      on: {
+                        click: function($event) {
+                          return _vm.clearFields()
+                        }
+                      }
+                    },
+                    [_vm._v("Atrás")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "pdf_total",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "pdf_total",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-center modal-md",
+              attrs: { role: "document", align: "center" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(13),
+                _vm._v(" "),
+                _vm._m(14),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      on: {
+                        click: function($event) {
+                          return _vm.pdf_total()
+                        }
+                      }
+                    },
+                    [_vm._v("Generar PDF")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn",
+                      on: {
+                        click: function($event) {
+                          return _vm.clearFields()
+                        }
+                      }
+                    },
+                    [_vm._v("Atrás")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "downloadPdf",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "pdf_total",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-center modal-md",
+              attrs: { role: "document", align: "center" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(15),
+                _vm._v(" "),
+                _vm._m(16),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      on: {
+                        click: function($event) {
+                          return _vm.downloadPdf()
+                        }
+                      }
+                    },
+                    [_vm._v("Generar PDF")]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "button",
                     {
@@ -66069,7 +66373,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(9)
+                  _vm._m(17)
                 ]),
                 _vm._v(" "),
                 _c(
@@ -73319,9 +73623,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("option", [_vm._v("Vender")]),
         _vm._v(" "),
-        _c("option", [_vm._v("Eliminar")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Editar")])
+        _c("option", [_vm._v("Eliminar")])
       ])
     ])
   },
@@ -73330,9 +73632,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title", attrs: { id: "modalventa" } }, [
-        _vm._v("Datos propietario")
-      ]),
+      _c("h5", [_vm._v("Datos adicionales")]),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
@@ -73388,6 +73688,122 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-6" }, [
       _c("label", [_c("b", [_vm._v("Whatsapp:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Nombre:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Telefono:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Celular:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Email:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", [_vm._v("Generar PDF")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("label", [_c("b", [_vm._v("Ingrese Link:")])])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "" }
+          })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", [_vm._v("Generar PDF")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("label", [_c("b", [_vm._v("Ingrese Link:")])])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "" }
+          })
+        ])
+      ])
     ])
   },
   function() {

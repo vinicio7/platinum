@@ -261,13 +261,14 @@ img.hover-shadow {
               </table>
               <div class="page_content_wrap">
                <div class="content_wrap">
-                  <div class="content" style="margin-top: 20px">
+                  <div class="content" >
                       @php
                         $texto =  strip_tags($test->title)  
                       @endphp
                     <h3 class="post_title">{!!nl2br($test->title)!!}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
+                          <b>Codigo: {{$test->propiertiy_id}}</b>
                            <a class="" title="{{$test->title}}">
                             @if($test->sale_usd > 0)
                               <span class="ps_single_status" style="z-index: 999999">Venta</span>
@@ -403,6 +404,210 @@ img.hover-shadow {
                               </tr>
                             </tbody>
                           </table>
+                         <div class="sc_section">
+                            @if($test->walkin_closet == 1 ||  $test->closet == 1 || $test->gardeen_front == 1 || $test->gardeen_bottom == 1 || $test->dining_room == 1 ||
+                              $test->chimeny == 1   ||  $test->kitchen_room == 1 || $test->laundry == 1 || $test->balcony == 1 || $test->roof_room == 1 ||
+                              $test->pantry == 1   ||  $test->cupboard == 1 || $test->bathroom_visit)
+                             <h4 class="sc_title" style="font-weight: bold">Detalles</h4>
+                            @endif
+                            <div class="columns_wrap ">
+                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
+                                @if($test->walkin_closet == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Walkin Closet</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->closet == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Closet</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->gardeen_front == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Jardin Frontal</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->jardin_trasero == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Jardin Trasero</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->dining_room == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Sala/Comedor</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->chimeny == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Chimenea</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->kitchen_room == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Cocina con gabinetes</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->laundry == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Lavanderia</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->balcony == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Balcon</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->roof_room == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Terraza</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->pantry == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Despensa</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                 @if($test->desayunador == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Desayunador</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->cupboard == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Alacena</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->bathroom_visit == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Baño de visita</p>
+                                    </li>
+                                  </div>
+                                @endif
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="sc_section">
+                            @if($test->fridge == 1 || $test->kitchen == 1 || $test->dishwater == 1 || $test->bell == 1 || $test->water_heater == 1 || $test->cistern == 1 ||
+                              $test->bathroom_mirros == 1)
+                             <h4 class="sc_title" style="font-weight: bold">Incluye</h4>
+                            @endif
+                            <div class="columns_wrap ">
+                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
+                                @if($test->fridge == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Refrigeradora</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->kitchen == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Estufa</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->dishwater == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Lavavajillas</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->bell == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Campana</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->water_heater == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Calentador de agua</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->cistern == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Cisterna</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->bathroom_mirros == 1)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p>Espejos de baño</p>
+                                    </li>
+                                  </div>
+                                @endif
+                                @if($test->another_include != '' && $test->another_include != null && $test->another_include != 0)
+                                  <div>
+                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
+                                       <span class="sc_list_icon icon-check color_2"></span>
+                                       <p><b>Otros: </b> {{$test->another_include}}</p>
+                                    </li>
+                                  </div>
+                                @endif
+                              </ul>
+                            </div>
+                          </div>
+                           @if(strlen( $test->another_details) > 1)
+                              <h4 class="sc_title" style="font-weight: bold">OTROS DETALLES:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_details)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
                         <div class="sc_section">
                           @if($test->cabin == 1 || $test->gym == 1 || $test->kids_area == 1 || $test->daycare == 1 || $test->sauna_shared == 1 || $test->floor_shared == 1 || $test->social_area == 1 
                           || $test->spa == 1 || $test->floor_shared == 1 || $test->pet_area == 1 || $test->beauty_salon == 1 || $test->plant_phone == 1 || $test->plant_phone == 1 
@@ -545,245 +750,11 @@ img.hover-shadow {
                             </ul>
                           </div>
 
-                          <div class="sc_section">
-                            @if($test->walkin_closet == 1 ||  $test->closet == 1 || $test->gardeen_front == 1 || $test->gardeen_bottom == 1 || $test->dining_room == 1 ||
-                              $test->chimeny == 1   ||  $test->kitchen_room == 1 || $test->laundry == 1 || $test->balcony == 1 || $test->roof_room == 1 ||
-                              $test->pantry == 1   ||  $test->cupboard == 1 || $test->bathroom_visit)
-                             <h4 class="sc_title" style="font-weight: bold">Detalles</h4>
-                            @endif
-                            <div class="columns_wrap ">
-                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
-                                @if($test->walkin_closet == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Walkin Closet</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->closet == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Closet</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->gardeen_front == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Jardin Frontal</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->jardin_trasero == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Jardin Trasero</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->dining_room == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Sala/Comedor</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->chimeny == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Chimenea</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->kitchen_room == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Cocina con gabinetes</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->laundry == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Lavanderia</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->balcony == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Balcon</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->roof_room == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Terraza</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->pantry == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Despensa</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                 @if($test->desayunador == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Desayunador</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->cupboard == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Alacena</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->bathroom_visit == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Baño de visita</p>
-                                    </li>
-                                  </div>
-                                @endif
-                              </ul>
-                            </div>
-                          </div>
+                         
 
-                          <div class="sc_section">
-                            @if($test->fridge == 1 || $test->kitchen == 1 || $test->dishwater == 1 || $test->bell == 1 || $test->water_heater == 1 || $test->cistern == 1 ||
-                              $test->bathroom_mirros == 1)
-                             <h4 class="sc_title" style="font-weight: bold">Incluye</h4>
-                            @endif
-                            <div class="columns_wrap ">
-                              <ul class="sc_list sc_list_style_iconed color_1" style="display: inline-block;">
-                                @if($test->fridge == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Refrigeradora</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->kitchen == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Estufa</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->dishwater == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Lavavajillas</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->bell == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Campana</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->water_heater == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Calentador de agua</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->cistern == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Cisterna</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->bathroom_mirros == 1)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Espejos de baño</p>
-                                    </li>
-                                  </div>
-                                @endif
-                                @if($test->another_include != '' && $test->another_include != null && $test->another_include != 0)
-                                  <div>
-                                    <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
-                                       <span class="sc_list_icon icon-check color_2"></span>
-                                       <p><b>Otros: </b> {{$test->another_include}}</p>
-                                    </li>
-                                  </div>
-                                @endif
-                              </ul>
-                            </div>
-                          </div>
+                          
                           <div class="sc_section"> 
-                            @if( strlen($test->adress) > 1)
-                              <h4 class="sc_title" style="font-weight: bold">DIRECCION:</h4>
-                              @php
-                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->adress)
-                              @endphp
-                              <p>{!!$nuevo_texto!!}</p>
-                            @endif
-
-                            @if(strlen( $test->another_details) > 1)
-                              <h4 class="sc_title" style="font-weight: bold">OTROS DETALLES:</h4>
-                              @php
-                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_details)
-                              @endphp
-                              <p>{!!$nuevo_texto!!}</p>
-                            @endif
-
-                            @if($test->another_finished)
-                              <h4 class="sc_title" style="font-weight: bold">OTROS ACABADOS:</h4>
-                              @php
-                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_finished)
-                              @endphp
-                              <p>{!!$nuevo_texto!!}</p>
-                            @endif
-
-                            @if($test->another_include)
-                              <h4 class="sc_title" style="font-weight: bold">OTROS INCLUYE:</h4>
-                              @php
-                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_include)
-                              @endphp
-                              <p>{!!$nuevo_texto!!}</p>
-                            @endif
-
-                            @if($test->another_pleasantness)
-                              <h4 class="sc_title" style="font-weight: bold">OTRAS AMENIDADES:</h4>
-                              @php
-                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->another_pleasantness)
-                              @endphp
-                              <p>{!!$nuevo_texto!!}</p>
-                            @endif
-
+                           
                              @if($test->internal_note)
                               <h4 class="sc_title" style="font-weight: bold">NOTAS INTERNAS:</h4>
                               @php
@@ -791,7 +762,13 @@ img.hover-shadow {
                               @endphp
                               <p>{!!$nuevo_texto!!}</p>
                             @endif
-
+                             @if( strlen($test->adress) > 1)
+                              <h4 class="sc_title" style="font-weight: bold">DIRECCION:</h4>
+                              @php
+                                $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->adress)
+                              @endphp
+                              <p>{!!$nuevo_texto!!}</p>
+                            @endif
                             @php
                             $propietario = User::where('user_id',$test->owner_id)->first();
                             if($propietario){
@@ -813,11 +790,11 @@ img.hover-shadow {
                             @if($user->rol_id == 10)
                             @else
                               <h4 class="sc_title" style="font-weight: bold">PROPIETARIO:</h4>
-                               Nombre: <p>{{$propietario_nombre}}</p>
-                               Telefono: {{$telefono_propietario}}<br>
-                               Whatsapp: {{$whatsap_propietario}}<br>
-                               Correo: {{$correo_propietario}}<br>
-                               Direccion: {{$direccion_propietario}}<br>
+                               <b>Nombre:</b> {{$propietario_nombre}}<br>
+                               <b>Telefono:</b> {{$telefono_propietario}}<br>
+                               <b>Whatsapp:</b> {{$whatsap_propietario}}<br>
+                               <b>Correo:</b> {{$correo_propietario}}<br>
+                               <b>Direccion:</b> {{$direccion_propietario}}<br>
                             @endif
                           </div>
                           <div class="columns_wrap">
@@ -843,7 +820,7 @@ img.hover-shadow {
 
                      </section>
                   </div>
-                  <div class="sidebar widget_area scheme_original" style="margin-top: 8.3em">
+                  <div class="sidebar widget_area scheme_original" style="margin-top: 10em">
                      <div class="sidebar_inner widget_area_inner">
                       @php
                         $agente = User::where('user_id',$test->user_id)->first();  
