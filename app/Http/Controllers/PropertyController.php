@@ -122,6 +122,7 @@ class PropertyController extends Controller
 		if($user->rol_id == 10){
 			$dt_columns = [
 				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
 				['data' => 'imagen', 'title'=>'IMAGEN'],
 				['data' => 'title', 'title'=>'TITULO'],
 				['data' => 'subtitle', 'title'=>'SUB TITULO'],
@@ -140,6 +141,115 @@ class PropertyController extends Controller
 		}else{
 			$dt_columns = [
 				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'propietario', 'title'=>'PROPIETARIO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente' ));
+	}
+
+	public function rentadas()
+	{
+		$name = \Session::get('user');
+		$usuario = User::where('name',$name)->first();
+		$usuario_id = $usuario->user_id;
+		$titulo     = 'propierty';
+		$dt_route   = route('rentadas.show');
+		$dt_order   = [[0, 'desc']];
+		$name = \Session::get('user');
+		$user = User::where('name',$name)->first();
+		$agente = User::where('name',$name)->first();
+		if($user->rol_id == 10){
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}else{
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'propietario', 'title'=>'PROPIETARIO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente' ));
+	}
+
+	public function vendidas()
+	{
+		$name = \Session::get('user');
+		$usuario = User::where('name',$name)->first();
+		$usuario_id = $usuario->user_id;
+		$titulo     = 'propierty';
+		$dt_route   = route('vendidas.show');
+		$dt_order   = [[0, 'desc']];
+		$name = \Session::get('user');
+		$user = User::where('name',$name)->first();
+		$agente = User::where('name',$name)->first();
+		if($user->rol_id == 10){
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}else{
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
 				['data' => 'imagen', 'title'=>'IMAGEN'],
 				['data' => 'title', 'title'=>'TITULO'],
 				['data' => 'subtitle', 'title'=>'SUB TITULO'],
@@ -409,7 +519,7 @@ class PropertyController extends Controller
 
 	public function show(Property $data)
 	{
-		return datatables()->of( Property::get())
+		return datatables()->of( Property::where('status',1)->get())
 			->addColumn('acciones', function ($record) {
 				$name = \Session::get('user');
 				$user = User::where('name',$name)->first();
@@ -429,6 +539,9 @@ class PropertyController extends Controller
 			})
 			->addColumn('id', function ($record) {
 				return "<a href='/propierty/admin/".$record->propiertiy_id."' target='_blank'>".$record->propiertiy_id."</a>";  
+			})
+			->addColumn('codigo', function ($record) {
+				return "C".$record->propiertiy_id."C";  
 			})
 			->addColumn('generar', function ($record) {
 				return
@@ -515,7 +628,237 @@ class PropertyController extends Controller
 					$descripcion = 'Vendida';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
-			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour'])
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo'])
+			->toJson();
+	}
+
+	public function vendidas_show(Property $data)
+	{
+		return datatables()->of( Property::where('status',3)->get())
+			->addColumn('acciones', function ($record) {
+				$name = \Session::get('user');
+				$user = User::where('name',$name)->first();
+				if($user->rol_id == 10){
+					return "";
+				}else{
+					return
+					"<div style='display:inline-block'><ul style='list-style:none'><li style='display:inline'><a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a></li>".
+					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a></ul></div>".
+					"<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
+					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>"; 
+				}
+			})
+			->addColumn('pdf', function ($record) {
+				return
+					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
+			})
+			->addColumn('id', function ($record) {
+				return "<a href='/propierty/admin/".$record->propiertiy_id."' target='_blank'>".$record->propiertiy_id."</a>";  
+			})
+			->addColumn('codigo', function ($record) {
+				return "C".$record->propiertiy_id."C";  
+			})
+			->addColumn('generar', function ($record) {
+				return
+					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-genera' id='".$record->propiertiy_id."'>PDF</a>";  
+			})
+			->addColumn('tour', function ($record) {
+				return
+					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-tour' id='".$record->propiertiy_id."'>TOUR</a>";  
+			})
+			->addColumn('imagen', function ($record) {
+				$buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
+				if($buscar){
+					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
+				}else{
+					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
+				}
+			})
+			->addColumn('tipo', function ($record) {
+				if($record->type == 1){
+					$tipo = 'Casa';
+				}
+				if($record->type == 2){
+					$tipo = 'Apartamento';
+				}
+				if($record->type == 3){
+					$tipo = 'Oficina';
+				}
+				if($record->type == 4){
+					$tipo = 'Bodega';
+				}
+				if($record->type == 5){
+					$tipo = 'Terreno';
+				}
+				if($record->type == 6){
+					$tipo = 'Finca';
+				}
+				if($record->type == 7){
+					$tipo = 'Clinica';
+				}
+				if($record->type == 8){
+					$tipo = 'Casa de playa';
+				}
+				if($record->type == 9){
+					$tipo = 'Granja';
+				}
+				if($record->type == 10){
+					$tipo = 'Edificio';
+				}
+				if($record->type == 11){
+					$tipo = 'Locales';
+				}
+				if(!isset($tipo)){
+					$tipo = "Sin tipo";
+				}
+				return $tipo;
+			})
+			->addColumn('propietario', function ($record) {
+				$buscar = User::find($record->owner_id);
+				if($buscar){
+					return $buscar->name;
+				}else{
+					return "Sin propietario";
+				}
+			})
+			->addColumn('title', function ($record) {
+				return strip_tags($record->title);
+			})
+			->addColumn('subtitle', function ($record) {
+				return strip_tags($record->subtitle);
+			})
+			->addColumn('estado', function ($record){
+				if ($record->status == 0) {
+					$class       = 'badge-secondary';
+					$descripcion = 'Inactivo';
+				} else if($record->status == 1) {
+					$class       = 'badge-success';
+					$descripcion = 'Activo';
+				} else if($record->status == 2) {
+					$class       = 'badge-warning';
+					$descripcion = 'Rentada';
+				} else if($record->status == 3) {
+					$class       = 'badge-info';
+					$descripcion = 'Vendida';
+				}
+				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo'])
+			->toJson();
+	}
+
+	public function rentadas_show(Property $data)
+	{
+		return datatables()->of( Property::where('status',2)->get())
+			->addColumn('acciones', function ($record) {
+				$name = \Session::get('user');
+				$user = User::where('name',$name)->first();
+				if($user->rol_id == 10){
+					return "";
+				}else{
+					return
+					"<div style='display:inline-block'><ul style='list-style:none'><li style='display:inline'><a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a></li>".
+					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a></ul></div>".
+					"<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
+					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>"; 
+				}
+			})
+			->addColumn('pdf', function ($record) {
+				return
+					"<a class='btn2 btn-success btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Añadir</a>";  
+			})
+			->addColumn('id', function ($record) {
+				return "<a href='/propierty/admin/".$record->propiertiy_id."' target='_blank'>".$record->propiertiy_id."</a>";  
+			})
+			->addColumn('codigo', function ($record) {
+				return "C".$record->propiertiy_id."C";  
+			})
+			->addColumn('generar', function ($record) {
+				return
+					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-genera' id='".$record->propiertiy_id."'>PDF</a>";  
+			})
+			->addColumn('tour', function ($record) {
+				return
+					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-tour' id='".$record->propiertiy_id."'>TOUR</a>";  
+			})
+			->addColumn('imagen', function ($record) {
+				$buscar = Images::where('propierty_id',$record->propiertiy_id)->first();
+				if($buscar){
+					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
+				}else{
+					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
+				}
+			})
+			->addColumn('tipo', function ($record) {
+				if($record->type == 1){
+					$tipo = 'Casa';
+				}
+				if($record->type == 2){
+					$tipo = 'Apartamento';
+				}
+				if($record->type == 3){
+					$tipo = 'Oficina';
+				}
+				if($record->type == 4){
+					$tipo = 'Bodega';
+				}
+				if($record->type == 5){
+					$tipo = 'Terreno';
+				}
+				if($record->type == 6){
+					$tipo = 'Finca';
+				}
+				if($record->type == 7){
+					$tipo = 'Clinica';
+				}
+				if($record->type == 8){
+					$tipo = 'Casa de playa';
+				}
+				if($record->type == 9){
+					$tipo = 'Granja';
+				}
+				if($record->type == 10){
+					$tipo = 'Edificio';
+				}
+				if($record->type == 11){
+					$tipo = 'Locales';
+				}
+				if(!isset($tipo)){
+					$tipo = "Sin tipo";
+				}
+				return $tipo;
+			})
+			->addColumn('propietario', function ($record) {
+				$buscar = User::find($record->owner_id);
+				if($buscar){
+					return $buscar->name;
+				}else{
+					return "Sin propietario";
+				}
+			})
+			->addColumn('title', function ($record) {
+				return strip_tags($record->title);
+			})
+			->addColumn('subtitle', function ($record) {
+				return strip_tags($record->subtitle);
+			})
+			->addColumn('estado', function ($record){
+				if ($record->status == 0) {
+					$class       = 'badge-secondary';
+					$descripcion = 'Inactivo';
+				} else if($record->status == 1) {
+					$class       = 'badge-success';
+					$descripcion = 'Activo';
+				} else if($record->status == 2) {
+					$class       = 'badge-warning';
+					$descripcion = 'Rentada';
+				} else if($record->status == 3) {
+					$class       = 'badge-info';
+					$descripcion = 'Vendida';
+				}
+				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
+			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo'])
 			->toJson();
 	}
 

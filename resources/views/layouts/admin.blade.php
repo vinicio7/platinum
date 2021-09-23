@@ -71,6 +71,8 @@ $user = User::where('name',$name)->first();
 
         <!-- sidebar nav -->
         <ul class="sidebar__nav" style="overflow-x: auto;">
+            @if($user->rol_id == 10)
+            @else
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'dashboard')
                     <a href="{{ route('dashboard') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-monitor"></i> Dashboard</a>
@@ -78,6 +80,7 @@ $user = User::where('name',$name)->first();
                     <a href="{{ route('dashboard') }}" class="sidebar__nav-link "><i class="icon ion-ios-monitor"></i> Dashboard</a>
                 @endif
             </li>
+            @endif
 
 
             @if($user->rol_id == 10)
@@ -96,6 +99,20 @@ $user = User::where('name',$name)->first();
                     <a href="{{ route('propierties') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Propiedades</a>
                 @else
                     <a href="{{ route('propierties') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Propiedades</a>
+                @endif
+            </li>
+            <li class="sidebar__nav-item">
+                @if(Request::route()->getName() == 'rentadas')
+                    <a href="{{ route('rentadas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Rentadas</a>
+                @else
+                    <a href="{{ route('rentadas') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Rentadas</a>
+                @endif
+            </li>
+            <li class="sidebar__nav-item">
+                @if(Request::route()->getName() == 'vendidas')
+                    <a href="{{ route('vendidas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Vendidas</a>
+                @else
+                    <a href="{{ route('vendidas') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Vendidas</a>
                 @endif
             </li>
             <li class="sidebar__nav-item">

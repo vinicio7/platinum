@@ -21,7 +21,7 @@ class AdminController extends Controller
                 session()->flush();
                 session(['success' => 'Sesion iniciada exitosamente']);
                 session(['user' => $user->name]);
-                return redirect('/dashboard');
+                return redirect('/propierties');
             } else {
                 session(['error' => 'Password no coincide']);
                 return view('login')->with('error','Password no coincide');

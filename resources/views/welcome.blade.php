@@ -218,39 +218,43 @@ else {
       <div class="body_wrap">
          <div class="page_wrap">
             <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
-               <div class="header-bg">
-                  <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix container_header" style="height: 7em">
-                        <div class="top_panel_logo" style="margin-right: 0px;width: 50%;display: inline-block;">
-                            <img src="image/logo_lg_blanco.svg"  style="width: 50em;display: inline-block;">
-                        </div>
-                         <div class="top_panel_menu container_logo_right" style="margin-right: 50px">
-                          <a href="/"><img src="/images/plecka.png" ></a>
-                        </div>
-                        <div class="top_panel_menu container_menu" style="width: 40%;display: inline-block;">
-                           <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
-                           <nav class="menu_main_nav_area" style="margin-top: 40px" >
-                              <ul id="menu_main" class="menu_main_nav">
-                                <li class="menu-item"><a href="/">INICIO</a></li>
-                                <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
-                                <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
-                                <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
-                                <li class="menu-item"><a href="/login">INGRESAR</a></li>
+                <table style="width: 100%;background-color: #15254b;border-color:#15254b ">
+                  <tbody>
+                    <tr>
+                      <td style="border-color: #15254b"><img src="image/logo_lg_blanco.svg"  style="display: inline-block;"></td>
+                      <td style="border-color: #15254b"> 
+                        <br>
+                        <br>
+                        <br>
+                           <a href="#" class="menu_main_responsive_button icon-down" style="color: white">MENU</a>
+                           <nav class="menu_main_nav_area" style="vertical-align: bottom;">
+                              <ul id="menu_main" class="menu_main_nav" style="color: white">
+                                <li class="menu-item"><a href="/" style="color: white">INICIO</a></li>
+                                <li class="menu-item"><a href="/quienes" style="color: white">QUIENES SOMOS</a></li>
+                                <li class="menu-item"><a href="/propiedades" style="color: white">PROPIEDADES</a></li>
+                                <li class="menu-item"><a href="/contacto" style="color: white">CONTACTENOS</a></li>
+                                <li class="menu-item"><a href="/login" style="color: white">INGRESAR</a></li>
                               </ul>
                            </nav>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                      </td>
+                      <td style="border-color: #15254b"><a href="/"><img src="/images/plecka.png" ></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+                          
+                       
+                          
+                      
+                       
             </header>
-            <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_revsliderHome1">
+            <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_revsliderHome1" style="height: 50%!important">
                <!-- REVOLUTION SLIDER -->
 
-               <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+               <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" >
                   <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
                      <ul>
                         <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$i1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img style="position: absolute;" src="{{$i1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
@@ -260,7 +264,7 @@ else {
                            </div>
                         </li>
                         <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
@@ -270,7 +274,7 @@ else {
                            </div>
                         </li>
                         <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
@@ -280,7 +284,7 @@ else {
                            </div>
                         </li>
                         <li data-index="rs-14" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
@@ -290,7 +294,7 @@ else {
                            </div>
                         </li>
                         <li data-index="rs-15" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img src="{{$i5}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                           <img style="position: absolute;" src="{{$i5}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                            <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                               <div class="sc_property_wrap">
                                  <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
@@ -302,10 +306,10 @@ else {
                      </ul>
                      <div class="tp-bannertimer tp-bottom"></div>
                   </div>
-                  <img src="image/SarahAlzugaray2.png" style="width: 20em;float: left;position: fixed;z-index: 9999;margin-left: 80px;margin-top: -388px">
+                  
                </div>
                <!-- END REVOLUTION SLIDER -->
-
+               <img src="image/SarahAlzugaray2.png" style="width: 20em;float: left;position: absolute;z-index: 9999;margin-left: 10em;margin-top: -27.6em">
             </section>
             <div class="ps_header" style="background-color: white ">
                <div class="content_wrap">
@@ -602,7 +606,7 @@ else {
          </div>
       </div>
       <!-- Floating Social Media bar Starts -->
-      <div class="float-sm">
+      <div class="float-sm" style="z-index: 999999999999">
         <div class="fl-fl float-fb">          
           <a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" style="color:white!important">Búscanos en Facebook</a>
           <i class="fa fa-facebook" style="text-align: right!important;"></i>

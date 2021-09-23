@@ -899,7 +899,7 @@ img.hover-shadow {
                      
                               <br><br>
                         <aside class="widget widget_property_search scheme_dark" style="color:white;margin-top: 40px">
-                           <form method="get" action="propiedades_post">
+                           <form method="get" action="../../propiedades_post">
                              <div class="input-icono">
                                 <input type="text" name="input" value="{{$input}}" >
                               </div>
