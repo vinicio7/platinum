@@ -223,9 +223,7 @@ else {
                     <tr>
                       <td style="border-color: #15254b"><img src="image/logo_lg_blanco.svg"  style="display: inline-block;"></td>
                       <td style="border-color: #15254b"> 
-                        <br>
-                        <br>
-                        <br>
+                        
                            <a href="#" class="menu_main_responsive_button icon-down" style="color: white">MENU</a>
                            <nav class="menu_main_nav_area" style="vertical-align: bottom;">
                               <ul id="menu_main" class="menu_main_nav" style="color: white">
