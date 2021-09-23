@@ -29,7 +29,7 @@
           <div class="modal-dialog modal-center modal-md" role="document" align="center">
             <div class="modal-content">
                <div class="modal-header">
-                  <h5 class="modal-title" id="modalrenta">Rentar propiedad</h5>
+                  <h5 class="modal-title" id="modalrenta">Acciones propiedad</h5>
                   <br>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -38,7 +38,16 @@
                 <div class="modal-body">
                   <div class="row">
                     <div class="col-sm-12" >
-                        <label>Rentada por</label>
+                        <label>Accion</label>
+                        <select class="col-sm-12 form-control">
+                          <option>Rentar</option>
+                          <option>Vender</option>
+                          <option>Eliminar</option>
+                          <option>Editar</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12" >
+                        <label>Usuario que la realizo</label>
                         <v-select v-model="rentada_por"
                                 :value.sync="vendedores.user_id"
                                 :options="vendedores" :getOptionLabel="vendedor => vendedor.name">
@@ -58,7 +67,7 @@
           <div class="modal-dialog modal-center modal-md" role="document" align="center">
             <div class="modal-content">
                <div class="modal-header">
-                  <h5 class="modal-title" id="modalventa">Vender propiedad</h5>
+                  <h5 class="modal-title" id="modalventa">Datos propietario</h5>
                   <br>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -66,18 +75,39 @@
                 </div>
                 <div class="modal-body">
                   <div class="row">
-                    <div class="col-sm-12" >
-                        <label>Vendida por</label>
-                        <v-select v-model="vendida_por"
-                                :value.sync="vendedores.user_id"
-                                :options="vendedores" :getOptionLabel="vendedor => vendedor.name">
-                                <span slot="no-options"> No se encontro la busqueda</span>
-                        </v-select>
+                    <div class="col-sm-6" >
+                        <label><b>Nombre:</b></label>  
+                    </div>
+                    <div  class="col-sm-6">
+                       {{nombre_propietario}} 
+                    </div>
+                    <div class="col-sm-6" >
+                        <label><b>Email:</b> </label>  
+                    </div>
+                    <div  class="col-sm-6">
+                       {{email_propietario}} 
+                    </div>
+                    <div class="col-sm-6" >
+                        <label><b>Direccion:</b></label>  
+                    </div>
+                    <div  class="col-sm-6">
+                       {{direccion_propietario}} 
+                    </div>
+                    <div class="col-sm-6" >
+                        <label><b>Telefono:</b></label>  
+                    </div>
+                    <div  class="col-sm-6">
+                       {{telefono_propietario}} 
+                    </div>
+                    <div class="col-sm-6" >
+                        <label><b>Whatsapp:</b></label>  
+                    </div>
+                    <div  class="col-sm-6">
+                       {{whatsapp_propietario}} 
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button  @click="guardarVenta()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Guardar</button>
                   <button  @click="clearFields()" class="btn">Atrás</button>
                 </div>
             </div>
@@ -1317,6 +1347,11 @@
                 bodegas:'',
                 locales:'',
                 porton:0,
+                telefono_propietario:'',
+                email_propietario:'',
+                direccion_propietario:'',
+                nombre_propietario:'',
+                whatsapp_propietario:'',
                 alacena:0,
                 closet_blancos:0,
                 jardin_frontal:0,
@@ -1548,19 +1583,15 @@
             .catch(function (error) {
                 console.log(error);
             });  
-
             $('.table-responsive').on('click', (evt) => {
                 evt.stopImmediatePropagation();
                if ($(evt.target)[0].innerText == 'Editar') {
                  this.loadFieldsUpdate($(evt.target)[0].id); 
                }
-               if ($(evt.target)[0].innerText == 'Rentar') {
+               else if ($(evt.target)[0].innerText == 'Acciones') {
                  this.loadRenta($(evt.target)[0].id); 
                }
-               if ($(evt.target)[0].innerText == 'Vender') {
-                 this.loadVenta($(evt.target)[0].id); 
-               }
-               if ($(evt.target)[0].innerText == 'Añadir') {
+               else if ($(evt.target)[0].innerText == 'Añadir') {
                  let url = '/api/propierty/add_pdf' 
                     let Data_id = event.target.id
                     console.log(Data_id);
@@ -1577,13 +1608,13 @@
                         }); 
                     }
                }
-               if ($(evt.target)[0].innerText == 'PDF') {
+               else if ($(evt.target)[0].innerText == 'PDF') {
                  this.downloadPdf($(evt.target)[0].id); 
                }
-               if ($(evt.target)[0].innerText == 'TOUR') {
+               else if ($(evt.target)[0].innerText == 'TOUR') {
                  this.downloadTour($(evt.target)[0].id); 
                }
-               if($(evt.target)[0].innerText == 'Eliminar'){
+               else if($(evt.target)[0].innerText == 'Eliminar'){
                     let url = '/api/propierty/delete' 
                     let Data_id = event.target.id
                     console.log(Data_id);
@@ -1598,6 +1629,9 @@
                             console.log(error);
                         }); 
                     }
+               }
+               else{
+                this.loadVenta($(evt.target)[0].id); 
                }
             });
         },
@@ -1934,7 +1968,24 @@
               $('#modalrenta').modal('show');
             }, 
             loadVenta(id){ 
+              console.log(id)
                 this.update = id
+                let me  = this;
+                let url = '/api/users/showid';
+                axios.post(url,{ 
+                    'user_id': this.update,
+                }).then(function (response) {
+                  console.log(response.data.records);
+                  me.nombre_propietario     =  response.data.records.name;
+                  me.telefono_propietario   =  response.data.records.phone;
+                  me.direccion_propietario  =  response.data.records.adress;
+                  me.email_propietario      =  response.data.records.email;
+                  me.whatsapp_propietario   =  response.data.records.whatsapp;
+                  
+                })
+                .catch(function (error) {
+                    console.log(error);
+                }); 
                 $('#modalventa').modal('show');
             },    
             downloadPdf(id){ 

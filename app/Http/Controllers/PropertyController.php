@@ -303,7 +303,7 @@ class PropertyController extends Controller
 				$image = Image::make(Storage::get($path));
 				Storage::disk('local')->put($path, (string) $image->encode($archivo->extension()));
 				$imagen = Images::create([
-					'path'          => env('RAIZ','https://propiedadesplatinum.com/').$path,
+					'path'          => env('RAIZ','https://pruebaplatinum.mavis.com.gt/').$path,
 					'extension'    => $archivo->extension()
 				]);
 				$records = $imagen;
@@ -527,10 +527,7 @@ class PropertyController extends Controller
 					return "";
 				}else{
 					return
-					"<div style='display:inline-block'><ul style='list-style:none'><li style='display:inline'><a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a></li>".
-					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a></ul></div>".
-					"<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
-					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>"; 
+					"<a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Acciones</a>";
 				}
 			})
 			->addColumn('pdf', function ($record) {
@@ -556,7 +553,7 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					$imagen = 'https://pruebaplatinum.mavis.com.gt/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
 					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
@@ -602,7 +599,8 @@ class PropertyController extends Controller
 			->addColumn('propietario', function ($record) {
 				$buscar = User::find($record->owner_id);
 				if($buscar){
-					return $buscar->name;
+					return 
+					"<a href='#' class='propietario' id='".$buscar->user_id."'>".$buscar->name."</a>";
 				}else{
 					return "Sin propietario";
 				}
@@ -642,10 +640,7 @@ class PropertyController extends Controller
 					return "";
 				}else{
 					return
-					"<div style='display:inline-block'><ul style='list-style:none'><li style='display:inline'><a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a></li>".
-					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a></ul></div>".
-					"<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
-					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>"; 
+					"<a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Acciones</a>";
 				}
 			})
 			->addColumn('pdf', function ($record) {
@@ -671,7 +666,7 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					$imagen = 'https://pruebaplatinum.mavis.com.gt/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
 					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
@@ -717,7 +712,8 @@ class PropertyController extends Controller
 			->addColumn('propietario', function ($record) {
 				$buscar = User::find($record->owner_id);
 				if($buscar){
-					return $buscar->name;
+					return 
+					"<a href='' class='propietario' id='".$buscar->user_id."'>".$buscar->name."</a>";
 				}else{
 					return "Sin propietario";
 				}
@@ -757,10 +753,7 @@ class PropertyController extends Controller
 					return "";
 				}else{
 					return
-					"<div style='display:inline-block'><ul style='list-style:none'><li style='display:inline'><a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Rentar</a></li>".
-					"<a class='btn2 btn-info btn-rounded rounded m-1 text-white btn-venta' id='".$record->propiertiy_id."'>Vender</a></ul></div>".
-					"<a class='btn2 btn-dark btn-rounded m-1 text-white btn-edit' id='".$record->propiertiy_id."'>Editar</a>".
-					"<a class='btn2 btn-danger btn-rounded rounded m-1 text-white btn-delete' id='".$record->propiertiy_id."'>Eliminar</a>"; 
+					"<a class='btn2 btn-warning btn-rounded m-1 text-white btn-renta' id='".$record->propiertiy_id."'>Acciones</a>";
 				}
 			})
 			->addColumn('pdf', function ($record) {
@@ -786,7 +779,7 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
+					$imagen = 'https://pruebaplatinum.mavis.com.gt/includes/propiedades/'.$record->propiertiy_id.'/1.jpg'; 
 					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
@@ -832,7 +825,8 @@ class PropertyController extends Controller
 			->addColumn('propietario', function ($record) {
 				$buscar = User::find($record->owner_id);
 				if($buscar){
-					return $buscar->name;
+					return 
+					"<a href='' class='propietario' id='".$buscar->user_id."'>".$buscar->name."</a>";
 				}else{
 					return "Sin propietario";
 				}
@@ -883,7 +877,7 @@ class PropertyController extends Controller
 				if($buscar){
 					return "<img src='".$buscar->path."' style='width:80px;height:100px;'>";
 				}else{
-					$imagen = 'https://propiedadesplatinum.com/includes/propiedades/'.$record->codigo_propiedad.'/1.jpg'; 
+					$imagen = 'https://pruebaplatinum.mavis.com.gt/includes/propiedades/'.$record->codigo_propiedad.'/1.jpg'; 
 					return "<img src='".$imagen."' style='width:80px;height:100px;'>";
 				}
 			})
@@ -928,10 +922,10 @@ class PropertyController extends Controller
 				return $tipo;
 			})
 			->addColumn('propietario', function ($record) {
-				$record = Property::where('propiertiy_id',$record->codigo_propiedad)->first();
 				$buscar = User::find($record->owner_id);
 				if($buscar){
-					return $buscar->name;
+					return 
+					"<a href='' class='propietario' id='".$buscar->user_id."'>".$buscar->name."</a>";
 				}else{
 					return "Sin propietario";
 				}

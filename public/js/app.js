@@ -4768,6 +4768,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4822,6 +4852,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       bodegas: '',
       locales: '',
       porton: 0,
+      telefono_propietario: '',
+      email_propietario: '',
+      direccion_propietario: '',
+      nombre_propietario: '',
+      whatsapp_propietario: '',
       alacena: 0,
       closet_blancos: 0,
       jardin_frontal: 0,
@@ -4937,17 +4972,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Editar') {
         _this.loadFieldsUpdate(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
-      }
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Rentar') {
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Acciones') {
         _this.loadRenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
-      }
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Vender') {
-        _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
-      }
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Añadir') {
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Añadir') {
         var _url = '/api/propierty/add_pdf';
         var Data_id = event.target.id;
         console.log(Data_id);
@@ -4962,17 +4989,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             console.log(error);
           });
         }
-      }
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
         _this.downloadPdf(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
-      }
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'TOUR') {
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'TOUR') {
         _this.downloadTour(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
-      }
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
         var _url2 = '/api/propierty/delete';
         var _Data_id = event.target.id;
         console.log(_Data_id);
@@ -4987,6 +5008,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             console.log(error);
           });
         }
+      } else {
+        _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       }
     });
   },
@@ -5351,7 +5374,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalrenta').modal('show');
     },
     loadVenta: function loadVenta(id) {
+      console.log(id);
       this.update = id;
+      var me = this;
+      var url = '/api/users/showid';
+      axios.post(url, {
+        'user_id': this.update
+      }).then(function (response) {
+        console.log(response.data.records);
+        me.nombre_propietario = response.data.records.name;
+        me.telefono_propietario = response.data.records.phone;
+        me.direccion_propietario = response.data.records.adress;
+        me.email_propietario = response.data.records.email;
+        me.whatsapp_propietario = response.data.records.whatsapp;
+      })["catch"](function (error) {
+        console.log(error);
+      });
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalventa').modal('show');
     },
     downloadPdf: function downloadPdf(id) {
@@ -65799,11 +65837,13 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "row" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "col-sm-12" },
                       [
-                        _c("label", [_vm._v("Rentada por")]),
+                        _c("label", [_vm._v("Usuario que la realizo")]),
                         _vm._v(" "),
                         _c(
                           "v-select",
@@ -65907,78 +65947,63 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(2),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-sm-12" },
-                      [
-                        _c("label", [_vm._v("Vendida por")]),
-                        _vm._v(" "),
-                        _c(
-                          "v-select",
-                          {
-                            attrs: {
-                              value: _vm.vendedores.user_id,
-                              options: _vm.vendedores,
-                              getOptionLabel: function(vendedor) {
-                                return vendedor.name
-                              }
-                            },
-                            on: {
-                              "update:value": function($event) {
-                                return _vm.$set(
-                                  _vm.vendedores,
-                                  "user_id",
-                                  $event
-                                )
-                              }
-                            },
-                            model: {
-                              value: _vm.vendida_por,
-                              callback: function($$v) {
-                                _vm.vendida_por = $$v
-                              },
-                              expression: "vendida_por"
-                            }
-                          },
-                          [
-                            _c(
-                              "span",
-                              {
-                                attrs: { slot: "no-options" },
-                                slot: "no-options"
-                              },
-                              [_vm._v(" No se encontro la busqueda")]
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    )
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _vm._v(
+                        "\n                   " +
+                          _vm._s(_vm.nombre_propietario) +
+                          " \n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _vm._v(
+                        "\n                   " +
+                          _vm._s(_vm.email_propietario) +
+                          " \n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(6),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _vm._v(
+                        "\n                   " +
+                          _vm._s(_vm.direccion_propietario) +
+                          " \n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _vm._v(
+                        "\n                   " +
+                          _vm._s(_vm.telefono_propietario) +
+                          " \n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _vm._v(
+                        "\n                   " +
+                          _vm._s(_vm.whatsapp_propietario) +
+                          " \n                "
+                      )
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-success",
-                      staticStyle: {
-                        "background-color": "#12264d",
-                        "border-color": "#12264d"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.guardarVenta()
-                        }
-                      }
-                    },
-                    [_vm._v("Guardar")]
-                  ),
-                  _vm._v(" "),
                   _c(
                     "button",
                     {
@@ -66044,7 +66069,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(3)
+                  _vm._m(9)
                 ]),
                 _vm._v(" "),
                 _c(
@@ -73263,7 +73288,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h5", { staticClass: "modal-title", attrs: { id: "modalrenta" } }, [
-        _vm._v("Rentar propiedad")
+        _vm._v("Acciones propiedad")
       ]),
       _vm._v(" "),
       _c("br"),
@@ -73286,9 +73311,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-12" }, [
+      _c("label", [_vm._v("Accion")]),
+      _vm._v(" "),
+      _c("select", { staticClass: "col-sm-12 form-control" }, [
+        _c("option", [_vm._v("Rentar")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("Vender")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("Eliminar")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("Editar")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h5", { staticClass: "modal-title", attrs: { id: "modalventa" } }, [
-        _vm._v("Vender propiedad")
+        _vm._v("Datos propietario")
       ]),
       _vm._v(" "),
       _c("br"),
@@ -73305,6 +73348,46 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Nombre:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Email:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Direccion:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Telefono:")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Whatsapp:")])])
     ])
   },
   function() {

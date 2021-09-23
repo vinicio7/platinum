@@ -237,34 +237,28 @@ img.hover-shadow {
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
       <div class="body_wrap">
          <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;z-index: 100000;width: 100%;">
-               <div class="header-bg">
-                  <div class="top_panel_wrap_inner top_panel_inner_style_1 top_panel_position_over">
-                     <div class="content_wrap clearfix" style="margin-left:50px;width: auto">
-                        <div class="top_panel_logo">
-                           <div class="logo">
-                              <a href="./"><img src="/image/logo_lg_blanco.svg" class="logo_main"></a>
-                           </div>
-                        </div>
-                         <div class="top_panel_menu container_logo_right">
-                            <a href="/"><img src="/images/plecka.png" ></a>
-                        </div>
-                        <div class="top_panel_menu container_menu">
-                           <a href="#" class="menu_main_responsive_button icon-down">MENU</a>
-                           <nav class="menu_main_nav_area" >
-                              <ul id="menu_main" class="menu_main_nav"style="margin-top: 50px">
-                                <li class="menu-item"><a href="/">INICIO</a></li>
-                                <li class="menu-item"><a href="/quienes">QUIENES SOMOS</a></li>
-                                <li class="menu-item"><a href="/propiedades">PROPIEDADES</a></li>
-                                <li class="menu-item"><a href="/contacto">CONTACTENOS</a></li>
-                                <li class="menu-item"><a href="/login">INGRESAR</a></li>
-                              </ul>
-                           </nav>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </header>
+            <header style="position: absolute;height: 60px;z-index: 99999;width: 100%">
+              <table style="width: 100%;background-color: #15254b;border-color:#15254b;height: 60px ">
+                <tbody>
+                  <tr>
+                    <td style="border-color: #15254b"><img src="../../../image/logo_lg_blanco.svg"  style="height: 40px"></td>
+                    <td style="border-color: #15254b"> 
+                      
+                         <a href="#" class="menu_main_responsive_button icon-down" style="color: white">MENU</a>
+                         <nav class="menu_main_nav_area" style="vertical-align: bottom;">
+                            <ul id="menu_main" class="menu_main_nav" style="color: white">
+                              <li class="menu-item"><a href="/" style="color: white">INICIO</a></li>
+                              <li class="menu-item"><a href="/quienes" style="color: white">QUIENES SOMOS</a></li>
+                              <li class="menu-item"><a href="/propiedades" style="color: white">PROPIEDADES</a></li>
+                              <li class="menu-item"><a href="/contacto" style="color: white">CONTACTENOS</a></li>
+                              <li class="menu-item"><a href="/login" style="color: white">INGRESAR</a></li>
+                            </ul>
+                         </nav>
+                    </td>
+                    <td style="border-color: #15254b"><a href="/"><img src="/images/plecka.png" style="width: 60px" ></a></td>
+                  </tr>
+                </tbody>
+              </table>
               <div class="page_content_wrap">
                <div class="content_wrap">
                   <div class="content" style="margin-top: 20px">
@@ -801,9 +795,17 @@ img.hover-shadow {
                             @php
                             $propietario = User::where('user_id',$test->owner_id)->first();
                             if($propietario){
-                              $propietario_nombre = $propietario->name;
+                              $propietario_nombre    = $propietario->name;
+                              $telefono_propietario  = $propietario->phone;
+                              $whatsap_propietario   = $propietario->whatsapp;
+                              $correo_propietario    = $propietario->email;
+                              $direccion_propietario = $propietario->adress;
                             }else{
                               $propietario_nombre = 'No asignado';
+                              $telefono_propietario  = '-';
+                              $whatsap_propietario   = '-';
+                              $correo_propietario    = '-';
+                              $direccion_propietario = '-';
                             }  
                             $name = Session::get('user');
                             $user = User::where('name',$name)->first();
@@ -811,7 +813,11 @@ img.hover-shadow {
                             @if($user->rol_id == 10)
                             @else
                               <h4 class="sc_title" style="font-weight: bold">PROPIETARIO:</h4>
-                               <p>{{$propietario_nombre}}</p>
+                               Nombre: <p>{{$propietario_nombre}}</p>
+                               Telefono: {{$telefono_propietario}}<br>
+                               Whatsapp: {{$whatsap_propietario}}<br>
+                               Correo: {{$correo_propietario}}<br>
+                               Direccion: {{$direccion_propietario}}<br>
                             @endif
                           </div>
                           <div class="columns_wrap">

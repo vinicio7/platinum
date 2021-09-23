@@ -1,7 +1,15 @@
 <?php
 use App\Models\User;
+use App\Models\Rol;
 $name = Session::get('user');
 $user = User::where('name',$name)->first();
+$rol_name = '';
+if($user){
+    $rol  = Rol::find($user->rol_id);
+    $rol_name = $rol->name;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,11 +66,11 @@ $user = User::where('name',$name)->first();
         <!-- sidebar user -->
         <div class="sidebar__user">
             <div class="sidebar__user-img">
-                <img src="image/users/1.png" alt="">
+                <img src='{{$user->picture}}' alt="">
             </div>
 
             <div class="sidebar__user-title">
-                <span>User</span>
+                <span>{{$rol_name}}</span>
                 <p>{{ Session::get('user') }}</p>
             </div>
 

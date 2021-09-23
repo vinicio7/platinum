@@ -212,38 +212,51 @@ else {
                font-style: normal;
             }
 
+.zoom-in-zoom-out {
+  margin: 24px;
+  width: 50px;
+  height: 50px;
+  animation: zoom-in-zoom-out 2s ease-out infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
       </style>
    </head>
    <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
       <div class="body_wrap">
          <div class="page_wrap">
-            <header class="top_panel_wrap top_panel_style_1 scheme_original" style="position: fixed;">
-                <table style="width: 100%;background-color: #15254b;border-color:#15254b ">
-                  <tbody>
-                    <tr>
-                      <td style="border-color: #15254b"><img src="image/logo_lg_blanco.svg"  style="display: inline-block;"></td>
-                      <td style="border-color: #15254b"> 
-                        
-                           <a href="#" class="menu_main_responsive_button icon-down" style="color: white">MENU</a>
-                           <nav class="menu_main_nav_area" style="vertical-align: bottom;">
-                              <ul id="menu_main" class="menu_main_nav" style="color: white">
-                                <li class="menu-item"><a href="/" style="color: white">INICIO</a></li>
-                                <li class="menu-item"><a href="/quienes" style="color: white">QUIENES SOMOS</a></li>
-                                <li class="menu-item"><a href="/propiedades" style="color: white">PROPIEDADES</a></li>
-                                <li class="menu-item"><a href="/contacto" style="color: white">CONTACTENOS</a></li>
-                                <li class="menu-item"><a href="/login" style="color: white">INGRESAR</a></li>
-                              </ul>
-                           </nav>
-                      </td>
-                      <td style="border-color: #15254b"><a href="/"><img src="/images/plecka.png" ></a></td>
-                    </tr>
-                  </tbody>
-                </table>
-                          
-                       
-                          
+            <header style="position: absolute;height: 60px;z-index: 99999;width: 100%">
+              <table style="width: 100%;background-color: #15254b;border-color:#15254b;height: 60px ">
+                <tbody>
+                  <tr>
+                    <td style="border-color: #15254b"><img src="image/logo_lg_blanco.svg"  style="height: 40px"></td>
+                    <td style="border-color: #15254b"> 
                       
-                       
+                         <a href="#" class="menu_main_responsive_button icon-down" style="color: white">MENU</a>
+                         <nav class="menu_main_nav_area" style="vertical-align: bottom;">
+                            <ul id="menu_main" class="menu_main_nav" style="color: white">
+                              <li class="menu-item"><a href="/" style="color: white">INICIO</a></li>
+                              <li class="menu-item"><a href="/quienes" style="color: white">QUIENES SOMOS</a></li>
+                              <li class="menu-item"><a href="/propiedades" style="color: white">PROPIEDADES</a></li>
+                              <li class="menu-item"><a href="/contacto" style="color: white">CONTACTENOS</a></li>
+                              <li class="menu-item"><a href="/login" style="color: white">INGRESAR</a></li>
+                            </ul>
+                         </nav>
+                    </td>
+                    <td style="border-color: #15254b"><a href="/"><img src="/images/plecka.png" style="width: 60px" ></a></td>
+                  </tr>
+                </tbody>
+              </table>
             </header>
             <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_revsliderHome1" style="height: 38em!important">
                <!-- REVOLUTION SLIDER -->
@@ -544,9 +557,9 @@ else {
                                        <center>
                                           <div class="sc_team_item_position" style="text-transform: uppercase;">{{$item->rol->name}}</div>
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
-                                             <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons"><span class="icon-phone"></span></a></div>
-                                             <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
-                                             <div class="sc_socials_item"><a href="https://wa.me/{{ $item->phone }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
+                                             <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons  zoom-in-zoom-out"><span class="icon-phone" ></span></a></div>
+                                             <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons  zoom-in-zoom-out"><span class="icon-facebook "></span></a></div>
+                                             <div class="sc_socials_item"><a href="https://wa.me/{{ $item->phone }}" target="_blank" class=" zoom-in-zoom-out"><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
                                              <form method="get" action="propiedades_post">
                                                 <input type="text" name="agente_nuevo" placeholder="US$ Precio minimo" value="{{$item->user_id}}" style="display: none" >
                                                 <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Propiedades" style="background: #11264e;color:WHITE;margin-top:0px">
