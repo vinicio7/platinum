@@ -21,8 +21,8 @@ $regiones = Region::orderBy('regions_id')->get()->take(3);
 
 @section('content_admin')
  <main class="main">
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container-fluid" >
+            <div class="row" style="margin-top: 10em">
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="stats">
                         <span >Total de propiedades</span>

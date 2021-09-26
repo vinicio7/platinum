@@ -320,7 +320,12 @@ else {
                   
                </div>
                <!-- END REVOLUTION SLIDER -->
+               @if($browser == 1 || $browser == 2)
+               <img src="image/SarahAlzugaray2.png" style="width: 10em;float: left;position: absolute;z-index: 9999;margin-left: 1em;margin-top: -41.7em">
+               @else
                <img src="image/SarahAlzugaray2.png" style="width: 20em;float: left;position: absolute;z-index: 9999;margin-left: 10em;margin-top: -41.7em">
+               @endif
+               
             </section>
             <div class="ps_header" style="background-color: white ">
                <div class="content_wrap">

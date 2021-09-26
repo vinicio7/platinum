@@ -19,7 +19,7 @@
              <button type="button" v-if="agente.rol_id != 10" class="btn btn-success" @click="generarExcel()">
               -> Generar excel
                  </button>
-            <button type="button" class="btn btn-danger" @click="abrir_pdf_total()">
+            <button type="button" class="btn btn-danger" @click="pdf_total()">
               -> Generar PDF
             </button> 
             <button type="button" class="btn btn-warning" @click="limpiar_pdf()">
@@ -160,7 +160,7 @@
                         <label><b>Ingrese Link:</b></label>  
                     </div>
                     <div  class="col-sm-6">
-                       <input type="text" name="" class="form-control">
+                       <input type="text" name="" class="form-control" v-model="comentario">
                     </div>
                   </div>
                 </div>
@@ -187,7 +187,7 @@
                         <label><b>Ingrese Link:</b></label>  
                     </div>
                     <div  class="col-sm-6">
-                       <input type="text" name="" class="form-control">
+                       <input type="text" name="" class="form-control" v-model="comentario">
                     </div>
                   </div>
                 </div>
@@ -1400,6 +1400,7 @@
         },
         data() {
             return {
+                comentario:'',
                 usuario_id:0,
                 subtitulo:'',
                 fecha_final:'',
@@ -2109,11 +2110,30 @@
                 
                 
             },    
-            abrir_downloadPdf(){
+            abrir_downloadPdf(id){
+              this.update = id;
               $('#downloadPdf').modal('show');
             },
             downloadPdf(id){ 
-
+                let me  = this;
+                var personalizada = this.comentario.replace('https://www.facebook.com/','')
+                var nueva_personalizada     = personalizada.replaceAll('/','.!.')
+                let url = '/pdf_comentario/'+me.update+'/'+nueva_personalizada
+                axios({
+                  url: url,
+                  method: 'GET',
+                  responseType: 'blob',
+              }).then((response) => {
+                   var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                   var fileLink = document.createElement('a');
+                   fileLink.href = fileURL;
+                   fileLink.setAttribute('download', 'Información para cliente código '+this.update+'.pdf');
+                   document.body.appendChild(fileLink);
+                   fileLink.click();
+                   $('#downloadPdf').modal('hide');
+              });
+            },
+            downloadPdf_backup(id){ 
                 let me  = this;
                 let url = '/pdf/'+id 
                 axios({

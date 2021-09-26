@@ -4905,6 +4905,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _ref;
 
     return _ref = {
+      comentario: '',
       usuario_id: 0,
       subtitulo: '',
       fecha_final: '',
@@ -5512,10 +5513,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         console.log(error);
       });
     },
-    abrir_downloadPdf: function abrir_downloadPdf() {
+    abrir_downloadPdf: function abrir_downloadPdf(id) {
+      this.update = id;
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#downloadPdf').modal('show');
     },
     downloadPdf: function downloadPdf(id) {
+      var _this2 = this;
+
+      var me = this;
+      var personalizada = this.comentario.replace('https://www.facebook.com/', '');
+      var nueva_personalizada = personalizada.replaceAll('/', '.!.');
+      var url = '/pdf_comentario/' + me.update + '/' + nueva_personalizada;
+      axios({
+        url: url,
+        method: 'GET',
+        responseType: 'blob'
+      }).then(function (response) {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'Información para cliente código ' + _this2.update + '.pdf');
+        document.body.appendChild(fileLink);
+        fileLink.click();
+        jquery__WEBPACK_IMPORTED_MODULE_7___default()('#downloadPdf').modal('hide');
+      });
+    },
+    downloadPdf_backup: function downloadPdf_backup(id) {
       var me = this;
       var url = '/pdf/' + id;
       axios({
@@ -65915,7 +65938,7 @@ var render = function() {
           attrs: { type: "button" },
           on: {
             click: function($event) {
-              return _vm.abrir_pdf_total()
+              return _vm.pdf_total()
             }
           }
         },
@@ -66234,7 +66257,35 @@ var render = function() {
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(13),
                 _vm._v(" "),
-                _vm._m(14),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(14),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.comentario,
+                            expression: "comentario"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "" },
+                        domProps: { value: _vm.comentario },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.comentario = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-footer" }, [
                   _c(
@@ -66292,7 +66343,35 @@ var render = function() {
               _c("div", { staticClass: "modal-content" }, [
                 _vm._m(15),
                 _vm._v(" "),
-                _vm._m(16),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(16),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.comentario,
+                            expression: "comentario"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", name: "" },
+                        domProps: { value: _vm.comentario },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.comentario = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-footer" }, [
                   _c(
@@ -73749,19 +73828,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("label", [_c("b", [_vm._v("Ingrese Link:")])])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", name: "" }
-          })
-        ])
-      ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Ingrese Link:")])])
     ])
   },
   function() {
@@ -73791,19 +73859,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("label", [_c("b", [_vm._v("Ingrese Link:")])])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", name: "" }
-          })
-        ])
-      ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("label", [_c("b", [_vm._v("Ingrese Link:")])])
     ])
   },
   function() {

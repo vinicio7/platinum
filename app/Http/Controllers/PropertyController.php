@@ -35,8 +35,21 @@ class PropertyController extends Controller
 		try{
 			$data       = Property::where('propiertiy_id',$id)->first(); 
 			$pdf        = PDF::loadView('pdf_propiedad',compact('data'));
-			//return view('pdf_propiedad',compact('data'));
-			//dd($pdf);
+			$nombre     = 'Propiedad '.$id.".pdf";
+			return $pdf->setPaper('letter')->download($nombre);
+		}catch(\Exception $e){
+			return response()->json(['result' => false, 'message' => 'Error subiendo. '.$e->getMessage(), 'records' => []]);
+		}
+	}
+
+	public function pdf_comentario($id, $comentario){
+		try{
+			$data       	  = Property::where('propiertiy_id',$id)->first(); 
+			if($comentario){
+				$nuevo_comentario = str_replace(".!.", "/", $comentario);
+				$data->comentario = "https://www.facebook.com/".$nuevo_comentario;
+			}
+			$pdf        	  = PDF::loadView('pdf_propiedad',compact('data'));
 			$nombre     = 'Propiedad '.$id.".pdf";
 			return $pdf->setPaper('letter')->download($nombre);
 		}catch(\Exception $e){

@@ -288,6 +288,10 @@ use App\Models\Images;
                             <b  style="font-size:14px">Tour virtual:</b><br>
                             <a href="{{$data->youtube}}" target="_blank">Click aqui para ver.</a><br>
                         @endif
+                        @if(isset($data->comentario))
+                            <b  style="font-size:14px">Enlace externo:</b><br>
+                            <a href="{{$data->comentario}}" target="_blank">Click aqui para ir.</a><br><br>
+                        @endif
                         <p style="font-size: 12px">
                         @if($data->fee_maintenance_gtq > 0 || $data->fee_maintenance_usd > 0)
                         <b  style="font-size:14px">CUOTA DE MANTENIMIENTO:</b><br>GTQ.{{number_format($data->fee_maintenance_gtq,2)}} aprox. US${{number_format($valor,2)}}
