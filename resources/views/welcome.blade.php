@@ -230,11 +230,18 @@ else {
     transform: scale(1, 1);
   }
 }
+@if($browser == 1 || $browser == 2)
+.tp-bgimg{
+  width: 35em!important;
+  height: 40em!important
+}
+@endif
       </style>
    </head>
    <body class="body_style_wide responsive_menu scheme_original top_panel_show top_panel_over sidebar_hide">
       <div class="body_wrap">
          <div class="page_wrap">
+          @if($browser == 1 || $browser == 2)
             <header style="position: absolute;height: 60px;z-index: 99999;width: 100%">
               <table style="width: 100%;background-color: #15254b;border-color:#15254b;height: 60px ">
                 <tbody>
@@ -253,75 +260,158 @@ else {
                             </ul>
                          </nav>
                     </td>
-                    <td style="border-color: #15254b"><a href="/"><img src="/images/plecka.png" style="width: 60px" ></a></td>
                   </tr>
                 </tbody>
               </table>
             </header>
+          @else
+            <header style="position: absolute;height: 60px;z-index: 99999;width: 100%">
+                <table style="width: 100%;background-color: #15254b;border-color:#15254b;height: 60px ">
+                  <tbody>
+                    <tr>
+                      <td style="border-color: #15254b"><img src="image/logo_lg_blanco.svg"  style="height: 40px"></td>
+                      <td style="border-color: #15254b"> 
+                        
+                           <a href="#" class="menu_main_responsive_button icon-down" style="color: white">MENU</a>
+                           <nav class="menu_main_nav_area" style="vertical-align: bottom;">
+                              <ul id="menu_main" class="menu_main_nav" style="color: white">
+                                <li class="menu-item"><a href="/" style="color: white">INICIO</a></li>
+                                <li class="menu-item"><a href="/quienes" style="color: white">QUIENES SOMOS</a></li>
+                                <li class="menu-item"><a href="/propiedades" style="color: white">PROPIEDADES</a></li>
+                                <li class="menu-item"><a href="/contacto" style="color: white">CONTACTENOS</a></li>
+                                <li class="menu-item"><a href="/login" style="color: white">INGRESAR</a></li>
+                              </ul>
+                           </nav>
+                      </td>
+                      <td style="border-color: #15254b"><a href="/"><img src="/images/plecka.png" style="width: 60px" ></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </header>
+          @endif
             <section class="slider_wrap slider_fullwide slider_engine_revo slider_alias_revsliderHome1" style="height: 38em!important">
                <!-- REVOLUTION SLIDER -->
 
-               <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" >
-                  <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
-                     <ul>
-                        <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img style="position: absolute;" src="{{$i1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                           <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                              <div class="sc_property_wrap">
-                                 <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
-                                     
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-                        <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                           <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                              <div class="sc_property_wrap">
-                                 <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
-                                    
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-                        <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                           <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                              <div class="sc_property_wrap">
-                                 <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
-                                    
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-                        <li data-index="rs-14" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                           <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                              <div class="sc_property_wrap">
-                                 <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
-                                    
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-                        <li data-index="rs-15" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                           <img style="position: absolute;" src="{{$i5}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                           <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                              <div class="sc_property_wrap">
-                                 <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
-                                    
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-                     </ul>
-                     <div class="tp-bannertimer tp-bottom"></div>
-                  </div>
-                  
-               </div>
+               @if($browser == 1 || $browser == 2)
+                 <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container"  >
+                    <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
+                       <ul>
+                          <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i1}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
+                                       
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-14" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-15" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;height: 300px!important" src="{{$i5}}" alt="300px" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                       </ul>
+                       <div class="tp-bannertimer tp-bottom"></div>
+                    </div>
+                 </div>
+               @else
+                 <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" >
+                    <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
+                       <ul>
+                          <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
+                                       
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-14" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                          <li data-index="rs-15" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                             <img style="position: absolute;" src="{{$i5}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                <div class="sc_property_wrap">
+                                   <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
+                                      
+                                   </div>
+                                </div>
+                             </div>
+                          </li>
+                       </ul>
+                       <div class="tp-bannertimer tp-bottom"></div>
+                    </div>
+                 </div>
+               @endif
                <!-- END REVOLUTION SLIDER -->
                @if($browser == 1 || $browser == 2)
-               <img src="image/SarahAlzugaray2.png" style="width: 10em;float: left;position: absolute;z-index: 9999;margin-left: 1em;margin-top: -41.7em">
+               <img src="image/SarahAlzugaray2.png" style="width: 10em;height: 14em;float: left;position: absolute;z-index: 9999;margin-left: 1em;margin-top: -42.2em">
                @else
                <img src="image/SarahAlzugaray2.png" style="width: 20em;float: left;position: absolute;z-index: 9999;margin-left: 10em;margin-top: -41.7em">
                @endif
@@ -330,52 +420,108 @@ else {
             <div class="ps_header" style="background-color: white ">
                <div class="content_wrap">
                   <div class="sc_section scheme_dark">
-                     <div class="sc_section_inner">
-                        <div class="sc_property_search">
-                           <form method="get" action="propiedades_post">
-                              <div class="sc_ps_type">
-                                 <select name="tipo_venta">
-                                    <option value="venta">En Venta</option>
-                                    <option value="renta">En Renta</option>
-                                    <option value="cualquiera">Cualquiera</option>
-                                 </select>
-                              </div>
-                              <div class="sc_ps_type">
-                                 <select name="tipo_inmueble">
-                                    <option value="casa">Casas</option>
-                                    <option value="apartamento">Apartamentos</option>
-                                    <option value="oficina">Oficinas</option>
-                                    <option value="bodega">Bodegas</option>
-                                    <option value="terreno">Terrenos</option>
-                                    <option value="finca">Fincas</option>
-                                    <option value="clinica">Clinicas</option>
-                                    <option value="playa">Casa de playa</option>
-                                    <option value="granja">Granjas</option>
-                                    <option value="edificio">Edificios</option>
-                                    <option value="local">Locales</option>
-                                 </select>
-                              </div>
-                              <div class="sc_ps_type">
-                                <select name="zona" style="border-color: white">
-                                <option value="0">Seleccione una zona</option>
-                                @foreach($zonas as $item)
-                                    <option value="{{$item->zone_id}}">{{$item->name}}</option>
-                                @endforeach
-                                </select>
-                              </div>
-                              <br> 
-                              <div class="sc_ps_type">
-                                  <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
-                              </div>
-                              <div class="sc_ps_type">
-                                  <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
-                              </div>
-                              <div class="sc_ps_submit" style="text-align: left;">
-                                    <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE;margin-top:0px">
-                              </div>
-                           </form>
-                        </div>
-                     </div>
+                    @if($browser == 1 || $browser == 2)
+                      <div class="sc_section_inner">
+                          <div class="sc_property_search">
+                             <form method="get" action="propiedades_post">
+                              <table>
+                                <tr>
+                                  <td>
+                                    <select name="tipo_venta">
+                                      <option value="venta">En Venta</option>
+                                      <option value="renta">En Renta</option>
+                                      <option value="cualquiera">Cualquiera</option>
+                                    </select>
+                                  </td>
+                                  <td>
+                                    <select name="tipo_inmueble">
+                                      <option value="casa">Casas</option>
+                                      <option value="apartamento">Apartamentos</option>
+                                      <option value="oficina">Oficinas</option>
+                                      <option value="bodega">Bodegas</option>
+                                      <option value="terreno">Terrenos</option>
+                                      <option value="finca">Fincas</option>
+                                      <option value="clinica">Clinicas</option>
+                                      <option value="playa">Casa de playa</option>
+                                      <option value="granja">Granjas</option>
+                                      <option value="edificio">Edificios</option>
+                                      <option value="local">Locales</option>
+                                   </select>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <select name="zona" style="border-color: white">
+                                      <option value="0">Seleccione una zona</option>
+                                      @foreach($zonas as $item)
+                                          <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                      @endforeach
+                                    </select>
+                                  </td>
+                                  <td>
+                                    <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                      <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
+                                  </td>
+                                  <td>
+                                    <input type="submit" class="" value="Buscar" style="background: #11264e;color:WHITE;width: 13em;height: 2.8em">
+                                  </td>
+                                </tr>
+                              </table>
+                             </form>
+                          </div>
+                      </div>
+                    @else
+                      <div class="sc_section_inner">
+                          <div class="sc_property_search">
+                             <form method="get" action="propiedades_post">
+                                <div class="sc_ps_type">
+                                   <select name="tipo_venta">
+                                      <option value="venta">En Venta</option>
+                                      <option value="renta">En Renta</option>
+                                      <option value="cualquiera">Cualquiera</option>
+                                   </select>
+                                </div>
+                                <div class="sc_ps_type">
+                                   <select name="tipo_inmueble">
+                                      <option value="casa">Casas</option>
+                                      <option value="apartamento">Apartamentos</option>
+                                      <option value="oficina">Oficinas</option>
+                                      <option value="bodega">Bodegas</option>
+                                      <option value="terreno">Terrenos</option>
+                                      <option value="finca">Fincas</option>
+                                      <option value="clinica">Clinicas</option>
+                                      <option value="playa">Casa de playa</option>
+                                      <option value="granja">Granjas</option>
+                                      <option value="edificio">Edificios</option>
+                                      <option value="local">Locales</option>
+                                   </select>
+                                </div>
+                                <div class="sc_ps_type">
+                                  <select name="zona" style="border-color: white">
+                                  <option value="0">Seleccione una zona</option>
+                                  @foreach($zonas as $item)
+                                      <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endforeach
+                                  </select>
+                                </div>
+                                <br> 
+                                <div class="sc_ps_type">
+                                    <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
+                                </div>
+                                <div class="sc_ps_type">
+                                    <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
+                                </div>
+                                <div class="sc_ps_submit" style="text-align: left;">
+                                      <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE;margin-top:0px">
+                                </div>
+                             </form>
+                          </div>
+                      </div>
+                    @endif
                   </div>
                </div>
             </div>
