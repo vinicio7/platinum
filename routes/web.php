@@ -75,5 +75,6 @@ Route::get('propiedades_agente/{agente}','PropertyController@propiedades_agente'
 Route::post('send_message',            	'UserController@send_message')->name('send_message');
 Route::post('capsulas',      			'UserController@capsulas')->name('capsulas');
 Route::get('/pdf/{id}',                	'PropertyController@pdf');
+Route::get('/editar_propiedad/{id}',    'PropertyController@editar_propiedad');
 Route::get('/pdf_comentario/{id}/{comentario}',	'PropertyController@pdf_comentario');
 Route::get('/tour/{id}',                'PropertyController@tour');

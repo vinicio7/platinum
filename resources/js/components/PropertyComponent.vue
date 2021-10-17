@@ -39,13 +39,14 @@
                   <div class="row">
                     <div class="col-sm-12" >
                         <label>Accion</label>
-                        <select class="col-sm-12 form-control">
-                          <option>Rentar</option>
-                          <option>Vender</option>
-                          <option>Eliminar</option>
+                        <select class="col-sm-12 form-control" v-model="accion_ejecutar">
+                          <option value="1">Vendida</option>
+                          <option value="2">Rentada</option>
+                          <option value="3">Fuera de mercado</option>
+                          <option value="4">Inversion</option>
                         </select>
                     </div>
-                    <div class="col-sm-12" >
+                    <div class="col-sm-12" v-if="accion_ejecutar == 1 || accion_ejecutar == 2 " >
                         <label>Usuario que la realizo</label>
                         <v-select v-model="rentada_por"
                                 :value.sync="vendedores.user_id"
@@ -56,7 +57,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button @click="guardarRenta()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Guardar</button>
+                  <button @click="ejecutar()" class="btn btn-success" style="background-color: #12264d;border-color: #12264d;">Ejecutar</button>
                   <button @click="clearFields()" class="btn">Atrás</button>
                 </div>
             </div>
@@ -1389,7 +1390,7 @@
     import $ from 'jquery';
     //const token = document.head.querySelector('meta[name="csrf-token"]').content
     export default {
-      props: ['datos_usuario','datos_agente'],
+      props: ['datos_usuario','datos_agente' , 'propiedad'],
         components:{
             'editor': Editor,
             vueDropzone: vue2Dropzone,
@@ -1530,6 +1531,7 @@
                 avaluo_dolares:'',
                 avaluo_quetzales:'',
                 tipo_avaluo:0,
+                accion_ejecutar:0,
                 timbres:'',
                 iva:'',
                 link_tour:'',
@@ -1582,6 +1584,7 @@
                 departamentos:[],
                 municipios:[],
                 zonas:[],
+                editar_propiedad:0,
                 regiones:[],
                 titulo_1:"INMUEBLE",
                 titulo_2:"DETALLES",
@@ -1620,6 +1623,8 @@
         mounted: function() {
             this.usuario_id = this.datos_usuario
             this.agente = JSON.parse(this.datos_agente)
+            this.editar_propiedad = JSON.parse(this.propiedad).propiertiy_id
+            console.log('editar ',this.editar_propiedad);
             console.log(this.agente.rol_id);
             let me = this;
             let url = '/api/propietarios' 
@@ -1643,6 +1648,11 @@
             .catch(function (error) {
                 console.log(error);
             });  
+
+            if(this.editar_propiedad > 0){
+
+             this.loadFieldsUpdate(this.editar_propiedad);  
+            }
             
             let url2 = '/api/departaments' 
             axios.get(url2,{}).then(function (response) {
@@ -2167,6 +2177,7 @@
               });
             },   
             loadFieldsUpdate(id){ 
+                console.log("entro");
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me  = this;

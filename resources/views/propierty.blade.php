@@ -16,7 +16,7 @@
             </div>
             
             <div id="app">
-                <property-component datos_agente="{{$agente}}"></property-component>
+                <property-component datos_agente="{{$agente}}" propiedad="{{$propiedad}}"></property-component>
                 @section('content_admin')
                     {{--  <div class="separator-breadcrumb border-top"></div>
                     <div class="separator-breadcrumb border-top"></div>--}}

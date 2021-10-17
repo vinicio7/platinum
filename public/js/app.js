@@ -4883,6 +4883,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -4892,7 +4893,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  //const token = document.head.querySelector('meta[name="csrf-token"]').content
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['datos_usuario', 'datos_agente'],
+  props: ['datos_usuario', 'datos_agente', 'propiedad'],
   components: {
     'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__.default,
     vueDropzone: (vue2_dropzone__WEBPACK_IMPORTED_MODULE_3___default()),
@@ -4989,7 +4990,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       estufa_electrica: 0,
       blackouts: 0,
       camaras_seguridad: 0
-    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", 0), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "description", ''), _defineProperty(_ref, "valor_registro_dolares", ''), _defineProperty(_ref, "valor_registro_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_dolares", ''), _defineProperty(_ref, "folio", ''), _defineProperty(_ref, "finca", ''), _defineProperty(_ref, "libro", ''), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", ''), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", ''), _defineProperty(_ref, "gravamen_dolares", ''), _defineProperty(_ref, "nombre_banco", ''), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", ''), _defineProperty(_ref, "avaluo_quetzales", ''), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "timbres", ''), _defineProperty(_ref, "iva", ''), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ''), _defineProperty(_ref, "propietario", 1), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 1), _defineProperty(_ref, "municipio", 1), _defineProperty(_ref, "zona", 1), _defineProperty(_ref, "region", 1), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 0), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", 0), _defineProperty(_ref, "contacto_visita", 0), _defineProperty(_ref, "cuota_mantenimiento", 0), _defineProperty(_ref, "servicios", 0), _defineProperty(_ref, "agente", []), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 0), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", ''), _defineProperty(_ref, "enganche_nivelado", ''), _defineProperty(_ref, "enganche_cuota", ''), _defineProperty(_ref, "enganche_tasa", ''), _defineProperty(_ref, "enganche_quetzales", ''), _defineProperty(_ref, "enganche_dolares", ''), _defineProperty(_ref, "mantenimiento_dolares", ''), _defineProperty(_ref, "mantenimiento_quetzales", ''), _defineProperty(_ref, "compartida_porcentaje", ''), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "propierty_id", 0), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "vendedores", []), _defineProperty(_ref, "vendedores_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", ''), _defineProperty(_ref, "porcentaje_externa", ''), _defineProperty(_ref, "empresa_externa", ''), _defineProperty(_ref, "asesor_externo", ''), _defineProperty(_ref, "dropzoneOptions", {
+    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", 0), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "description", ''), _defineProperty(_ref, "valor_registro_dolares", ''), _defineProperty(_ref, "valor_registro_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_dolares", ''), _defineProperty(_ref, "folio", ''), _defineProperty(_ref, "finca", ''), _defineProperty(_ref, "libro", ''), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", ''), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", ''), _defineProperty(_ref, "gravamen_dolares", ''), _defineProperty(_ref, "nombre_banco", ''), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", ''), _defineProperty(_ref, "avaluo_quetzales", ''), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "accion_ejecutar", 0), _defineProperty(_ref, "timbres", ''), _defineProperty(_ref, "iva", ''), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ''), _defineProperty(_ref, "propietario", 1), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 1), _defineProperty(_ref, "municipio", 1), _defineProperty(_ref, "zona", 1), _defineProperty(_ref, "region", 1), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 0), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", 0), _defineProperty(_ref, "contacto_visita", 0), _defineProperty(_ref, "cuota_mantenimiento", 0), _defineProperty(_ref, "servicios", 0), _defineProperty(_ref, "agente", []), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 0), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", ''), _defineProperty(_ref, "enganche_nivelado", ''), _defineProperty(_ref, "enganche_cuota", ''), _defineProperty(_ref, "enganche_tasa", ''), _defineProperty(_ref, "enganche_quetzales", ''), _defineProperty(_ref, "enganche_dolares", ''), _defineProperty(_ref, "mantenimiento_dolares", ''), _defineProperty(_ref, "mantenimiento_quetzales", ''), _defineProperty(_ref, "compartida_porcentaje", ''), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "propierty_id", 0), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "vendedores", []), _defineProperty(_ref, "vendedores_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "editar_propiedad", 0), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", ''), _defineProperty(_ref, "porcentaje_externa", ''), _defineProperty(_ref, "empresa_externa", ''), _defineProperty(_ref, "asesor_externo", ''), _defineProperty(_ref, "dropzoneOptions", {
       url: '/api/propierty/image',
       method: 'post',
       paramName: 'archivo',
@@ -5016,6 +5017,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.usuario_id = this.datos_usuario;
     this.agente = JSON.parse(this.datos_agente);
+    this.editar_propiedad = JSON.parse(this.propiedad).propiertiy_id;
+    console.log('editar ', this.editar_propiedad);
     console.log(this.agente.rol_id);
     var me = this;
     var url = '/api/propietarios';
@@ -5034,6 +5037,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     })["catch"](function (error) {
       console.log(error);
     });
+
+    if (this.editar_propiedad > 0) {
+      this.loadFieldsUpdate(this.editar_propiedad);
+    }
+
     var url2 = '/api/departaments';
     axios.get(url2, {}).then(function (response) {
       me.departamentos = response.data.records;
@@ -5572,6 +5580,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     loadFieldsUpdate: function loadFieldsUpdate(id) {
+      console.log("entro");
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#exampleModal').modal('show');
       this.update = id;
       var me = this;
@@ -65984,55 +65993,106 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-sm-12" },
-                      [
-                        _c("label", [_vm._v("Usuario que la realizo")]),
-                        _vm._v(" "),
-                        _c(
-                          "v-select",
-                          {
-                            attrs: {
-                              value: _vm.vendedores.user_id,
-                              options: _vm.vendedores,
-                              getOptionLabel: function(vendedor) {
-                                return vendedor.name
-                              }
-                            },
-                            on: {
-                              "update:value": function($event) {
-                                return _vm.$set(
-                                  _vm.vendedores,
-                                  "user_id",
-                                  $event
-                                )
-                              }
-                            },
-                            model: {
-                              value: _vm.rentada_por,
-                              callback: function($$v) {
-                                _vm.rentada_por = $$v
-                              },
-                              expression: "rentada_por"
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c("label", [_vm._v("Accion")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.accion_ejecutar,
+                              expression: "accion_ejecutar"
                             }
-                          },
+                          ],
+                          staticClass: "col-sm-12 form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.accion_ejecutar = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v("Vendida")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v("Rentada")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "3" } }, [
+                            _vm._v("Fuera de mercado")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "4" } }, [
+                            _vm._v("Inversion")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm.accion_ejecutar == 1 || _vm.accion_ejecutar == 2
+                      ? _c(
+                          "div",
+                          { staticClass: "col-sm-12" },
                           [
+                            _c("label", [_vm._v("Usuario que la realizo")]),
+                            _vm._v(" "),
                             _c(
-                              "span",
+                              "v-select",
                               {
-                                attrs: { slot: "no-options" },
-                                slot: "no-options"
+                                attrs: {
+                                  value: _vm.vendedores.user_id,
+                                  options: _vm.vendedores,
+                                  getOptionLabel: function(vendedor) {
+                                    return vendedor.name
+                                  }
+                                },
+                                on: {
+                                  "update:value": function($event) {
+                                    return _vm.$set(
+                                      _vm.vendedores,
+                                      "user_id",
+                                      $event
+                                    )
+                                  }
+                                },
+                                model: {
+                                  value: _vm.rentada_por,
+                                  callback: function($$v) {
+                                    _vm.rentada_por = $$v
+                                  },
+                                  expression: "rentada_por"
+                                }
                               },
-                              [_vm._v(" No se encontro la busqueda")]
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    attrs: { slot: "no-options" },
+                                    slot: "no-options"
+                                  },
+                                  [_vm._v(" No se encontro la busqueda")]
+                                )
+                              ]
                             )
-                          ]
+                          ],
+                          1
                         )
-                      ],
-                      1
-                    )
+                      : _vm._e()
                   ])
                 ]),
                 _vm._v(" "),
@@ -66047,11 +66107,11 @@ var render = function() {
                       },
                       on: {
                         click: function($event) {
-                          return _vm.guardarRenta()
+                          return _vm.ejecutar()
                         }
                       }
                     },
-                    [_vm._v("Guardar")]
+                    [_vm._v("Ejecutar")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -66094,7 +66154,7 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -66107,7 +66167,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _vm._m(4),
+                      _vm._m(3),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66117,7 +66177,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(5),
+                      _vm._m(4),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66127,7 +66187,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(6),
+                      _vm._m(5),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66137,7 +66197,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(7),
+                      _vm._m(6),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66147,7 +66207,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(8),
+                      _vm._m(7),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66170,7 +66230,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _vm._m(9),
+                      _vm._m(8),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66180,7 +66240,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(10),
+                      _vm._m(9),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66190,7 +66250,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(11),
+                      _vm._m(10),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66200,7 +66260,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(12),
+                      _vm._m(11),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-6" }, [
                         _vm._v(
@@ -66255,11 +66315,11 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(13),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(14),
+                    _vm._m(13),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-6" }, [
                       _c("input", {
@@ -66341,11 +66401,11 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "modal-content" }, [
-                _vm._m(15),
+                _vm._m(14),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(16),
+                    _vm._m(15),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-6" }, [
                       _c("input", {
@@ -66452,7 +66512,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _vm._m(17)
+                  _vm._m(16)
                 ]),
                 _vm._v(" "),
                 _c(
@@ -73688,22 +73748,6 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-12" }, [
-      _c("label", [_vm._v("Accion")]),
-      _vm._v(" "),
-      _c("select", { staticClass: "col-sm-12 form-control" }, [
-        _c("option", [_vm._v("Rentar")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Vender")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("Eliminar")])
-      ])
     ])
   },
   function() {

@@ -31,6 +31,63 @@ class PropertyController extends Controller
 		return view('ver_admin', compact('data'));
 	}
 
+	public function editar_propiedad($id){
+		$name = \Session::get('user');
+		$usuario = User::where('name',$name)->first();
+		$usuario_id = $usuario->user_id;
+		$titulo     = 'propierty';
+		$dt_route   = route('propierty.show');
+		$dt_order   = [[0, 'desc']];
+		$name = \Session::get('user');
+		$user = User::where('name',$name)->first();
+		$agente = User::where('name',$name)->first();
+		if($user->rol_id == 10){
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}else{
+			$dt_columns = [
+				['data' => 'id','title'=>'ID'],
+				['data' => 'codigo','title'=>'CODIGO'],
+				['data' => 'imagen', 'title'=>'IMAGEN'],
+				['data' => 'title', 'title'=>'TITULO'],
+				['data' => 'subtitle', 'title'=>'SUB TITULO'],
+				['data' => 'tipo', 'type'=>'TIPO'],
+				['data' => 'propietario', 'title'=>'PROPIETARIO'],
+				['data' => 'adress', 'title'=>'DIRECCION'],
+				['data' => 'rent_gtq', 'title'=>'RENTA Q.'],
+				['data' => 'rent_usd', 'title'=>'RENTA $.'],
+				['data' => 'sale_gtq', 'title'=>'VENTA Q.'],
+				['data' => 'sale_usd', 'title'=>'VENTA $.'],
+				['data' => 'estado', 'title'=>'ESTADO'],
+				['data' => 'editar',"title"=>"EDITAR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false],
+				['data' => 'pdf',"title"=>"AÑADIR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'tour',"title"=>"TOUR", 'orderable'=> false, 'searchable' => false],
+				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
+			]; 
+		}
+		$propiedad = Property::find($id);
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente','propiedad' ));
+	}
+
 	public function pdf($id){
 		try{
 			$data       = Property::where('propiertiy_id',$id)->first(); 
@@ -175,7 +232,8 @@ class PropertyController extends Controller
 				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
 			]; 
 		}
-		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente' ));
+		$propiedad = 0;
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente','propiedad' ));
 	}
 
 	public function rentadas()
@@ -231,7 +289,8 @@ class PropertyController extends Controller
 				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
 			]; 
 		}
-		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente' ));
+		$propiedad = 0;
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente','propiedad' ));
 	}
 
 	public function vendidas()
@@ -287,7 +346,8 @@ class PropertyController extends Controller
 				['data' => 'generar',"title"=>"PDF", 'orderable'=> false, 'searchable' => false]
 			]; 
 		}
-		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente' ));
+		$propiedad = 0;
+		return view('propierty', compact('dt_route', 'dt_columns','dt_order','usuario_id','agente' ,'propiedad'));
 	}
 
 	public function pdf_list()
