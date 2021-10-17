@@ -88,6 +88,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('propierty/export',             'PropertyController@export');
     Route::post('propierty/create',            'PropertyController@create');
     Route::post('propierty/rent',              'PropertyController@rent');
+    Route::post('propierty/ejecutar',          'PropertyController@ejecutar');
     Route::post('propierty/sale',              'PropertyController@sale');
     Route::post('propierty/image',             'PropertyController@image');
     Route::post('propierty/edit',              'PropertyController@edit')->name('propierty.edit');

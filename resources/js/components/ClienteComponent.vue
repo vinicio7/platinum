@@ -27,10 +27,6 @@
                                     <input v-model="phone" type="number" class="form-control">
                                 </div> 
                                 <div class="col-md-4">
-                                    <label>Direccion</label>
-                                    <input v-model="adress" type="text" class="form-control">
-                                </div> 
-                                <div class="col-md-4">
                                     <label>Genero</label>
                                     <select v-model="gender" class="form-control">
                                       <option disabled value="">Seleccione una opcion</option>
@@ -39,53 +35,6 @@
                                       <option value="2">Otro</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <label>DPI</label>
-                                    <input v-model="document_id" type="number" class="form-control">
-                                </div> 
-                                <div class="col-md-4">
-                                    <label>Nacimiento</label>
-                                    <input v-model="birthdate" type="date" class="form-control">
-                                </div> 
-                                <div class="col-md-4">
-                                    <label>Estado civil</label>
-                                    <select v-model="marital_status" class="form-control">
-                                      <option disabled value="">Seleccione una opcion</option>
-                                      <option value="1">Casado/a</option>
-                                      <option value="0">Soltero/a</option>
-                                      <option value="0">Divorciado/a</option>
-                                      <option value="0">Viudo/a</option>
-                                      <option value="0">Otro</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>Titulo</label>
-                                    <select v-model="title" class="form-control">
-                                      <option disabled value="">Seleccione una opcion</option>
-                                      <option value="1">Sr.</option>
-                                      <option value="2">Sra.</option>
-                                      <option value="3">Mr.</option>
-                                      <option value="4">Lic.</option>
-                                      <option value="5">Ing.</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>Facebook</label>
-                                    <input v-model="facebook" type="text" class="form-control">
-                                </div> 
-                                <div class="col-md-4">
-                                    <label>Twitter</label>
-                                    <input v-model="twitter" type="text" class="form-control">
-                                </div> 
-                                <div class="col-md-4">
-                                    <label>Instagram</label>
-                                    <input v-model="instagram" type="text" class="form-control">
-                                </div> 
-                                <div class="col-md-4">
-                                    <label>Whatsapp</label>
-                                    <input v-model="whatsapp" type="number" class="form-control">
-                                </div> 
-                                
                             </div>
                         </div>
                     </div>
@@ -179,7 +128,7 @@
                 }
                 formData.append('name',this.name)
                 formData.append('user',this.user)
-                formData.append('rol',this.rol)
+                formData.append('rol',8)
                 formData.append('password',this.password)
                 formData.append('email',this.email)
                 formData.append('phone',this.phone)

@@ -154,7 +154,7 @@ class UserController extends Controller
                     }        
             })
             ->addColumn('imagen', function ($record) {
-                    return "<img src='".$record->picture."' style='width:80px;height:100px;'>";
+                    return "<img src='".$record->picture."' style='width:80px;height:100px;object-fit:cover'>";
             })
             ->addColumn('estado', function ($record){
                 if ($record->status == 0) {
@@ -171,13 +171,14 @@ class UserController extends Controller
 
     public function clientes_show(User $user)
     {
-        return datatables()->of( User::where('rol_id',11)->get())
+        return datatables()->of( User::where('rol_id',8)->get())
             ->addColumn('acciones', function ($record) {
                 return
+                    "<a class='btn btn-warning btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Acciones</a>".
                     "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Editar</a>".
                     "<a class='btn btn-danger btn-danger rounded m-1 text-white btn-delete' id='".$record->user_id."'>Eliminar</a>";  
             })
-             ->addColumn('rol_label', function ($record) {
+            ->addColumn('rol_label', function ($record) {
                     $rol = Rol::find($record->rol_id);
                     if ($rol) {
                         $class       = 'badge-info';  
@@ -188,17 +189,18 @@ class UserController extends Controller
                         return "<span class='badge text-white {$class}'>{$name}</span>";
                     }        
             })
-            ->addColumn('imagen', function ($record) {
-                    return "<img src='".$record->picture."' style='width:80px;height:100px;'>";
+             ->addColumn('telefono', function ($record) {
+                    if($record->phone){
+                        return $record->phone;
+                    }
+                    else{
+                        return "Sin telefono";
+                    }
+                        
             })
             ->addColumn('estado', function ($record){
-                if ($record->status == 0) {
-                    $class       = 'badge-secondary';
-                    $descripcion = 'Inactivo';
-                } else {
-                    $class       = 'badge-success';
-                    $descripcion = 'Activo';
-                }
+                $class       = 'badge-success';
+                $descripcion = 'Activo';
                 return "<span class='badge text-white {$class}'>{$descripcion}</span>";
             })->rawColumns(['estado','acciones','rol_label','imagen'])
             ->toJson();

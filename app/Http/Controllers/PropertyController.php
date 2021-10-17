@@ -714,6 +714,9 @@ class PropertyController extends Controller
 				} else if($record->status == 3) {
 					$class       = 'badge-info';
 					$descripcion = 'Vendida';
+				}else if($record->status == 4){
+					$class       = 'badge-danger';
+					$descripcion = 'Inversion';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
 			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo','editar'])
@@ -837,6 +840,9 @@ class PropertyController extends Controller
 				} else if($record->status == 3) {
 					$class       = 'badge-info';
 					$descripcion = 'Vendida';
+				}else if($record->status == 4){
+					$class       = 'badge-danger';
+					$descripcion = 'Inversion';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
 			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo','editar'])
@@ -845,7 +851,7 @@ class PropertyController extends Controller
 
 	public function rentadas_show(Property $data)
 	{
-		return datatables()->of( Property::where('status',2)->get())
+		return datatables()->of( Property::where('status','<>',1)->get())
 			->addColumn('acciones', function ($record) {
 				$name = \Session::get('user');
 				$user = User::where('name',$name)->first();
@@ -960,6 +966,9 @@ class PropertyController extends Controller
 				} else if($record->status == 3) {
 					$class       = 'badge-info';
 					$descripcion = 'Vendida';
+				}else if($record->status == 4){
+					$class       = 'badge-danger';
+					$descripcion = 'Inversion';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
 			})->rawColumns(['estado','acciones','propietario','tipo','imagen','pdf','generar','id','tour','codigo','editar'])
@@ -1066,6 +1075,9 @@ class PropertyController extends Controller
 				} else if($record->status == 3) {
 					$class       = 'badge-info';
 					$descripcion = 'Vendida';
+				}else if($record->status == 4){
+					$class       = 'badge-danger';
+					$descripcion = 'Inversion';
 				}
 				return "<center><span class='badge text-white {$class}'>{$descripcion}</span></center>";
 			})->rawColumns(['estado','eliminar','propietario','tipo','imagen','pdf','generar','tour'])
@@ -1274,9 +1286,8 @@ class PropertyController extends Controller
 			$properties->youtube                   = $request->input('youtube');
 			$properties->code                      = $request->input('code');
 			$properties->internal_note             = $request->input('internal_note');
-			$properties->jardin_trasero            = $request->input('jardin_trasero');
-			$properties->desayunador               = $request->input('desayunador');
 			$properties->status                    = $request->input('status');
+			$properties->save();
 			if($request->input('imagenes')){
 				$imagenes = explode(',',$request->input('imagenes'));
 				if(count($imagenes)>0){
@@ -1290,8 +1301,8 @@ class PropertyController extends Controller
 				}
 			}
 			
-			$this->message = "Consulta correcta";
-			$this->result = true;
+			$this->message = "Propiedad editada correctamente";
+			$this->result  = true;
 			$this->records = $properties;
 	  } catch (\Exception $e) {
 			$statusCode     = 400;
@@ -1314,6 +1325,40 @@ class PropertyController extends Controller
 			$propierty->status = 2;
 			$propierty->save();
 			$this->message  = "Registro eliminado correctamente";
+			$this->result   = true;
+			$this->records  = $propierty;
+		} catch (\Exception $e) {
+			$statusCode     = 400;
+			$this->message  = env('APP_DEBUG') ? $e->getMessage() : 'Ocurrió un problema al consultar los datos';
+		} finally {
+			$response =
+				[
+					'message'   => $this->message,
+					'result'    => $this->result,
+					'records'   => $this->records,
+				];
+			return response()->json($response, $this->statusCode);
+		}
+	}
+
+	public function ejecutar(Request $request)
+	{
+		try {
+			$propierty = Property::find($request->input('propiedad_id'));
+			if($request->input('accion') == 1){
+				$propierty->status = 3;
+				$propierty->save();
+			}elseif($request->input('accion') == 2){
+				$propierty->status = 2;
+				$propierty->save();
+			}elseif($request->input('accion') == 3){
+				$propierty->status = 0;
+				$propierty->save();
+			}elseif($request->input('accion') == 4){
+				$propierty->status = 4;
+				$propierty->save();
+			}
+			$this->message  = "Registro guardado correctamente";
 			$this->result   = true;
 			$this->records  = $propierty;
 		} catch (\Exception $e) {

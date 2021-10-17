@@ -111,16 +111,9 @@ if($user){
             </li>
             <li class="sidebar__nav-item">
                 @if(Request::route()->getName() == 'rentadas')
-                    <a href="{{ route('rentadas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Rentadas</a>
+                    <a href="{{ route('rentadas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Otras propiedades</a>
                 @else
-                    <a href="{{ route('rentadas') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Rentadas</a>
-                @endif
-            </li>
-            <li class="sidebar__nav-item">
-                @if(Request::route()->getName() == 'vendidas')
-                    <a href="{{ route('vendidas') }}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-book"></i> Vendidas</a>
-                @else
-                    <a href="{{ route('vendidas') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Vendidas</a>
+                    <a href="{{ route('rentadas') }}" class="sidebar__nav-link"><i class="icon ion-ios-book"></i> Otras propiedades</a>
                 @endif
             </li>
             <li class="sidebar__nav-item">

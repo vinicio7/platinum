@@ -48,11 +48,10 @@
                     </div>
                     <div class="col-sm-12" v-if="accion_ejecutar == 1 || accion_ejecutar == 2 " >
                         <label>Usuario que la realizo</label>
-                        <v-select v-model="rentada_por"
-                                :value.sync="vendedores.user_id"
-                                :options="vendedores" :getOptionLabel="vendedor => vendedor.name">
-                                <span slot="no-options"> No se encontro la busqueda</span>
-                        </v-select>
+                        <select class="form-control" v-model="rentada_por">
+                            <option value="0" disabled>Seleccione una opcion</option>
+                            <option v-for="vendedor in vendedores" :value="vendedor.user_id" >{{ vendedor.name }}</option>
+                        </select>
                     </div>
                   </div>
                 </div>
@@ -1980,10 +1979,12 @@
                     console.log(error);
                 });   
             },
-            guardarRenta(){
+            ejecutar(){
                 let me  = this;
-                let url = '/api/propierty/rent' 
+                let url = '/api/propierty/ejecutar' 
                 const formData  = new FormData()
+                console.log(me.rentada_por)
+                formData.append('accion',this.accion_ejecutar)
                 formData.append('propiedad_id',this.update)
                 formData.append('usuario_id',this.rentada_por)
                 console.log(formData);
