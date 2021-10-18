@@ -24,6 +24,10 @@
                                 </div> 
                                 <div class="col-md-4">
                                     <label>Telefono</label>
+                                    <input v-model="whatsapp" type="number" class="form-control">
+                                </div> 
+                                <div class="col-md-4">
+                                    <label>Telefono 2</label>
                                     <input v-model="phone" type="number" class="form-control">
                                 </div> 
                                 <div class="col-md-4">

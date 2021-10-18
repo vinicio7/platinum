@@ -49,6 +49,7 @@ class UserController extends Controller
             ['data' => 'name', 'title'=>'NOMBRE'],
             ['data' => 'email', 'title'=>'EMAIL'],
             ['data' => 'telefono', 'title'=>'TELEFONO'],
+             ['data' => 'whatsapp', 'title'=>'TELEFONO 2'],
             ['data' => 'estado', 'title'=>'ESTADO'],
             ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
         ]; 
@@ -116,7 +117,7 @@ class UserController extends Controller
     public function vendedores(Request $request)
     {
         try {
-            $rol = User::select('user_id','name')->where('rol_id',10)->get();
+            $rol = User::select('user_id','name')->whereIn('rol_id',[10,5])->get();
             $this->message = "Consulta correcta";
             $this->result = true;
             $this->records = $rol;
@@ -274,24 +275,24 @@ class UserController extends Controller
                 $user->save();
             }
             $user->rol_id          = $request->rol ?($request->rol):$user->rol_id;
-            $user->status          = $request->status;
-            $user->name            = $request->name;
-            $user->username        = $request->user;
-            $user->password        = bcrypt($request->password);
-            $user->email           = $request->email;
-            $user->phone           = $request->phone;
-            $user->adress          = $request->adress;
-            $user->gender          = $request->gender;
-            $user->document_id     = $request->document_id;
-            $user->birthdate       = $request->birthdate;
-            $user->marital_status  = $request->marital_status;
-            $user->title           = $request->title;
-            $user->facebook        = $request->facebook;
-            $user->twitter         = $request->twitter;
-            $user->whatsapp        = $request->whatsapp;
+            $user->status          = $request->status ?($request->status):$user->status;
+            $user->name            = $request->name ?($request->name):$user->name;
+            $user->username        = $request->user ?($request->user):$user->user;
+            $user->password        = bcrypt($request->password) ?bcrypt($request->password):$user->password;
+            $user->email           = $request->email ?($request->email):$user->email;
+            $user->phone           = $request->phone ?($request->phone):$user->phone;
+            $user->adress          = $request->adress ?($request->adress):$user->adress;
+            $user->gender          = $request->gender ?($request->gender):$user->gender;
+            $user->document_id     = $request->document_id ?($request->document_id):$user->document_id;
+            $user->birthdate       = $request->birthdate ?($request->birthdate):$user->birthdate;
+            $user->marital_status  = $request->marital_status ?($request->marital_status):$user->marital_status;
+            $user->title           = $request->title ?($request->title):$user->title;
+            $user->facebook        = $request->facebook ?($request->facebook):$user->facebook;
+            $user->twitter         = $request->twitter ?($request->twitter):$user->twitter;
+            $user->whatsapp        = $request->whatsapp ?($request->whatsapp):$user->whatsapp;
             $user->instagram       = $request->instagram?$request->instagram:$user->instagram;
-            $user->pinterest       = $request->pinterest;
-            $user->youtube         = $request->youtube;
+            $user->pinterest       = $request->pinterest ?($request->pinterest):$user->pinterest;
+            $user->youtube         = $request->youtube ?($request->youtube):$user->youtube;
             $user->linkedin        = $request->linkedin?$request->linkedin:$user->linkedin;
             $user->update();
         } else {

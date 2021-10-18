@@ -1286,7 +1286,6 @@ class PropertyController extends Controller
 			$properties->youtube                   = $request->input('youtube');
 			$properties->code                      = $request->input('code');
 			$properties->internal_note             = $request->input('internal_note');
-			$properties->status                    = $request->input('status');
 			$properties->save();
 			if($request->input('imagenes')){
 				$imagenes = explode(',',$request->input('imagenes'));
