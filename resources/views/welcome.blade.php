@@ -411,7 +411,7 @@ else {
                @endif
                <!-- END REVOLUTION SLIDER -->
                @if($browser == 1 || $browser == 2)
-               <img src="image/SarahAlzugaray2.png" style="width: 10em;height: 14em;float: left;position: absolute;z-index: 9999;margin-left: 1em;margin-top: -42.2em">
+               <img src="image/SarahAlzugaray2.png" style="width: 10em;height: 14em;float: left;position: absolute;z-index: 9999;margin-left: 1em;margin-top: -50.2em">
                @else
                <img src="image/SarahAlzugaray2.png" style="width: 15em;float: left;position: absolute;z-index: 9999;margin-left: 10em;margin-top: -42.7em">
                @endif

@@ -269,6 +269,13 @@
                                             <option v-for="propietario in propietarios" :value="propietario.user_id" >{{ propietario.name }}</option>
                                         </select>
                                     </div>
+                                    <div class="col-sm-3" >
+                                        <label>Agente</label>
+                                        <select class="form-control" v-model="vendedor_id">
+                                            <option value="0" disabled>Seleccione una opcion</option>
+                                            <option v-for="vendedor in vendedores" :value="vendedor.user_id" >{{ vendedor.name }}</option>
+                                        </select>
+                                    </div>
                                   </div>
                                   <div class="row">
                                      <div class="col-sm-3" >
@@ -315,29 +322,29 @@
                                   <div class="row">
                                     <div class="col-sm-3" >
                                         <label>Precio de venta (Q.)</label>
-                                        <input type="number" class="form-control" v-model="precio_venta_quetzales" v-on:keyup="cambio_venta_gtq"/>
+                                        <input type="text" class="form-control" v-model="precio_venta_quetzales" v-on:keyup="cambio_venta_gtq"/>
                                     </div>
                                      <div class="col-sm-3" >
                                         <label>Precio de venta ($.)</label>
-                                        <input type="number" class="form-control" v-model="precio_venta_dolares" v-on:keyup="cambio_venta_usd" />
+                                        <input type="text" class="form-control" v-model="precio_venta_dolares" v-on:keyup="cambio_venta_usd" />
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Honorarios venta (%)</label>
-                                        <input type="number" class="form-control" v-model="honorarios_venta" />
+                                        <input type="text" class="form-control" v-model="honorarios_venta" />
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col-sm-3" >
                                         <label>Precio de renta (Q.)</label>
-                                        <input type="number" class="form-control" v-model="precio_renta_quetzales" v-on:keyup="cambio_renta_gtq" />
+                                        <input type="text" class="form-control" v-model="precio_renta_quetzales" v-on:keyup="cambio_renta_gtq" />
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Precio de renta ($/)</label>
-                                        <input type="number" class="form-control" v-model="precio_renta_dolares" v-on:keyup="cambio_renta_usd"/>
+                                        <input type="text" class="form-control" v-model="precio_renta_dolares" v-on:keyup="cambio_renta_usd"/>
                                     </div>
                                     <div class="col-sm-3" >
                                         <label>Honorarios renta (%)</label>
-                                        <input type="number" class="form-control" v-model="honorarios_renta" />
+                                        <input type="text" class="form-control" v-model="honorarios_renta" />
                                     </div>
                                   </div>
                                   <div class="row">
@@ -432,11 +439,11 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Celular</label>
-                                        <input type="number" class="form-control" v-model="celular_visita" />
+                                        <input type="text" class="form-control" v-model="celular_visita" />
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Teléfono</label>
-                                        <input type="number" class="form-control" v-model="telefono_visita" />
+                                        <input type="text" class="form-control" v-model="telefono_visita" />
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Email</label>
@@ -447,38 +454,38 @@
                                     <div class="col-sm-12"><h2>Datos de Financimiento</h2></div>
                                     <div class="col-sm-3">
                                         <label>Enganche ($)</label>
-                                        <input type="number" class="form-control" v-model="enganche_dolares" />
+                                        <input type="text" class="form-control" v-model="enganche_dolares" />
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Enganche (Q.)</label>
-                                        <input type="number" class="form-control" v-model="enganche_quetzales" />
+                                        <input type="text" class="form-control" v-model="enganche_quetzales" />
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Tasa</label>
-                                        <input type="number" class="form-control" v-model="enganche_tasa" />
+                                        <input type="text" class="form-control" v-model="enganche_tasa" />
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Cuotas niveladas ($.)</label>
-                                        <input type="number" class="form-control" v-model="enganche_cuota" />
+                                        <input type="text" class="form-control" v-model="enganche_cuota" />
                                     </div>
                                      <div class="col-sm-3">
                                         <label>Cuotas niveladas (Q.)</label>
-                                        <input type="number" class="form-control" v-model="enganche_nivelado" />
+                                        <input type="text" class="form-control" v-model="enganche_nivelado" />
                                     </div>
                                      <div class="col-sm-3">
                                         <label>Plazo en meses</label>
-                                        <input type="number" class="form-control" v-model="enganche_plazo" />
+                                        <input type="text" class="form-control" v-model="enganche_plazo" />
                                     </div>
                                 </div>
                                 <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;"  v-if="cuota_mantenimiento == 1">
                                     <div class="col-sm-12"><h2>Datos de Mantenimiento</h2></div>
                                     <div class="col-sm-3">
                                         <label>Cuota($.)</label>
-                                        <input type="number" class="form-control" v-model="mantenimiento_dolares" />
+                                        <input type="text" class="form-control" v-model="mantenimiento_dolares" />
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Cuota(Q.)</label>
-                                        <input type="number" class="form-control" v-model="mantenimiento_quetzales" />
+                                        <input type="text" class="form-control" v-model="mantenimiento_quetzales" />
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Incluido en cuota mensual</label>
@@ -1228,31 +1235,31 @@
                                <div class="row">
                                  <div class="col-sm-3">
                                     <label>Valor del registro ($.)</label>
-                                    <input type="number" class="form-control" v-model="valor_registro_dolares" />
+                                    <input type="text" class="form-control" v-model="valor_registro_dolares" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>Valor del registro (Q.)</label>
-                                    <input type="number" class="form-control" v-model="valor_registro_quetzales" />
+                                    <input type="text" class="form-control" v-model="valor_registro_quetzales" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>IUSI Trimestral ($.)</label>
-                                    <input type="number" class="form-control" v-model="iusi_trimestral_dolares" />
+                                    <input type="text" class="form-control" v-model="iusi_trimestral_dolares" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>IUSI Trimestral (Q.)</label>
-                                    <input type="number" class="form-control" v-model="iusi_trimestral_quetzales" />
+                                    <input type="text" class="form-control" v-model="iusi_trimestral_quetzales" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>Folio</label>
-                                    <input type="number" class="form-control" v-model="folio" />
+                                    <input type="text" class="form-control" v-model="folio" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>Finca</label>
-                                    <input type="number" class="form-control" v-model="finca" />
+                                    <input type="text" class="form-control" v-model="finca" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>Libro</label>
-                                    <input type="number" class="form-control" v-model="libro" />
+                                    <input type="text" class="form-control" v-model="libro" />
                                  </div>
                                </div>
                                <div class="row">
@@ -1302,11 +1309,11 @@
                                  </div>
                                  <div class="col-sm-3">
                                     <label>Valor del avalúo ($.)</label>
-                                    <input type="number" class="form-control" v-model="avaluo_dolares" />
+                                    <input type="text" class="form-control" v-model="avaluo_dolares" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>Valor del avalúo (Q.)</label>
-                                    <input type="number" class="form-control" v-model="avaluo_quetzales" />
+                                    <input type="text" class="form-control" v-model="avaluo_quetzales" />
                                  </div>
                                   <div class="col-sm-3">
                                     <label>Tipo de avalúo</label>
@@ -1320,11 +1327,11 @@
                                <div class="row">
                                  <div class="col-sm-3">
                                     <label>Timbres</label>
-                                    <input type="number" class="form-control" v-model="timbres" />
+                                    <input type="text" class="form-control" v-model="timbres" />
                                  </div>
                                  <div class="col-sm-3">
                                     <label>IVA</label>
-                                    <input type="number" class="form-control" v-model="iva" />
+                                    <input type="text" class="form-control" v-model="iva" />
                                  </div>
                                </div>
                                <div class="row">
@@ -1539,9 +1546,9 @@
                 titulo:'',
                 propietario:1,
                 pais:0,
-                departamento:1,
-                municipio:1,
-                zona:1,
+                departamento:0,
+                municipio:0,
+                zona:0,
                 region:1,
                 direccion:'',
                 financiamiento:0,
@@ -1579,6 +1586,7 @@
                 propietarios:[],
                 propietarios_test:[{}],
                 vendedores:[],
+                vendedor_id:0,
                 vendedores_test:[{}],
                 departamentos:[],
                 municipios:[],
@@ -1623,29 +1631,29 @@
             this.usuario_id = this.datos_usuario
             this.agente = JSON.parse(this.datos_agente)
             this.editar_propiedad = JSON.parse(this.propiedad).propiertiy_id
-            console.log('editar ',this.editar_propiedad);
-            console.log(this.agente.rol_id);
+            //console.log('editar ',this.editar_propiedad);
+            //console.log(this.agente.rol_id);
             let me = this;
             let url = '/api/propietarios' 
             axios.get(url,{}).then(function (response) {
                 
                 me.propietarios = response.data.records;
-                console.log("propietarios");
-                console.log(me.propietarios);
+                //console.log("propietarios");
+                //console.log(me.propietarios);
             })
             .catch(function (error) {
-                console.log(error);
+                //console.log(error);
             });  
 
             let urlocho = '/api/vendedores' 
             axios.get(urlocho,{}).then(function (response) {
                 
                 me.vendedores = response.data.records;
-                console.log("vendedores");
-                console.log(me.vendedores);
+                //console.log("vendedores");
+                //console.log(me.vendedores);
             })
             .catch(function (error) {
-                console.log(error);
+                //console.log(error);
             });  
 
             if(this.editar_propiedad > 0){
@@ -1658,14 +1666,14 @@
                 me.departamentos = response.data.records;
             })
             .catch(function (error) {
-                console.log(error);
+                //console.log(error);
             });  
             let url3 = '/api/municipalities' 
             axios.get(url3,{}).then(function (response) {
                 me.municipios = response.data.records;
             })
             .catch(function (error) {
-                console.log(error);
+                //console.log(error);
             });  
 
             let url4 = '/api/zones' 
@@ -1673,7 +1681,7 @@
                 me.zonas = response.data.records;
             })
             .catch(function (error) {
-                console.log(error);
+                //console.log(error);
             });  
 
             let url5 = '/api/regions' 
@@ -1681,12 +1689,12 @@
                 me.regiones = response.data.records;
             })
             .catch(function (error) {
-                console.log(error);
+                //console.log(error);
             });  
             $('.table-responsive').on('click', (evt) => {
                 evt.stopImmediatePropagation();
                if ($(evt.target)[0].innerText == 'Editar') {
-                console.log($(evt.target)[0].id)
+                //console.log($(evt.target)[0].id)
                  this.loadFieldsUpdate($(evt.target)[0].id); 
                }
                else if ($(evt.target)[0].innerText == 'Acciones') {
@@ -1695,17 +1703,17 @@
                else if ($(evt.target)[0].innerText == 'Añadir') {
                  let url = '/api/propierty/add_pdf' 
                     let Data_id = event.target.id
-                    console.log(Data_id);
+                    //console.log(Data_id);
                     if (confirm('¿Seguro que deseas agregar esta propiedad para generar el pdf?')) {
                         axios.post(url,{ 
                         'propierty_id': Data_id,
                         'usuario_id': this.usuario_id,
                         }).then(function (response) {
-                            console.log(response);
+                            //console.log(response);
                             //location.reload();
                         })
                         .catch(function (error) {
-                            console.log(error);
+                            //console.log(error);
                         }); 
                     }
                }
@@ -1718,22 +1726,22 @@
                else if($(evt.target)[0].innerText == 'Eliminar'){
                     let url = '/api/propierty/delete' 
                     let Data_id = event.target.id
-                    console.log(Data_id);
+                    //console.log(Data_id);
                     if (confirm('¿Seguro que deseas eliminar este registro?')) {
                         axios.post(url,{ 
                         'propierty_id': Data_id,
                         }).then(function (response) {
-                            console.log(response);
-                            location.reload();
+                            //console.log(response);
+                        location.reload();
                         })
                         .catch(function (error) {
-                            console.log(error);
+                            //console.log(error);
                         }); 
                     }
                }
                else{
                   var texto = $(evt.target)[0].innerText;
-                  console.log(texto.length)
+                  //console.log(texto.length)
                   if(texto.length > 10){
                     me.propietario_unico      =  0;
                     me.nombre_contacto        =  '';
@@ -1745,7 +1753,7 @@
                     me.direccion_propietario  =  '';
                     me.email_propietario      =  '';
                     me.whatsapp_propietario   =  '';
-                    console.log($(evt.target)[0].id);
+                    //console.log($(evt.target)[0].id);
                     this.loadVenta($(evt.target)[0].id); 
                   }
                 
@@ -1791,24 +1799,24 @@
             },
             saveData(){
                 var url = '';
-                console.log(this.update)
+                //console.log(this.update)
                 if(this.update > 0){
                    url = '/api/propierty/edit' 
                 }else{
                    url = '/api/propierty/create' 
                 }
-                console.log(url)
+                //console.log(url)
                 const formData  = new FormData()
                 if(this.files){
                     formData.append('file', this.files, this.files.name)
                 }
-                console.log(this.imagenes)
+                //console.log(this.imagenes)
                 formData.append('propiedad_id',this.update)
                 formData.append('imagenes',this.imagenes) 
                 formData.append('title',this.title)
                 formData.append('type',this.tipo)
-                formData.append('user_id',this.usuario_id)//usuario logeado
-                formData.append('owner_id',this.propietario_id.user_id)
+                formData.append('user_id',this.vendedor_id)//usuario logeado
+                formData.append('owner_id',this.propietario_id)
                 formData.append('country_id',this.pais)
                 formData.append('departament_id',this.departamento.departament_id)
                 formData.append('municipality_id',this.municipio.municipality_id)
@@ -1962,45 +1970,45 @@
                 formData.append('trash_service',this.extraccion)
                 formData.append('clean_service',this.limpieza_areas)
                 formData.append('include_maintenance',this.incluid_mensual)
-                console.log(formData);
+                //console.log(formData);
                 axios.post(url,formData,{}).then(function (response) {
-                    console.log(response.data.records);
+                    //console.log(response.data.records);
                     if (response.data.result == false) {
-                        location.reload();
+                    location.reload();
                     }else{
                         //let me = this
                         //me.clearFields();
                         $('#exampleModal').modal('hide');
-                        location.reload();
+                    location.reload();
                     }
                 })
                 .catch(function (error) {
                     alert(error);
-                    console.log(error);
+                    //console.log(error);
                 });   
             },
             ejecutar(){
                 let me  = this;
                 let url = '/api/propierty/ejecutar' 
                 const formData  = new FormData()
-                console.log(me.rentada_por)
+                //console.log(me.rentada_por)
                 formData.append('accion',this.accion_ejecutar)
                 formData.append('propiedad_id',this.update)
                 formData.append('usuario_id',this.rentada_por)
-                console.log(formData);
+                //console.log(formData);
                 axios.post(url,formData,{}).then(function (response) {
-                    console.log(response.data.records);
+                    //console.log(response.data.records);
                     if (response.data.result == false) {
-                        location.reload();
+                    location.reload();
                     }else{
                         me.clearFields();
                         $('#exampleModal').modal('hide');
-                        location.reload();
+                    location.reload();
                     }
                 })
                 .catch(function (error) {
                     alert(error);
-                    console.log(error);
+                    //console.log(error);
                 });   
             },
             generarExcel(){
@@ -2031,7 +2039,7 @@
                   if (response.data.result == false) {
                     }else{
                         me.clearFields();
-                        location.reload();
+                    location.reload();
                     }
                 });
               },
@@ -2062,44 +2070,44 @@
                 const formData  = new FormData()
                 formData.append('propiedad_id',this.update)
                 formData.append('usuario_id',this.rentada_por)
-                console.log(formData);
+                //console.log(formData);
                 axios.get(url,formData,{}).then(function (response) {
-                    console.log(response.data.records);
+                    //console.log(response.data.records);
                     if (response.data.result == false) {
-                        location.reload();
+                    location.reload();
                     }else{
                         me.clearFields();
                         $('#exampleModal').modal('hide');
-                        location.reload();
+                    location.reload();
                     }
                 })
                 .catch(function (error) {
                     alert(error);
-                    console.log(error);
+                    //console.log(error);
                 });   
             },
             onCompleteWizard: async function() {
               await this.saveData();
             },
             uploadExitoso(file, response ) {
-              console.log(response.records);
+              //console.log(response.records);
               this.imagenes.push(response.records.id);
-              console.log(this.imagenes);
+              //console.log(this.imagenes);
             },
             loadRenta(id){ 
               this.update = id
               $('#modalrenta').modal('show');
             }, 
             loadVenta(id,propiedad){
-              console.log(propiedad) 
-              console.log(id)
+              //console.log(propiedad) 
+              //console.log(id)
                 this.update = id
                 let me  = this;
                 let url = '/api/propierty/showid';
                 axios.post(url,{ 
                     'propierty_id': this.update,
                 }).then(function (response) {
-                  console.log(response.data.records);
+                  //console.log(response.data.records);
                   me.propietario_unico      = response.data.records.owner_id;
                   me.nombre_contacto        =  response.data.records.name_contact;
                   me.telefono_contacto      =  response.data.records.telefono_contacto;
@@ -2114,7 +2122,7 @@
                   $('#modalventa').modal('show');
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    //console.log(error);
                 }); 
                 
                  
@@ -2178,7 +2186,7 @@
               });
             },   
             loadFieldsUpdate(id){ 
-                console.log("entro");
+                //console.log("entro");
                 $('#exampleModal').modal('show');
                 this.update = id
                 let me  = this;
@@ -2186,12 +2194,13 @@
                 axios.post(url,{ 
                     'propierty_id': this.update,
                 }).then(function (response) {
-                  console.log(response.data.records);
+                  //console.log(response.data.records);
                   me.titulo = response.data.records.title;
                   me.tipo =  response.data.records.type;
                   me.propietario_id =  response.data.records.owner_id;
                   console.log(me.propietario_id)
-                  
+                  me.vendedor_id = response.data.records.user_id;
+                  console.log(me.vendedor_id)
                   me.pais = response.data.records.country_id;
                   me.departamento = response.data.records.departament_id;
                   me.municipio = response.data.records.municipality_id;
@@ -2346,23 +2355,23 @@
                   me.incluid_mensual = response.data.records.include_maintenance;
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    //console.log(error);
                 }); 
             },            
             deleteData(data){
-              console.log(data);
+              //console.log(data);
                 let url = '/api/propierty/delete' 
                 let me = this;
                 let Data_id = data.propiertiy_id 
-                console.log(Data_id);
+                //console.log(Data_id);
                 if (confirm('¿Seguro que deseas eliminar este registro?')) {
                     axios.post(url,{ 
                     'propierty_id': Data_id,
                     }).then(function (response) {
-                        console.log(response);
+                        //console.log(response);
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        //console.log(error);
                     }); 
                 }
             },

@@ -4836,6 +4836,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4942,7 +4949,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       estufa_electrica: 0,
       blackouts: 0,
       camaras_seguridad: 0
-    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", 0), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "description", ''), _defineProperty(_ref, "valor_registro_dolares", ''), _defineProperty(_ref, "valor_registro_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_dolares", ''), _defineProperty(_ref, "folio", ''), _defineProperty(_ref, "finca", ''), _defineProperty(_ref, "libro", ''), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", ''), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", ''), _defineProperty(_ref, "gravamen_dolares", ''), _defineProperty(_ref, "nombre_banco", ''), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", ''), _defineProperty(_ref, "avaluo_quetzales", ''), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "accion_ejecutar", 0), _defineProperty(_ref, "timbres", ''), _defineProperty(_ref, "iva", ''), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ''), _defineProperty(_ref, "propietario", 1), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 1), _defineProperty(_ref, "municipio", 1), _defineProperty(_ref, "zona", 1), _defineProperty(_ref, "region", 1), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 0), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", 0), _defineProperty(_ref, "contacto_visita", 0), _defineProperty(_ref, "cuota_mantenimiento", 0), _defineProperty(_ref, "servicios", 0), _defineProperty(_ref, "agente", []), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 0), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", ''), _defineProperty(_ref, "enganche_nivelado", ''), _defineProperty(_ref, "enganche_cuota", ''), _defineProperty(_ref, "enganche_tasa", ''), _defineProperty(_ref, "enganche_quetzales", ''), _defineProperty(_ref, "enganche_dolares", ''), _defineProperty(_ref, "mantenimiento_dolares", ''), _defineProperty(_ref, "mantenimiento_quetzales", ''), _defineProperty(_ref, "compartida_porcentaje", ''), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "propierty_id", 0), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "vendedores", []), _defineProperty(_ref, "vendedores_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "editar_propiedad", 0), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", ''), _defineProperty(_ref, "porcentaje_externa", ''), _defineProperty(_ref, "empresa_externa", ''), _defineProperty(_ref, "asesor_externo", ''), _defineProperty(_ref, "dropzoneOptions", {
+    }, _defineProperty(_ref, "lavavajillas", 0), _defineProperty(_ref, "cortinas_bano", 0), _defineProperty(_ref, "paneles_solares", 0), _defineProperty(_ref, "camapana", 0), _defineProperty(_ref, "calentador_agua", 0), _defineProperty(_ref, "bomba_cisterna", 0), _defineProperty(_ref, "lavadora", 0), _defineProperty(_ref, "espejo_bano", 0), _defineProperty(_ref, "deposito_basura", 0), _defineProperty(_ref, "secadora", 0), _defineProperty(_ref, "otros_incluye", 0), _defineProperty(_ref, "garita", 0), _defineProperty(_ref, "gimnasio", 0), _defineProperty(_ref, "juegos_infantiles", 0), _defineProperty(_ref, "guardiania", 0), _defineProperty(_ref, "sauna", 0), _defineProperty(_ref, "piscina", 0), _defineProperty(_ref, "area_social", 0), _defineProperty(_ref, "spa", 0), _defineProperty(_ref, "acceso_silla", 0), _defineProperty(_ref, "area_mascotas", 0), _defineProperty(_ref, "salon_belleza", 0), _defineProperty(_ref, "planta_telefonica", 0), _defineProperty(_ref, "parqueo_visitas", 0), _defineProperty(_ref, "canchas_deportivas", 0), _defineProperty(_ref, "razor_ribbon", 0), _defineProperty(_ref, "bussines_center", 0), _defineProperty(_ref, "otras_amenidades", ''), _defineProperty(_ref, "description", ''), _defineProperty(_ref, "valor_registro_dolares", ''), _defineProperty(_ref, "valor_registro_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_quetzales", ''), _defineProperty(_ref, "iusi_trimestral_dolares", ''), _defineProperty(_ref, "folio", ''), _defineProperty(_ref, "finca", ''), _defineProperty(_ref, "libro", ''), _defineProperty(_ref, "inscrito_sociedad_anonima", 0), _defineProperty(_ref, "sociedad_anonima", ''), _defineProperty(_ref, "gravamen_hipotecario", 0), _defineProperty(_ref, "gravamen_quetzales", ''), _defineProperty(_ref, "gravamen_dolares", ''), _defineProperty(_ref, "nombre_banco", ''), _defineProperty(_ref, "avalui_reciente", 0), _defineProperty(_ref, "avaluo_dolares", ''), _defineProperty(_ref, "avaluo_quetzales", ''), _defineProperty(_ref, "tipo_avaluo", 0), _defineProperty(_ref, "accion_ejecutar", 0), _defineProperty(_ref, "timbres", ''), _defineProperty(_ref, "iva", ''), _defineProperty(_ref, "link_tour", ''), _defineProperty(_ref, "notas_internas", ''), _defineProperty(_ref, "tipo", 0), _defineProperty(_ref, "titulo", ''), _defineProperty(_ref, "propietario", 1), _defineProperty(_ref, "pais", 0), _defineProperty(_ref, "departamento", 0), _defineProperty(_ref, "municipio", 0), _defineProperty(_ref, "zona", 0), _defineProperty(_ref, "region", 1), _defineProperty(_ref, "direccion", ''), _defineProperty(_ref, "financiamiento", 0), _defineProperty(_ref, "canje", 0), _defineProperty(_ref, "especifique_canje", 0), _defineProperty(_ref, "contacto_visita", 0), _defineProperty(_ref, "cuota_mantenimiento", 0), _defineProperty(_ref, "servicios", 0), _defineProperty(_ref, "agente", []), _defineProperty(_ref, "publicacion_redes", 0), _defineProperty(_ref, "exclusividad", 0), _defineProperty(_ref, "compartida", 0), _defineProperty(_ref, "nombre_visita", ''), _defineProperty(_ref, "telefono_visita", ''), _defineProperty(_ref, "celular_visita", ''), _defineProperty(_ref, "email_visita", ''), _defineProperty(_ref, "enganche_plazo", ''), _defineProperty(_ref, "enganche_nivelado", ''), _defineProperty(_ref, "enganche_cuota", ''), _defineProperty(_ref, "enganche_tasa", ''), _defineProperty(_ref, "enganche_quetzales", ''), _defineProperty(_ref, "enganche_dolares", ''), _defineProperty(_ref, "mantenimiento_dolares", ''), _defineProperty(_ref, "mantenimiento_quetzales", ''), _defineProperty(_ref, "compartida_porcentaje", ''), _defineProperty(_ref, "compartida_empresa", ''), _defineProperty(_ref, "compartida_asesor", ''), _defineProperty(_ref, "agua", 0), _defineProperty(_ref, "luz", 0), _defineProperty(_ref, "seguridad", 0), _defineProperty(_ref, "extraccion", 0), _defineProperty(_ref, "limpieza_areas", 0), _defineProperty(_ref, "incluid_mensual", 0), _defineProperty(_ref, "propierty_id", 0), _defineProperty(_ref, "propietarios", []), _defineProperty(_ref, "propietarios_test", [{}]), _defineProperty(_ref, "vendedores", []), _defineProperty(_ref, "vendedor_id", 0), _defineProperty(_ref, "vendedores_test", [{}]), _defineProperty(_ref, "departamentos", []), _defineProperty(_ref, "municipios", []), _defineProperty(_ref, "zonas", []), _defineProperty(_ref, "editar_propiedad", 0), _defineProperty(_ref, "regiones", []), _defineProperty(_ref, "titulo_1", "INMUEBLE"), _defineProperty(_ref, "titulo_2", "DETALLES"), _defineProperty(_ref, "titulo_3", "AMENIDADES"), _defineProperty(_ref, "titulo_4", "ARBITRIOS"), _defineProperty(_ref, "files", null), _defineProperty(_ref, "arrayData", []), _defineProperty(_ref, "update", ''), _defineProperty(_ref, "porcentaje_externa", ''), _defineProperty(_ref, "empresa_externa", ''), _defineProperty(_ref, "asesor_externo", ''), _defineProperty(_ref, "dropzoneOptions", {
       url: '/api/propierty/image',
       method: 'post',
       paramName: 'archivo',
@@ -4969,25 +4976,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.usuario_id = this.datos_usuario;
     this.agente = JSON.parse(this.datos_agente);
-    this.editar_propiedad = JSON.parse(this.propiedad).propiertiy_id;
-    console.log('editar ', this.editar_propiedad);
-    console.log(this.agente.rol_id);
+    this.editar_propiedad = JSON.parse(this.propiedad).propiertiy_id; //console.log('editar ',this.editar_propiedad);
+    //console.log(this.agente.rol_id);
+
     var me = this;
     var url = '/api/propietarios';
     axios.get(url, {}).then(function (response) {
-      me.propietarios = response.data.records;
-      console.log("propietarios");
-      console.log(me.propietarios);
-    })["catch"](function (error) {
-      console.log(error);
+      me.propietarios = response.data.records; //console.log("propietarios");
+      //console.log(me.propietarios);
+    })["catch"](function (error) {//console.log(error);
     });
     var urlocho = '/api/vendedores';
     axios.get(urlocho, {}).then(function (response) {
-      me.vendedores = response.data.records;
-      console.log("vendedores");
-      console.log(me.vendedores);
-    })["catch"](function (error) {
-      console.log(error);
+      me.vendedores = response.data.records; //console.log("vendedores");
+      //console.log(me.vendedores);
+    })["catch"](function (error) {//console.log(error);
     });
 
     if (this.editar_propiedad > 0) {
@@ -4997,49 +5000,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var url2 = '/api/departaments';
     axios.get(url2, {}).then(function (response) {
       me.departamentos = response.data.records;
-    })["catch"](function (error) {
-      console.log(error);
+    })["catch"](function (error) {//console.log(error);
     });
     var url3 = '/api/municipalities';
     axios.get(url3, {}).then(function (response) {
       me.municipios = response.data.records;
-    })["catch"](function (error) {
-      console.log(error);
+    })["catch"](function (error) {//console.log(error);
     });
     var url4 = '/api/zones';
     axios.get(url4, {}).then(function (response) {
       me.zonas = response.data.records;
-    })["catch"](function (error) {
-      console.log(error);
+    })["catch"](function (error) {//console.log(error);
     });
     var url5 = '/api/regions';
     axios.get(url5, {}).then(function (response) {
       me.regiones = response.data.records;
-    })["catch"](function (error) {
-      console.log(error);
+    })["catch"](function (error) {//console.log(error);
     });
     jquery__WEBPACK_IMPORTED_MODULE_7___default()('.table-responsive').on('click', function (evt) {
       evt.stopImmediatePropagation();
 
       if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Editar') {
-        console.log(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
-
+        //console.log($(evt.target)[0].id)
         _this.loadFieldsUpdate(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Acciones') {
         _this.loadRenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Añadir') {
         var _url = '/api/propierty/add_pdf';
-        var Data_id = event.target.id;
-        console.log(Data_id);
+        var Data_id = event.target.id; //console.log(Data_id);
 
         if (confirm('¿Seguro que deseas agregar esta propiedad para generar el pdf?')) {
           axios.post(_url, {
             'propierty_id': Data_id,
             'usuario_id': _this.usuario_id
-          }).then(function (response) {
-            console.log(response); //location.reload();
-          })["catch"](function (error) {
-            console.log(error);
+          }).then(function (response) {//console.log(response);
+            //location.reload();
+          })["catch"](function (error) {//console.log(error);
           });
         }
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'PDF') {
@@ -5048,22 +5044,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.downloadTour(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
       } else if (jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText == 'Eliminar') {
         var _url2 = '/api/propierty/delete';
-        var _Data_id = event.target.id;
-        console.log(_Data_id);
+        var _Data_id = event.target.id; //console.log(Data_id);
 
         if (confirm('¿Seguro que deseas eliminar este registro?')) {
           axios.post(_url2, {
             'propierty_id': _Data_id
           }).then(function (response) {
-            console.log(response);
+            //console.log(response);
             location.reload();
-          })["catch"](function (error) {
-            console.log(error);
+          })["catch"](function (error) {//console.log(error);
           });
         }
       } else {
-        var texto = jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText;
-        console.log(texto.length);
+        var texto = jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].innerText; //console.log(texto.length)
 
         if (texto.length > 10) {
           me.propietario_unico = 0;
@@ -5075,8 +5068,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           me.telefono_propietario = '';
           me.direccion_propietario = '';
           me.email_propietario = '';
-          me.whatsapp_propietario = '';
-          console.log(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
+          me.whatsapp_propietario = ''; //console.log($(evt.target)[0].id);
 
           _this.loadVenta(jquery__WEBPACK_IMPORTED_MODULE_7___default()(evt.target)[0].id);
         }
@@ -5128,30 +5120,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.precio_renta_dolares = (this.precio_renta_quetzales / 7.8).toFixed(2);
     },
     saveData: function saveData() {
-      var url = '';
-      console.log(this.update);
+      var url = ''; //console.log(this.update)
 
       if (this.update > 0) {
         url = '/api/propierty/edit';
       } else {
         url = '/api/propierty/create';
-      }
+      } //console.log(url)
 
-      console.log(url);
+
       var formData = new FormData();
 
       if (this.files) {
         formData.append('file', this.files, this.files.name);
-      }
+      } //console.log(this.imagenes)
 
-      console.log(this.imagenes);
+
       formData.append('propiedad_id', this.update);
       formData.append('imagenes', this.imagenes);
       formData.append('title', this.title);
       formData.append('type', this.tipo);
-      formData.append('user_id', this.usuario_id); //usuario logeado
+      formData.append('user_id', this.vendedor_id); //usuario logeado
 
-      formData.append('owner_id', this.propietario_id.user_id);
+      formData.append('owner_id', this.propietario_id);
       formData.append('country_id', this.pais);
       formData.append('departament_id', this.departamento.departament_id);
       formData.append('municipality_id', this.municipio.municipality_id);
@@ -5304,11 +5295,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formData.append('security_service', this.seguridad);
       formData.append('trash_service', this.extraccion);
       formData.append('clean_service', this.limpieza_areas);
-      formData.append('include_maintenance', this.incluid_mensual);
-      console.log(formData);
-      axios.post(url, formData, {}).then(function (response) {
-        console.log(response.data.records);
+      formData.append('include_maintenance', this.incluid_mensual); //console.log(formData);
 
+      axios.post(url, formData, {}).then(function (response) {
+        //console.log(response.data.records);
         if (response.data.result == false) {
           location.reload();
         } else {
@@ -5318,22 +5308,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           location.reload();
         }
       })["catch"](function (error) {
-        alert(error);
-        console.log(error);
+        alert(error); //console.log(error);
       });
     },
     ejecutar: function ejecutar() {
       var me = this;
       var url = '/api/propierty/ejecutar';
-      var formData = new FormData();
-      console.log(me.rentada_por);
+      var formData = new FormData(); //console.log(me.rentada_por)
+
       formData.append('accion', this.accion_ejecutar);
       formData.append('propiedad_id', this.update);
-      formData.append('usuario_id', this.rentada_por);
-      console.log(formData);
-      axios.post(url, formData, {}).then(function (response) {
-        console.log(response.data.records);
+      formData.append('usuario_id', this.rentada_por); //console.log(formData);
 
+      axios.post(url, formData, {}).then(function (response) {
+        //console.log(response.data.records);
         if (response.data.result == false) {
           location.reload();
         } else {
@@ -5342,8 +5330,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           location.reload();
         }
       })["catch"](function (error) {
-        alert(error);
-        console.log(error);
+        alert(error); //console.log(error);
       });
     },
     generarExcel: function generarExcel() {
@@ -5401,11 +5388,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var url = '/api/propierty/sale';
       var formData = new FormData();
       formData.append('propiedad_id', this.update);
-      formData.append('usuario_id', this.rentada_por);
-      console.log(formData);
-      axios.get(url, formData, {}).then(function (response) {
-        console.log(response.data.records);
+      formData.append('usuario_id', this.rentada_por); //console.log(formData);
 
+      axios.get(url, formData, {}).then(function (response) {
+        //console.log(response.data.records);
         if (response.data.result == false) {
           location.reload();
         } else {
@@ -5414,8 +5400,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           location.reload();
         }
       })["catch"](function (error) {
-        alert(error);
-        console.log(error);
+        alert(error); //console.log(error);
       });
     },
     onCompleteWizard: function () {
@@ -5442,24 +5427,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return onCompleteWizard;
     }(),
     uploadExitoso: function uploadExitoso(file, response) {
-      console.log(response.records);
-      this.imagenes.push(response.records.id);
-      console.log(this.imagenes);
+      //console.log(response.records);
+      this.imagenes.push(response.records.id); //console.log(this.imagenes);
     },
     loadRenta: function loadRenta(id) {
       this.update = id;
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalrenta').modal('show');
     },
     loadVenta: function loadVenta(id, propiedad) {
-      console.log(propiedad);
-      console.log(id);
+      //console.log(propiedad) 
+      //console.log(id)
       this.update = id;
       var me = this;
       var url = '/api/propierty/showid';
       axios.post(url, {
         'propierty_id': this.update
       }).then(function (response) {
-        console.log(response.data.records);
+        //console.log(response.data.records);
         me.propietario_unico = response.data.records.owner_id;
         me.nombre_contacto = response.data.records.name_contact;
         me.telefono_contacto = response.data.records.telefono_contacto;
@@ -5471,8 +5455,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         me.email_propietario = response.data.records.email_propietario;
         me.whatsapp_propietario = response.data.records.whatsapp_propietario;
         jquery__WEBPACK_IMPORTED_MODULE_7___default()('#modalventa').modal('show');
-      })["catch"](function (error) {
-        console.log(error);
+      })["catch"](function (error) {//console.log(error);
       });
     },
     abrir_downloadPdf: function abrir_downloadPdf(id) {
@@ -5534,7 +5517,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     loadFieldsUpdate: function loadFieldsUpdate(id) {
-      console.log("entro");
+      //console.log("entro");
       jquery__WEBPACK_IMPORTED_MODULE_7___default()('#exampleModal').modal('show');
       this.update = id;
       var me = this;
@@ -5542,11 +5525,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.post(url, {
         'propierty_id': this.update
       }).then(function (response) {
-        console.log(response.data.records);
+        //console.log(response.data.records);
         me.titulo = response.data.records.title;
         me.tipo = response.data.records.type;
         me.propietario_id = response.data.records.owner_id;
         console.log(me.propietario_id);
+        me.vendedor_id = response.data.records.user_id;
+        console.log(me.vendedor_id);
         me.pais = response.data.records.country_id;
         me.departamento = response.data.records.departament_id;
         me.municipio = response.data.records.municipality_id;
@@ -5699,24 +5684,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         me.extraccion = response.data.records.trash_service;
         me.limpieza_areas = response.data.records.clean_service;
         me.incluid_mensual = response.data.records.include_maintenance;
-      })["catch"](function (error) {
-        console.log(error);
+      })["catch"](function (error) {//console.log(error);
       });
     },
     deleteData: function deleteData(data) {
-      console.log(data);
+      //console.log(data);
       var url = '/api/propierty/delete';
       var me = this;
-      var Data_id = data.propiertiy_id;
-      console.log(Data_id);
+      var Data_id = data.propiertiy_id; //console.log(Data_id);
 
       if (confirm('¿Seguro que deseas eliminar este registro?')) {
         axios.post(url, {
           'propierty_id': Data_id
-        }).then(function (response) {
-          console.log(response);
-        })["catch"](function (error) {
-          console.log(error);
+        }).then(function (response) {//console.log(response);
+        })["catch"](function (error) {//console.log(error);
         });
       }
     },
@@ -66451,6 +66432,61 @@ var render = function() {
                                   ],
                                   2
                                 )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-sm-3" }, [
+                                _c("label", [_vm._v("Agente")]),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.vendedor_id,
+                                        expression: "vendedor_id"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    on: {
+                                      change: function($event) {
+                                        var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function(
+                                            o
+                                          ) {
+                                            return o.selected
+                                          })
+                                          .map(function(o) {
+                                            var val =
+                                              "_value" in o ? o._value : o.value
+                                            return val
+                                          })
+                                        _vm.vendedor_id = $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "option",
+                                      { attrs: { value: "0", disabled: "" } },
+                                      [_vm._v("Seleccione una opcion")]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.vendedores, function(vendedor) {
+                                      return _c(
+                                        "option",
+                                        {
+                                          domProps: { value: vendedor.user_id }
+                                        },
+                                        [_vm._v(_vm._s(vendedor.name))]
+                                      )
+                                    })
+                                  ],
+                                  2
+                                )
                               ])
                             ]),
                             _vm._v(" "),
@@ -66740,7 +66776,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: {
                                     value: _vm.precio_venta_quetzales
                                   },
@@ -66770,7 +66806,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.precio_venta_dolares },
                                   on: {
                                     keyup: _vm.cambio_venta_usd,
@@ -66798,7 +66834,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.honorarios_venta },
                                   on: {
                                     input: function($event) {
@@ -66826,7 +66862,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: {
                                     value: _vm.precio_renta_quetzales
                                   },
@@ -66856,7 +66892,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.precio_renta_dolares },
                                   on: {
                                     keyup: _vm.cambio_renta_usd,
@@ -66884,7 +66920,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.honorarios_renta },
                                   on: {
                                     input: function($event) {
@@ -67493,7 +67529,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: { value: _vm.celular_visita },
                                         on: {
                                           input: function($event) {
@@ -67520,7 +67556,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: {
                                           value: _vm.telefono_visita
                                         },
@@ -67597,7 +67633,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: {
                                           value: _vm.enganche_dolares
                                         },
@@ -67626,7 +67662,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: {
                                           value: _vm.enganche_quetzales
                                         },
@@ -67655,7 +67691,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: { value: _vm.enganche_tasa },
                                         on: {
                                           input: function($event) {
@@ -67684,7 +67720,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: { value: _vm.enganche_cuota },
                                         on: {
                                           input: function($event) {
@@ -67713,7 +67749,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: {
                                           value: _vm.enganche_nivelado
                                         },
@@ -67742,7 +67778,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: { value: _vm.enganche_plazo },
                                         on: {
                                           input: function($event) {
@@ -67790,7 +67826,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: {
                                           value: _vm.mantenimiento_dolares
                                         },
@@ -67820,7 +67856,7 @@ var render = function() {
                                           }
                                         ],
                                         staticClass: "form-control",
-                                        attrs: { type: "number" },
+                                        attrs: { type: "text" },
                                         domProps: {
                                           value: _vm.mantenimiento_quetzales
                                         },
@@ -72658,7 +72694,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: {
                                     value: _vm.valor_registro_dolares
                                   },
@@ -72689,7 +72725,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: {
                                     value: _vm.valor_registro_quetzales
                                   },
@@ -72718,7 +72754,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: {
                                     value: _vm.iusi_trimestral_dolares
                                   },
@@ -72747,7 +72783,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: {
                                     value: _vm.iusi_trimestral_quetzales
                                   },
@@ -72776,7 +72812,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.folio },
                                   on: {
                                     input: function($event) {
@@ -72802,7 +72838,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.finca },
                                   on: {
                                     input: function($event) {
@@ -72828,7 +72864,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.libro },
                                   on: {
                                     input: function($event) {
@@ -73126,7 +73162,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.avaluo_dolares },
                                   on: {
                                     input: function($event) {
@@ -73152,7 +73188,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.avaluo_quetzales },
                                   on: {
                                     input: function($event) {
@@ -73232,7 +73268,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.timbres },
                                   on: {
                                     input: function($event) {
@@ -73258,7 +73294,7 @@ var render = function() {
                                     }
                                   ],
                                   staticClass: "form-control",
-                                  attrs: { type: "number" },
+                                  attrs: { type: "text" },
                                   domProps: { value: _vm.iva },
                                   on: {
                                     input: function($event) {

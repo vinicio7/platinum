@@ -563,7 +563,7 @@ class PropertyController extends Controller
 				'code'                      => $request->input('code'),
 				'internal_note'             => $request->input('internal_note'),
 				'jardin_trasero'            => $request->input('jardin_trasero'),
-				'desayunador'             	=> $request->input('desayunador'),
+				//'desayunador'             	=> $request->input('desayunador'),
 				'status'                    => 1
 			]);
 			if($properties){
@@ -580,7 +580,7 @@ class PropertyController extends Controller
 					}
 				}
 			}
-			$this->message = "Consulta correcta";
+			$this->message = "Grabacion correcta";
 			$this->result = true;
 			$this->records = $properties;
 		 } catch (\Exception $e) {
