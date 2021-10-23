@@ -13,7 +13,7 @@
               </div>
             </div>
             <br>
-            <button type="button" v-if="agente.rol_id != 10" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;">
+            <button type="button" v-if="agente.rol_id != 10" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color: #12264d;border-color: #12264d;" @click="limpiarData()">
               + Crear propiedad
             </button> 
              <button type="button" v-if="agente.rol_id != 10" class="btn btn-success" @click="generarExcel()">
@@ -229,7 +229,7 @@
                                                      language:'es'}"
                                              type="text"  class="form-control" v-model="titulo"/>
                                     </div>
-                                    <div class="col-sm-12" >
+                                    <div class="col-sm-12" style="display:none">
                                         <label>Subtitulo</label>
                                         <editor :init="{branding:false, plugins: [
                                                        'advlist autolink lists link image charmap print preview anchor',
@@ -266,7 +266,7 @@
                                         <label>Propietario</label>
                                         <select class="form-control" v-model="propietario_id">
                                             <option value="0" disabled>Seleccione una opcion</option>
-                                            <option v-for="propietario in propietarios" :value="propietario.user_id" >{{ propietario.name }}</option>
+                                            <option v-for="propietario in propietarios" :value="propietario.user_id" >{{propietario.user_id}} {{ propietario.name }}</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-3" >
@@ -1798,6 +1798,7 @@
               this.precio_renta_dolares = (this.precio_renta_quetzales / 7.8).toFixed(2);
             },
             saveData(){
+                this.editar_propiedad = 0;
                 var url = '';
                 //console.log(this.update)
                 if(this.update > 0){
@@ -2211,16 +2212,10 @@
                   me.precio_renta_quetzales =  response.data.records.rent_gtq;
                   me.honorarios_renta =  response.data.records.fee_rent;
                   me.honorarios_venta =  response.data.records.fee_sale;
-                  me.lavavajillas = response.data.records.lavavajillas;
-                  me.ambientes = response.data.records.ambientes;
-                  me.terreno = response.data.records.land_vrs;
-                  me.construccion =  response.data.records.build_mts;
-                  me.frente =  response.data.records.front_mts;
-                  me.fondo = response.data.records.bottom_mts;
-                  me.ano_construccion =  response.data.records.build_year;
-                  me.niveles = response.data.records.levels;
+                  me.lavavajillas = 0;
+                  me.terreno = response.data.records.land_vrs;          
+                  me.fondo = response.data.records.bottom_mts; 
                   me.dormitorios = response.data.records.rooms;
-                  me.dormitorios_servicio =  response.data.records.service_rooms;
                   me.banos = response.data.records.bathrooms;
                   me.banos_servicio = response.data.records.bathrooms_service;
                   me.parqueos_techados = response.data.records.parking_roof;
@@ -2357,7 +2352,166 @@
                 .catch(function (error) {
                     //console.log(error);
                 }); 
-            },            
+            },
+            limpiarData(){ 
+                  //console.log(response.data.records);
+                  this.titulo                    = '';
+                  this.tipo                      = '';
+                  this.propietario_id            = '';
+                  this.vendedor_id               = '';
+                  this.pais                      = '';
+                  this.departamento              = '';
+                  this.municipio                 = '';
+                  this.zona                      = '';
+                  this.precio_venta_dolares      = '';
+                  this.precio_venta_quetzales    = '';
+                  this.precio_renta_dolares      = '';
+                  this.precio_renta_quetzales    = '';
+                  this.honorarios_renta          = '';
+                  this.honorarios_venta          = '';
+                  this.lavavajillas              = '';
+                  this.ambientes                 = '';
+                  this.terreno                   = '';
+                  this.construccion              = '';
+                  this.frente                    = '';
+                  this.fondo                     = '';
+                  this.ano_construccion          = '';
+                  this.niveles                   = '';
+                  this.dormitorios               = '';
+                  this.dormitorios_servicio      = '';
+                  this.banos                     = '';
+                  this.banos_servicio            = '';
+                  this.parqueos_techados         = '';
+                  this.parqueos_notechados       = '';
+                  this.oficinas                  = '';
+                  this.bodegas                   = '';
+                  this.locales                   = '';
+                  this.porton                    = '';
+                  this.alacena                   = '';
+                  this.closet_blancos            = '';
+                  this.jardin_frontal            = '';
+                  this.despensa                  = '';
+                  this.tina                      = '';
+                  this.jardin_trasero            = '';
+                  this.desayunador               = '';
+                  this.ducha                     = '';
+                  this.bano_visita               = '';
+                  this.lavanderia                = '';
+                  this.bidet                     = '';
+                  this.dormitorio_visita         = '';
+                  this.patio                     = '';
+                  this.jetina                    = '';
+                  this.estudio                   = '';
+                  this.pergola                   = '';
+                  this.jacuzzi                   = '';
+                  this.sala                      = '';
+                  this.bodega                    = '';
+                  this.sauna                     = '';
+                  this.chimenea                  = '';
+                  this.bodega_jardin             = '';
+                  this.balcon                    = '';
+                  this.sala_comedor              = '';
+                  this.sala_familiar             = '';
+                  this.terraza                   = '';
+                  this.comedor                   = '';
+                  this.walkin_closet             = '';
+                  this.churrasquera              = '';
+                  this.cocina_gabinetes          = '';
+                  this.closet                    = '';
+                  this.otros_detalles            = '';
+                  this.refrigeradora             = '';
+                  this.lamparas                  = '';
+                  this.aire_acondicionado        = '';
+                  this.estufa                    = '';
+                  this.cortinas                  = '';
+                  this.alarma                    = '';
+                  this.estufa_electrica          = '';
+                  this.blackouts                 = '';
+                  this.camaras_seguridad         = '';
+                  this.lavavajillas              = '';
+                  this.cortinas_bano             = '';
+                  this.paneles_solares           = '';
+                  this.campana                   = '';
+                  this.calentador_agua           = '';
+                  this.bomba_cisterna            = '';
+                  this.lavadora                  = '';
+                  this.espejo_bano               = '';
+                  this.deposito_basura           = '';
+                  this.secadora                  = '';
+                  this.otros_incluye             = '';
+                  this.garita                    = '';
+                  this.gimnasio                  = '';
+                  this.juegos_infantiles         = '';
+                  this.guardiania                = '';
+                  this.sauna                     = '';
+                  this.piscina                   = '';
+                  this.area_social               = '';
+                  this.spa                       = '';
+                  this.acceso_silla              = '';
+                  this.area_mascotas             = '';
+                  this.salon_belleza             = '';
+                  this.planta_telefonica         = '';
+                  this.parqueo_visitas           = '';
+                  this.canchas_deportivas        = '';
+                  this.razor_ribbon              = '';
+                  this.bussines_center           = '';
+                  this.otras_amenidades          = '';
+                  this.description               = '';
+                  this.valor_registro_dolares    = '';
+                  this.valor_registro_quetzales  = '';
+                  this.iusi_trimestral_quetzales = '';
+                  this.iusi_trimestral_dolares   = '';
+                  this.folio                     = '';
+                  this.finca                     = '';
+                  this.libro                     = '';
+                  this.inscrito_sociedad_anonima = '';
+                  this.sociedad_anonima          = '';
+                  this.gravamen_hipotecario      = '';
+                  this.gravamen_quetzales        = '';
+                  this.gravamen_dolares          = '';
+                  this.nombre_banco              = '';
+                  this.avalui_reciente           = '';
+                  this.avaluo_dolares            = '';
+                  this.avaluo_quetzales          = '';
+                  this.tipo_avaluo               = '';
+                  this.timbres                   = '';
+                  this.iva                       = '';
+                  this.link_tour                 = '';
+                  this.notas_internas            = '';
+                  this.titulo                    = '';
+                  this.subtitulo                 = '';
+                  this.propietario               = '';
+                  this.direccion                 = '';
+                  this.financiamiento            = '';
+                  this.enganche_plazo            = '';
+                  this.enganche_nivelado         = '';
+                  this.enganche_cuota            = '';
+                  this.enganche_tasa             = '';
+                  this.enganche_quetzales        = '';
+                  this.enganche_dolares          = '';
+                  this.canje                     = '';
+                  this.especifique_canje         = '';
+                  this.cuota_mantenimiento       = '';
+                  this.servicios                 = '';
+                  this.publicacion_redes         = '';
+                  this.exclusividad              = '';
+                  this.compartida                = '';
+                  this.nombre_visita             = '';
+                  this.telefono_visita           = '';
+                  this.celular_visita            = '';
+                  this.email_visita              = '';
+                  this.mantenimiento_dolares     = '';
+                  this.mantenimiento_quetzales   = '';
+                  this.compartida_porcentaje     = '';
+                  this.compartida_empresa        = '';
+                  this.compartida_asesor         = '';
+                  this.agua                      = '';
+                  this.luz                       = '';
+                  this.seguridad                 = '';
+                  this.extraccion                = '';
+                  this.limpieza_areas            = '';
+                  this.incluid_mensual           = '';
+            },              
             deleteData(data){
               //console.log(data);
                 let url = '/api/propierty/delete' 

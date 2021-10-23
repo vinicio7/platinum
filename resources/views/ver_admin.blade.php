@@ -262,10 +262,11 @@ img.hover-shadow {
               <div class="page_content_wrap">
                <div class="content_wrap">
                   <div class="content" >
+                    <button class="btn btn-danger" onclick="location.href='../../../propierties'" type="submit" style="background-color: #e40a0a">Regresar</button>
                       @php
                         $texto =  strip_tags($test->title)  
                       @endphp
-                    <h3 class="post_title">{!!nl2br($test->title)!!}</h3>
+                    <h3 class="post_title">{!!nl2br($texto)!!}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
                           <b>Codigo: {{$test->propiertiy_id}}</b>

@@ -346,7 +346,7 @@ img.hover-shadow {
                       @php
                         $texto =  strip_tags($test->title)  
                       @endphp
-                    <h3 class="post_title">{!!nl2br($test->title)!!}</h3>
+                    <h3 class="post_title">{!!nl2br($texto)!!}</h3>
                      <section class="post_featured">
                         <div class="post_thumb">
                            <a class="" title="{{$test->title}}">

@@ -655,9 +655,9 @@ else {
                                           <div class="sc_property_title">
                                              <div class="sc_property_title_address_1" style="height:auto">
                                               @php
-                                              $texto =  nl2br($item->title)  
+                                              $texto =  strip_tags($item->title)  
                                               @endphp
-                                                <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;font-size: 15px">{!!$texto!!}</a>
+                                                <a href="/propierty/view/{{$item->propiertiy_id}}" style="text-transform: uppercase;font-size: 15px">{!!nl2br($texto)!!}</a>
                                              </div>
                                             
                                           </div>
