@@ -596,7 +596,7 @@ else {
                                           </div>
                                           <div class="sc_property_title" style="color:white">
                                              <div class="sc_property_title_address_1" >
-                                                <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}" style="text-transform: uppercase;color: white">{!!$datos_propiedad->title!!}</a>
+                                                <a href="/propierty/view/{{$datos_propiedad->propiertiy_id}}" style="text-transform: uppercase;color: white">{!!utf8_decode($datos_propiedad->title)!!}</a>
                                              </div>
                                              
                                           </div>

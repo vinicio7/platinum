@@ -798,6 +798,13 @@ img.hover-shadow {
                                <b>Direccion:</b> {{$direccion_propietario}}<br>
                             @endif
                           </div>
+                          <div>
+                              <h4 class="sc_title" style="font-weight: bold">DATOS DE CONTACTO:</h4>
+                               <b>Nombre:</b> {{$test->name_contact}}<br>
+                               <b>Celular:</b> {{$test->phone_contact}}<br>
+                               <b>Telefono:</b> {{$test->telephone_contact}}<br>
+                               <b>Email:</b> {{$test->email_contact}}<br>
+                          </div>
                           <div class="columns_wrap">
                              @if($test->youtube)
                             <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>
