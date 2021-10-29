@@ -125,6 +125,7 @@ if (isset($inmueble)){
 }
 if (strlen($input) > 0){
   $propiedades->Where('title', 'like', '%' .$input. '%');
+  $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%');
 }
 
 if (strlen($input) > 0){

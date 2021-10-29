@@ -579,7 +579,7 @@ img.hover-shadow {
                                   <div>
                                     <li class="sc_list_item" style="display: inline-block;text-transform: uppercase;">
                                        <span class="sc_list_icon icon-check color_2"></span>
-                                       <p>Cisterna</p>
+                                       <p>Bomba y Cisterna</p>
                                     </li>
                                   </div>
                                 @endif
@@ -756,7 +756,7 @@ img.hover-shadow {
                           
                           <div class="sc_section"> 
                            
-                             @if($test->internal_note)
+                             @if(strlen($test->internal_note)>4)
                               <h4 class="sc_title" style="font-weight: bold">NOTAS INTERNAS:</h4>
                               @php
                                 $nuevo_texto =  str_replace('<p>&nbsp;</p>', '', $test->internal_note)
@@ -798,6 +798,7 @@ img.hover-shadow {
                                <b>Direccion:</b> {{$direccion_propietario}}<br>
                             @endif
                           </div>
+                          @if(strlen($test->name_contact) > 4)
                           <div>
                               <h4 class="sc_title" style="font-weight: bold">DATOS DE CONTACTO:</h4>
                                <b>Nombre:</b> {{$test->name_contact}}<br>
@@ -805,6 +806,7 @@ img.hover-shadow {
                                <b>Telefono:</b> {{$test->telephone_contact}}<br>
                                <b>Email:</b> {{$test->email_contact}}<br>
                           </div>
+                          @endif
                           <div class="columns_wrap">
                              @if($test->youtube)
                             <h4 class="sc_title" style="font-weight: bold">TOUR VIRTUAL:</h4>

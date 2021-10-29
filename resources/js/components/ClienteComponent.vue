@@ -39,6 +39,13 @@
                                       <option value="2">Otro</option>
                                     </select>
                                 </div>
+                                <div class="col-md-4">
+                                    <label>Agente</label>
+                                    <select class="form-control" v-model="rentada_por">
+                                        <option value="0" disabled>Seleccione una opcion</option>
+                                        <option v-for="vendedor in vendedores" :value="vendedor.user_id" >{{ vendedor.name }}</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,6 +94,8 @@
                 files:null,
                 arrayData:[],
                 update:0,
+                vendedores:[],
+                vendedor_id:0,
             }
         },
         mounted: function() {
@@ -98,7 +107,19 @@
             })
             .catch(function (error) {
                 console.log(error);
+            }); 
+             let urlocho = '/api/vendedores' 
+            axios.get(urlocho,{}).then(function (response) {
+                
+                me.vendedores = response.data.records;
+                //console.log("vendedores");
+                //console.log(me.vendedores);
+            })
+            .catch(function (error) {
+                //console.log(error);
             });  
+
+ 
             $('.table-responsive').on('click', (evt) => {
                 evt.stopImmediatePropagation();
                if ($(evt.target)[0].innerText == 'Editar') {

@@ -356,8 +356,8 @@ else {
                     <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
                        <ul>
                           <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i1}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                             <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                             <img style="position: absolute;height: 60%!important" height="60%" src="{{$i1}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="60%" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
                                        
@@ -516,6 +516,10 @@ else {
                                 <div class="sc_ps_type">
                                     <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
                                 </div>
+                                <div class="sc_ps_submit" style="text-align: left;">
+                                    <input type="text" name="input" placeholder="Búsqueda específica" value="" style="border-color: white">
+                                </div>
+                                <br>
                                 <div class="sc_ps_submit" style="text-align: left;">
                                       <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE;margin-top:0px">
                                 </div>

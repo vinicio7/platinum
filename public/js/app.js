@@ -2563,6 +2563,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2589,7 +2596,9 @@ __webpack_require__.r(__webpack_exports__);
       roles: [],
       files: null,
       arrayData: [],
-      update: 0
+      update: 0,
+      vendedores: [],
+      vendedor_id: 0
     };
   },
   mounted: function mounted() {
@@ -2602,6 +2611,12 @@ __webpack_require__.r(__webpack_exports__);
       me.roles = response.data.records;
     })["catch"](function (error) {
       console.log(error);
+    });
+    var urlocho = '/api/vendedores';
+    axios.get(urlocho, {}).then(function (response) {
+      me.vendedores = response.data.records; //console.log("vendedores");
+      //console.log(me.vendedores);
+    })["catch"](function (error) {//console.log(error);
     });
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.table-responsive').on('click', function (evt) {
       evt.stopImmediatePropagation();
@@ -3455,61 +3470,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -64867,6 +64827,56 @@ var render = function() {
                           ])
                         ]
                       )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("label", [_vm._v("Agente")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.rentada_por,
+                              expression: "rentada_por"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.rentada_por = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            { attrs: { value: "0", disabled: "" } },
+                            [_vm._v("Seleccione una opcion")]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.vendedores, function(vendedor) {
+                            return _c(
+                              "option",
+                              { domProps: { value: vendedor.user_id } },
+                              [_vm._v(_vm._s(vendedor.name))]
+                            )
+                          })
+                        ],
+                        2
+                      )
                     ])
                   ])
                 ])
@@ -65859,6 +65869,10 @@ var render = function() {
                           _vm._v(" "),
                           _c("option", { attrs: { value: "4" } }, [
                             _vm._v("Inversion")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "5" } }, [
+                            _vm._v("Activar")
                           ])
                         ]
                       )
@@ -66369,43 +66383,31 @@ var render = function() {
                           },
                           [
                             _c("div", { staticClass: "row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "col-sm-12" },
-                                [
-                                  _c("label", [_vm._v("Titulo")]),
-                                  _vm._v(" "),
-                                  _c("editor", {
-                                    staticClass: "form-control",
-                                    attrs: {
-                                      init: {
-                                        branding: false,
-                                        plugins: [
-                                          "advlist autolink lists link image charmap print preview anchor",
-                                          "searchreplace visualblocks code fullscreen",
-                                          "insertdatetime media table paste code help wordcount"
-                                        ],
-                                        toolbar:
-                                          "undo redo | formatselect | bold italic backcolor | \
-                                                   alignleft aligncenter alignright alignjustify | \
-                                                   bullist numlist outdent indent | removeformat | help",
-                                        paste_as_text: true,
-                                        toolbar_mode: "sliding",
-                                        language: "es"
-                                      },
-                                      type: "text"
-                                    },
-                                    model: {
+                              _c("div", { staticClass: "col-sm-12" }, [
+                                _c("label", [_vm._v("Titulo")]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
                                       value: _vm.titulo,
-                                      callback: function($$v) {
-                                        _vm.titulo = $$v
-                                      },
                                       expression: "titulo"
                                     }
-                                  })
-                                ],
-                                1
-                              ),
+                                  ],
+                                  staticClass: "form-control",
+                                  staticStyle: { height: "200px" },
+                                  domProps: { value: _vm.titulo },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.titulo = $event.target.value
+                                    }
+                                  }
+                                })
+                              ]),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -70766,43 +70768,31 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "col-sm-6" },
-                                [
-                                  _c("label", [_vm._v("Otros detalles")]),
-                                  _vm._v(" "),
-                                  _c("editor", {
-                                    staticClass: "form-control",
-                                    attrs: {
-                                      init: {
-                                        branding: false,
-                                        plugins: [
-                                          "advlist autolink lists link image charmap print preview anchor",
-                                          "searchreplace visualblocks code fullscreen",
-                                          "insertdatetime media table paste code help wordcount"
-                                        ],
-                                        toolbar:
-                                          "undo redo | formatselect | bold italic backcolor | \
-                                                   alignleft aligncenter alignright alignjustify | \
-                                                   bullist numlist outdent indent | removeformat | help",
-                                        paste_as_text: true,
-                                        toolbar_mode: "sliding",
-                                        language: "es"
-                                      },
-                                      type: "text"
-                                    },
-                                    model: {
+                              _c("div", { staticClass: "col-sm-6" }, [
+                                _c("label", [_vm._v("Otros detalles")]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
                                       value: _vm.otros_incluye,
-                                      callback: function($$v) {
-                                        _vm.otros_incluye = $$v
-                                      },
                                       expression: "otros_incluye"
                                     }
-                                  })
-                                ],
-                                1
-                              )
+                                  ],
+                                  staticClass: "form-control",
+                                  staticStyle: { height: "200px" },
+                                  domProps: { value: _vm.otros_incluye },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.otros_incluye = $event.target.value
+                                    }
+                                  }
+                                })
+                              ])
                             ]),
                             _vm._v(" "),
                             _c(
@@ -71879,43 +71869,31 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "col-sm-6" },
-                                [
-                                  _c("label", [_vm._v("Otros detalles")]),
-                                  _vm._v(" "),
-                                  _c("editor", {
-                                    staticClass: "form-control",
-                                    attrs: {
-                                      init: {
-                                        branding: false,
-                                        plugins: [
-                                          "advlist autolink lists link image charmap print preview anchor",
-                                          "searchreplace visualblocks code fullscreen",
-                                          "insertdatetime media table paste code help wordcount"
-                                        ],
-                                        toolbar:
-                                          "undo redo | formatselect | bold italic backcolor | \
-                                                   alignleft aligncenter alignright alignjustify | \
-                                                   bullist numlist outdent indent | removeformat | help",
-                                        paste_as_text: true,
-                                        toolbar_mode: "sliding",
-                                        language: "es"
-                                      },
-                                      type: "text"
-                                    },
-                                    model: {
+                              _c("div", { staticClass: "col-sm-6" }, [
+                                _c("label", [_vm._v("Otros detalles")]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
                                       value: _vm.otros_detalles,
-                                      callback: function($$v) {
-                                        _vm.otros_detalles = $$v
-                                      },
                                       expression: "otros_detalles"
                                     }
-                                  })
-                                ],
-                                1
-                              )
+                                  ],
+                                  staticClass: "form-control",
+                                  staticStyle: { height: "200px" },
+                                  domProps: { value: _vm.otros_detalles },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.otros_detalles = $event.target.value
+                                    }
+                                  }
+                                })
+                              ])
                             ])
                           ]
                         ),
@@ -72774,43 +72752,31 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "col-sm-6" },
-                                [
-                                  _c("label", [_vm._v("Otras amenidades")]),
-                                  _vm._v(" "),
-                                  _c("editor", {
-                                    staticClass: "form-control",
-                                    attrs: {
-                                      init: {
-                                        branding: false,
-                                        plugins: [
-                                          "advlist autolink lists link image charmap print preview anchor",
-                                          "searchreplace visualblocks code fullscreen",
-                                          "insertdatetime media table paste code help wordcount"
-                                        ],
-                                        toolbar:
-                                          "undo redo | formatselect | bold italic backcolor | \
-                                                   alignleft aligncenter alignright alignjustify | \
-                                                   bullist numlist outdent indent | removeformat | help",
-                                        paste_as_text: true,
-                                        toolbar_mode: "sliding",
-                                        language: "es"
-                                      },
-                                      type: "text"
-                                    },
-                                    model: {
+                              _c("div", { staticClass: "col-sm-6" }, [
+                                _c("label", [_vm._v("Otras amenidades")]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
                                       value: _vm.otras_amenidades,
-                                      callback: function($$v) {
-                                        _vm.otras_amenidades = $$v
-                                      },
                                       expression: "otras_amenidades"
                                     }
-                                  })
-                                ],
-                                1
-                              )
+                                  ],
+                                  staticClass: "form-control",
+                                  staticStyle: { height: "200px" },
+                                  domProps: { value: _vm.otras_amenidades },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.otras_amenidades = $event.target.value
+                                    }
+                                  }
+                                })
+                              ])
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
@@ -73477,45 +73443,33 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "col-sm-6" },
-                                [
-                                  _c("label", [
-                                    _vm._v("Descripción de la propiedad")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("editor", {
-                                    staticClass: "form-control",
-                                    attrs: {
-                                      init: {
-                                        branding: false,
-                                        plugins: [
-                                          "advlist autolink lists link image charmap print preview anchor",
-                                          "searchreplace visualblocks code fullscreen",
-                                          "insertdatetime media table paste code help wordcount"
-                                        ],
-                                        toolbar:
-                                          "undo redo | formatselect | bold italic backcolor | \
-                                                   alignleft aligncenter alignright alignjustify | \
-                                                   bullist numlist outdent indent | removeformat | help",
-                                        paste_as_text: true,
-                                        toolbar_mode: "sliding",
-                                        language: "es"
-                                      },
-                                      type: "text"
-                                    },
-                                    model: {
+                              _c("div", { staticClass: "col-sm-6" }, [
+                                _c("label", [
+                                  _vm._v("Descripción de la propiedad")
+                                ]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
                                       value: _vm.description,
-                                      callback: function($$v) {
-                                        _vm.description = $$v
-                                      },
                                       expression: "description"
                                     }
-                                  })
-                                ],
-                                1
-                              )
+                                  ],
+                                  staticClass: "form-control",
+                                  staticStyle: { height: "200px" },
+                                  domProps: { value: _vm.description },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.description = $event.target.value
+                                    }
+                                  }
+                                })
+                              ])
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
@@ -73549,43 +73503,31 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
-                              _c(
-                                "div",
-                                { staticClass: "col-sm-6" },
-                                [
-                                  _c("label", [_vm._v("Notas internas")]),
-                                  _vm._v(" "),
-                                  _c("editor", {
-                                    staticClass: "form-control",
-                                    attrs: {
-                                      init: {
-                                        branding: false,
-                                        plugins: [
-                                          "advlist autolink lists link image charmap print preview anchor",
-                                          "searchreplace visualblocks code fullscreen",
-                                          "insertdatetime media table paste code help wordcount"
-                                        ],
-                                        toolbar:
-                                          "undo redo | formatselect | bold italic backcolor | \
-                                                   alignleft aligncenter alignright alignjustify | \
-                                                   bullist numlist outdent indent | removeformat | help",
-                                        paste_as_text: true,
-                                        toolbar_mode: "sliding",
-                                        language: "es"
-                                      },
-                                      type: "text"
-                                    },
-                                    model: {
+                              _c("div", { staticClass: "col-sm-6" }, [
+                                _c("label", [_vm._v("Notas internas")]),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
                                       value: _vm.notas_internas,
-                                      callback: function($$v) {
-                                        _vm.notas_internas = $$v
-                                      },
                                       expression: "notas_internas"
                                     }
-                                  })
-                                ],
-                                1
-                              )
+                                  ],
+                                  staticClass: "form-control",
+                                  staticStyle: { height: "200px" },
+                                  domProps: { value: _vm.notas_internas },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.notas_internas = $event.target.value
+                                    }
+                                  }
+                                })
+                              ])
                             ])
                           ]
                         )

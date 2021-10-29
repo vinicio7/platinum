@@ -128,7 +128,13 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                                           </div>
                                        </center>
                                     </div>
-                                    <center><button style="background-color: #11264e">Propiedades</button></center>
+                                    <center>
+                                      <form method="get" action="propiedades_post">
+                                          <input type="text" name="agente_nuevo" placeholder="US$ Precio minimo" value="{{$item->user_id}}" style="display: none" >
+                                          <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Propiedades" style="background: #11264e;color:WHITE;margin-top:0px">
+                                          <br>
+                                       </form>
+                                    </center>
                                     <br>
                                  </div>
                               </div>

@@ -44,6 +44,7 @@
                           <option value="2">Rentada</option>
                           <option value="3">Fuera de mercado</option>
                           <option value="4">Inversion</option>
+                          <option value="5">Activar</option>
                         </select>
                     </div>
                     <div class="col-sm-12" v-if="accion_ejecutar == 1 || accion_ejecutar == 2 " >
@@ -215,19 +216,10 @@
                                 <div class="row">
                                     <div class="col-sm-12" >
                                         <label>Titulo</label>
-                                        <editor :init="{branding:false, plugins: [
-                                                       'advlist autolink lists link image charmap print preview anchor',
-                                                       'searchreplace visualblocks code fullscreen',
-                                                       'insertdatetime media table paste code help wordcount'
-                                                     ],
-                                                     toolbar:
-                                                       'undo redo | formatselect | bold italic backcolor | \
-                                                       alignleft aligncenter alignright alignjustify | \
-                                                       bullist numlist outdent indent | removeformat | help',
-                                                     paste_as_text: true,
-                                                     toolbar_mode: 'sliding',
-                                                     language:'es'}"
-                                             type="text"  class="form-control" v-model="titulo"/>
+                                        <textarea class="form-control" style="height:200px" v-model="titulo">
+                                          
+                                        </textarea>
+                                        
                                     </div>
                                     <div class="col-sm-12" style="display:none">
                                         <label>Subtitulo</label>
@@ -881,19 +873,9 @@
                               <div class="row">
                                     <div class="col-sm-6">
                                         <label>Otros detalles</label>
-                                        <editor :init="{branding:false, plugins: [
-                                                       'advlist autolink lists link image charmap print preview anchor',
-                                                       'searchreplace visualblocks code fullscreen',
-                                                       'insertdatetime media table paste code help wordcount'
-                                                     ],
-                                                     toolbar:
-                                                       'undo redo | formatselect | bold italic backcolor | \
-                                                       alignleft aligncenter alignright alignjustify | \
-                                                       bullist numlist outdent indent | removeformat | help',
-                                                     paste_as_text: true,
-                                                     toolbar_mode: 'sliding',
-                                                     language:'es'}"
-                                             type="text"  class="form-control" v-model="otros_incluye"/>
+                                        <textarea class="form-control" style="height:200px" v-model="otros_incluye">
+                                          
+                                        </textarea>
                                     </div>
                               </div>
                               <div class="row" style="border: #20a0ff 1px solid;padding-bottom: 30px;margin-top: 20px;">
@@ -1054,19 +1036,10 @@
                               <div class="row">
                                     <div class="col-sm-6">
                                         <label>Otros detalles</label>
-                                        <editor :init="{branding:false, plugins: [
-                                                       'advlist autolink lists link image charmap print preview anchor',
-                                                       'searchreplace visualblocks code fullscreen',
-                                                       'insertdatetime media table paste code help wordcount'
-                                                     ],
-                                                     toolbar:
-                                                       'undo redo | formatselect | bold italic backcolor | \
-                                                       alignleft aligncenter alignright alignjustify | \
-                                                       bullist numlist outdent indent | removeformat | help',
-                                                     paste_as_text: true,
-                                                     toolbar_mode: 'sliding',
-                                                     language:'es'}"
-                                             type="text"  class="form-control" v-model="otros_detalles"/>
+                                        
+                                        <textarea class="form-control" style="height:200px" v-model="otros_detalles">
+                                          
+                                        </textarea>
                                     </div>
                               </div>
                             </tab-content>
@@ -1204,19 +1177,10 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Otras amenidades</label>
-                                        <editor :init="{branding:false, plugins: [
-                                                       'advlist autolink lists link image charmap print preview anchor',
-                                                       'searchreplace visualblocks code fullscreen',
-                                                       'insertdatetime media table paste code help wordcount'
-                                                     ],
-                                                     toolbar:
-                                                       'undo redo | formatselect | bold italic backcolor | \
-                                                       alignleft aligncenter alignright alignjustify | \
-                                                       bullist numlist outdent indent | removeformat | help',
-                                                     paste_as_text: true,
-                                                     toolbar_mode: 'sliding',
-                                                     language:'es'}"
-                                             type="text"  class="form-control" v-model="otras_amenidades"/>
+                                        
+                                          <textarea class="form-control" style="height:200px" v-model="otras_amenidades">
+                                          
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -1337,19 +1301,10 @@
                                <div class="row">
                                     <div class="col-sm-6">
                                         <label>Descripción de la propiedad</label>
-                                        <editor :init="{branding:false, plugins: [
-                                                       'advlist autolink lists link image charmap print preview anchor',
-                                                       'searchreplace visualblocks code fullscreen',
-                                                       'insertdatetime media table paste code help wordcount'
-                                                     ],
-                                                     toolbar:
-                                                       'undo redo | formatselect | bold italic backcolor | \
-                                                       alignleft aligncenter alignright alignjustify | \
-                                                       bullist numlist outdent indent | removeformat | help',
-                                                     paste_as_text: true,
-                                                     toolbar_mode: 'sliding',
-                                                     language:'es'}"
-                                             type="text"  class="form-control" v-model="description"/>
+                                      
+                                             <textarea class="form-control" style="height:200px" v-model="description">
+                                          
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -1361,19 +1316,9 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Notas internas</label>
-                                        <editor :init="{branding:false, plugins: [
-                                                       'advlist autolink lists link image charmap print preview anchor',
-                                                       'searchreplace visualblocks code fullscreen',
-                                                       'insertdatetime media table paste code help wordcount'
-                                                     ],
-                                                     toolbar:
-                                                       'undo redo | formatselect | bold italic backcolor | \
-                                                       alignleft aligncenter alignright alignjustify | \
-                                                       bullist numlist outdent indent | removeformat | help',
-                                                     paste_as_text: true,
-                                                     toolbar_mode: 'sliding',
-                                                     language:'es'}"
-                                             type="text"  class="form-control" v-model="notas_internas"/>
+                                        <textarea class="form-control" style="height:200px" v-model="notas_internas">
+                                          
+                                        </textarea>
                                     </div>
                                 </div>
                             </tab-content>

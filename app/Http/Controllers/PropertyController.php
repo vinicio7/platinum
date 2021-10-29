@@ -1356,6 +1356,9 @@ class PropertyController extends Controller
 			}elseif($request->input('accion') == 4){
 				$propierty->status = 4;
 				$propierty->save();
+			}elseif($request->input('accion') == 5){
+				$propierty->status = 1;
+				$propierty->save();
 			}
 			$this->message  = "Registro guardado correctamente";
 			$this->result   = true;
