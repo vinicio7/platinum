@@ -124,7 +124,12 @@ Trabajamos con devoción a nuestros clientes, honramos la historia de cada propi
                                              <div class="sc_socials_item"><a href="mailto:{{ $item->email }}" target="_blank" class="social_icons"><span class="icon-mail"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons"><span class="icon-facebook"></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/502{{ $item->whatsapp }}" target="_blank" class=""><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
-                                             
+                                            @php
+                                              $phone = substr($item->phone,0,4);
+                                              $phone2 = substr($item->phone,4,7);  
+                                            @endphp
+                                            <span style="margin-top: -0em;color:#11264e;font-weight: bold;font-size: 12px">Cel: {{$phone}} - {{$phone2}}</span><br><br><br>
+                                            <span style="margin-top: -6em;color:#11264e;font-weight: bold;font-size: 12px">Email: {{$item->email}}</span>
                                           </div>
                                        </center>
                                     </div>

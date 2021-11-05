@@ -888,8 +888,12 @@ img.hover-shadow {
                                             <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="icon-facebook zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
                                             <div class="sc_socials_item"><a href="mailto:{{ $agente->email }}?subject=Informacion de propiedad Cod.{{$test->propiertiy_id}}&body=Hola quisiera tener mas información%0DSobre la propiedad con codigo {{$test->propiertiy_id}}%0D" class="social_icons" style="width: 50px;height: 120px"><span class="icon-mail zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
                                             <div class="sc_socials_item"><a href="https://wa.me/{{ $agente->phone }}?text=Hola%20quisiera%20obtener%20mas%20información%20de%20la%20propiedad%20con%20código%20{{$test->propiertiy_id}}" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="fa fa-whatsapp zoom-in-zoom-out" style="padding-top:3px;width: auto;font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div> 
-                                            <span style="margin-top: -5em;color:#11264e;font-weight: bold;font-size: 16px">Celular: {{$agente->phone}}</span><br><br><br>
-                                            <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 16px">Correo: {{$agente->email}}</span>
+                                            @php
+                                              $phone = substr($agente->phone,0,4);
+                                              $phone2 = substr($agente->phone,4,7);  
+                                            @endphp
+                                            <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 18px">Cel: {{$phone}} - {{$phone2}}</span><br><br><br>
+                                            <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 16px">Email: {{$agente->email}}</span>
                                           </div>
                                        </center>
                                     </div>

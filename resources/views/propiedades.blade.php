@@ -5,6 +5,8 @@ use App\Models\Zone;
 use App\Models\Region;
 use App\Models\Property;
 use App\Models\Images;
+use App\Models\User;
+use App\Models\Rol;
 $agente        = Session::get('agente');
 $departamentos = Departament::all();
 $municipios    = Municipality::all();
@@ -340,6 +342,62 @@ $propiedades->withPath($cortar[1]);
                   </div>
                   <div class="sidebar widget_area scheme_original">
                      <div class="sidebar_inner widget_area_inner">
+
+                      @if($agente_nuevo > 0)
+
+                      
+                      @php
+                        $agente = User::where('user_id',$agente_nuevo)->first(); 
+                        if(!$agente){
+                          $agente = User::where('user_id',2)->first(); 
+                        } 
+                        $rol    = Rol::where('rol_id',$agente->rol_id)->first();  
+                      @endphp
+
+                             <div class="column_padding_bottom" style="text-align: center;height:600px;margin-top: -35px">
+                                 <center><h6 class="agent d-block text-center m-0 p-2 py-3;" style="padding:12px;margin:0px;font-size: 1rem;color: #11264e;font-weight: 600;display: block;background-color: white;-webkit-box-shadow: none;box-shadow: none;text-transform: uppercase;letter-spacing: 0.15rem;pb-3, .py-3 {
+    padding-bottom: 2rem !important;
+}
+
+.pt-3, .py-3 {
+    padding-top: 2rem !important;
+}.p-2 {
+    padding: 2.5rem !important;
+}
+
+.m-0 {
+    margin: 0 !important;
+}">
+                              </h6></center>
+                                 <div class="sc_team_item" style="background-color: white;height: 625px">
+                                    <div class="sc_team_item_avatar">
+                                       <img alt="" src="{{asset($agente->picture)}}" style="width:280px!important;height: 405px!important;object-fit:cover;">
+                                    </div>
+                                    <div class="sc_team_item_info">
+                                       <center>
+                                          <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
+                                          <form action="/propiedades" style="text-align: left;margin-left: 50px;color: #11264e">
+                                            <br>
+                                             <center> <b style="font-size: 24px;margin-left: -50px">{{strtoupper($agente->name)}}</b></center>
+                                             <center> <b style="font-size: 24px;margin-left: -50px">{{$rol->name}}</b></center>
+                                          </form>
+                                            <div class="sc_socials_item" style="width: auto;height: auto;width: auto"><a href="tel:{{ $agente->phone }}" class="social_icons" style="width: 50px;height: 120px"><span class="icon-phone zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="icon-facebook zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="mailto:{{ $agente->email }}?subject=Informacion de propiedad&body=Hola quisiera tener mas información%0DSobre la propiedad con codigo%0D" class="social_icons" style="width: 50px;height: 120px"><span class="icon-mail zoom-in-zoom-out" style="font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div>
+                                            <div class="sc_socials_item"><a href="https://wa.me/{{ $agente->phone }}?text=Hola%20quisiera%20obtener%20mas%20información%20de%20la%20propiedad%20con%20código%20" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="fa fa-whatsapp zoom-in-zoom-out" style="padding-top:3px;width: auto;font-size: 2em;margin-top: 10px;margin-left: 2px"></span></a></div> 
+                                            @php
+                                              $phone = substr($agente->phone,0,4);
+                                              $phone2 = substr($agente->phone,4,7);  
+                                            @endphp
+                                            <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 18px">Cel: {{$phone}} - {{$phone2}}</span><br><br><br>
+                                            <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 16px">Email: {{$agente->email}}</span>
+                                          </div>
+                                       </center>
+                                    </div>
+                                 </div>
+                              </div>
+                              <br><br><br>
+                        @endif
                         <aside class="widget widget_property_search scheme_dark" style="color:white">
                            <form method="get" action="propiedades_post">
                              <div class="input-icono">

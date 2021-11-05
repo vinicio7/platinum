@@ -716,6 +716,12 @@ else {
                                              <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons  zoom-in-zoom-out"><span class="icon-phone" ></span></a></div>
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons  zoom-in-zoom-out"><span class="icon-facebook "></span></a></div>
                                              <div class="sc_socials_item"><a href="https://wa.me/{{ $item->phone }}" target="_blank" class=" zoom-in-zoom-out"><span class="fa fa-whatsapp" style="font-size: 1.65em;padding-top:3px;width: auto"></span></a></div>
+                                            @php
+                                              $phone = substr($item->phone,0,4);
+                                              $phone2 = substr($item->phone,4,7);  
+                                            @endphp
+                                            <span style="margin-top: -2em;color:#11264e;font-weight: bold;font-size: 12px">Cel: {{$phone}} - {{$phone2}}</span><br><br><br>
+                                            <span style="margin-top: -6em;color:#11264e;font-weight: bold;font-size: 12px">Email: {{$item->email}}</span>
                                              <form method="get" action="propiedades_post">
                                                 <input type="text" name="agente_nuevo" placeholder="US$ Precio minimo" value="{{$item->user_id}}" style="display: none" >
                                                 <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Propiedades" style="background: #11264e;color:WHITE;margin-top:0px">
