@@ -49,7 +49,8 @@ class UserController extends Controller
             ['data' => 'name', 'title'=>'NOMBRE'],
             ['data' => 'email', 'title'=>'EMAIL'],
             ['data' => 'telefono', 'title'=>'TELEFONO'],
-             ['data' => 'whatsapp', 'title'=>'TELEFONO 2'],
+            ['data' => 'whatsapp', 'title'=>'TELEFONO 2'],
+            ['data' => 'agente', 'title'=>'AGENTE'],
             ['data' => 'estado', 'title'=>'ESTADO'],
             ['data' => 'acciones',"title"=>"ACCIONES", 'orderable'=> false, 'searchable' => false]
         ]; 
@@ -175,7 +176,6 @@ class UserController extends Controller
         return datatables()->of( User::where('rol_id',8)->get())
             ->addColumn('acciones', function ($record) {
                 return
-                    "<a class='btn btn-warning btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Acciones</a>".
                     "<a class='btn btn-info btn-rounded m-1 text-white btn-edit' id='".$record->user_id."'>Editar</a>".
                     "<a class='btn btn-danger btn-danger rounded m-1 text-white btn-delete' id='".$record->user_id."'>Eliminar</a>";  
             })
@@ -188,6 +188,15 @@ class UserController extends Controller
                        $class       = 'badge-warning';  
                        $name        = 'Sin rol asignado';
                         return "<span class='badge text-white {$class}'>{$name}</span>";
+                    }        
+            })
+            ->addColumn('agente', function ($record) {
+                    $agente = User::find($record->agente);
+                    if ($agente) {
+                        $class       = 'badge-info';  
+                        return "<span class='badge text-white {$class}'>{$agente->name}</span>";
+                    } else {
+                        return "";
                     }        
             })
              ->addColumn('telefono', function ($record) {
@@ -203,7 +212,7 @@ class UserController extends Controller
                 $class       = 'badge-success';
                 $descripcion = 'Activo';
                 return "<span class='badge text-white {$class}'>{$descripcion}</span>";
-            })->rawColumns(['estado','acciones','rol_label','imagen'])
+            })->rawColumns(['estado','acciones','rol_label','imagen','agente'])
             ->toJson();
     }
 
@@ -213,6 +222,7 @@ class UserController extends Controller
         $user   = User::create([
             'rol_id'            => $request->rol,
             'name'              => $request->name,
+            'agente'            => $request->agente,
             'username'          => $request->user,
             'password'          => bcrypt($request->password),
             'email'             => $request->email,
@@ -275,7 +285,8 @@ class UserController extends Controller
                 $user->save();
             }
             $user->rol_id          = $request->rol ?($request->rol):$user->rol_id;
-            $user->status          = $request->status ?($request->status):$user->status;
+            $user->status          = $request->status;
+            $user->agente          = $request->agente;
             $user->name            = $request->name ?($request->name):$user->name;
             $user->username        = $request->user ?($request->user):$user->user;
             $user->password        = bcrypt($request->password) ?bcrypt($request->password):$user->password;

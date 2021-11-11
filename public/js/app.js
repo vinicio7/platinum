@@ -2655,6 +2655,7 @@ __webpack_require__.r(__webpack_exports__);
 
       formData.append('name', this.name);
       formData.append('user', this.user);
+      formData.append('agente', this.rentada_por);
       formData.append('rol', 8);
       formData.append('password', this.password);
       formData.append('email', this.email);
@@ -2699,6 +2700,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('user_id', this.update);
       formData.append('name', this.name);
       formData.append('user', this.user);
+      formData.append('agente', this.rentada_por);
       formData.append('rol', this.rol);
       formData.append('password', this.password);
       formData.append('email', this.email);
@@ -2733,6 +2735,7 @@ __webpack_require__.r(__webpack_exports__);
         me.user_id = response.data.records.user_id;
         me.name = response.data.records.name;
         me.rol = response.data.records.rol_id;
+        me.rentada_por = response.data.records.agente;
         me.user = response.data.records.username;
         me.password = response.data.records.password;
         me.email = response.data.records.email;
@@ -64739,7 +64742,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number" },
+                        attrs: { type: "text" },
                         domProps: { value: _vm.whatsapp },
                         on: {
                           input: function($event) {
@@ -64765,7 +64768,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "number" },
+                        attrs: { type: "text" },
                         domProps: { value: _vm.phone },
                         on: {
                           input: function($event) {
@@ -79812,7 +79815,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-sm-3" }, [
-                                _c("label", [_vm._v("Psicina")]),
+                                _c("label", [_vm._v("Piscina")]),
                                 _vm._v(" "),
                                 _c(
                                   "select",

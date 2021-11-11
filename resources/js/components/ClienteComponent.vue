@@ -24,11 +24,11 @@
                                 </div> 
                                 <div class="col-md-4">
                                     <label>Telefono</label>
-                                    <input v-model="whatsapp" type="number" class="form-control">
+                                    <input v-model="whatsapp" type="text" class="form-control">
                                 </div> 
                                 <div class="col-md-4">
                                     <label>Telefono 2</label>
-                                    <input v-model="phone" type="number" class="form-control">
+                                    <input v-model="phone" type="text" class="form-control">
                                 </div> 
                                 <div class="col-md-4">
                                     <label>Genero</label>
@@ -153,6 +153,7 @@
                 }
                 formData.append('name',this.name)
                 formData.append('user',this.user)
+                formData.append('agente',this.rentada_por)
                 formData.append('rol',8)
                 formData.append('password',this.password)
                 formData.append('email',this.email)
@@ -196,6 +197,7 @@
                 formData.append('user_id',this.update)
                 formData.append('name',this.name)
                 formData.append('user',this.user)
+                formData.append('agente',this.rentada_por)
                 formData.append('rol',this.rol)
                 formData.append('password',this.password)
                 formData.append('email',this.email)
@@ -231,6 +233,7 @@
                     me.user_id          = response.data.records.user_id;
                     me.name             = response.data.records.name;
                     me.rol              = response.data.records.rol_id;
+                    me.rentada_por      = response.data.records.agente;
                     me.user             = response.data.records.username;
                     me.password         = response.data.records.password;
                     me.email            = response.data.records.email;

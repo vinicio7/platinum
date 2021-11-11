@@ -133,7 +133,7 @@ span.psw {
                         <form method="POST" action="{{ route('login') }}" class="left" autocomplete="new-password">
                             {{ csrf_field() }}
 
-                            <span> {{ Session::has('error') }}</span>
+                            <span> {{ Session::get('error') }}</span>
                             <div class="" style="width: 20em">
                                 <input type="text" class="sign__input" placeholder="Usuario" id="user" name="user" autocomplete="new-password" >
                             </div>

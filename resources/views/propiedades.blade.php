@@ -128,27 +128,28 @@ if (isset($inmueble)){
 if (strlen($input) > 0){
   $propiedades->Where('title', 'like', '%' .$input. '%');
   $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%');
-}
-
-if (strlen($input) > 0){
   $propiedades->orWhere('adress', 'like', '%' .$input. '%');
 }
 
 if (isset($tipo_venta)){
 
   if($tipo_venta == 'venta'){
+    
     if($precio_minimo > 1){
       $precio_minimo = $precio_minimo;
     }else{
       $precio_minimo = 1;
     }
+    
     if($precio_maximo > 1){
       $precio_maximo = $precio_maximo;
     }else{
       $precio_maximo = 999999999999;
     }
+    
     $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
-  }else if($tipo_venta == 'renta'){
+  }else{
+    
     if($precio_minimo > 1){
       $precio_minimo = $precio_minimo;
     }else{
@@ -160,33 +161,11 @@ if (isset($tipo_venta)){
       $precio_maximo = 999999999999;
     }
     $propiedades->whereBetween('rent_usd',[$precio_minimo,$precio_maximo]);
-  }else{
-    if($precio_minimo > 1){
-      $precio_minimo = $precio_minimo;
-    }else{
-      $precio_minimo = 1;
-    }
-    if($precio_maximo > 1){
-      $precio_maximo = $precio_maximo;
-    }else{
-      $precio_maximo = 999999999999;
-    }
-    $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
   }
-}else{
-  if($precio_minimo > 1){
-    $precio_minimo = $precio_minimo;
-  }else{
-    $precio_minimo = 1;
-  }
-  if($precio_maximo > 1){
-    $precio_maximo = $precio_maximo;
-  }else{
-    $precio_maximo = 999999999999;
-  }
-  $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
+
 }
 
+$propiedades   = $propiedades->where('status',1);
 $propiedades   = $propiedades->orderBy('propiertiy_id','DESC')->paginate(10);
 $ruta_completa = Request::fullUrl();
 $parametro     = env("RAIZ","http://127.0.0.1:8000/");
@@ -245,7 +224,9 @@ $propiedades->withPath($cortar[1]);
       .input-icono input:focus {
         outline: none;
       }
-      
+      p{
+        margin-bottom: 0px!important
+      }
     </style>
 </head>
  <body class="page-template-blog-property body_filled body_style_wide responsive_menu scheme_original top_panel_show top_panel_above sidebar_show sidebar_right">
@@ -314,11 +295,13 @@ $propiedades->withPath($cortar[1]);
                                        </div>
                                        <div class="sc_property_title">
                                           @php
-                                              $texto =  nl2br($item->title)
+                                              $texto  =  nl2br($item->title);
+                                              $limpio = str_replace('</p><br />', '', $texto);
+                                              $limpio2 = str_replace('<p>', '', $limpio);
                                           @endphp
                                           <div class="sc_property_title_address_1">
                                             <a href="/propierty/view/{{$item->propiertiy_id}}">
-                                             <span style="font-size: 13px">{!!$texto!!}</span>
+                                             <span style="font-size: 13px;">{!!$limpio!!}</span>
                                             </a>
                                           </div>
 

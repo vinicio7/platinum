@@ -963,7 +963,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-3">
-                                        <label>Psicina</label>
+                                        <label>Piscina</label>
                                         <select v-model="piscina" class="form-control">
                                               <option disabled value="">Seleccione una opcion</option>
                                               <option value="1">Si</option>

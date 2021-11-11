@@ -17,14 +17,19 @@ class AdminController extends Controller
     public function login_post(Request $request){
         $user = User::where('username',$request->input('user'))->first();
         if(isset($user)){
-            if (\Hash::check($request->input('password'), $user->password)) {
-                session()->flush();
-                session(['success' => 'Sesion iniciada exitosamente']);
-                session(['user' => $user->name]);
-                return redirect('/propierties');
-            } else {
-                session(['error' => 'Password no coincide']);
-                return view('login')->with('error','Password no coincide');
+            if($user->status <> 1){
+                session(['error' => 'Usuario inactivo']);
+                return view('login')->with('error','Usuario inactivo');
+            }else{
+                if (\Hash::check($request->input('password'), $user->password)) {
+                    session()->flush();
+                    session(['success' => 'Sesion iniciada exitosamente']);
+                    session(['user' => $user->name]);
+                    return redirect('/propierties');
+                } else {
+                    session(['error' => 'Password no coincide']);
+                    return view('login')->with('error','Password no coincide');
+                }
             }
         }else{
             session(['error' => 'Usuario no existe']);

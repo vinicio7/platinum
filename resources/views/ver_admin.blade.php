@@ -33,6 +33,65 @@ $propiedades   = Property::orderBy('propiertiy_id','ASC')->get()->take(16);
 $test          = Property::where('propiertiy_id',$data->propiertiy_id)->first();
 $amenidades    = Property::where('propiertiy_id',$data->propiertiy_id)->first()->toArray();
 
+if(isset($precio_minimo)){
+  $precio_minimo = $precio_minimo;
+}else{
+  $precio_minimo = '';
+}
+if(isset($precio_maximo)){
+  $precio_maximo = $precio_maximo;
+}else{
+  $precio_maximo = '';
+}
+
+if(isset($tipo_inmueble)){
+  $tipo_inmueble = $tipo_inmueble;
+}else{
+  $tipo_inmueble = '';
+}
+
+if(isset($zona)){
+  $zona = $zona;
+}else{
+  $zona = '';
+}
+
+if(isset($zona2)){
+  $zona2 = $zona2;
+}else{
+  $zona2 = '';
+}
+
+if(isset($zona3)){
+  $zona3 = $zona3;
+}else{
+  $zona3 = '';
+}
+
+if(isset($departamento)){
+  $departamento = $departamento;
+}else{
+  $departamento = '';
+}
+
+if(isset($municipio)){
+  $municipio = $municipio;
+}else{
+  $municipio = '';
+}
+
+if(isset($input)){
+  $input = $input;
+}else{
+  $input = '';
+}
+
+if(isset($tipo_venta)){
+  $tipo_venta = $tipo_venta;
+}else{
+  $tipo_venta = '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -881,9 +940,9 @@ img.hover-shadow {
                      
                               <br><br>
                         <aside class="widget widget_property_search scheme_dark" style="color:white;margin-top: 40px">
-                           <form method="get" action="propiedades_post">
+                           <form method="get" action="../../propiedades_post">
                              <div class="input-icono">
-                                <input type="text" name="input" value="" >
+                                <input type="text" name="input" value="{{$input}}" >
                               </div>
                               <select name="tipo_venta" value="{{$tipo_venta}}" style="border-color: white">
                                  @if($tipo_venta == 'venta')
@@ -897,9 +956,9 @@ img.hover-shadow {
                                   <option value="renta">En renta</option>
                                  @endif
                               </select>
-                              
+
                               <select name="departamento" value="{{$departamento}}" style="border-color: white">
-                                <option value="0">Seleccione un departamento</option>
+                                <option value="0">Seleccione una ubicacion</option>
                                 @foreach($departamentos as $item)
                                   @if($departamento == $item->departament_id)
                                     <option value="{{$item->departament_id}}" selected>{{$item->name}}</option>
@@ -908,7 +967,7 @@ img.hover-shadow {
                                   @endif
                                 @endforeach
                               </select>
-                             
+
                               <select name="zona" value="{{$zona}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
@@ -919,27 +978,27 @@ img.hover-shadow {
                                   @endif
                                 @endforeach
                               </select>
-                               <select name="zona" value="{{$zona}}" style="border-color: white">
+                              <select name="zona2" value="{{$zona2}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
-                                  @if($zona == $item->zone_id)
+                                  @if($zona2 == $item->zone_id)
                                     <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
                                   @else
                                     <option value="{{$item->zone_id}}">{{$item->name}}</option>
                                   @endif
                                 @endforeach
                               </select>
-                               <select name="zona" value="{{$zona}}" style="border-color: white">
+                              <select name="zona3" value="{{$zona3}}" style="border-color: white">
                                 <option value="0">Seleccione una zona</option>
                                 @foreach($zonas as $item)
-                                  @if($zona == $item->zone_id)
+                                  @if($zona3 == $item->zone_id)
                                     <option value="{{$item->zone_id}}" selected>{{$item->name}}</option>
                                   @else
                                     <option value="{{$item->zone_id}}">{{$item->name}}</option>
                                   @endif
                                 @endforeach
                               </select>
-                              
+
                               <select name="tipo_inmueble" value="{{$tipo_inmueble}}" style="border-color: white">
                                 @if($tipo_inmueble == 'apartamento')
                                   <option value="apartamento" selected>Apartamentos</option>
@@ -951,30 +1010,75 @@ img.hover-shadow {
                                 @else
                                   <option value="casa">Casa</option>
                                 @endif
-                                @if($tipo_inmueble == 'condominio')
-                                  <option value="condominio" selected>Condominio</option>
+                                @if($tipo_inmueble == 'oficina')
+                                  <option value="oficina" selected>Oficinas</option>
                                 @else
-                                  <option value="condominio">Condominio</option>
+                                  <option value="oficina">Oficinas</option>
                                 @endif
-                                @if($tipo_inmueble == 'loft')
-                                  <option value="loft" selected>Loft</option>
+                                @if($tipo_inmueble == 'bodega')
+                                  <option value="bodega" selected>Bodegas</option>
                                 @else
-                                  <option value="loft">Loft</option>
+                                  <option value="bodega">Bodegas</option>
                                 @endif
-                                @if($tipo_inmueble == 'cualquiera')
-                                  <option value="cualquiera" selected>Cualquiera</option>
+                                @if($tipo_inmueble == 'terreno')
+                                  <option value="terreno" selected>Terrenos</option>
                                 @else
-                                  <option value="cualquiera">Cualquiera</option>
+                                  <option value="terreno">Terrenos</option>
+                                @endif
+
+                                @if($tipo_inmueble == 'fincas')
+                                  <option value="fincas" selected>Fincass</option>
+                                @else
+                                  <option value="fincas">Fincass</option>
+                                @endif
+
+                                @if($tipo_inmueble == 'clinica')
+                                  <option value="clinica" selected>Clinicas</option>
+                                @else
+                                  <option value="clinica">Clinicas</option>
+                                @endif
+
+                                @if($tipo_inmueble == 'playa')
+                                  <option value="playa" selected>Casa de playa</option>
+                                @else
+                                  <option value="playa">Casa de playa</option>
+                                @endif
+
+                                @if($tipo_inmueble == 'granja')
+                                  <option value="granja" selected>Granja</option>
+                                @else
+                                  <option value="granja">Granjas</option>
+                                @endif
+
+                                @if($tipo_inmueble == 'edificio')
+                                  <option value="edificio" selected>Edificos</option>
+                                @else
+                                  <option value="edificio">Eficios</option>
+                                @endif
+
+                                @if($tipo_inmueble == 'local')
+                                  <option value="local" selected>Locales</option>
+                                @else
+                                  <option value="local">Locales</option>
                                 @endif
                               </select>
-                              
+
+
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio minimo:
+                                 @if($precio_minimo == 1)
+                                  <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" style="border-color: white">
+                                 @else
                                   <input type="text"id="precio_minimo" name="precio_minimo" placeholder="US$" value="{{$precio_minimo}}" style="border-color: white">
+                                 @endif
                               </div>
                               <div class="ps_area ps_range_slider" style="color: white!important">
                                  Precio maximo:
+                                 @if($precio_maximo == 999999999999 )
+                                  <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="" style="border-color: white">
+                                 @else
                                   <input type="text"id="precio_maximo" name="precio_maximo" placeholder="US$" value="{{$precio_maximo}}" style="border-color: white">
+                                 @endif
                               </div>
                               <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: white;color:#11264e">
                            </form>

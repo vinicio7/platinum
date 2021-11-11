@@ -10,158 +10,189 @@ $municipios    = Municipality::all();
 $zonas         = Zone::all();  
 $regiones      = Departament::all();  
 
-if(isset($tipo_venta) && isset($departamento)  && $zona > 0 && isset($tipo_inmueble) && $precio_maximo > 0 ){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 1;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 2;
-  }
-  else if($tipo_inmueble == 'condominio'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'loft'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'cualquiera'){
-    $inmueble = 5;
-  }
+if(isset($precio_minimo)){
+  $precio_minimo = $precio_minimo;
+}else{
+  $precio_minimo = '';
+}
+
+if(isset($agente_nuevo)){
+  $agente_nuevo = $agente_nuevo;
+}else{
+  $agente_nuevo = 0;
+}
+
+if(isset($precio_maximo)){
+  $precio_maximo = $precio_maximo;
+}else{
+  $precio_maximo = '';
+}
+
+if(isset($tipo_inmueble)){
+  $tipo_inmueble = $tipo_inmueble;
+}else{
+  $tipo_inmueble = '';
+}
+
+if(isset($zona)){
+  $zona = $zona;
+}else{
+  $zona = '';
+}
+
+if(isset($zona2)){
+  $zona2 = $zona2;
+}else{
+  $zona2 = '';
+}
+
+if(isset($zona3)){
+  $zona3 = $zona3;
+}else{
+  $zona3 = '';
+}
+
+if(isset($departamento)){
+  $departamento = $departamento;
+}else{
+  $departamento = '';
+}
+
+if(isset($municipio)){
+  $municipio = $municipio;
+}else{
+  $municipio = '';
+}
+
+if(isset($input)){
+  $input = $input;
+}else{
+  $input = '';
+}
+
+if(isset($tipo_venta)){
+  $tipo_venta = $tipo_venta;
+}else{
+  $tipo_venta = '';
+}
+
+
+if($tipo_inmueble == 'apartamento'){
+  $inmueble = 2;
+}else if($tipo_inmueble == 'casa'){
+  $inmueble = 1;
+}
+else if($tipo_inmueble == 'oficina'){
+  $inmueble = 3;
+}
+else if($tipo_inmueble == 'bodega'){
+  $inmueble = 4;
+}
+else if($tipo_inmueble == 'terreno'){
+  $inmueble = 5;
+}else if($tipo_inmueble == 'finca'){
+  $inmueble = 6;
+}else if($tipo_inmueble == 'clinica'){
+  $inmueble = 7;
+}else if($tipo_inmueble == 'playa'){
+  $inmueble = 8;
+}else if($tipo_inmueble == 'granja'){
+  $inmueble = 9;
+}else if($tipo_inmueble == 'edificio'){
+  $inmueble = 10;
+}else if($tipo_inmueble == 'local'){
+  $inmueble = 11;
+}
+
+$propiedades   = Property::where('status',1);
+$propiedades->where('zone_id',[$zona,$zona2,$zona3]);
+
+
+if($agente_nuevo > 0){
+  $propiedades->where('user_id',$agente_nuevo);
+}
+
+if ($departamento > 0){
+  $propiedades->where('departament_id',$departamento);
+}
+if ($municipio > 0){
+  $propiedades->where('municipality_id',$municipio);
+}
+
+if (isset($inmueble)){
+  $propiedades->where('type',$inmueble);
+}
+if (strlen($input) > 0){
+  $propiedades->Where('title', 'like', '%' .$input. '%');
+  $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%');
+}
+
+if (strlen($input) > 0){
+  $propiedades->orWhere('adress', 'like', '%' .$input. '%');
+}
+
+if (isset($tipo_venta)){
+
   if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    if($precio_minimo > 1){
+      $precio_minimo = $precio_minimo;
+    }else{
+      $precio_minimo = 1;
+    }
+    if($precio_maximo > 1){
+      $precio_maximo = $precio_maximo;
+    }else{
+      $precio_maximo = 999999999999;
+    }
+    $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
+  }else if($tipo_venta == 'renta'){
+    if($precio_minimo > 1){
+      $precio_minimo = $precio_minimo;
+    }else{
+      $precio_minimo = 1;
+    }
+    if($precio_maximo > 1){
+      $precio_maximo = $precio_maximo;
+    }else{
+      $precio_maximo = 999999999999;
+    }
+    $propiedades->whereBetween('rent_usd',[$precio_minimo,$precio_maximo]);
   }else{
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)->where('rent_usd','<',$precio_maximo)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento) && $zona > 0 && isset($tipo_inmueble)){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 1;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 2;
-  }
-  else if($tipo_inmueble == 'condominio'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'loft'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'cualquiera'){
-    $inmueble = 5;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }else{
-    $propiedades   = Property::where('type',$inmueble)->where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento)  && $zona > 0){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 1;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 2;
-  }
-  else if($tipo_inmueble == 'condominio'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'loft'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'cualquiera'){
-    $inmueble = 5;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }else{
-    $propiedades   = Property::where('departament_id',$departamento)->where('zone_id',$zona)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento) ){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 1;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 2;
-  }
-  else if($tipo_inmueble == 'condominio'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'loft'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'cualquiera'){
-    $inmueble = 5;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }else{
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }
-}else if(isset($tipo_venta) && isset($departamento)){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 1;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 2;
-  }
-  else if($tipo_inmueble == 'condominio'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'loft'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'cualquiera'){
-    $inmueble = 5;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }else{
-    $propiedades   = Property::where('departament_id',$departamento)
-    ->where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }
-}else if(isset($tipo_venta)){
-  if($tipo_inmueble == 'apartamento'){
-    $inmueble = 1;
-  }else if($tipo_inmueble == 'casa'){
-    $inmueble = 2;
-  }
-  else if($tipo_inmueble == 'condominio'){
-    $inmueble = 3;
-  }
-  else if($tipo_inmueble == 'loft'){
-    $inmueble = 4;
-  }
-  else if($tipo_inmueble == 'cualquiera'){
-    $inmueble = 5;
-  }
-  if($tipo_venta == 'venta'){
-    $propiedades   = Property::where('rent_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
-  }else{
-    $propiedades   = Property::where('sale_usd',0)->where('status',1)
-    ->orderBy('propiertiy_id','DESC')->get()->take(16);
+    if($precio_minimo > 1){
+      $precio_minimo = $precio_minimo;
+    }else{
+      $precio_minimo = 1;
+    }
+    if($precio_maximo > 1){
+      $precio_maximo = $precio_maximo;
+    }else{
+      $precio_maximo = 999999999999;
+    }
+    $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
   }
 }else{
-  $tipo_venta = 'venta';
-  $departamento = 0;
-  $municipio = 0;
-  $zona = 0;
-  $tipo_inmueble = 'casa';
-  $precio_maximo = '';
-  $precio_minimo = '';
-  $propiedades   = Property::where('status',1)->where('user_id',$agente)->orderBy('propiertiy_id','DESC')->get()->take(16);
+  if($precio_minimo > 1){
+    $precio_minimo = $precio_minimo;
+  }else{
+    $precio_minimo = 1;
+  }
+  if($precio_maximo > 1){
+    $precio_maximo = $precio_maximo;
+  }else{
+    $precio_maximo = 999999999999;
+  }
+  $propiedades->whereBetween('sale_usd',[$precio_minimo,$precio_maximo]);
 }
+
+$propiedades   = $propiedades->where('status',1);
+$propiedades   = $propiedades->orderBy('propiertiy_id','DESC')->paginate(10);
+$ruta_completa = Request::fullUrl();
+$parametro     = env("RAIZ","http://127.0.0.1:8000/");
+
+//dd($parametro);
+$cortar        = explode($parametro, $ruta_completa);
+$propiedades->withPath($cortar[1]);
+
 
 
 
