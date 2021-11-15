@@ -274,7 +274,7 @@ $propiedades->withPath($cortar[1]);
                                  <div class="sc_property_image">
                                     <a href="/propierty/view/{{$item->propiertiy_id}}">
                                        <div class="property_price_box">
-                                        @if($item->sale_usd > 0)
+                                        @if($tipo_venta == 'venta')
                                           <span class="property_price_box_price">$.{{number_format($item->sale_usd,2)}}</span>
                                         @else
                                           <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
@@ -284,7 +284,7 @@ $propiedades->withPath($cortar[1]);
                                     </a>
                                  </div>
                                  <div class="sc_property_info">
-                                    @if($item->sale_usd > 0)
+                                    @if($tipo_inmueble == 'venta')
                                       <div class="sc_property_description">En venta - Cod. {{$item->propiertiy_id}}</div>
                                     @else
                                       <div class="sc_property_description">En renta - Cod. {{$item->propiertiy_id}}</div>
