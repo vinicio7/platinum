@@ -5432,6 +5432,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var me = this;
       var personalizada = this.comentario.replace('https://www.facebook.com/', '');
       var nueva_personalizada = personalizada.replaceAll('/', '.!.');
+
+      if (nueva_personalizada == '') {
+        nueva_personalizada = '-';
+      }
+
       var url = '/pdf_comentario/' + me.update + '/' + nueva_personalizada;
       axios({
         url: url,

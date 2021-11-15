@@ -2083,6 +2083,9 @@
                 let me  = this;
                 var personalizada = this.comentario.replace('https://www.facebook.com/','')
                 var nueva_personalizada     = personalizada.replaceAll('/','.!.')
+                if(nueva_personalizada == ''){
+                  nueva_personalizada = '-';
+                }
                 let url = '/pdf_comentario/'+me.update+'/'+nueva_personalizada
                 axios({
                   url: url,

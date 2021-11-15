@@ -1,5 +1,6 @@
 <?php
 use App\Models\Images;
+use App\Models\User;
 ?>
 <!DOCTYPE html>
 <html>
@@ -240,17 +241,17 @@ use App\Models\Images;
                 <tr>
                     @if(count($imagenes) > 0)
                         <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="{{$imagenes[0]->path}}"></td>
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[1]->path}}"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px;object-fit: cover" src="{{$imagenes[1]->path}}"></td>
                     @else
                         <td width="320" rowspan="2" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 380px" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/1.jpg"></td>
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/2.jpg"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px;object-fit: cover" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/2.jpg"></td>
                     @endif
                 </tr>
                 <tr>
                     @if(count($imagenes) > 0)
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="{{$imagenes[2]->path}}"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px;object-fit: cover" src="{{$imagenes[2]->path}}"></td>
                     @else
-                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/3.jpg"></td>
+                        <td width="235" style="border-style: none!important;border:0!important;"><img style="width: 100%;height: 188px;object-fit: cover" src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/3.jpg"></td>
                     @endif
                 </tr>
             </table>
@@ -380,12 +381,20 @@ use App\Models\Images;
                             @endif
                         </td>
                         <td>
-                            <h1 style="color: white;font-size: 20px;font-style: bold;">Cel.: +(502) 5368-9090</h1>
+                            @php
+                            $name = \Session::get('user');
+                            $user = User::where('name',$name)->first();
+                            $phone = substr($user->phone,0,4);
+                            $phone2 = substr($user->phone,4,7);  
+                            @endphp
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">{{$user->name}}</h1>
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">Cel: {{$phone}} - {{$phone2}}</h1>
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">Email: {{$user->email}}</h1>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><h1 style="color: white;font-size: 20px;font-style: bold;">Email: info@pruebaplatinum.mavis.com.gt</h1></td>
+                        <td></td>
                     </tr>
                 </table>    
         </footer>
@@ -406,7 +415,7 @@ use App\Models\Images;
             @if(count($imagenes2) > 0)
                 @foreach($imagenes2 as $imagen)
                 @if($contador < 6)
-                    <img src="{{$imagen->path}}" style="width: 350px;height: 180px;margin: 5px">
+                    <img src="{{$imagen->path}}" style="width: 350px;height: 180px;margin: 5px;object-fit: cover">
                     @if($contador == 1 || $contador == 3 || $contador == 5)
                     <br>
                     @endif
@@ -416,14 +425,14 @@ use App\Models\Images;
                 @endif
                 @endforeach
             @else
-                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px">
-                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/1.jpg" style="width: 350px;height: 180px;margin: 5px;object-fit: cover">
+                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/2.jpg" style="width: 350px;height: 180px;margin: 5px;object-fit: cover">
                 <br>
-                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px">
-                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/3.jpg" style="width: 350px;height: 180px;margin: 5px;object-fit: cover">
+                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/4.jpg" style="width: 350px;height: 180px;margin: 5px;object-fit: cover">
                 <br>
-                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px">
-                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px">
+                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/5.jpg" style="width: 350px;height: 180px;margin: 5px;object-fit: cover">
+                <img src="https://pruebaplatinum.mavis.com.gt/includes/propiedades/{{$data->propiertiy_id}}/6.jpg" style="width: 350px;height: 180px;margin: 5px;object-fit: cover">
                 <br>
             @endif
 
@@ -441,12 +450,20 @@ use App\Models\Images;
                             @endif
                         </td>
                         <td>
-                            <h1 style="color: white;font-size: 20px;font-style: bold;">Cel.: +(502) 5368-9090</h1>
+                            @php
+                            $name = \Session::get('user');
+                            $user = User::where('name',$name)->first();
+                            $phone = substr($user->phone,0,4);
+                            $phone2 = substr($user->phone,4,7);  
+                            @endphp
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">{{$user->name}}</h1>
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">Cel: {{$phone}} - {{$phone2}}</h1>
+                            <h1 style="color: white;font-size: 20px;font-style: bold;">Email: {{$user->email}}</h1>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><h1 style="color: white;font-size: 20px;font-style: bold;">Email: info@propiedadesplatinum.com</h1></td>
+                        <td></td>
                     </tr>
                 </table>    
         </footer>

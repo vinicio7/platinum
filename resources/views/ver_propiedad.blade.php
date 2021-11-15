@@ -8,10 +8,10 @@ use App\Models\Images;
 use App\Models\User;
 use App\Models\Rol;
 $tipo_venta   = 1;
-$departamento = 1;
+$departamento = 0;
 $municipio    = 1;
-$zona         = 1;
-$tipo_inmueble = 1;
+$zona         = 0;
+$tipo_inmueble = 0;
 $precio_maximo = 0;
 $precio_minimo = 0;
 $busqueda    = Images::where('propierty_id',$data->propiertiy_id)->first();
@@ -47,7 +47,7 @@ if(isset($precio_maximo)){
 if(isset($tipo_inmueble)){
   $tipo_inmueble = $tipo_inmueble;
 }else{
-  $tipo_inmueble = '';
+  $tipo_inmueble = 0;
 }
 
 if(isset($zona)){
@@ -1022,6 +1022,9 @@ img.hover-shadow {
                                   <option value="local" selected>Locales</option>
                                 @else
                                   <option value="local">Locales</option>
+                                @endif
+                                 @if($tipo_inmueble == 0)
+                                  <option value="0" selected> Seleccione un tipo de inmueble</option>
                                 @endif
                               </select>
 

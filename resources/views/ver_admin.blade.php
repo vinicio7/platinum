@@ -8,10 +8,10 @@ use App\Models\Images;
 use App\Models\User;
 use App\Models\Rol;
 $tipo_venta   = 1;
-$departamento = 1;
+$departamento = 0;
 $municipio    = 1;
-$zona         = 1;
-$tipo_inmueble = 1;
+$zona         = 0;
+$tipo_inmueble = 0;
 $precio_maximo = 0;
 $precio_minimo = 0;
 $busqueda    = Images::where('propierty_id',$data->propiertiy_id)->first();
@@ -47,9 +47,8 @@ if(isset($precio_maximo)){
 if(isset($tipo_inmueble)){
   $tipo_inmueble = $tipo_inmueble;
 }else{
-  $tipo_inmueble = '';
+  $tipo_inmueble = 0;
 }
-
 if(isset($zona)){
   $zona = $zona;
 }else{
@@ -931,7 +930,14 @@ img.hover-shadow {
                                             <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="icon-facebook" style="font-size: 3em;margin-top: 10px"></span></a></div>
                                             <div class="sc_socials_item"><a href="mailto:{{ $agente->email }}?subject=Informacion de propiedad Cod.{{$test->propiertiy_id}}&body=Hola quisiera tener mas información%0DSobre la propiedad con codigo {{$test->propiertiy_id}}%0D" class="social_icons" style="width: 50px;height: 120px"><span class="icon-mail" style="font-size: 3em;margin-top: 10px"></span></a></div>
                                             <div class="sc_socials_item"><a href="https://wa.me/{{ $agente->phone }}?text=Hola%20quisiera%20obtener%20mas%20información%20de%20la%20propiedad%20con%20código%20{{$test->propiertiy_id}}" target="_blank" class="social_icons" style="width: 50px;height: 120px"><span class="fa fa-whatsapp" style="padding-top:3px;width: auto;font-size: 3em;margin-top: 10px"></span></a></div> 
+                                            @php
+                                              $phone = substr($agente->phone,0,4);
+                                              $phone2 = substr($agente->phone,4,7);  
+                                            @endphp
+                                            <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 18px">Cel: {{$phone}} - {{$phone2}}</span><br><br><br>
+                                            <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 16px">Email: {{$agente->email}}</span>
                                           </div>
+
                                        </center>
                                     </div>
                                  </div>
@@ -1000,6 +1006,8 @@ img.hover-shadow {
                               </select>
 
                               <select name="tipo_inmueble" value="{{$tipo_inmueble}}" style="border-color: white">
+                               
+
                                 @if($tipo_inmueble == 'apartamento')
                                   <option value="apartamento" selected>Apartamentos</option>
                                 @else
@@ -1061,6 +1069,11 @@ img.hover-shadow {
                                 @else
                                   <option value="local">Locales</option>
                                 @endif
+                                 @if($tipo_inmueble == 0)
+                                  <option value="0" selected> Seleccione un tipo de inmueble</option>
+                                @endif
+                               
+
                               </select>
 
 
