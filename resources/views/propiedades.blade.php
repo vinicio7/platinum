@@ -167,9 +167,9 @@ if (strlen($input) > 0){
   $propiedades->orWhere(function($query)use($input) {
                 $query->where('propiertiy_id', 'like', '%' .$input. '%')
                       ->where('status', 1);
-                      dd($query);
             });
 }
+dd($propiedades);
 $propiedades   = $propiedades->orderBy('propiertiy_id','DESC')->paginate(10);
 $ruta_completa = Request::fullUrl();
 $parametro     = env("RAIZ","http://127.0.0.1:8000/");
