@@ -160,9 +160,9 @@ if (isset($tipo_venta)){
 
 }
 if (strlen($input) > 0){
-  $propiedades->Where('title', 'like', '%' .$input. '%')->where('status',1);
-  $propiedades->Where('propiertiy_id', 'like', '%' .$input. '%')->where('status',1);
-  $propiedades->Where('adress', 'like', '%' .$input. '%')->where('status',1);
+  $propiedades->orWhere('title', 'like', '%' .$input. '%')->where('status',1);
+  $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%')->where('status',1);
+  $propiedades->orWhere('adress', 'like', '%' .$input. '%')->where('status',1);
 }
 $propiedades   = $propiedades->Where('status',1);
 $propiedades   = $propiedades->orderBy('propiertiy_id','DESC')->paginate(10);
