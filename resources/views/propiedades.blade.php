@@ -129,9 +129,8 @@ if (strlen($input) > 0){
   $propiedades->Where('title', 'like', '%' .$input. '%')->where('status',1);
   $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%')->where('status',1);
   $propiedades->orWhere('adress', 'like', '%' .$input. '%')->where('status',1);
-  dd($propiedades);
 }
-
+$propiedades = $propiedades->where('status',1);
 if (isset($tipo_venta)){
 
   if($tipo_venta == 'venta'){
