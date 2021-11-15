@@ -125,7 +125,12 @@ if ($municipio > 0){
 if (isset($inmueble)){
   $propiedades->where('type',$inmueble);
 }
-$propiedades = $propiedades->where('status',1);
+if (strlen($input) > 0){
+  $propiedades->Where('title', 'like', '%' .$input. '%');
+  $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%');
+  $propiedades->orWhere('adress', 'like', '%' .$input. '%');
+}
+
 if (isset($tipo_venta)){
 
   if($tipo_venta == 'venta'){
@@ -159,20 +164,13 @@ if (isset($tipo_venta)){
   }
 
 }
-if (strlen($input) > 0){
-  $propiedades->orWhere(function($query)use($input) {
-                $query->where('title', 'like', '%' .$input. '%')
-                      ->where('status', 1);
-            });
-  $propiedades->orWhere(function($query)use($input) {
-                $query->where('propiertiy_id', 'like', '%' .$input. '%')
-                      ->where('status', 1);
-            });
-}
-dd($propiedades);
+
+$propiedades   = $propiedades->where('status',1);
 $propiedades   = $propiedades->orderBy('propiertiy_id','DESC')->paginate(10);
 $ruta_completa = Request::fullUrl();
 $parametro     = env("RAIZ","http://127.0.0.1:8000/");
+
+//dd($parametro);
 $cortar        = explode($parametro, $ruta_completa);
 $propiedades->withPath($cortar[1]);
 
@@ -262,6 +260,7 @@ $propiedades->withPath($cortar[1]);
                      <div class="sc_property sc_property_style_property-1">
                         <div class="columns_wrap ">
                           @foreach($propiedades as $item)
+                          @if($item->status == 1)
                             <?php
                               $busqueda    = Images::where('propierty_id',$item->propiertiy_id)->first();
                               if($busqueda){
@@ -319,6 +318,7 @@ $propiedades->withPath($cortar[1]);
                                  </div>
                               </div>
                             </div>
+                            @endif
                            @endforeach
                         </div>
                      </div>
