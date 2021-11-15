@@ -126,9 +126,9 @@ if (isset($inmueble)){
   $propiedades->where('type',$inmueble);
 }
 if (strlen($input) > 0){
-  $propiedades->Where('title', 'like', '%' .$input. '%');
-  $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%');
-  $propiedades->orWhere('adress', 'like', '%' .$input. '%');
+  $propiedades->Where('title', 'like', '%' .$input. '%')->where('status',1);
+  $propiedades->orWhere('propiertiy_id', 'like', '%' .$input. '%')->where('status',1);
+  $propiedades->orWhere('adress', 'like', '%' .$input. '%')->where('status',1);
 }
 
 if (isset($tipo_venta)){
