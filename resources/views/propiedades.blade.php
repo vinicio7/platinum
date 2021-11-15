@@ -161,15 +161,15 @@ if (isset($tipo_venta)){
 }
 if (strlen($input) > 0){
   $propiedades->orWhere(function($query)use($input) {
-                $query->where('title', 'like', '%' .$input. '%')
+                $query->orWhere('title', 'like', '%' .$input. '%')
                       ->where('status', 1);
             });
   $propiedades->orWhere(function($query)use($input) {
-                $query->where('propiertiy_id', 'like', '%' .$input. '%')
+                $query->orWhere('propiertiy_id', 'like', '%' .$input. '%')
                       ->where('status', 1);
             });
   $propiedades->orWhere(function($query)use($input) {
-                $query->where('adress', 'like', '%' .$input. '%')
+                $query->orWhere('adress', 'like', '%' .$input. '%')
                       ->where('status', 1);
             });
 }
