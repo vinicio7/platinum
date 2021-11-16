@@ -279,6 +279,8 @@ $propiedades->withPath($cortar[1]);
                                        <div class="property_price_box">
                                         @if($tipo_venta == 'venta')
                                           <span class="property_price_box_price">$.{{number_format($item->sale_usd,2)}}</span>
+                                        @elseif($tipo_venta == 'renta')
+                                          <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
                                         @else
                                           <span class="property_price_box_price">$.{{number_format($item->rent_usd,2)}}</span>
                                         @endif

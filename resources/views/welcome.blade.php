@@ -422,20 +422,17 @@ else {
                <div class="content_wrap">
                   <div class="sc_section scheme_dark">
                     @if($browser == 1 || $browser == 2)
-                      <div class="sc_section_inner">
-                          <div class="sc_property_search">
+                      <div class="sc_property_search">
                              <form method="get" action="propiedades_post">
-                              <table>
-                                <tr>
-                                  <td>
-                                    <select name="tipo_venta">
+                                <div class="sc_ps_type">
+                                   <select name="tipo_venta">
                                       <option value="venta">En Venta</option>
                                       <option value="renta">En Renta</option>
                                       <option value="cualquiera">Cualquiera</option>
-                                    </select>
-                                  </td>
-                                  <td>
-                                    <select name="tipo_inmueble">
+                                   </select>
+                                </div>
+                                <div class="sc_ps_type">
+                                   <select name="tipo_inmueble">
                                       <option value="casa">Casas</option>
                                       <option value="apartamento">Apartamentos</option>
                                       <option value="oficina">Oficinas</option>
@@ -448,33 +445,31 @@ else {
                                       <option value="edificio">Edificios</option>
                                       <option value="local">Locales</option>
                                    </select>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    <select name="zona" style="border-color: white">
-                                      <option value="0">Seleccione una zona</option>
-                                      @foreach($zonas as $item)
-                                          <option value="{{$item->zone_id}}">{{$item->name}}</option>
-                                      @endforeach
-                                    </select>
-                                  </td>
-                                  <td>
+                                </div>
+                                <div class="sc_ps_type">
+                                  <select name="zona" style="border-color: white">
+                                  <option value="0">Seleccione una zona</option>
+                                  @foreach($zonas as $item)
+                                      <option value="{{$item->zone_id}}">{{$item->name}}</option>
+                                  @endforeach
+                                  </select>
+                                </div>
+                                <br> 
+                                <div class="sc_ps_type">
                                     <input type="text" name="precio_minimo" placeholder="US$ Precio minimo" value="" style="border-color: white">
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                      <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
-                                  </td>
-                                  <td>
-                                    <input type="submit" class="" value="Buscar" style="background: #11264e;color:WHITE;width: 13em;height: 2.8em">
-                                  </td>
-                                </tr>
-                              </table>
+                                </div>
+                                <div class="sc_ps_type">
+                                    <input type="text" name="precio_maximo" placeholder="US$ Precio maximo" value="" style="border-color: white">
+                                </div>
+                                <div class="sc_ps_submit" style="text-align: left;">
+                                    <input type="text" name="input" placeholder="Búsqueda específica" value="" style="border-color: white">
+                                </div>
+                                <br>
+                                <div class="sc_ps_submit" style="text-align: left;">
+                                      <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Buscar" style="background: #11264e;color:WHITE;margin-top:0px">
+                                </div>
                              </form>
                           </div>
-                      </div>
                     @else
                       <div class="sc_section_inner">
                           <div class="sc_property_search">
