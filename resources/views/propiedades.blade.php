@@ -111,9 +111,7 @@ $propiedades   = Property::where('status',1);
 $propiedades->where('zone_id',[$zona,$zona2,$zona3]);
 
 
-if($agente_nuevo > 0){
-  $propiedades->where('user_id',$agente_nuevo);
-}
+
 
 if ($departamento > 0){
   $propiedades->where('departament_id',$departamento);
@@ -163,6 +161,11 @@ if (isset($tipo_venta)){
     $propiedades->whereBetween('rent_usd',[$precio_minimo,$precio_maximo]);
   }
 
+}
+
+if($agente_nuevo > 0){
+  $propiedades   = Property::where('status',1);
+  $propiedades->where('user_id',$agente_nuevo);
 }
 
 $propiedades   = $propiedades->where('status',1);
