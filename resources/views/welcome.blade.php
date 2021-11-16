@@ -5,7 +5,7 @@ use App\Models\Region;
 use App\Models\Images;
 use App\Models\Zone;
 use App\Models\Configuraciones;
-$config = Configuraciones::first();
+$config        = Configuraciones::first();
 $zonas         = Zone::all();  
 if($config){
     $propiedad_principal  =  $config->propiedad_principal;
@@ -298,8 +298,8 @@ else {
                     <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
                        <ul>
                           <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i1}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                             <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                             <img style="position: absolute;" src="{{$i1}}" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="" data-height="" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
                                        
@@ -308,7 +308,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
@@ -318,7 +318,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
@@ -328,7 +328,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-14" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
@@ -338,7 +338,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-15" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;height: 300px!important" src="{{$i5}}" alt="300px" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;height: 300px!important" src="{{$i5}}" alt="300px" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
@@ -356,7 +356,7 @@ else {
                     <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" data-version="5.1">
                        <ul>
                           <li data-index="rs-8" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="images/slider1h1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;height: 60%!important" height="60%" src="{{$i1}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;height: 60%!important" height="60%" src="{{$i1}}" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-8-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="60%" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6" data-interval="7176" data-slides-min-width="250">
@@ -366,7 +366,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-12" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;" src="{{$i2}}" alt="" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
@@ -376,7 +376,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-13" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;" src="{{$i3}}" alt="" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
@@ -386,7 +386,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-14" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;" src="{{$i4}}" alt="" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-12-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="7743" data-slides-min-width="250">
@@ -396,7 +396,7 @@ else {
                              </div>
                           </li>
                           <li data-index="rs-15" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="images/slider1h3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
-                             <img style="position: absolute;" src="{{$i5}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                             <img style="position: absolute;" src="{{$i5}}" alt="" data-bgposition="center center" data-bgfit="contain" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                              <div class="tp-caption Estate tp-resizeme" id="slide-13-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;s:300;" data-start="1500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                 <div class="sc_property_wrap">
                                    <div class="sc_property sc_property_style_property-6 " data-interval="5718" data-slides-min-width="250">
@@ -712,6 +712,11 @@ else {
                                     <div class="sc_team_item_info">
                                        <center>
                                           <div class="sc_team_item_position" style="text-transform: uppercase;">{{$item->rol->name}}</div>
+                                          @if($browser == 1 || $browser == 2)
+                                          <div class="sc_socials sc_socials_type_icons sc_socials_size_small" style="margin-top: -30px">
+                                          @else
+                                            <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
+                                          @endif
                                           <div class="sc_socials sc_socials_type_icons sc_socials_size_small">
                                              <div class="sc_socials_item"><a href="tel:{{ $item->phone }}" class="social_icons  zoom-in-zoom-out"><span class="icon-phone" ></span></a></div>
                                              <div class="sc_socials_item"><a href="https://www.facebook.com/propiedadesplatinumguatemala" target="_blank" class="social_icons  zoom-in-zoom-out"><span class="icon-facebook "></span></a></div>
@@ -720,8 +725,13 @@ else {
                                               $phone = substr($item->phone,0,4);
                                               $phone2 = substr($item->phone,4,7);  
                                             @endphp
-                                            <span style="margin-top: -2em;color:#11264e;font-weight: bold;font-size: 12px">Cel: {{$phone}} - {{$phone2}}</span><br><br><br>
-                                            <span style="margin-top: -6em;color:#11264e;font-weight: bold;font-size: 12px">Email: {{$item->email}}</span>
+                                            @if($browser == 1 || $browser == 2)
+                                              <span style="margin-top: -3em;color:#11264e;font-weight: bold;font-size: 12px">Cel: {{$phone}} - {{$phone2}}</span><br><br>
+                                              <span style="margin-top: -4em;color:#11264e;font-weight: bold;font-size: 10px">Email: {{$item->email}}</span>
+                                            @else
+                                              <span style="margin-top: -2em;color:#11264e;font-weight: bold;font-size: 12px">Cel: {{$phone}} - {{$phone2}}</span><br><br><br>
+                                              <span style="margin-top: -6em;color:#11264e;font-weight: bold;font-size: 12px">Email: {{$item->email}}</span>
+                                            @endif
                                              <form method="get" action="propiedades_post">
                                                 <input type="text" name="agente_nuevo" placeholder="US$ Precio minimo" value="{{$item->user_id}}" style="display: none" >
                                                 <input type="submit" class="sc_button sc_button_box sc_button_style_style2 aligncenter ps" value="Propiedades" style="background: #11264e;color:WHITE;margin-top:0px">
